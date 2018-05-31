@@ -1,2 +1,2 @@
-# MatsuPlus
+# Matsuri-plus
 外国人に日本の伝統的なお祭りの情報を提供するサービス
