@@ -35,6 +35,7 @@ class dbConnect {
     return $items;
   }
   
+  
   //SELECT,INSERT,UPDATE,DELETE文の時に使用する関数。
   function plural($sql,$item) {
     $hoge = $this->pdo();
