@@ -1,0 +1,324 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+body{margin:0; font-family: 'メイリオ','Hiragino Kaku Gothic Pro',sans-serif}
+/*保存禁止　スマホ*/
+img{
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -moz-touch-callout:none;
+  -moz-user-select:none;
+  touch-callout:none;
+  user-select:none;
+}
+/*スマホタッチ時のハイライトカラーを削除*/
+a {
+ -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+/*box1～3をかこっている親ボックス*/
+header{
+  width: 100%; background-color: #fff;
+  z-index: 999;
+  height: 45px;
+  border-bottom: solid 2px  #e60033;
+  position: fixed; /* ヘッダーを固定(これが重要) */
+   top: 0; /* 固定する位置 */
+   left: 0; /* 固定する位置 */
+   right: 0;  /* 固定する位置 */}
+header:after{content: ""; display: block; clear: both;}
+
+/*JAPAN祭りのロゴ画像をかこっているボックス*/
+.box1{float: left; width: 50%; height: 45px;
+  padding: 6px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+
+/*768px以上の時に表示させているメニューボタンのボックス*/
+.box2{float: left; width: 40%; height: 45px; text-align: center;}
+.box2 a{color:#e60033; text-decoration: none;}
+.box2 :hover{color: #fff; background-color: #e60033;}
+.box2:after{content: ""; display: block; clear: both;}
+.box2-1{float: left; width: 33.333%; height: 45px;
+  padding: 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+.box2-2{float: left; width: 33.333%; height: 45px;
+  padding: 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+.box2-3{float: left; width: 33.333%; height: 45px;
+  padding: 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+
+/*検索画像をかこっているボックス*/
+.boxse{
+  display: none;
+  float: left;
+  width: 10%; height: 45px; text-align: left;
+  padding: 9px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+
+/*box3*/
+.box3{}
+.box3:after{content: ""; display: block; clear: both;}
+
+/*box3-1(マイページへの遷移を表示させるボックス)*/
+.box3-1{
+    display: none;
+    float: left;
+    text-align: right;
+    height: 45px;
+    padding: 10px;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;}
+
+/*ヘッダーのスケジュール画像をかこっているボックス*/
+.box3-2{
+  float: left;
+  width: 10%; height: 45px; text-align: right;
+  padding: 9px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+
+/*sakai追加分↓*/
+/*マイページのwrapper*/
+.mypage{
+    width: 100%; height: auto;
+    margin: 0 auto;
+    text-align: center;}
+  /*以下、マイページでのcss*/
+.my_image{
+    margin: 90px 0px 0px 0px;
+    text-align: center;}
+.user_name{}
+.fes_box{width: 100%; height: auto;}
+.fes_box:after{content:""; display:block; clear:both;}
+.btn-fes-box{float: left; width: 100%;　margin:0 auto;}
+.btn-fes{
+  width:200px; height: auto;
+  color: #e60033;
+  background: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size:30px;
+  border-radius: 3px;
+  text-align:center;
+  border: #e60033;
+  border: solid  #e60033;}
+a.btn-fes:hover {
+    background: #e60033;
+    color: #fff;}
+a.btn-fes{
+    padding: 0.5em 2em;
+    margin: 10px auto;
+    font-size:20px;
+    display:inline-block;}
+a.btn-orange:before {
+    margin: -3px 0 0 10px;}
+
+/*お気に入りページのwrapper*/
+.fevpage{
+  width: 100%; height: auto;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 100px;}
+/*祭りお気に入りでのcss*/
+.fev-box{width:50%; height: 120px; margin: 0 auto;
+border: solid 3px #e60033; margin-bottom:20px;}
+.fev_box:after{content:""; display:block; clear:both;}
+/*お気に入りでの画像image*/
+.fev-imagebox{float:left; width: 35%; height: 120px;}
+.fev-image{width:auto; height:100%; display:block; text-align: left;
+  padding: 5px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+/*細かいcss*/
+.fev-td-box{float: left; width: 65%; height: 100%;}
+.fev-day{width: auto; height: 35%;text-align: left;line-height: 60px;}
+.fev-title{width: auto; height: 65%;text-align: left;line-height: 60px;}
+.fev-box p{margin: 0px;}
+.fev-day p{font-size: 120%;}
+.fev-title p{font-size: 200%;}
+.fev-box a{text-decoration:none; color:#000;}
+.fev-box a:hover{color:#888;}
+
+/*記事お気に入りページでのcss*/
+.fev-kizi-imagebox{float:left; width: 20%; height: 120px;}
+.fev-kizi-box{float: left; width: 80%; height: 100%; text-align: center;}
+.fev-kizi{
+  padding: 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  word-break : break-all;
+}
+
+/*設定ページでのcss*/
+h1{font-size: 25px;}
+hr{width:400px;}
+.set{
+    width: 300px;
+    height: auto;
+    margin:0 auto;
+    padding-top: 10px;}
+.name{
+    width: 300px;
+    height:50px;}
+.mailaddress{
+    width: 300px;
+    height:50px;
+    margin-top: 40px;}
+.password{
+    width: 300px;
+    height: 50px;
+    margin-top: 40px;}
+.password-2{
+    width: 300px;
+    height:50px;
+    margin-top: 30px;}
+.kuni{
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;
+    display: flex;}
+.user_button{
+    width: 300px;
+    margin-top: 30px;
+    display: flex;}
+.setting{width: 300px; margin: 0 auto;   height: auto; margin-top: 30px;}
+.setting a{color: #e60033; text-decoration: none;}
+.setting-inner{width: 100%;}
+.setting:after{content:""; display:block; clear:both;}
+.inquiry_box{float: left; width: 46%;
+  border: solid 2px #e60033;
+  font-size: 5px;
+  margin: 2%;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  line-height: 20px;
+  text-decoration: none;
+  text-align: center;
+  padding: 1em;
+  background: red;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.logout_box{float: left; width: 46%;
+  border: solid 2px #e60033;
+  font-size: 5px;
+  margin: 2%;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  line-height: 20px;
+  text-decoration: none;
+  text-align: center;
+  padding: 1em;
+  background: red;
+  border-radius: 3px;
+  background-color: #fff;
+}
+/**/
+.company{ margin-top: 5px;}
+.company a{ color: #e60033; font-size: 5px;}
+
+/**/
+.henkou{
+  line-height: 20px;
+    width: 150px;
+    margin-right: 5px;
+    margin-left: 80px;
+    background: red;
+    padding: 1em;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    border-style:none;
+    border-radius: 3px;
+}
+
+/*フッター（SP版では非表示になってる）*/
+.box8{border: solid 1px #eee;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;}
+.box8:after{content: ""; display: block; clear: both;}
+.box8-1{font-family: 'Noto Sans JP'; font-weight: lighter;
+  color: #fff; background-color: #e60033; width: 100%; height: auto;
+  font-size: 70%;
+  text-align: center;
+  align-items: center; justify-content: center;}
+
+/*以下レスポンシブ対応（各自勝手に追加）*/
+
+/*450px以下*/
+@media(max-width:450px)
+{
+}
+
+/*649px以下*/
+@media(max-width:649px)
+{
+  .boxA:after{content:""; display:block; clear:both;}
+  .boxse{display: block; width: 25%;}
+  .box1{text-align: center; width: 50%;}
+  .box2{display: none;}
+  .box3{float: left; width: 25%; height: 40px; text-align: center;}
+  .box3-1{width:50%; display: block;}
+  .box3-2{width:50%;}
+  .box8{display: none;}
+  .fev-box{width: 90%; }
+}
+
+/*767px以下*/
+@media(max-width:767px)
+{
+  .fev-box{width: 90%; height: 100px;}
+  .fev-imagebox{height: 100px;}
+  .fev-kizi-imagebox{height: 100px;}
+}
+
+/*768px以上*/
+@media(min-width:768px)
+{
+  .boxA:after{content:""; display:block; clear:both;}
+  .fes-box{ margin: 0 auto; width: 50%;}
+}
+
+/*1110以下*/
+@media(max-width:1110px)
+{
+  .fev-imagebox{float:left; width: 40%;}
+  .fev-td-box{float: left; width: 60%; height: 100%;}
+  /**/
+  .fev-kizi-imagebox{float:left; width: 30%;}
+  .fev-kizi-box{float: left; width: 70%; height: 100%;}
+  .fev-kizi p{font-size: 12px;}
+  .fev-day p{font-size: 15px;}
+  .fev-title p{font-size: 20px}
+}
+
+/*1190px以上*/
+@media(min-width:1190px)
+{
+  /*横幅固定*/
+  .boxA-inner{width: 1190px; margin-left: auto; margin-right: auto;}
+  .mypage-inner{width: 1190px; margin-left: auto; margin-right: auto;}
+  .fevpage-inner{width: 1190px; margin-left: auto; margin-right: auto;}
+}

@@ -1,0 +1,228 @@
+@charset "UTF-8";
+  
+a{
+    color: #ffff;
+}
+
+h1{
+    font-size: 25px;
+}
+hr{
+    width:400px;
+}
+/*login*/
+.user{
+    width: 300px;
+    height: auto;
+    margin:0 auto;
+    padding-top: 100px;
+}
+.adduser{
+    width: 300px;
+    height: auto;
+    margin:0 auto;
+    padding-top: 100px;
+}
+/**/
+.name{
+    width: 300px;
+    height:50px;
+}
+
+.mailaddress{
+    width: 300px;
+    height:50px;
+    margin-top: 40px;
+}
+
+.password{
+    width: 300px;
+    height: 50px;
+    margin-top: 40px;
+}
+
+.password-2{
+    width: 300px;
+    height:50px;
+    margin-top: 30px;
+}
+.kuni{
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;
+    display: flex;
+}
+.user_button{
+    width: 300px;
+    margin-top: 30px;
+    display: flex;
+}
+.admin_new{
+     line-height: 20px;
+      width: 115px;
+      margin-left: 5px;
+      text-decoration: none;
+      text-align: center;
+      padding: 1em;
+      text-decoration: none;
+      background: red;
+      color: #ffff;
+      border-radius: 3px;
+}
+.login{
+  line-height: 20px;
+    width: 150px;
+    margin-right: 5px;
+    margin-left: 80px;
+    background: red;
+    padding: 1em;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    border-style:none;
+    border-radius: 3px;
+}
+
+.exit{
+   line-height: 20px;
+    width: 115px;
+    margin-left: 5px;
+    text-decoration: none;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+    background: red;
+    color: #ffff;
+    border-radius: 3px;
+}
+.touroku{
+  line-height: 20px;
+    width: 150px;
+    margin-right: 5px;
+    margin-left: 80px;
+    background: red;
+    padding: 1em;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    border-style:none;
+    border-radius: 3px;
+}
+
+/* search */
+.search{
+      width: auto;
+      height: auto;
+      margin:0 auto;
+      padding-top: 100px;
+
+}
+.search_text{
+  width: 50%;
+  border-radius:10px;
+  box-shadow: none;
+  padding: 2px 8px;
+}
+.pref_name{
+    width: 50%;
+}
+.tag_li{width: 100%;
+height: auto;}
+.tag_li:after{content: ""; display: block; clear: both;}
+
+.tag{
+  margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: red;
+    color: #ffff;
+    border-radius: 3px;
+}
+
+.kensaku{
+    width: 200px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: red;
+    color: #ffff;
+    border-radius: 3px;
+    margin-top: 90px;
+}
+
+
+
+
+
+
+
+
+.schedule a{
+    font-size: 20px;
+    color: red;
+    text-decoration: none;
+}
+/* calendar */
+.schedule{
+    width:100%;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+table{
+    border-collapse: collapse;
+    width: 60%;
+    margin:0 auto;
+    height: auto;
+    margin-top: 50px;
+}
+.weekday{
+    height: 20px;
+}
+.month{
+    font-size: 20px;
+    color: red;
+}
+td{
+    width: 80px;
+    height: 80px;
+}
+/*
+.plan{
+    border-radius: 100%;
+    background-color: red;
+}
+*/
+.event_image{
+    width: 100%;
+    height: auto;
+}
+
+.schedule_info{
+    margin-top: 90px;
+        width:80%;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+}
+.schedule_info_day{}
+.schedule_info_event{width:100%; height: auto;}
+.schedule_info_event:after{content: ""; display: block; clear: both;}
+.schedule_info_event_box{
+  float: left; width: 33.333%;
+  padding: 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+
+  /*640px以下*/
+  @media(max-width:640px)
+  {
+    .schedule_info_event_box{width: 50%;}
+  }
+/*767px以下*/
+@media(max-width:767px)
+{
+  table{width:90%;}
+}
