@@ -95,7 +95,7 @@ maincontents
             <input type="text" class="kuni" placeholder="出身国">
         </form>
           <div class="user_button">
-            <a class="exit" href="index.html">戻る</a>
+            <a class="exit" href="login.php">戻る</a>
             <input type="submit" class="touroku" value="登録">
           </div>
       </div>

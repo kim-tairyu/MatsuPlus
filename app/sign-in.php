@@ -2,7 +2,7 @@
 
 $success = false;
 $in_id = $_POST["id"];
-$in_passwd = $_POST["password"];
+$in_passwd = $_POST["pass"];
 
 // 入力チェック
 if( !isset($in_id) || !isset($in_passwd) ){
