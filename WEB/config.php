@@ -1,16 +1,9 @@
-<?php
-  $err_msg = "";
-  if(isset($_GET["error"])) {
-    $err_msg = "入力に誤りがあります！";
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
 <meta charset="utf-8">
-<title>新規登録</title>
+<title>設定</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="../css/style.css" />
@@ -61,59 +54,74 @@ return false;
       </div>
       <!--ロゴ画像のボックス-->
       <div class="box1">
-        <a href="javascript:void(0);"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
+        <a href="index.php"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
       </div>
       <!--PC版表示の時のメニューボックス-->
       <div class="box2">
-        <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
-        <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="javascript:void(0);"><div class="box2-3">My page</div></a>
+        <a href="index.php"><div class="box2-1">Home</div></a>
+        <a href="search.php"><div class="box2-2">Search</div></a>
+        <a href="mypage.php"><div class="box2-3">My page</div></a>
       </div>
       <!--マイページに遷移する為のボックス-->
       <div class="box3">
       <div class="box3-1">
-        <a href="javascript:void(0);"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
+        <a href="mypage.php"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
       </div>
       <!--スケジュールに遷移する為のボックス-->
       <div class="box3-2">
-        <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
+        <a href="schedule.php"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
       </div>
     </div>
-  </div>
+    </div>
 </header>
 <!--header終わり-->
-
 
 <!--
 maincontents
 -->
 
-
-<div class="box4">
-<div class="box4-inner">
-      <div class="adduser">
-        <form method="post" action="../app/sign-up.php">
-          <div><p><?php echo $err_msg ?></p></div>
-            <input type="text" class="userid" name="user_id" placeholder="USER ID">
-            <input type="text" class="mailaddress" name="mail_address" placeholder="mailaddress">
-            <input type="password" class="password" name="password" placeholder="password">
-            <input type="password" class="password-2" name="repassword" placeholder="password確認">
-            <input type="text" class="name" name="user_name" placeholder="名前">
-            <select name="country" class="country-width">
-              <option value="" selected></option>
-              <option value="1">japan</option>
-              <option value="2">america</option>
-            </select>
-            <input type="submit" class="touroku" value="登録">
-        </form>
-          <div class="company">
-            <a href="login.php" class="exit3">戻る</a>
-          </div>
+<!--全体をかこっているwraperのようなもの-->
+<div class="mypage">
+  <div class="mypage-inner">
+  <!--ユーザーの画像表示？-->
+  <div class="my_image">
+      <img src="../imgs/gaijin.png" class="">
+  </div>
+  <!--ユーザーネーム表示-->
+  <div class="user_name_box">
+    <p class="user_name">ユーザーネーム</p>
+  </div>
+  <!--設定変更-->
+  <div class="set">
+    <form method="post">
+      <input type="text" class="name" placeholder="名前">
+      <input type="text" class="mailaddress" placeholder="mailaddress">
+      <input type="password" class="password" placeholder="password">
+      <input type="password" class="password-2" placeholder="password確認">
+      <select name="country_id" class="country-width">
+        <option value="">選択してください</option>
+        <option value="1">japan</option>
+        <option value="2">america</option>
+      </select>
+      <div class="user_button">
+        <input type="submit" class="henkou" value="変更">
       </div>
+    </form>
+  </div>
+  <!--残りの設定の項目-->
+  <div class="setting">
+    <div class="setting-inner">
+    <a href="#" class="exit2"><div class="inquiry_box">言語変更</div></a>
+    <a href="../app/logout.php" class="exit2"><div class="logout_box">Log Out</div></a>
+  </div>
 </div>
+<!--お問い合わせ-->
+<div class="company">
+  <a href="#" class="exit3">お問い合わせ</a>
 </div>
 
-
+  </div>
+</div>
 
 <!--フッター（SP版では非表示になってる）-->
 <footer>

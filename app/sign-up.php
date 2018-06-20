@@ -47,7 +47,7 @@ $url = null;
 if($success){
     $url = "../WEB/index.php";
 }else{
-    $url = "../WEB/add.php?error";
+    $url = "../WEB/sign-up.php?error";
 }
 
 // 画面遷移

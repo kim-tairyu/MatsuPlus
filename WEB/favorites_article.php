@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>祭りお気に入り</title>
+<title>記事お気に入り</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="../css/style.css" />
@@ -54,22 +54,22 @@ return false;
       </div>
       <!--ロゴ画像のボックス-->
       <div class="box1">
-        <a href="javascript:void(0);"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
+        <a href="index.php"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
       </div>
       <!--PC版表示の時のメニューボックス-->
       <div class="box2">
-        <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
-        <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="javascript:void(0);"><div class="box2-3">My page</div></a>
+        <a href="index.php"><div class="box2-1">Home</div></a>
+        <a href="search.php"><div class="box2-2">Search</div></a>
+        <a href="mypage.php"><div class="box2-3">My page</div></a>
       </div>
       <!--マイページに遷移する為のボックス-->
       <div class="box3">
       <div class="box3-1">
-        <a href="javascript:void(0);"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
+        <a href="mypage.php"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
       </div>
       <!--スケジュールに遷移する為のボックス-->
       <div class="box3-2">
-        <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
+        <a href="schedule.php"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
       </div>
     </div>
     </div>
@@ -83,40 +83,44 @@ maincontents
 <!--全体をかこっているwraperのようなもの-->
 <div class="fevpage">
   <div class="fevpage-inner">
-    <!--祭りお気に入りボックス１-->
+
+    <div class="fevpage-title">
+      <p>Article Favorites</p>
+    </div>
+
+    <!--記事お気に入りボックス１-->
     <div class="fev-box">
       <a href="javascript:void(0);">
-      <div class="fev-imagebox"><img src="../imgs/fev2.png" class="fev-image"></div>
-      <div class="fev-td-box">
-        <div class="fev-day"><p class="">August 26</p></div>
-        <div class="fev-title"><p class="">NEBUTA MATURI</p></div>
+      <div class="fev-kizi-imagebox"><img src="../imgs/fev1.png" class="fev-image"></div>
+      <div class="fev-kizi-box">
+        <div class="fev-kizi"><p class="">Temple in Kyoto pays monks ¥6.6 million in unpaid overtime
+        WWII bomb found in Thames</p></div>
       </div>
     </a>
     </div>
-    <!--祭りお気に入りボックス２-->
+    <!--記事お気に入りボックス２-->
     <div class="fev-box">
       <a href="javascript:void(0);">
-      <div class="fev-imagebox"><img src="../imgs/fev1.png" class="fev-image"></div>
-      <div class="fev-td-box">
-        <div class="fev-day"><p class="">July 1～5</p></div>
-        <div class="fev-title"><p class="">GION MATURI</p></div>
+      <div class="fev-kizi-imagebox"><img src="../imgs/fev2.png" class="fev-image"></div>
+      <div class="fev-kizi-box">
+        <div class="fev-kizi"><p class="">Temple in Kyoto pays monks ¥6.6 million in unpaid overtime
+        WWII bomb found in Thames</p></div>
       </div>
     </a>
     </div>
-    <!--祭りお気に入りボックス３-->
+    <!--記事お気に入りボックス３-->
     <div class="fev-box">
       <a href="javascript:void(0);">
-      <div class="fev-imagebox"><img src="../imgs/fev3.png" class="fev-image"></div>
-      <div class="fev-td-box">
-        <div class="fev-day"><p class="">August 26</p></div>
-        <div class="fev-title"><p class="">TETUTU MATURI</p></div>
+      <div class="fev-kizi-imagebox"><img src="../imgs/fev3.png" class="fev-image"></div>
+      <div class="fev-kizi-box">
+        <div class="fev-kizi"><p class="">Temple in Kyoto pays monks ¥6.6 million in unpaid overtime
+        WWII bomb found in Thames</p></div>
       </div>
     </a>
     </div>
 
   </div>
 </div>
-
 
 <!--フッター（SP版では非表示になってる）-->
 <footer>

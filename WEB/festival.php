@@ -6,16 +6,16 @@ require_once('../app/DAO/FestivalDAO.class.php');
 $festivalDAO = new FestivalDAO();
 $festivals   = $festivalDAO->getOneFestival($fes_id);
 foreach($festivals as $festival){
-    $festival_id[] = $festival['festival_id'].PHP_EOL;
-    $name[]        = $festival['festival_name'].PHP_EOL;
-    $description[] = $festival['description'].PHP_EOL;
-    $location[]    = $festival['location'].PHP_EOL;
-    $start_time[]  = $festival['start_time'].PHP_EOL;
-    $end_time[]    = $festival['end_time'].PHP_EOL;
-    $x[]           = $festival['x_coordinate'].PHP_EOL;
-    $y[]           = $festival['y_coordinate'].PHP_EOL;
-    $movie_url[]   = $festival['movie_url'];
-    // lat:40.822286,lng: 140.745205
+  $festival_id[] = $festival['festival_id'].PHP_EOL;
+  $name[]        = $festival['festival_name'].PHP_EOL;
+  $description[] = $festival['description'].PHP_EOL;
+  $location[]    = $festival['location'].PHP_EOL;
+  $start_time[]  = $festival['start_time'].PHP_EOL;
+  $end_time[]    = $festival['end_time'].PHP_EOL;
+  $x[]           = $festival['x_coordinate'].PHP_EOL;
+  $y[]           = $festival['y_coordinate'].PHP_EOL;
+  $movie_url[]   = $festival['movie_url'];
+  // lat:40.822286,lng: 140.745205
 }
 
 // レビュー情報を取得
@@ -23,8 +23,8 @@ require_once('../app/DAO/ReviewDAO.class.php');
 $reviewDAO = new ReviewDAO();
 $reviews   = $reviewDAO->getReviewInfo();
 foreach($reviews as $review){
-    $review_user[] = $review['user_name'].PHP_EOL;
-    $review_content[] = $review['review'].PHP_EOL;
+  $review_user[] = $review['user_name'].PHP_EOL;
+  $review_content[] = $review['review'].PHP_EOL;
 }
 
 // 登録処理
@@ -122,22 +122,22 @@ return false;
       </div>
       <!--ロゴ画像のボックス-->
       <div class="box1">
-        <a href="javascript:void(0);"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
+        <a href="index.php"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
       </div>
       <!--PC版表示の時のメニューボックス-->
       <div class="box2">
-        <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
-        <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="javascript:void(0);"><div class="box2-3">My page</div></a>
+        <a href="index.php"><div class="box2-1">Home</div></a>
+        <a href="search.php"><div class="box2-2">Search</div></a>
+        <a href="mypage.php"><div class="box2-3">My page</div></a>
       </div>
       <!--マイページに遷移する為のボックス-->
       <div class="box3">
       <div class="box3-1">
-        <a href="javascript:void(0);"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
+        <a href="mypage.php"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
       </div>
       <!--スケジュールに遷移する為のボックス-->
       <div class="box3-2">
-        <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
+        <a href="schedule.php"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
       </div>
     </div>
     </div>

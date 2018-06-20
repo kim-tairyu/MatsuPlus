@@ -1,8 +1,8 @@
 <?php
-  $err_msg = "";
-  if(isset($_GET["error"])) {
-    $err_msg = "不正なアクセスです！";
-  }
+$err_msg = "";
+if(isset($_GET["error"])) {
+  $err_msg = "不正なアクセスです！";
+}
 ?>
 
 <!DOCTYPE html>
@@ -61,22 +61,22 @@ return false;
       </div>
       <!--ロゴ画像のボックス-->
       <div class="box1">
-        <a href="javascript:void(0);"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
+        <a href="index.php"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
       </div>
       <!--PC版表示の時のメニューボックス-->
       <div class="box2">
-        <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
-        <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="javascript:void(0);"><div class="box2-3">My page</div></a>
+        <a href="index.php"><div class="box2-1">Home</div></a>
+        <a href="search.php"><div class="box2-2">Search</div></a>
+        <a href="mypage.php"><div class="box2-3">My page</div></a>
       </div>
       <!--マイページに遷移する為のボックス-->
       <div class="box3">
       <div class="box3-1">
-        <a href="javascript:void(0);"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
+        <a href="mypage.php"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
       </div>
       <!--スケジュールに遷移する為のボックス-->
       <div class="box3-2">
-        <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
+        <a href="schedule.php"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
       </div>
     </div>
   </div>
@@ -91,14 +91,14 @@ maincontents
 <div class="box4">
 <div class="box4-inner">
       <div class="user">
-        <form method="post" action="../app/sign-in.php">
+        <form method="post" action="../app/Sign-in.php">
             <input type="text" class="mailaddress" name="user_id" placeholder="id">
             <input type="password" class="password" name="password" placeholder="password">
-          <input type="submit" class="login" value="Login">
           <div><p><?php echo $err_msg ?></p></div>
+          <input type="submit" class="login" value="Login">
         </form>
             <div class="company">
-              <a href="add.php" class="admin_new">新規登録</a>
+              <a href="sign-up.php" class="admin_new">新規登録</a>
             </div>
 
       </div>
