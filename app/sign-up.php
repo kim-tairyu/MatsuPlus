@@ -1,4 +1,5 @@
 <?php
+echo $_POST["country"];
 // 入力チェック
 if(!isset($_POST["user_id"]) ||
    !isset($_POST["password"]) ||

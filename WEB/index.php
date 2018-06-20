@@ -107,7 +107,7 @@ maincontents
     <div class="tab-pane fade in active" id="recommend">
       <div class="week_mon">
         <a href="#">WEEK</a>
-        <a href="#" class="month">MONTH</a>
+        <a href="#" class="month2">MONTH</a>
       </div>
 
       <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
