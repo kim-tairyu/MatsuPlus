@@ -1,17 +1,14 @@
 <?php
+$article_id = 1;
 
-$pdo = new PDO('mysql:host=localhost;dbname=jep;charset=utf8', 'root', '');
-
-$article = $pdo->prepare("select * from article where article_id = ?");
-
-$article->bindValue(1,1);
-
-$article->execute();
-
-foreach($article as $loop){
-    $title[] = $loop['article_title'].PHP_EOL;
-    $date[] = $loop['post_date'].PHP_EOL;
-    $txt[] = $loop['text'].PHP_EOL;
+// 記事情報を取得
+require_once('../app/DAO/ArticleDAO.class.php');
+$articleDAO = new ArticleDAO();
+$articles   = $articleDAO->getArticleInfo($article_id);
+foreach($articles as $article){
+    $title[] = $article['article_title'].PHP_EOL;
+    $date[]  = $article['post_date'].PHP_EOL;
+    $txt[]   = $article['text'].PHP_EOL;
 }
 
 ?>

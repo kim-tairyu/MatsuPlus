@@ -1,46 +1,38 @@
 <?php
+$fes_id = 3;
 
-//PDO
-//接続
-$pdo = new PDO('mysql:host=localhost;dbname=jep;charset=utf8', 'root', '');
-
-//祭り情報
-$matsuriName = $pdo->prepare("select * from festival where festival_id = ?");
-
-//レビュー
-$review_info = $pdo->prepare("select user.user_id,user.user_name,review.festival_id,review.user_id,review.review,review.star from user left join review on user.user_id = review.user_id");
-
-//飛んでくる情報(仮)
-$matsuriName->bindValue(1,3);
-
-$matsuriName->execute();
-$review_info->execute();
-
-//祭情報
-foreach($matsuriName as $loop){
-    $festival_id[] = $loop['festival_id'].PHP_EOL;
-    $name[] = $loop['festival_name'].PHP_EOL;
-    $description[] = $loop['description'].PHP_EOL;
-    $location[] = $loop['location'].PHP_EOL;
-    $start_time[] = $loop['start_time'].PHP_EOL;
-    $end_time[] = $loop['end_time'].PHP_EOL;
-    $x[] = $loop['x_coordinate'].PHP_EOL;
-    $y[] = $loop['y_coordinate'].PHP_EOL;
-    $movie_url[] = $loop['movie_url'];
-    //lat:40.822286,lng: 140.745205
+// 祭り情報を取得
+require_once('../app/DAO/FestivalDAO.class.php');
+$festivalDAO = new FestivalDAO();
+$festivals   = $festivalDAO->getOneFestival($fes_id);
+foreach($festivals as $festival){
+    $festival_id[] = $festival['festival_id'].PHP_EOL;
+    $name[]        = $festival['festival_name'].PHP_EOL;
+    $description[] = $festival['description'].PHP_EOL;
+    $location[]    = $festival['location'].PHP_EOL;
+    $start_time[]  = $festival['start_time'].PHP_EOL;
+    $end_time[]    = $festival['end_time'].PHP_EOL;
+    $x[]           = $festival['x_coordinate'].PHP_EOL;
+    $y[]           = $festival['y_coordinate'].PHP_EOL;
+    $movie_url[]   = $festival['movie_url'];
+    // lat:40.822286,lng: 140.745205
 }
 
-foreach($review_info as $loop){
-    $review_user[] = $loop['user_name'].PHP_EOL;
-    $review_content[] = $loop['review'].PHP_EOL;
+// レビュー情報を取得
+require_once('../app/DAO/ReviewDAO.class.php');
+$reviewDAO = new ReviewDAO();
+$reviews   = $reviewDAO->getReviewInfo();
+foreach($reviews as $review){
+    $review_user[] = $review['user_name'].PHP_EOL;
+    $review_content[] = $review['review'].PHP_EOL;
 }
 
-//登録処理
+// 登録処理
 
-//スケジュール仮データ
+// スケジュール仮データ
 $days ="2018-06-018";
 $schedule_id = 1;
-//レビュー仮データ
+// レビュー仮データ
 $user = "bbb";
 $star = 3;
 if(isset($_POST['r_button']) == 'registration'){
