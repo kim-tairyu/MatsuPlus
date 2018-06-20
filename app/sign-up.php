@@ -1,16 +1,14 @@
 <?php
 
-// 入力チェック
-if( !isset($_POST["id"]) || !isset($_POST["pass"]) ){
-    header("Location: ../WEB/login.php?error=1");
-    exit;
-}
-
 $success = false;
-$in_id = $_POST["id"];;
-$in_passwd = $_POST["pass"];
+$in_id = $_POST["user_id"];;
+$in_passwd = $_POST["password"];
+$in_repasswd = $_POST["repassword"];
+$in_mail = $_POST["mail_address"];
+$in_name = $_POST["user_name"];
+$in_country_id = $_POST["country_id"];
 
-// ログイン認証処理
+// 新規登録処理
 require_once('DAO/UserDAO.class.php');
 $userDao = new UserDAO();
 $users   = $userDao->users();
@@ -45,7 +43,7 @@ $url = null;
 if($success){
     $url = "../WEB/index.php";
 }else{
-    $url = "../WEB/login.php?error=2";
+    $url = "../WEB/sign-up.php?error=1";
 }
 
 // 画面遷移

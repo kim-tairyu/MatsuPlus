@@ -1,3 +1,10 @@
+<?php
+  $err_msg = "";
+  if(isset($_GET["error"])) {
+    $err_msg = "不正なアクセスです！";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -41,7 +48,7 @@ return false;
 </script>
 </head>
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
-<body onMouseDown="return false;" onSelectStart="return false">
+<body>
   <!--[if lt IE 8]>
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
@@ -89,10 +96,12 @@ maincontents
         <form method="post" action="../app/sign-in.php">
             <input type="text" class="mailaddress" name="id" placeholder="USER ID">
             <input type="password" class="password" name="pass" placeholder="PASSWORD">
+            <p><?php echo $err_msg ?></p>
+            <input type="submit" class="login" value="Login">
         </form>
           <div class="user_button">
             <a class="admin_new" href="add.php">新規登録</a>
-            <input type="submit" class="login" value="Login">
+
           </div>
       </div>
     </div>

@@ -41,7 +41,7 @@ return false;
 </script>
 </head>
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
-<body onMouseDown="return false;" onSelectStart="return false">
+<body>
   <!--[if lt IE 8]>
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
@@ -87,16 +87,17 @@ maincontents
 <div class="box4">
 <div class="box4-inner">
       <div class="adduser">
-        <form method="post">
-            <input type="text" class="name" placeholder="名前">
-            <input type="text" class="mailaddress" placeholder="mailaddress">
-            <input type="password" class="password" placeholder="password">
-            <input type="password" class="password-2" placeholder="password確認">
-            <input type="text" class="kuni" placeholder="出身国">
+        <form method="post" action="../app/sign-up.php">
+            <input type="text" class="userid" name="user_id" placeholder="USER ID">
+            <input type="text" class="mailaddress" name="mail_address" placeholder="mailaddress">
+            <input type="password" class="password" name="password" placeholder="password">
+            <input type="password" class="password-2" name="repassword" placeholder="password確認">
+            <input type="text" class="name" name="user_name" placeholder="名前">
+            <input type="text" class="kuni" name="country_id" placeholder="出身国">
+            <input type="submit" class="touroku" value="登録">
         </form>
           <div class="user_button">
             <a class="exit" href="login.php">戻る</a>
-            <input type="submit" class="touroku" value="登録">
           </div>
       </div>
 </div>
