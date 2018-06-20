@@ -1,3 +1,10 @@
+<?php
+  $err_msg = "";
+  if(isset($_GET["error"])) {
+    $err_msg = "不正なアクセスです！";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -6,10 +13,8 @@
 <title>ログイン</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/desin2.css?update=20180130" />
+<link type="text/css" rel="stylesheet" href="../css/style.css" />
 <link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
-<link rel="stylesheet" href="../css/desin.css">
 <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
@@ -85,15 +90,17 @@ maincontents
 
 <div class="box4">
 <div class="box4-inner">
-      <div class="user">  
-        <form method="post">
-            <input type="text" class="mailaddress" placeholder="mailaddress">
-            <input type="password" class="password" placeholder="password">
+      <div class="user">
+        <form method="post" action="../app/sign-in.php">
+            <input type="text" class="mailaddress" name="user_id" placeholder="id">
+            <input type="password" class="password" name="password" placeholder="password">
+          <input type="submit" class="login" value="Login">
+          <div><p><?php echo $err_msg ?></p></div>
         </form>
-          <div class="user_button">
-            <a class="admin_new" href="add.html">新規登録</a>
-            <input type="submit" class="login" value="Login">
-          </div>
+            <div class="company">
+              <a href="add.php" class="admin_new">新規登録</a>
+            </div>
+
       </div>
     </div>
   </div>

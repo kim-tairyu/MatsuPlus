@@ -6,9 +6,8 @@
 <title>マイページ</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/mypage.css?update=20180130" />
+<link type="text/css" rel="stylesheet" href="../css/style.css" />
 <link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
 <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
@@ -97,7 +96,7 @@ maincontents
   <div class="fes_box">
     <div class="btn-fes_box"><a href="#" class="btn-fes">Festival Favorites</a></div>
     <div class="btn-fes_box"><a href="#" class="btn-fes">Article Favorites</a></div>
-    <div class="btn-fes_box"><a href="#" class="btn-fes">Configuration</a></div>
+    <div class="btn-fes_box"><a href="Configuration.php" class="btn-fes">Configuration</a></div>
   </div>
 
   </div>

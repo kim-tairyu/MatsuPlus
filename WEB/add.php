@@ -1,3 +1,10 @@
+<?php
+  $err_msg = "";
+  if(isset($_GET["error"])) {
+    $err_msg = "入力に誤りがあります！";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -6,10 +13,8 @@
 <title>新規登録</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/desin2.css?update=20180130" />
-<link rel="stylesheet" href="../css/desin.css">
+<link type="text/css" rel="stylesheet" href="../css/style.css" />
 <link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
 <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
@@ -87,16 +92,22 @@ maincontents
 <div class="box4">
 <div class="box4-inner">
       <div class="adduser">
-        <form method="post">
-            <input type="text" class="name" placeholder="名前">
-            <input type="text" class="mailaddress" placeholder="mailaddress">
-            <input type="password" class="password" placeholder="password">
-            <input type="password" class="password-2" placeholder="password確認">
-            <input type="text" class="kuni" placeholder="出身国">
-        </form>
-          <div class="user_button">
-            <a class="exit" href="index.html">戻る</a>
+        <form method="post" action="../app/sign-up.php">
+          <div><p><?php echo $err_msg ?></p></div>
+            <input type="text" class="userid" name="user_id" placeholder="USER ID">
+            <input type="text" class="mailaddress" name="mail_address" placeholder="mailaddress">
+            <input type="password" class="password" name="password" placeholder="password">
+            <input type="password" class="password-2" name="repassword" placeholder="password確認">
+            <input type="text" class="name" name="user_name" placeholder="名前">
+            <select name="country" class="country-width">
+              <option value="" selected></option>
+              <option value="1">japan</option>
+              <option value="2">america</option>
+            </select>
             <input type="submit" class="touroku" value="登録">
+        </form>
+          <div class="company">
+            <a href="login.php" class="exit3">戻る</a>
           </div>
       </div>
 </div>

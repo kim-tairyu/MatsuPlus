@@ -2,19 +2,13 @@
 // DB Connection
 class SuperDAO {
   // DBプロパティ
-  private $host;    // HOST
-  private $DBName;  // DB NAME
-  private $charset; // CHARSET
   private $dsn;     // Data Source Name
   private $DBUser;  // DB USER
   private $DBPass;  // DB PASSWORD
   
   // コンストラクタ
   public function __construct() {
-    $this->host    = 'localhost';
-    $this->DBName  = 'jep';
-    $this->charset = 'utf8';
-    $this->dsn     = 'mysql:host=localhost; dbname=jep; charset=utf8;';
+    $this->dsn     = 'mysql:host=localhost; dbname=matsuri; charset=utf8;';
     $this->DBUser  = 'root';
     $this->DBPass  = '';
   }
