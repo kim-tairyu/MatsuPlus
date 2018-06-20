@@ -99,16 +99,16 @@ maincontents
       <input type="password" class="password" placeholder="password">
       <input type="password" class="password-2" placeholder="password確認">
       <input type="text" class="kuni" placeholder="出身国">
+      <div class="user_button">
+        <input type="submit" class="henkou" value="変更">
+      </div>
     </form>
-    <div class="user_button">
-      <input type="submit" class="henkou" value="変更">
-    </div>
   </div>
   <!--残りの設定の項目-->
   <div class="setting">
     <div class="setting-inner">
     <div class="inquiry_box"><a href="#" class="exit2">言語変更</a></div>
-    <div class="logout_box"><a href="#" class="exit2">Log Out</a></div>
+    <div class="logout_box"><a href="../app/logout.php" class="exit2">Log Out</a></div>
   </div>
 </div>
 <!--お問い合わせ-->

@@ -198,13 +198,13 @@ header:after{content: ""; display: block; clear: both;}
       width: 300px;
       margin-top: 30px;
       display: flex;}
-  .setting{width: 300px; margin: 0 auto;   height: auto; margin-top: 30px;}
+  .setting{width: 300px; margin: 0 auto;   height: auto; margin-top: 25px;}
   .setting a{color: #e60033; text-decoration: none;}
   .setting-inner{width: 100%;}
   .setting:after{content:""; display:block; clear:both;}
   .inquiry_box{float: left; width: 46%;
     border: solid 2px #e60033;
-    font-size: 5px;
+    font-size: 12px;
     margin: 2%;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
@@ -219,7 +219,7 @@ header:after{content: ""; display: block; clear: both;}
   }
   .logout_box{float: left; width: 46%;
     border: solid 2px #e60033;
-    font-size: 5px;
+    font-size: 12px;
     margin: 2%;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
@@ -233,8 +233,8 @@ header:after{content: ""; display: block; clear: both;}
     background-color: #fff;
   }
   /**/
-  .company{ margin-top: 5px;}
-  .company a{ color: #e60033; font-size: 5px;}
+  .company{ margin-top: 10px;}
+  .company a{ color: #e60033; font-size: 12px;}
 
   /**/
   .henkou{
@@ -469,23 +469,30 @@ header:after{content: ""; display: block; clear: both;}
       margin-top: 30px;
       display: flex;
   }
+  .user_button2{
+      width: 300px;
+      margin-top: 30px;
+      display: flex;
+      margin-left: 75px;
+  }
+  .user_button3{
+      width: 300px;
+      margin-top: 30px;
+      display: flex;
+      margin-left: 73px;
+  }
   .admin_new{
        line-height: 20px;
         width: 115px;
-        margin-left: 5px;
-        text-decoration: none;
         text-align: center;
         padding: 1em;
-        text-decoration: none;
-        background: red;
-        color: #ffff;
-        border-radius: 3px;
+        color: #e60033;
   }
+  .company a{color: #e60033;}
   .login{
     line-height: 20px;
       width: 150px;
-      margin-right: 5px;
-      margin-left: 80px;
+      margin-top: 30px;
       background: red;
       padding: 1em;
       text-decoration: none;
@@ -498,7 +505,6 @@ header:after{content: ""; display: block; clear: both;}
   .exit{
      line-height: 20px;
       width: 115px;
-      margin-left: 5px;
       text-decoration: none;
       text-align: center;
       padding: 1em;
@@ -507,15 +513,18 @@ header:after{content: ""; display: block; clear: both;}
       color: #ffff;
       border-radius: 3px;
   }
+.country-width{
+  margin-top: 10px;
+  width: 100%;
+}
+
   .touroku{
+    margin-top: 30px;
     line-height: 20px;
-      width: 150px;
-      margin-right: 5px;
-      margin-left: 80px;
+      width: 300px;
       background: red;
-      padding: 1em;
+      padding: 1.5em;
       text-decoration: none;
-      text-align: center;
       color: #fff;
       border-style:none;
       border-radius: 3px;
@@ -634,7 +643,6 @@ header:after{content: ""; display: block; clear: both;}
 /*フッター（SP版では非表示になってる）*/
 .box8{border: solid 1px #eee;
     display: flex;
-    position: fixed;
     bottom: 0;
     width: 100%;
     height: auto;}

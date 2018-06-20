@@ -96,7 +96,7 @@ maincontents
   <div class="fes_box">
     <div class="btn-fes_box"><a href="#" class="btn-fes">Festival Favorites</a></div>
     <div class="btn-fes_box"><a href="#" class="btn-fes">Article Favorites</a></div>
-    <div class="btn-fes_box"><a href="#" class="btn-fes">Configuration</a></div>
+    <div class="btn-fes_box"><a href="Configuration.php" class="btn-fes">Configuration</a></div>
   </div>
 
   </div>

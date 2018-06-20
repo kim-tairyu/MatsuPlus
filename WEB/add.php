@@ -99,16 +99,15 @@ maincontents
             <input type="password" class="password" name="password" placeholder="password">
             <input type="password" class="password-2" name="repassword" placeholder="password確認">
             <input type="text" class="name" name="user_name" placeholder="名前">
-            <input type="text" class="kuni" name="country_id" placeholder="出身国">
-            <select name="country">
+            <select name="country" class="country-width">
               <option value="" selected></option>
               <option value="1">japan</option>
               <option value="2">america</option>
             </select>
             <input type="submit" class="touroku" value="登録">
         </form>
-          <div class="user_button">
-            <a class="exit" href="login.php">戻る</a>
+          <div class="company">
+            <a href="login.php" class="exit3">戻る</a>
           </div>
       </div>
 </div>

@@ -1,3 +1,16 @@
+<?php
+  session_start();
+  $link      = "";
+  $link_name = "";
+  if(isset($_SESSION["user_id"])) {
+    $link      = "Mypage.php";
+    $link_name = "My page";
+  } else {
+    $link      = "login.php";
+    $link_name = "LOGIN";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -62,7 +75,7 @@ return false;
       <div class="box2">
         <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
         <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="javascript:void(0);"><div class="box2-3">My page</div></a>
+        <a href="<?php echo $link ?>"><div class="box2-3"><?php echo $link_name ?></div></a>
       </div>
       <!--マイページに遷移する為のボックス-->
       <div class="box3">

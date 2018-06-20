@@ -90,16 +90,17 @@ maincontents
 
 <div class="box4">
 <div class="box4-inner">
-      <div class="user">  
+      <div class="user">
         <form method="post" action="../app/sign-in.php">
             <input type="text" class="mailaddress" name="user_id" placeholder="id">
             <input type="password" class="password" name="password" placeholder="password">
           <input type="submit" class="login" value="Login">
           <div><p><?php echo $err_msg ?></p></div>
         </form>
-          <div class="user_button">
-            <a class="admin_new" href="add.php">新規登録</a>
-          </div>
+            <div class="company">
+              <a href="add.php" class="admin_new">新規登録</a>
+            </div>
+
       </div>
     </div>
   </div>
