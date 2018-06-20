@@ -41,7 +41,7 @@ return false;
 </script>
 </head>
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
-<body onMouseDown="return false;" onSelectStart="return false">
+<body>
   <!--[if lt IE 8]>
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
