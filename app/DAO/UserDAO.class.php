@@ -33,16 +33,14 @@ class UserDAO extends SuperDAO {
         user_name,
         mail_address,
         country_id,
-        launguege_id,
-        user_status
+        launguege_id
       ) VALUES (
-        '.$user_id.',
-        '.$password.',
-        '.$user_name.',
-        '.$mail_address.',
+        "'.$user_id.'",
+        "'.$password.'",
+        "'.$user_name.'",
+        "'.$mail_address.'",
         '.$country_id.',
-        '.$launguege_id.',
-        "exist"
+        '.$launguege_id.'
       );';
       $pdo  = parent::getConnection(); // DB接続
       $stmt = $pdo->prepare($sql);     // ステートメント

@@ -13,10 +13,8 @@
 <title>ログイン</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/desin2.css?update=20180130" />
+<link type="text/css" rel="stylesheet" href="../css/style.css" />
 <link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
-<link rel="stylesheet" href="../css/desin.css">
 <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
@@ -94,13 +92,13 @@ maincontents
 <div class="box4-inner">
       <div class="user">  
         <form method="post" action="../app/sign-in.php">
-            <input type="text" class="mailaddress" name="id" placeholder="id">
-            <input type="password" class="password" name="passwd" placeholder="password">
+            <input type="text" class="mailaddress" name="user_id" placeholder="id">
+            <input type="password" class="password" name="password" placeholder="password">
           <input type="submit" class="login" value="Login">
           <div><p><?php echo $err_msg ?></p></div>
         </form>
           <div class="user_button">
-            <a class="admin_new" href="add.html">新規登録</a>
+            <a class="admin_new" href="add.php">新規登録</a>
           </div>
       </div>
     </div>

@@ -6,10 +6,8 @@
 <title>産学祭りの側</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/style.css?update=20180130" />
-<link type="text/css" rel="stylesheet" href="../css/style_kou.css?update=20180130" />
+<link type="text/css" rel="stylesheet" href="../css/style.css" />
 <link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
 <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
@@ -39,17 +37,12 @@ return false;
 });
 });
 </script>
+  </head>
+  <body>
 <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
-</head>
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
-<<<<<<< HEAD
-<body>
-=======
-<body onMouseDown="return false;" onSelectStart="return false">
->>>>>>> feature
   <!--[if lt IE 8]>
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
@@ -186,11 +179,7 @@ maincontents
     <a href="#">#June</a>
 
   </div>
-
-
-
-</div>
-
+    </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
