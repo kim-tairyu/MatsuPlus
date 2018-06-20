@@ -1,3 +1,21 @@
+<?php
+
+$pdo = new PDO('mysql:host=localhost;dbname=jep;charset=utf8', 'root', '');
+
+$article = $pdo->prepare("select * from article where article_id = ?");
+
+$article->bindValue(1,1);
+
+$article->execute();
+
+foreach($article as $loop){
+    $title[] = $loop['article_title'].PHP_EOL;
+    $date[] = $loop['post_date'].PHP_EOL;
+    $txt[] = $loop['text'].PHP_EOL;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -91,24 +109,14 @@ maincontents
   </div>
 
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <h5 class="date">2018.06.15</h5>
-    <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
-    <i class="fas fa-user">abc</i>
-    <i class="fas fa-heart">100</i>
+    <h5 class="date"><?php echo $date[0] ?></h5>
+    <h2><?php echo $title[0] ?></h2>
+    <i class="fas fa-user"></i>
+    <i class="fas fa-heart"></i>
   </div>
 
   <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <p>The Kanda Matsuri is one of Tokyo's three most famous
-        festivals, along with the Sanno Matsuri and Fukagawa
-        Matsuri. It takes place in mid May in odd numbered
-        years, alternating with the Sanno Matsuri which is held
-        in even numbered years. The Kanda Festival consists of
-        numerous events held over an entire week, but the main
-        action usually happens over the weekend closest to May
-        15. The highlights are a day-long procession through
-        central Tokyo on Saturday, and parades of portable
-        shrines (mikoshi) by the various neighborhoods on Sunday.</p>
-
+    <p><?php echo $txt[0] ?></p>
   </div>
 
   <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
