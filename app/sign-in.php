@@ -7,8 +7,8 @@ if( !isset($_POST["user_id"]) || !isset($_POST["password"]) ){
 
 $oneday  = 86400;
 $success = false;
-$in_id   = $_POST["id"];
-$in_pass = $_POST["pass"];
+$in_id   = $_POST["user_id"];
+$in_pass = $_POST["password"];
 
 // ログイン認証処理
 require_once('DAO/UserDAO.class.php');
