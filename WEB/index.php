@@ -76,6 +76,7 @@ return false;
         <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
       </div>
     </div>
+    </div>
 </header>
 <!--header終わり-->
 
@@ -234,8 +235,6 @@ maincontents
 
   </div>
 
-
-</div>
 
 </div>
 

@@ -1,3 +1,10 @@
+<?php
+  $err_msg = "";
+  if(isset($_GET["error"])) {
+    $err_msg = "不正なアクセスです！";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -86,13 +93,14 @@ maincontents
 <div class="box4">
 <div class="box4-inner">
       <div class="user">  
-        <form method="post">
-            <input type="text" class="mailaddress" placeholder="mailaddress">
-            <input type="password" class="password" placeholder="password">
+        <form method="post" action="../app/sign-in.php">
+            <input type="text" class="mailaddress" name="id" placeholder="id">
+            <input type="password" class="password" name="passwd" placeholder="password">
+          <input type="submit" class="login" value="Login">
+          <div><p><?php echo $err_msg ?></p></div>
         </form>
           <div class="user_button">
             <a class="admin_new" href="add.html">新規登録</a>
-            <input type="submit" class="login" value="Login">
           </div>
       </div>
     </div>

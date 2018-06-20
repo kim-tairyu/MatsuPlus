@@ -1,19 +1,11 @@
 <?php
-// 入力チェック
-if( !isset($_POST["id"]) || !isset($_POST["passwd"]) ){
-    header("Location: ../WEB/login.php?error");
-    exit;
-}
-
 $oneday  = 86400;
 $success = false;
-$in_id   = $_POST["id"];
-$in_pass = $_POST["passwd"];
 
-// ログイン認証処理
+// 新規登録処理
 require_once('DAO/UserDAO.class.php');
 $userDao = new UserDAO();
-$users = $userDao->signIn();
+$users = $userDao->signUp();
 foreach( $users as $user ){
   $id   = $user['user_id'];
   $pass = $user['password'];
@@ -45,7 +37,7 @@ $url = null;
 if($success){
     $url = "../WEB/index.php";
 }else{
-    $url = "../WEB/login.php?error";
+    $url = "../WEB/add.php?error";
 }
 
 // 画面遷移

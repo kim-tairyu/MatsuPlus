@@ -9,10 +9,10 @@ class UserDAO extends SuperDAO {
     parent::__construct();
   }
   
-  // ユーザ情報取得
+  // DBユーザ情報取得
   public function signIn() {
     try {
-      $sql  = 'SELECT * FROM user';
+      $sql  = 'SELECT * FROM user';    // SQL文
       $pdo  = parent::getConnection(); // DB接続
       $stmt = $pdo->prepare($sql);     // ステートメント
       $stmt->execute();                // SQL文実行
@@ -22,5 +22,35 @@ class UserDAO extends SuperDAO {
       die();
     }
     return $stmt;
+  }
+  
+  // 新規登録
+  public function signUp($user_id, $password, $user_name, $mail_address, $country_id, $launguege_id) {
+    try {
+      $sql  = 'INSERT INTO user (
+	      user_id,
+        password,
+        user_name,
+        mail_address,
+        country_id,
+        launguege_id,
+        user_status
+      ) VALUES (
+        '.$user_id.',
+        '.$password.',
+        '.$user_name.',
+        '.$mail_address.',
+        '.$country_id.',
+        '.$launguege_id.',
+        "exist"
+      );';
+      $pdo  = parent::getConnection(); // DB接続
+      $stmt = $pdo->prepare($sql);     // ステートメント
+      $stmt->execute();                // SQL文実行
+      parent::closeDB();               // DB切断
+    } catch(PDOException $e) {
+      echo 'DB SELECT Error!'.$e->getMesseage;
+      die();
+    }
   }
 }
