@@ -87,6 +87,8 @@ maincontents
 -->
 <div class="main_content col-md-10 col-xs-12 col-lg-12">
 
+    <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">Kanda Matsuri</h1>
+
   <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <a href="#"><img src="../imgs/article_img.jpg" alt="祭り"></a>
   </div>
@@ -112,25 +114,77 @@ maincontents
 
   </div>
 
+  <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3437.600743713477!2d139.76529765158025!3d35.7020886432579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c1ecc161bed%3A0xf397e4b6bf417c8b!2z56We55Sw5piO56We!5e0!3m2!1sja!2sjp!4v1529434686685" width=100% height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
   <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <h2>Related article</h2>
+    <h2>Souvenir</h2>
+  </div>
+  <div class="souvenir_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+      <img src="../imgs/omiyage_01.jpg" alt="神田祭お土産">
+      <img src="../imgs/omiyage_02.jpg" alt="神田祭お土産">
+      <img src="../imgs/omiyage_03.jpg" alt="神田祭お土産">
+      <img src="../imgs/omiyage_04.jpg" alt="神田祭お土産">
   </div>
 
-  <div class="home_img home_img_sub related_article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-    <div class="related_article_title_small">
-      <h2 class="news_title_sub">Main procession passes along Cuo-dori Street</h2>
+  <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <h2>Comment</h2>
+  </div>
+
+  <div class="comment_content col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <div class="comment_user col-xs-4 col-md-4 col-lg-4">
+      <i class="fas fa-user fa-3x"></i>
+      <h2>abc</h2>
+    </div>
+    <div class="comment col-xs-8 col-md-8 col-lg-6">
+      <p class="date">2018.6.15</p>
+      <p>Some neighborhoods in the Nihonbashi area do not visit the Kanda Myojin Shrine and instead
+        parade their mikoshi only around their local districts.
+      </p>
     </div>
   </div>
 
-  <div class="home_img home_img_sub related_article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-    <div class="related_article_title_small">
-      <h2 class="news_title_sub">Main procession passes along Cuo-dori Street</h2>
+  <div class="comment_content col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <div class="comment_user col-xs-4 col-md-4 col-lg-4">
+      <i class="fas fa-user fa-3x"></i>
+      <h2>abc</h2>
+    </div>
+    <div class="comment col-xs-8 col-md-8 col-lg-6">
+      <p class="date">2018.6.15</p>
+      <p>It`s so cool!!
+        Very excellent experence!!</p>
     </div>
   </div>
+
+  <div class="comment_content col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <div class="comment_user col-xs-4 col-md-4 col-lg-4">
+      <i class="fas fa-user fa-3x"></i>
+      <h2>abc</h2>
+    </div>
+    <div class="comment col-xs-8 col-md-8 col-lg-6">
+      <p class="date">2018.6.15</p>
+      <p>A good location to catch the activity is along the main approach to Kanda Myojin Shrine, since
+        most of the mikoshi eventually make their way to the shrine.</p>
+    </div>
+  </div>
+
+  <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <h2>Tag</h2>
+  </div>
+
+  <div class="tag col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <a href="#">#Japan</a>
+    <a href="#">#Tokyo</a>
+    <a href="#">#Kanda</a>
+    <a href="#">#Festival</a>
+    <a href="#">#Somanypeople</a>
+    <a href="#">#happy</a>
+    <a href="#">#June</a>
+
+  </div>
+
+
+
 </div>
-
 
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
