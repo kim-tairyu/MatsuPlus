@@ -94,16 +94,6 @@ maincontents
 <div class="box4-inner">
       <div class="user">  
         <form method="post" action="../app/sign-in.php">
-<<<<<<< HEAD
-            <input type="text" class="mailaddress" name="id" placeholder="USER ID">
-            <input type="password" class="password" name="pass" placeholder="PASSWORD">
-            <p><?php echo $err_msg ?></p>
-            <input type="submit" class="login" value="Login">
-        </form>
-          <div class="user_button">
-            <a class="admin_new" href="add.php">新規登録</a>
-
-=======
             <input type="text" class="mailaddress" name="id" placeholder="id">
             <input type="password" class="password" name="passwd" placeholder="password">
           <input type="submit" class="login" value="Login">
@@ -111,7 +101,6 @@ maincontents
         </form>
           <div class="user_button">
             <a class="admin_new" href="add.html">新規登録</a>
->>>>>>> feature
           </div>
       </div>
     </div>

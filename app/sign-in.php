@@ -10,7 +10,7 @@ if( !isset($_POST["id"]) || !isset($_POST["pass"]) ){
 $success = false;
 $in_id = $_POST["id"];;
 $in_passwd = $_POST["pass"];
-=======
+
 // 入力チェック
 if( !isset($_POST["id"]) || !isset($_POST["passwd"]) ){
     header("Location: ../WEB/login.php?error");
