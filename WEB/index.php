@@ -1,18 +1,21 @@
 <?php
 session_start();
-$link      = "";
-$link_name = "";
+$link_mypage      = "";
+$link_schedule    = "";
+$link_mypage_name = "";
 if(isset($_SESSION["user_id"])) {
-  $link      = "mypage.php";
-  $link_name = "My page";
+  $link_mypage      = "mypage.php";
+  $link_schedule    = "schedule.php";
+  $link_mypage_name = "My page";
 } else {
-  $link      = "sign-in.php";
-  $link_name = "SIGN IN";
+  $link_mypage      = "sign-in.php";
+  $link_schedule    = "sign-in.php";
+  $link_mypage_name = "SIGN IN";
 }
 
 require_once('../app/DAO/FestivalDAO.class.php');
 $festivalDAO = new FestivalDAO();
-$festivals   = $festivalDAO->getRecommendedFestival();
+$festivals   = $festivalDAO->getFavoriteFestival();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -78,16 +81,16 @@ return false;
       <div class="box2">
         <a href="index.php"><div class="box2-1">Home</div></a>
         <a href="search.php"><div class="box2-2">Search</div></a>
-        <a href="<?php echo $link ?>"><div class="box2-3"><?php echo $link_name ?></div></a>
+        <a href="<?php echo $link_mypage ?>"><div class="box2-3"><?php echo $link_mypage_name ?></div></a>
       </div>
       <!--マイページに遷移する為のボックス-->
       <div class="box3">
       <div class="box3-1">
-        <a href="mypage.php"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
+        <a href="<?php echo $link_mypage ?>"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
       </div>
       <!--スケジュールに遷移する為のボックス-->
       <div class="box3-2">
-        <a href="schedule.php"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
+        <a href="<?php echo $link_schedule ?>"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
       </div>
     </div>
     </div>
@@ -127,18 +130,11 @@ maincontents
         <a href="#" class="month2">MONTH</a>
       </div>
 
+      <?php foreach($festivals as $festival) { ?>
       <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_01.jpg" alt="祭り"></a>
+        <a href="festival.php?festival_id=<?php $festival['festival_id'] ?>"><img src="../imgs/<?php echo $festival['festival_img'] ?>" alt="祭り"></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_02.jpg" alt="祭り"></a>
-      </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_01.jpg" alt="祭り"></a>
-      </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_02.jpg" alt="祭り"></a>
-      </div>
+      <?php } ?>
     </div>
 
     <div class="tab-pane fade" id="vote">

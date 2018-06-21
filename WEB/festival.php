@@ -1,21 +1,36 @@
 <?php
-$fes_id = 3;
+session_start();
+$link_mypage      = "";
+$link_schedule    = "";
+$link_mypage_name = "";
+if(isset($_SESSION["user_id"])) {
+  $link_mypage      = "mypage.php";
+  $link_schedule    = "schedule.php";
+  $link_mypage_name = "My page";
+} else {
+  $link_mypage      = "sign-in.php";
+  $link_schedule    = "sign-in.php";
+  $link_mypage_name = "SIGN IN";
+}
 
-// 祭り情報を取得
-require_once('../app/DAO/FestivalDAO.class.php');
-$festivalDAO = new FestivalDAO();
-$festivals   = $festivalDAO->getOneFestival($fes_id);
-foreach($festivals as $festival){
-  $festival_id[] = $festival['festival_id'].PHP_EOL;
-  $name[]        = $festival['festival_name'].PHP_EOL;
-  $description[] = $festival['description'].PHP_EOL;
-  $location[]    = $festival['location'].PHP_EOL;
-  $start_time[]  = $festival['start_time'].PHP_EOL;
-  $end_time[]    = $festival['end_time'].PHP_EOL;
-  $x[]           = $festival['x_coordinate'].PHP_EOL;
-  $y[]           = $festival['y_coordinate'].PHP_EOL;
-  $movie_url[]   = $festival['movie_url'];
-  // lat:40.822286,lng: 140.745205
+if(isset($_GET["festival_id"])) {
+  $fes_id = $_GET["festival_id"];
+  // 祭り情報を取得
+  require_once('../app/DAO/FestivalDAO.class.php');
+  $festivalDAO = new FestivalDAO();
+  $festivals   = $festivalDAO->getOneFestival($fes_id);
+  foreach($festivals as $festival){
+    $festival_id[] = $festival['festival_id'].PHP_EOL;
+    $name[]        = $festival['festival_name'].PHP_EOL;
+    $description[] = $festival['description'].PHP_EOL;
+    $location[]    = $festival['location'].PHP_EOL;
+    $start_time[]  = $festival['start_time'].PHP_EOL;
+    $end_time[]    = $festival['end_time'].PHP_EOL;
+    $x[]           = $festival['x_coordinate'].PHP_EOL;
+    $y[]           = $festival['y_coordinate'].PHP_EOL;
+    $movie_url[]   = $festival['movie_url'];
+    // lat:40.822286,lng: 140.745205
+  }
 }
 
 // レビュー情報を取得
@@ -128,16 +143,16 @@ return false;
       <div class="box2">
         <a href="index.php"><div class="box2-1">Home</div></a>
         <a href="search.php"><div class="box2-2">Search</div></a>
-        <a href="mypage.php"><div class="box2-3">My page</div></a>
+        <a href="<?php echo $link_mypage ?>"><div class="box2-3"><?php echo $link_mypage_name ?></div></a>
       </div>
       <!--マイページに遷移する為のボックス-->
       <div class="box3">
       <div class="box3-1">
-        <a href="mypage.php"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
+        <a href="<?php echo $link_mypage ?>"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
       </div>
       <!--スケジュールに遷移する為のボックス-->
       <div class="box3-2">
-        <a href="schedule.php"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
+        <a href="<?php echo $link_schedule ?>"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
       </div>
     </div>
     </div>
