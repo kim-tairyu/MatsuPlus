@@ -1,3 +1,34 @@
+<?php
+$headerPath = 'include/header.php';
+$footerPath = 'include/footer.php';
+
+session_start();
+$link_mypage      = "";
+$link_schedule    = "";
+$link_mypage_name = "";
+if(isset($_SESSION["user_id"])) {
+  $link_mypage      = "mypage.php";
+  $link_schedule    = "schedule.php";
+  $link_mypage_name = "My page";
+} else {
+  $link_mypage      = "sign-in.php";
+  $link_schedule    = "sign-in.php";
+  $link_mypage_name = "SIGN IN";
+}
+
+$article_id = 1;
+
+// 記事情報を取得
+require_once('../app/DAO/ArticleDAO.class.php');
+$articleDAO = new ArticleDAO();
+$articles   = $articleDAO->getArticleInfo($article_id);
+foreach($articles as $article){
+    $title[] = $article['article_title'].PHP_EOL;
+    $date[]  = $article['post_date'].PHP_EOL;
+    $txt[]   = $article['text'].PHP_EOL;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -48,37 +79,8 @@ return false;
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
-<!--headerスタート-->
-  <header>
-    <!--boxA-innerはヘッダー内の諸々が1190px以上外に出ないようにするためのもの-->
-    <div class="boxA-inner">
-      <!--boxKUUHAKUはSP版表示になった時に左上に空白を持たせておくためのもの（今後戻るボタンなどがはいるかもしれない）-->
-      <div class="boxse">
-        <a href="javascript:void(0);"><img src="../imgs/se.png" alt="" width="25" height="auto"></a>
-      </div>
-      <!--ロゴ画像のボックス-->
-      <div class="box1">
-        <a href="javascript:void(0);"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
-      </div>
-      <!--PC版表示の時のメニューボックス-->
-      <div class="box2">
-        <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
-        <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="javascript:void(0);"><div class="box2-3">My page</div></a>
-      </div>
-      <!--マイページに遷移する為のボックス-->
-      <div class="box3">
-      <div class="box3-1">
-        <a href="javascript:void(0);"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
-      </div>
-      <!--スケジュールに遷移する為のボックス-->
-      <div class="box3-2">
-        <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
-      </div>
-    </div>
-  </div>
-</header>
-<!--header終わり-->
+  <!--header-->
+  <?php include $headerPath ?>
 
 
 <!--
@@ -91,24 +93,14 @@ maincontents
   </div>
 
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <h5 class="date">2018.06.15</h5>
-    <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
-    <i class="fas fa-user">abc</i>
-    <i class="fas fa-heart">100</i>
+    <h5 class="date"><?php echo $date[0] ?></h5>
+    <h2><?php echo $title[0] ?></h2>
+    <i class="fas fa-user"></i>
+    <i class="fas fa-heart"></i>
   </div>
 
   <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <p>The Kanda Matsuri is one of Tokyo's three most famous
-        festivals, along with the Sanno Matsuri and Fukagawa
-        Matsuri. It takes place in mid May in odd numbered
-        years, alternating with the Sanno Matsuri which is held
-        in even numbered years. The Kanda Festival consists of
-        numerous events held over an entire week, but the main
-        action usually happens over the weekend closest to May
-        15. The highlights are a day-long procession through
-        central Tokyo on Saturday, and parades of portable
-        shrines (mikoshi) by the various neighborhoods on Sunday.</p>
-
+    <p><?php echo $txt[0] ?></p>
   </div>
 
   <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
@@ -134,15 +126,7 @@ maincontents
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--フッター（SP版では非表示になってる）-->
-<footer>
-<div class="box8">
-  <div class="box8-1">
-    <p class="copy">
-      Copyright © 2018 MATURI All Rights Reserved<br>
-    </p>
-  </div>
-</div>
-</footer>
+<?php include $footerPath ?>
 
 </body>
 </html>

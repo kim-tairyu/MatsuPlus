@@ -1,8 +1,25 @@
 <?php
-  $err_msg = "";
-  if(isset($_GET["error"])) {
-    $err_msg = "不正なアクセスです！";
-  }
+$headerPath = 'include/header.php';
+$footerPath = 'include/footer.php';
+
+session_start();
+$link_mypage      = "";
+$link_schedule    = "";
+$link_mypage_name = "";
+if(isset($_SESSION["user_id"])) {
+  $link_mypage      = "mypage.php";
+  $link_schedule    = "schedule.php";
+  $link_mypage_name = "My page";
+} else {
+  $link_mypage      = "sign-in.php";
+  $link_schedule    = "sign-in.php";
+  $link_mypage_name = "SIGN IN";
+}
+
+$err_msg = "";
+if(isset($_GET["error"])) {
+  $err_msg = "不正なアクセスです！";
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,37 +68,8 @@ return false;
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
-<!--headerスタート-->
-  <header>
-    <!--boxA-innerはヘッダー内の諸々が1190px以上外に出ないようにするためのもの-->
-    <div class="boxA-inner">
-      <!--boxKUUHAKUはSP版表示になった時に左上に空白を持たせておくためのもの（今後戻るボタンなどがはいるかもしれない）-->
-      <div class="boxse">
-        <a href="javascript:void(0);"><img src="../imgs/se.png" alt="" width="25" height="auto"></a>
-      </div>
-      <!--ロゴ画像のボックス-->
-      <div class="box1">
-        <a href="javascript:void(0);"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
-      </div>
-      <!--PC版表示の時のメニューボックス-->
-      <div class="box2">
-        <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
-        <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="javascript:void(0);"><div class="box2-3">My page</div></a>
-      </div>
-      <!--マイページに遷移する為のボックス-->
-      <div class="box3">
-      <div class="box3-1">
-        <a href="javascript:void(0);"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
-      </div>
-      <!--スケジュールに遷移する為のボックス-->
-      <div class="box3-2">
-        <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
-      </div>
-    </div>
-  </div>
-</header>
-<!--header終わり-->
+  <!--header-->
+  <?php include $headerPath ?>
 
 
 <!--
@@ -91,14 +79,14 @@ maincontents
 <div class="box4">
 <div class="box4-inner">
       <div class="user">
-        <form method="post" action="../app/sign-in.php">
+        <form method="post" action="../app/Sign-in.php">
             <input type="text" class="mailaddress" name="user_id" placeholder="id">
             <input type="password" class="password" name="password" placeholder="password">
-          <input type="submit" class="login" value="Login">
           <div><p><?php echo $err_msg ?></p></div>
+          <input type="submit" class="login" value="Login">
         </form>
             <div class="company">
-              <a href="add.php" class="admin_new">新規登録</a>
+              <a href="sign-up.php" class="admin_new">新規登録</a>
             </div>
 
       </div>
@@ -108,15 +96,7 @@ maincontents
 
 
 <!--フッター（SP版では非表示になってる）-->
-<footer>
-<div class="box8">
-  <div class="box8-1">
-    <p class="copy">
-      Copyright © 2018 MATURI All Rights Reserved<br>
-    </p>
-  </div>
-</div>
-</footer>
+<?php include $footerPath ?>
 
 </body>
 </html>

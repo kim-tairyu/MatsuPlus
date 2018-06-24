@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
-body{margin:0; font-family: 'メイリオ','Hiragino Kaku Gothic Pro',sans-serif}
+body{margin:0; font-family: 'メイリオ','Hiragino Kaku Gothic Pro',sans-serif;}
 /*保存禁止　スマホ*/
 img{
   -webkit-touch-callout:none;
@@ -25,14 +25,15 @@ header{
    top: 0; /* 固定する位置 */
    left: 0; /* 固定する位置 */
    right: 0;  /* 固定する位置 */}
-header:after{content: ""; display: block; clear: both;}
+header:after{content: ""; display: block; clear: both; box-shadow    : 1px 1px 1px #666666;}
 
 /*JAPAN祭りのロゴ画像をかこっているボックス*/
 .box1{float: left; width: 50%; height: 45px;
   padding: 6px;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
-  box-sizing:border-box;}
+  box-sizing:border-box;
+}
 
 /*768px以上の時に表示させているメニューボタンのボックス*/
 .box2{float: left; width: 40%; height: 45px; text-align: center;}
@@ -99,7 +100,7 @@ header:after{content: ""; display: block; clear: both;}
   .my_image{
       margin: 90px 0px 0px 0px;
       text-align: center;}
-  .user_name{}
+  .user_name{margin-bottom: 0px;}
   .fes_box{width: 100%; height: auto;}
   .fes_box:after{content:""; display:block; clear:both;}
   .btn-fes-box{float: left; width: 100%;　margin:0 auto;}
@@ -130,7 +131,7 @@ header:after{content: ""; display: block; clear: both;}
     width: 100%; height: auto;
     margin: 0 auto;
     text-align: center;
-    margin-top: 100px;}
+    margin-top: 70px;}
   /*祭りお気に入りでのcss*/
   .fev-box{width:50%; height: 120px; margin: 0 auto;
   border: solid 3px #e60033; margin-bottom:20px;}
@@ -142,6 +143,7 @@ header:after{content: ""; display: block; clear: both;}
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;}
+
   /*細かいcss*/
   .fev-td-box{float: left; width: 65%; height: 100%;}
   .fev-day{width: auto; height: 35%;text-align: left;line-height: 60px;}
@@ -163,7 +165,19 @@ header:after{content: ""; display: block; clear: both;}
     height: 100px;
     display: flex;
     align-items: center;
-    word-break : break-all;
+    word-break : break-all;}
+
+  /*お気に入りタイトル*/
+  .fevpage-title{
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+    background-color: #e60033;
+    color: #fff;
+    padding: 1em;
+    line-height: 5px;
+    margin-bottom: 25px;
+    box-shadow    : 1px 1px 1px #666666;
   }
 
   /*設定ページでのcss*/
@@ -175,8 +189,13 @@ header:after{content: ""; display: block; clear: both;}
       margin:0 auto;
       padding-top: 10px;}
   .name{
+    margin-top: 40px;
       width: 300px;
       height:50px;}
+    .userid{
+      width: 300px;
+      height:50px;
+      margin-top: 40px;}
   .mailaddress{
       width: 300px;
       height:50px;
@@ -200,8 +219,10 @@ header:after{content: ""; display: block; clear: both;}
       display: flex;}
   .setting{width: 300px; margin: 0 auto;   height: auto; margin-top: 25px;}
   .setting a{color: #e60033; text-decoration: none;}
+  .setting a:hover{}
   .setting-inner{width: 100%;}
   .setting:after{content:""; display:block; clear:both;}
+  /*言語変更ログアウト*/
   .inquiry_box{float: left; width: 46%;
     border: solid 2px #e60033;
     font-size: 12px;
@@ -242,13 +263,22 @@ header:after{content: ""; display: block; clear: both;}
       width: 150px;
       margin-right: 5px;
       margin-left: 80px;
-      background: red;
+      background: #e60033;
       padding: 1em;
       text-decoration: none;
       text-align: center;
       color: #fff;
       border-style:none;
       border-radius: 3px;
+      outline: none;
+      border: solid #e60033 1px;
+      transition    : .3s;
+      box-shadow    : 1px 1px 1px #666666;
+  }
+  .henkou:hover{
+    background-color: #fff;
+    border: solid 1px #e60033;
+    color: #e60033;
   }
 
 
@@ -264,19 +294,24 @@ header:after{content: ""; display: block; clear: both;}
   .kategori {
     text-align: center;
     list-style: none;
+    margin-bottom: 15px;
   }
   .kategori a{
     color:#000;
     text-decoration: none;
   }
   .kategori a:hover{
+    color: #000;
     border-bottom: solid 2px #e60033;
-  }
+    text-decoration: none;
+    }
   /* tabページ */
   /* recommend */
+  /*上右左下*/
   .week_mon{
     width:40%;
-    margin:30px auto;
+    margin:5px auto 30px;
+    box-shadow    : 1px 1px 1px #666666;
   }
   .week_mon a{
     width:50%;
@@ -291,41 +326,52 @@ header:after{content: ""; display: block; clear: both;}
   .week_mon a:hover{
     background-color: #e60033;
     color: #fff;
+    text-decoration: none;
+    transition    : .3s;
   }
   .month2{
     float:right;
   }
   /* ホーム写真 */
+  .home_img{width: auto; margin-bottom: 10px; text-align: center;}
   .home_img img{
-    width: 100%;
-    margin-bottom: 10px;
+    border:solid 2px #e60033;
+    width: 60%;
   }
   .home_img a:hover{
     opacity: 0.8;
   }
+
+/*変更*/
+.schedule_info_day{}
+.news_info_event{width:100%; height: auto;}
+.news_info_event:after{content: ""; display: block; clear: both;}
+.news_info_event_box{
+  float: left; width: 33.333%;
+  padding: 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  border:solid 1px #eee;
+box-shadow    : 1px 1px 1px #666666;
+margin-bottom: 10px;}
+.news_box{width:100%; height: auto;}
+.news_box:after{content: ""; display: block; clear: both;}
+.news_box1{width: 100%; height: 50%; float: left;}
+.news_box2{width: 100%; height: 50%; float: left;}
+
+
   /* ニュース　メイン写真 */
   .news_title{
-    background-color: rgba(230, 0, 51, 0.6);
-    color:#fff;
-    width:70%;
+    color:#000;
     margin:auto;
     text-align: center;
-    position: absolute;
-    top:60%;
-    left:15%;
-  }
-
-  .author_big{
-    left:15%;
-    position: absolute;
-    top:80%;
-    color: #fff;
+    padding: 10px;
   }
   .date_big{
-    right: 15%;
-    position: absolute;
-    top:80%;
-    color: #fff;
+    padding: 10px;
+    text-align: right;
+    color: #000;
   }
   .date_sub , .author_sub{
     color:#585e60;
@@ -434,23 +480,25 @@ header:after{content: ""; display: block; clear: both;}
       height: auto;
       margin:0 auto;
       padding-top: 100px;
+
   }
   /**/
   .name{
       width: 300px;
       height:50px;
+      margin-top: 30px;
   }
 
   .mailaddress{
       width: 300px;
       height:50px;
-      margin-top: 40px;
+      margin-top: 30px;
   }
 
   .password{
       width: 300px;
       height: 50px;
-      margin-top: 40px;
+      margin-top: 30px;
   }
 
   .password-2{
@@ -492,14 +540,23 @@ header:after{content: ""; display: block; clear: both;}
   .login{
     line-height: 20px;
       width: 150px;
-      margin-top: 30px;
-      background: red;
+      margin-top: 50px;
+      background: #e60033;
       padding: 1em;
       text-decoration: none;
       text-align: center;
       color: #fff;
       border-style:none;
       border-radius: 3px;
+      outline: none;
+      border: solid 1px #e60033;
+      transition    : .3s;
+      box-shadow    : 1px 1px 1px #666666;
+  }
+  .login:hover{
+    background-color: #fff;
+    border: solid 1px #e60033;
+    color: #e60033;
   }
 
   .exit{
@@ -509,26 +566,36 @@ header:after{content: ""; display: block; clear: both;}
       text-align: center;
       padding: 1em;
       text-decoration: none;
-      background: red;
-      color: #ffff;
+      background: #e60033;
+      color: #fff;
       border-radius: 3px;
   }
 .country-width{
-  margin-top: 10px;
+  margin-top: 30px;
   width: 100%;
+  height: 50px;
 }
 
   .touroku{
-    margin-top: 30px;
+    margin-top: 50px;
     line-height: 20px;
       width: 300px;
-      background: red;
+      background: #e60033;
       padding: 1.5em;
       text-decoration: none;
       color: #fff;
       border-style:none;
       border-radius: 3px;
+      border: solid 1px #e60033;
+      outline: none;
+      transition    : .3s;
+      box-shadow    : 1px 1px 1px #666666;
   }
+.touroku:hover{
+  background-color: #fff;
+  border: solid 1px #e60033;
+  color: #e60033;
+}
 
   /* search */
   .search{
@@ -571,12 +638,6 @@ header:after{content: ""; display: block; clear: both;}
       border-radius: 3px;
       margin-top: 90px;
   }
-
-
-
-
-
-
 
 
   .schedule a{
@@ -640,19 +701,20 @@ header:after{content: ""; display: block; clear: both;}
 
 
 
-/*フッター（SP版では非表示になってる）*/
-.box8{border: solid 1px #eee;
-    display: flex;
-    bottom: 0;
-    width: 100%;
-    height: auto;}
-.box8:after{content: ""; display: block; clear: both;}
-.box8-1{font-family: 'Noto Sans JP'; font-weight: lighter;
-  color: #fff; background-color: #e60033; width: 100%; height: auto;
-  font-size: 70%;
-  text-align: center;
-  align-items: center; justify-content: center;}
-
+    /*フッター（SP版では非表示になってる）*/
+    .box8{
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: auto;}
+    .box8:after{content: ""; display: block; clear: both;}
+    .box8-1{font-family: 'Noto Sans JP'; font-weight: lighter;
+      color: #fff; background-color: #e60033; width: 100%; height: auto;
+      font-size: 70%;
+      text-align: center;
+      align-items: center; justify-content: center;}
+      .copy{line-height: 30px; margin: 0px; font-size: 5px;}
 
 
 
@@ -708,10 +770,15 @@ header:after{content: ""; display: block; clear: both;}
   .box3-2{width:50%;}
   .box8{display: none;}
   .fev-box{width: 90%;}
-    .related_article_title_small .news_title_sub{
-      padding:10px 0;
-      font-size: 10px;}
-        .schedule_info_event_box{width: 50%;}
+  .related_article_title_small .news_title_sub{
+  padding:10px 0;
+  font-size: 10px;}
+  .schedule_info_event_box{width: 50%;}
+  .week_mon{margin:0px auto 15px;}
+  .news_info_event_box{width: 100%;}
+  .news_title{font-size: 15px;}
+  .home_img img{width: 100%;}
+
 }
 
 /*767px以下*/
@@ -756,9 +823,9 @@ header:after{content: ""; display: block; clear: both;}
   .fev-kizi p{font-size: 12px;}
   .fev-day p{font-size: 15px;}
   .fev-title p{font-size: 20px}
-    .related_article_title_small .news_title_sub{
-      padding:30px 0;
-      font-size: 22px;
+  .related_article_title_small .news_title_sub{
+    padding:30px 0;
+    font-size: 22px;
     }
 
 }
@@ -771,4 +838,5 @@ header:after{content: ""; display: block; clear: both;}
   .mypage-inner{width: 1190px; margin-left: auto; margin-right: auto;}
   .fevpage-inner{width: 1190px; margin-left: auto; margin-right: auto;}
   .box4-inner{width: 1190px; margin-left: auto; margin-right: auto;}
+  .main_content_inner{width: 1190px; margin-left: auto; margin-right: auto;}
 }

@@ -1,16 +1,25 @@
 <?php
-  session_start();
-  $link      = "";
-  $link_name = "";
-  if(isset($_SESSION["user_id"])) {
-    $link      = "Mypage.php";
-    $link_name = "My page";
-  } else {
-    $link      = "login.php";
-    $link_name = "LOGIN";
-  }
-?>
+$headerPath = 'include/header.php';
+$footerPath = 'include/footer.php';
 
+session_start();
+$link_mypage      = "";
+$link_schedule    = "";
+$link_mypage_name = "";
+if(isset($_SESSION["user_id"])) {
+  $link_mypage      = "mypage.php";
+  $link_schedule    = "schedule.php";
+  $link_mypage_name = "My page";
+} else {
+  $link_mypage      = "sign-in.php";
+  $link_schedule    = "sign-in.php";
+  $link_mypage_name = "SIGN IN";
+}
+
+require_once('../app/DAO/FestivalDAO.class.php');
+$festivalDAO = new FestivalDAO();
+$festivals   = $festivalDAO->getFavoriteFestival();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -59,43 +68,14 @@ return false;
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
-<!--headerスタート-->
-  <header>
-    <!--boxA-innerはヘッダー内の諸々が1190px以上外に出ないようにするためのもの-->
-    <div class="boxA-inner">
-      <!--boxKUUHAKUはSP版表示になった時に左上に空白を持たせておくためのもの（今後戻るボタンなどがはいるかもしれない）-->
-      <div class="boxse">
-        <a href="javascript:void(0);"><img src="../imgs/se.png" alt="" width="25" height="auto"></a>
-      </div>
-      <!--ロゴ画像のボックス-->
-      <div class="box1">
-        <a href="javascript:void(0);"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
-      </div>
-      <!--PC版表示の時のメニューボックス-->
-      <div class="box2">
-        <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
-        <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="<?php echo $link ?>"><div class="box2-3"><?php echo $link_name ?></div></a>
-      </div>
-      <!--マイページに遷移する為のボックス-->
-      <div class="box3">
-      <div class="box3-1">
-        <a href="javascript:void(0);"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
-      </div>
-      <!--スケジュールに遷移する為のボックス-->
-      <div class="box3-2">
-        <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
-      </div>
-    </div>
-    </div>
-</header>
-<!--header終わり-->
-
+  <!--header-->
+  <?php include $headerPath ?>
 
 <!--
 maincontents
 -->
 <div class="main_content col-md-10 col-xs-12 col-lg-12">
+    <div class="main_content_inner">
 
   <ul class="kategori col-md-12 col-xs-12 col-lg-12">
     <li class="col-md-2  col-xs-2 col-lg-2">
@@ -123,18 +103,11 @@ maincontents
         <a href="#" class="month2">MONTH</a>
       </div>
 
+      <?php foreach($festivals as $festival) { ?>
       <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_01.jpg" alt="祭り"></a>
+        <a href="festival.php?festival_id=<?php echo $festival['festival_id'] ?>"><img src="../imgs/<?php echo $festival['festival_img'] ?>" alt="祭り"></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_02.jpg" alt="祭り"></a>
-      </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_01.jpg" alt="祭り"></a>
-      </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_02.jpg" alt="祭り"></a>
-      </div>
+      <?php } ?>
     </div>
 
     <div class="tab-pane fade" id="vote">
@@ -142,75 +115,94 @@ maincontents
     </div>
 
     <div class="tab-pane fade" id="news">
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-        <h6 class="author_big">abc</h6>
-        <h6 class="date_big">2018.6.15</h6>
-      </div>
 
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
+      <div class="news_info_event">
 
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 ">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
+        <a href="article.php">
+          <div class="news_info_event_box">
+            <div class="news_box">
+            <div class="news_box1">
+              <img src="../imgs/nebuta.jpg" class="event_image">
+            </div>
+            <div class="news_box2">
+              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+              <h6 class="date_big">2018.6.15</h6>
+            </div>
+          </div>
+          </div>
+        </a>
 
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
+        <a href="article.php">
+          <div class="news_info_event_box">
+            <div class="news_box">
+            <div class="news_box1">
+              <img src="../imgs/nebuta.jpg" class="event_image">
+            </div>
+            <div class="news_box2">
+              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+              <h6 class="date_big">2018.6.15</h6>
+            </div>
+          </div>
+          </div>
+        </a>
 
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
+        <a href="article.php">
+          <div class="news_info_event_box">
+            <div class="news_box">
+            <div class="news_box1">
+              <img src="../imgs/nebuta.jpg" class="event_image">
+            </div>
+            <div class="news_box2">
+              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+              <h6 class="date_big">2018.6.15</h6>
+            </div>
+          </div>
+          </div>
+        </a>
 
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-        <h6 class="author_big">abc</h6>
-        <h6 class="date_big">2018.6.15</h6>
-      </div>
+        <a href="article.php">
+          <div class="news_info_event_box">
+            <div class="news_box">
+            <div class="news_box1">
+              <img src="../imgs/nebuta.jpg" class="event_image">
+            </div>
+            <div class="news_box2">
+              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+              <h6 class="date_big">2018.6.15</h6>
+            </div>
+          </div>
+          </div>
+        </a>
 
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
+        <a href="article.php">
+          <div class="news_info_event_box">
+            <div class="news_box">
+            <div class="news_box1">
+              <img src="../imgs/nebuta.jpg" class="event_image">
+            </div>
+            <div class="news_box2">
+              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+              <h6 class="date_big">2018.6.15</h6>
+            </div>
+          </div>
+          </div>
+        </a>
 
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
+        <a href="article.php">
+          <div class="news_info_event_box">
+            <div class="news_box">
+            <div class="news_box1">
+              <img src="../imgs/nebuta.jpg" class="event_image">
+            </div>
+            <div class="news_box2">
+              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+              <h6 class="date_big">2018.6.15</h6>
+            </div>
+          </div>
+          </div>
+        </a>
 
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
+    </div>
 
     </div>
 
@@ -219,13 +211,13 @@ maincontents
         <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
       </div>
       <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
+        <a href="#"><img src="../imgs/summer.jpg" alt="夏"></a>
       </div>
       <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
+        <a href="#"><img src="../imgs/autumn.jpg" alt="秋"></a>
       </div>
       <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
+        <a href="#"><img src="../imgs/winter.jpg" alt="冬"></a>
       </div>
     </div>
 
@@ -244,23 +236,14 @@ maincontents
       </div>
     </div>
 
+    </div>
   </div>
-
 </div>
+<!--フッター（SP版では非表示になってる）-->
+<?php include $footerPath ?>
+</body>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--フッター（SP版では非表示になってる）-->
-<footer>
-<div class="box8">
-  <div class="box8-1">
-    <p class="copy">
-      Copyright © 2018 MATURI All Rights Reserved<br>
-    </p>
-  </div>
-</div>
-</footer>
-
-</body>
 </html>

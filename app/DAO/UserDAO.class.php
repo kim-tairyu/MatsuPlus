@@ -9,7 +9,7 @@ class UserDAO extends SuperDAO {
     parent::__construct();
   }
   
-  // DBユーザ情報取得
+  // ユーザ情報を取得
   public function signIn() {
     try {
       $sql  = 'SELECT * FROM user';    // SQL文
