@@ -1,6 +1,7 @@
 <?php
-$headerPath = 'include/header.php';
-$footerPath = 'include/footer.php';
+// パス取得
+require_once('../app/PathList.class.php');
+$pathList = new PathList();
 
 session_start();
 $link_mypage      = "";
@@ -25,9 +26,9 @@ if(isset($_SESSION["user_id"])) {
 <title>マイページ</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
+<link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
+<script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
 $(function() {
@@ -51,7 +52,7 @@ $(function() {
 });
 //画像のみ保存禁止
 $(function(){
-$("../imgs").on("contextmenu",function(){
+$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
 return false;
 });
 });
@@ -64,7 +65,7 @@ return false;
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
   <!--header-->
-  <?php include $headerPath ?>
+  <?php include $pathList->headerPath ?>
 
 <!--
 maincontents
@@ -76,7 +77,7 @@ maincontents
 
   <!--ユーザーのプロフィール画像-->
   <div class="my_image">
-      <img src="../imgs/gaijin.png" class="">
+      <img src="<?php echo $pathList->imgsPath; ?>gaijin.png" class="">
   </div>
   <!--ユーザーネームをかこっているボックス-->
   <div class="user_name_box">
@@ -94,7 +95,7 @@ maincontents
 
 
 <!--フッター（SP版では非表示になってる）-->
-<?php include $footerPath ?>
+<?php include $pathList->footerPath ?>
 
 </body>
 </html>

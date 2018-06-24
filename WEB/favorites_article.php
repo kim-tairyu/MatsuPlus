@@ -1,6 +1,7 @@
 <?php
-$headerPath = 'include/header.php';
-$footerPath = 'include/footer.php';
+// パス取得
+require_once('../app/PathList.class.php');
+$pathList = new PathList();
 
 session_start();
 $link_mypage      = "";
@@ -25,9 +26,9 @@ if(isset($_SESSION["user_id"])) {
 <title>記事お気に入り</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
+<link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
+<script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
 $(function() {
@@ -51,7 +52,7 @@ $(function() {
 });
 //画像のみ保存禁止
 $(function(){
-$("../imgs").on("contextmenu",function(){
+$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
 return false;
 });
 });
@@ -64,56 +65,71 @@ return false;
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
   <!--header-->
-  <?php include $headerPath ?>
+  <?php include $pathList->headerPath ?>
 
 <!--
 maincontents
 -->
 
 <!--全体をかこっているwraperのようなもの-->
-<div class="fevpage">
+<div class="fevpage" id="myTapContent">
   <div class="fevpage-inner">
-
+    <!--ページタイトル-->
     <div class="fevpage-title">
       <p>Article Favorites</p>
     </div>
-
-    <!--記事お気に入りボックス１-->
-    <div class="fev-box">
-      <a href="javascript:void(0);">
-      <div class="fev-kizi-imagebox"><img src="../imgs/fev1.png" class="fev-image"></div>
-      <div class="fev-kizi-box">
-        <div class="fev-kizi"><p class="">Temple in Kyoto pays monks ¥6.6 million in unpaid overtime
-        WWII bomb found in Thames</p></div>
+    <!--さらに中のwrap-->
+    <div class="search_results_box">
+      <div class="search_results_box_inner">
+        <!--お気に入り１-->
+        <div class="search_results_box1">
+              <a href="#">
+                  <div class="search_results_box2">
+                  <div class="search_results_box2-1">
+                    <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                  </div>
+                  <div class="search_results_box2-2">
+                    <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                    <h6 class="search_results_date_big">2018.6.15</h6>
+                  </div>
+                </div>
+            </a>
+        </div>
+        <!--お気に入り２（以下略）-->
+        <div class="search_results_box1">
+              <a href="#">
+                  <div class="search_results_box2">
+                  <div class="search_results_box2-1">
+                    <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                  </div>
+                  <div class="search_results_box2-2">
+                    <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                    <h6 class="search_results_date_big">2018.6.15</h6>
+                  </div>
+                </div>
+            </a>
+        </div>
+        <div class="search_results_box1">
+              <a href="#">
+                  <div class="search_results_box2">
+                  <div class="search_results_box2-1">
+                    <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                  </div>
+                  <div class="search_results_box2-2">
+                    <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                    <h6 class="search_results_date_big">2018.6.15</h6>
+                  </div>
+                </div>
+            </a>
+        </div>
       </div>
-    </a>
-    </div>
-    <!--記事お気に入りボックス２-->
-    <div class="fev-box">
-      <a href="javascript:void(0);">
-      <div class="fev-kizi-imagebox"><img src="../imgs/fev2.png" class="fev-image"></div>
-      <div class="fev-kizi-box">
-        <div class="fev-kizi"><p class="">Temple in Kyoto pays monks ¥6.6 million in unpaid overtime
-        WWII bomb found in Thames</p></div>
-      </div>
-    </a>
-    </div>
-    <!--記事お気に入りボックス３-->
-    <div class="fev-box">
-      <a href="javascript:void(0);">
-      <div class="fev-kizi-imagebox"><img src="../imgs/fev3.png" class="fev-image"></div>
-      <div class="fev-kizi-box">
-        <div class="fev-kizi"><p class="">Temple in Kyoto pays monks ¥6.6 million in unpaid overtime
-        WWII bomb found in Thames</p></div>
-      </div>
-    </a>
     </div>
 
   </div>
 </div>
 
 <!--フッター（SP版では非表示になってる）-->
-<?php include $footerPath ?>
+<?php include $pathList->footerPath ?>
 
 </body>
 </html>

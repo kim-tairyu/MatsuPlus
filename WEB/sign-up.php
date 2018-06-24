@@ -1,6 +1,7 @@
 <?php
-$headerPath = 'include/header.php';
-$footerPath = 'include/footer.php';
+// パス取得
+require_once('../app/PathList.class.php');
+$pathList = new PathList();
 
 session_start();
 $link_mypage      = "";
@@ -30,9 +31,9 @@ if(isset($_GET["error"])) {
 <title>新規登録</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
+<link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
+<script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
 $(function() {
@@ -56,7 +57,7 @@ $(function() {
 });
 //画像のみ保存禁止
 $(function(){
-$("../imgs").on("contextmenu",function(){
+$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
 return false;
 });
 });
@@ -69,14 +70,14 @@ return false;
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
   <!--header-->
-  <?php include $headerPath ?>
+  <?php include $pathList->headerPath ?>
 
 <!--
 maincontents
 -->
 
 
-<div class="box4">
+<div class="box4" id="myTapContent">
 <div class="box4-inner">
       <div class="adduser">
         <form method="post" action="../app/Sign-up.php">
@@ -100,10 +101,8 @@ maincontents
 </div>
 </div>
 
-
-
 <!--フッター（SP版では非表示になってる）-->
-<?php include $footerPath ?>
+<?php include $pathList->footerPath ?>
 
 </body>
 </html>

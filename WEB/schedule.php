@@ -1,6 +1,7 @@
 <?php
-$headerPath = 'include/header.php';
-$footerPath = 'include/footer.php';
+// パス取得
+require_once('../app/PathList.class.php');
+$pathList = new PathList();
 
 session_start();
 $link_mypage      = "";
@@ -25,9 +26,9 @@ if(isset($_SESSION["user_id"])) {
 <title>スケジュール</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
+<link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
+<script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
 $(function() {
@@ -51,7 +52,7 @@ $(function() {
 });
 //画像のみ保存禁止
 $(function(){
-$("../imgs").on("contextmenu",function(){
+$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
 return false;
 });
 });
@@ -64,14 +65,14 @@ return false;
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
   <!--header-->
-  <?php include $headerPath ?>
+  <?php include $pathList->headerPath ?>
 
 
 <!--
 maincontents
 -->
 
-<div class="box4">
+<div class="box4" id="myTapContent">
 <div class="box4-inner">
 
       <div class="schedule">
@@ -141,39 +142,60 @@ maincontents
         </tr>
         </table>
     </div>
-
+          <!--何月何日のエリア-->
             <div class="schedule_info">
                 <div class="schedule_info_day"><h1>○○月○○日の予定</h1></div>
-
-                <div class="schedule_info_event">
-                    <div class="schedule_info_event_box">
-                      <img src="../imgs/nebuta.jpg" class="event_image">
-                    </div>
-                    <div class="schedule_info_event_box">
-                      <img src="../imgs/nebuta.jpg" class="event_image">
-                    </div>
-                    <div class="schedule_info_event_box">
-                      <img src="../imgs/nebuta.jpg" class="event_image">
-                    </div>
-                    <div class="schedule_info_event_box">
-                      <img src="../imgs/nebuta.jpg" class="event_image">
-                    </div>
-                    <div class="schedule_info_event_box">
-                      <img src="../imgs/nebuta.jpg" class="event_image">
-                    </div>
-                    <div class="schedule_info_event_box">
-                      <img src="../imgs/nebuta.jpg" class="event_image">
-                    </div>
-              </div>
-              
+                <!---->
+                  <div class="search_results_box">
+                    <!--結果1-->
+                      <div class="search_results_box1-1">
+                            <a href="#">
+                                <div class="search_results_box2">
+                                <div class="search_results_box2-1">
+                                  <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                                </div>
+                                <div class="search_results_box2-2">
+                                  <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                                  <h6 class="search_results_date_big">2018.6.15</h6>
+                                </div>
+                              </div>
+                          </a>
+                      </div>
+                      <!--結果２-->
+                      <div class="search_results_box1-1">
+                            <a href="#">
+                                <div class="search_results_box2">
+                                <div class="search_results_box2-1">
+                                  <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                                </div>
+                                <div class="search_results_box2-2">
+                                  <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                                  <h6 class="search_results_date_big">2018.6.15</h6>
+                                </div>
+                              </div>
+                          </a>
+                      </div>
+                      <!--結果３-->
+                      <div class="search_results_box1-1">
+                            <a href="#">
+                                <div class="search_results_box2">
+                                <div class="search_results_box2-1">
+                                  <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                                </div>
+                                <div class="search_results_box2-2">
+                                  <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                                  <h6 class="search_results_date_big">2018.6.15</h6>
+                                </div>
+                              </div>
+                          </a>
+                      </div>
+                  </div>
             </div>
-
-
   </div>
 </div>
 
 <!--フッター（SP版では非表示になってる）-->
-<?php include $footerPath ?>
+<?php include $pathList->footerPath ?>
 
 </body>
 </html>

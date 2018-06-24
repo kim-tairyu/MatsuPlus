@@ -1,6 +1,7 @@
 <?php
-$headerPath = 'include/header.php';
-$footerPath = 'include/footer.php';
+// パス取得
+require_once('../app/PathList.class.php');
+$pathList = new PathList();
 
 session_start();
 $link_mypage      = "";
@@ -28,9 +29,9 @@ $festivals   = $festivalDAO->getFavoriteFestival();
 <title>産学祭りの側</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
+<link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
+<script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
 $(function() {
@@ -54,7 +55,7 @@ $(function() {
 });
 //画像のみ保存禁止
 $(function(){
-$("../imgs").on("contextmenu",function(){
+$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
 return false;
 });
 });
@@ -69,13 +70,13 @@ return false;
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
   <!--header-->
-  <?php include $headerPath ?>
+  <?php include $pathList->headerPath ?>
 
 <!--
 maincontents
 -->
-<div class="main_content col-md-10 col-xs-12 col-lg-12">
-    <div class="main_content_inner">
+<div class="main_content">
+  <div class="main_content_inner">
 
   <ul class="kategori col-md-12 col-xs-12 col-lg-12">
     <li class="col-md-2  col-xs-2 col-lg-2">
@@ -94,145 +95,168 @@ maincontents
       <a href="#area" data-toggle="tab">AREA</a>
     </li>
   </ul>
-
+  <!--index.php全体を囲むwrap-->
   <div class="tab-content col-xs-12 col-md-12 col-lg-12" id="myTapContent">
 
+    <!--レビュー順で表示のエリア-->
     <div class="tab-pane fade in active" id="recommend">
       <div class="week_mon">
         <a href="#">WEEK</a>
         <a href="#" class="month2">MONTH</a>
       </div>
 
-      <?php foreach($festivals as $festival) { ?>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="festival.php?festival_id=<?php echo $festival['festival_id'] ?>"><img src="../imgs/<?php echo $festival['festival_img'] ?>" alt="祭り"></a>
-      </div>
-      <?php } ?>
-    </div>
+            <div class="news_info_event">
+              <?php foreach($festivals as $festival) { ?>
+              <div class="news_info_event_box">
+                      <a href="festival.php?festival_id=<?php echo $festival['festival_id'] ?>">
+                          <div class="news_box">
+                          <div class="news_box1">
+                            <img src="<?php echo $pathList->imgsPath; ?><?php echo $festival['festival_img']; ?>" class="event_image">
+                          </div>
+                          <div class="news_box2">
+                            <h4 class="news_title">SANJA MATURI</h4>
+                            <h6 class="date_big">2018.6.15</h6>
+                          </div>
+                        </div>
+                    </a>
+                </div>
+                <?php } ?>
+            </div>
 
+    </div>
+    <!--投票機能エリア-->
     <div class="tab-pane fade" id="vote">
-      2
+      投票を実装予定
     </div>
-
+    <!--記事エリア-->
     <div class="tab-pane fade" id="news">
-
+      <!--wrapのようなもの-->
       <div class="news_info_event">
-
-        <a href="article.php">
+        <!--記事1-->
+        <div class="news_info_event_box">
+                <a href="#">
+                    <div class="news_box">
+                    <div class="news_box1">
+                      <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                    </div>
+                    <div class="news_box2">
+                      <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                      <h6 class="date_big">2018.6.15</h6>
+                    </div>
+                  </div>
+              </a>
+          </div>
+          <!--記事2(以下略)-->
           <div class="news_info_event_box">
-            <div class="news_box">
-            <div class="news_box1">
-              <img src="../imgs/nebuta.jpg" class="event_image">
+                  <a href="#">
+                      <div class="news_box">
+                      <div class="news_box1">
+                        <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                      </div>
+                      <div class="news_box2">
+                        <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                        <h6 class="date_big">2018.6.15</h6>
+                      </div>
+                    </div>
+                </a>
             </div>
-            <div class="news_box2">
-              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-              <h6 class="date_big">2018.6.15</h6>
-            </div>
-          </div>
-          </div>
-        </a>
-
-        <a href="article.php">
-          <div class="news_info_event_box">
-            <div class="news_box">
-            <div class="news_box1">
-              <img src="../imgs/nebuta.jpg" class="event_image">
-            </div>
-            <div class="news_box2">
-              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-              <h6 class="date_big">2018.6.15</h6>
-            </div>
-          </div>
-          </div>
-        </a>
-
-        <a href="article.php">
-          <div class="news_info_event_box">
-            <div class="news_box">
-            <div class="news_box1">
-              <img src="../imgs/nebuta.jpg" class="event_image">
-            </div>
-            <div class="news_box2">
-              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-              <h6 class="date_big">2018.6.15</h6>
-            </div>
-          </div>
-          </div>
-        </a>
-
-        <a href="article.php">
-          <div class="news_info_event_box">
-            <div class="news_box">
-            <div class="news_box1">
-              <img src="../imgs/nebuta.jpg" class="event_image">
-            </div>
-            <div class="news_box2">
-              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-              <h6 class="date_big">2018.6.15</h6>
-            </div>
-          </div>
-          </div>
-        </a>
-
-        <a href="article.php">
-          <div class="news_info_event_box">
-            <div class="news_box">
-            <div class="news_box1">
-              <img src="../imgs/nebuta.jpg" class="event_image">
-            </div>
-            <div class="news_box2">
-              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-              <h6 class="date_big">2018.6.15</h6>
-            </div>
-          </div>
-          </div>
-        </a>
-
-        <a href="article.php">
-          <div class="news_info_event_box">
-            <div class="news_box">
-            <div class="news_box1">
-              <img src="../imgs/nebuta.jpg" class="event_image">
-            </div>
-            <div class="news_box2">
-              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-              <h6 class="date_big">2018.6.15</h6>
-            </div>
-          </div>
-          </div>
-        </a>
-
+            <div class="news_info_event_box">
+                    <a href="#">
+                        <div class="news_box">
+                        <div class="news_box1">
+                          <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                        </div>
+                        <div class="news_box2">
+                          <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                          <h6 class="date_big">2018.6.15</h6>
+                        </div>
+                      </div>
+                  </a>
+              </div>
+              <div class="news_info_event_box">
+                      <a href="#">
+                          <div class="news_box">
+                          <div class="news_box1">
+                            <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                          </div>
+                          <div class="news_box2">
+                            <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                            <h6 class="date_big">2018.6.15</h6>
+                          </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="news_info_event_box">
+                        <a href="#">
+                            <div class="news_box">
+                            <div class="news_box1">
+                              <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                            </div>
+                            <div class="news_box2">
+                              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                              <h6 class="date_big">2018.6.15</h6>
+                            </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="news_info_event_box">
+                          <a href="#">
+                              <div class="news_box">
+                              <div class="news_box1">
+                                <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
+                              </div>
+                              <div class="news_box2">
+                                <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
+                                <h6 class="date_big">2018.6.15</h6>
+                              </div>
+                            </div>
+                        </a>
+                    </div>
+        </div>
     </div>
-
-    </div>
-
+    <!--季節リア-->
     <div class="tab-pane fade" id="season">
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>spring.jpg" alt="春"></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/summer.jpg" alt="夏"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>summer.jpg" alt="夏"></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/autumn.jpg" alt="秋"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>autumn.jpg" alt="秋"></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/winter.jpg" alt="冬"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>winter.jpg" alt="冬"></a>
       </div>
     </div>
-
+    <!--地方エリア-->
     <div class="tab-pane fade" id="area">
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/hokkaidou.jpg" alt="北海道"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hokkaidou.jpg" alt=""></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/hokkaidou.jpg" alt="北海道"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>tohoku.jpg" alt=""></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/hokkaidou.jpg" alt="北海道"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kinki.jpg" alt=""></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/hokkaidou.jpg" alt="北海道"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kanto.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>chubu.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>chugoku.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>shikoku.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kyushu.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>okinawa.jpg" alt=""></a>
       </div>
     </div>
 
@@ -240,7 +264,7 @@ maincontents
   </div>
 </div>
 <!--フッター（SP版では非表示になってる）-->
-<?php include $footerPath ?>
+<?php include $pathList->footerPath ?>
 </body>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
