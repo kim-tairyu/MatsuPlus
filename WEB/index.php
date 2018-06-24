@@ -26,7 +26,7 @@ $festivals   = $festivalDAO->getFavoriteFestival();
 
 <head>
 <meta charset="utf-8">
-<title>産学祭りの側</title>
+<title>Matsuri Plus</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />

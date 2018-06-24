@@ -26,7 +26,7 @@ if(isset($_SESSION["user_id"])) {
 <title>検索</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
 <link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
 <script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
