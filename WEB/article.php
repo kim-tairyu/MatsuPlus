@@ -22,7 +22,7 @@ $article_id = 1;
 // 記事情報を取得
 require_once('../app/DAO/ArticleDAO.class.php');
 $articleDAO = new ArticleDAO();
-$articles   = $articleDAO->getArticleInfo($article_id);
+$articles   = $articleDAO->getOneArticle($article_id);
 foreach($articles as $article){
     $title[] = $article['article_title'].PHP_EOL;
     $date[]  = $article['post_date'].PHP_EOL;

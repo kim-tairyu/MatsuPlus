@@ -89,11 +89,11 @@ maincontents
     <!-- 説明文 -->
     <div class="search">
       <!--formスタート-->
-      <form>
+      <form method="post" action="Inspection.php">
         <p>祭り名から探す</p>
-        <input type="text" placeholder="Search" class="search_text">
+        <input type="text" placeholder="Search" class="search_text" name="festival_name">
         <p>開催地から探す</p>
-        <select class="pref_name">
+        <select class="pref_name" name="location">
         <option value="" selected>都道府県</option>
         <option value="北海道">北海道</option>
         <option value="青森県">青森県</option>
@@ -145,7 +145,7 @@ maincontents
         </select>
 
         <p>日付から探す</p>
-        <select name="pref_name">
+        <select name="start_day">
         <option value="" selected>月</option>
         <option value="1月1日">1月1日</option>
         <option value="1月2日">1月2日</option>

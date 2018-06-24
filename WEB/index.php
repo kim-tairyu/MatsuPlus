@@ -3,6 +3,15 @@
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
 
+// おすすめお祭り情報を取得
+require_once('../app/DAO/FestivalDAO.class.php');
+$festivalDAO = new FestivalDAO();
+$festivals   = $festivalDAO->getRecommendedFestivals();
+// 記事情報を取得
+require_once('../app/DAO/ArticleDAO.class.php');
+$articleDAO = new ArticleDAO();
+$articles   = $articleDAO->getArticles();
+
 session_start();
 $link_mypage      = "";
 $link_schedule    = "";
@@ -16,10 +25,6 @@ if(isset($_SESSION["user_id"])) {
   $link_schedule    = "sign-in.php";
   $link_mypage_name = "SIGN IN";
 }
-
-require_once('../app/DAO/FestivalDAO.class.php');
-$festivalDAO = new FestivalDAO();
-$festivals   = $festivalDAO->getFavoriteFestival();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -71,7 +76,6 @@ return false;
   <![endif]-->
   <!--header-->
   <?php include $pathList->headerPath ?>
-
 <!--
 maincontents
 -->
@@ -114,8 +118,8 @@ maincontents
                             <img src="<?php echo $pathList->imgsPath; ?><?php echo $festival['festival_img']; ?>" class="event_image">
                           </div>
                           <div class="news_box2">
-                            <h4 class="news_title">SANJA MATURI</h4>
-                            <h6 class="date_big">2018.6.15</h6>
+                            <h4 class="news_title"><?php echo $festival['festival_name'] ?></h4>
+                            <h6 class="date_big"><?php echo $festival['start_date'] ?></h6>
                           </div>
                         </div>
                     </a>
@@ -134,84 +138,20 @@ maincontents
       <div class="news_info_event">
         <!--記事1-->
         <div class="news_info_event_box">
-                <a href="#">
-                    <div class="news_box">
-                    <div class="news_box1">
-                      <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
-                    </div>
-                    <div class="news_box2">
-                      <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                      <h6 class="date_big">2018.6.15</h6>
-                    </div>
+              <?php foreach($articles as $article) { ?>
+              <a href="#">
+                  <div class="news_box">
+                  <div class="news_box1">
+                    <img src="<?php echo $article['article_img']; ?>" class="event_image">
                   </div>
-              </a>
-          </div>
-          <!--記事2(以下略)-->
-          <div class="news_info_event_box">
-                  <a href="#">
-                      <div class="news_box">
-                      <div class="news_box1">
-                        <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
-                      </div>
-                      <div class="news_box2">
-                        <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                        <h6 class="date_big">2018.6.15</h6>
-                      </div>
-                    </div>
-                </a>
-            </div>
-            <div class="news_info_event_box">
-                    <a href="#">
-                        <div class="news_box">
-                        <div class="news_box1">
-                          <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
-                        </div>
-                        <div class="news_box2">
-                          <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                          <h6 class="date_big">2018.6.15</h6>
-                        </div>
-                      </div>
-                  </a>
-              </div>
-              <div class="news_info_event_box">
-                      <a href="#">
-                          <div class="news_box">
-                          <div class="news_box1">
-                            <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
-                          </div>
-                          <div class="news_box2">
-                            <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                            <h6 class="date_big">2018.6.15</h6>
-                          </div>
-                        </div>
-                    </a>
+                  <div class="news_box2">
+                    <h4 class="news_title"><?php echo $article['article_title']; ?></h4>
+                    <h6 class="date_big"><?php echo $article['post_date']; ?></h6>
+                  </div>
                 </div>
-                <div class="news_info_event_box">
-                        <a href="#">
-                            <div class="news_box">
-                            <div class="news_box1">
-                              <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
-                            </div>
-                            <div class="news_box2">
-                              <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                              <h6 class="date_big">2018.6.15</h6>
-                            </div>
-                          </div>
-                      </a>
-                  </div>
-                  <div class="news_info_event_box">
-                          <a href="#">
-                              <div class="news_box">
-                              <div class="news_box1">
-                                <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
-                              </div>
-                              <div class="news_box2">
-                                <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                                <h6 class="date_big">2018.6.15</h6>
-                              </div>
-                            </div>
-                        </a>
-                    </div>
+              </a>
+              <?php } ?>
+          </div>
         </div>
     </div>
     <!--季節リア-->

@@ -10,7 +10,7 @@ class FestivalDAO extends SuperDAO {
   }
   
   // おすすめ祭り情報を取得
-  public function getFavoriteFestival() {
+  public function getRecommendedFestivals() {
     try {
       $sql  = 'SELECT * FROM festival ORDER BY review_score DESC;';
       $pdo  = parent::getConnection();  // DB接続

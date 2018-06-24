@@ -9,8 +9,23 @@ class ArticleDAO extends SuperDAO {
     parent::__construct();
   }
   
-  // 記事情報を取得
-  public function getArticleInfo($article_id) {
+  // 記事情報を取得（全件）
+  public function getArticles() {
+    try {
+      $sql  = 'SELECT * FROM article;';
+      $pdo  = parent::getConnection();  // DB接続
+      $stmt = $pdo->prepare($sql);      // ステートメント
+      $stmt->execute();                 // SQL文実行
+      parent::closeDB();                // DB切断
+    } catch(PDOException $e) {
+      echo 'DB SELECT Error!'.$e->getMesseage;
+      die();
+    }
+    return $stmt;
+  }
+
+  // 記事情報を取得（一件）
+  public function getOneArticle($article_id) {
     try {
       $sql  = 'SELECT * FROM article WHERE article_id = ?;';
       $pdo  = parent::getConnection();  // DB接続
