@@ -139,7 +139,7 @@ maincontents
         <!--記事1-->
         <div class="news_info_event_box">
               <?php foreach($articles as $article) { ?>
-              <a href="#">
+              <a href="article.php?article_id=?">
                   <div class="news_box">
                   <div class="news_box1">
                     <img src="<?php echo $article['article_img']; ?>" class="event_image">
