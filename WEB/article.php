@@ -70,9 +70,7 @@ return false;
 });
 </script>
 <!-- Bootstrap -->
-    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
-
+    <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
 </head>
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
 <body>
@@ -97,8 +95,6 @@ maincontents
   </div>
   <!--お気に入りボタン-->
   <a href="#"><div class="fev_button"><p>♡</p></div></a>
-  <!--スケジュール追加ボタン-->
-  <a href="#"><div class="fev_button2"><p>仮</p></div></a>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <h5 class="date"><?php echo $start_time[0] ?></h5>
