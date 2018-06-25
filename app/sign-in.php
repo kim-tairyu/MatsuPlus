@@ -1,7 +1,7 @@
 <?php
 // 入力チェック
 if( !isset($_POST["user_id"]) || !isset($_POST["password"]) ){
-    header("Location: ../WEB/login.php?error");
+    header("Location: ../WEB/sign.php?error");
     exit;
 }
 
@@ -45,7 +45,7 @@ $url = null;
 if($success){
   $url = "../WEB/index.php";
 }else{
-  $url = "../WEB/login.php?error";
+  $url = "../WEB/sign-in.php?error";
 }
 
 // 画面遷移

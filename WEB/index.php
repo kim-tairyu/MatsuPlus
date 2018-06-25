@@ -1,27 +1,42 @@
 <?php
-  session_start();
-  $link      = "";
-  $link_name = "";
-  if(isset($_SESSION["user_id"])) {
-    $link      = "Mypage.php";
-    $link_name = "My page";
-  } else {
-    $link      = "login.php";
-    $link_name = "LOGIN";
-  }
-?>
+// パス取得
+require_once('../app/PathList.class.php');
+$pathList = new PathList();
 
+// おすすめお祭り情報を取得
+require_once('../app/DAO/FestivalDAO.class.php');
+$festivalDAO = new FestivalDAO();
+$festivals   = $festivalDAO->getRecommendedFestivals();
+// 記事情報を取得
+require_once('../app/DAO/ArticleDAO.class.php');
+$articleDAO = new ArticleDAO();
+$articles   = $articleDAO->getArticles();
+
+session_start();
+$link_mypage      = "";
+$link_schedule    = "";
+$link_mypage_name = "";
+if(isset($_SESSION["user_id"])) {
+  $link_mypage      = "mypage.php";
+  $link_schedule    = "schedule.php";
+  $link_mypage_name = "My page";
+} else {
+  $link_mypage      = "sign-in.php";
+  $link_schedule    = "sign-in.php";
+  $link_mypage_name = "SIGN IN";
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
 <meta charset="utf-8">
-<title>産学祭りの側</title>
+<title>Matsuri Plus</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<link rel="SHORTCUT ICON" href="../imgs/M.ico">
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
+<link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
+<script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //まだ使うかわからんjsの処理
 $(function() {
@@ -45,7 +60,7 @@ $(function() {
 });
 //画像のみ保存禁止
 $(function(){
-$("../imgs").on("contextmenu",function(){
+$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
 return false;
 });
 });
@@ -59,43 +74,13 @@ return false;
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
           <a href="http://browsehappy.com/">他のブラウザ</a>を利用されるか、<a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a>をインストールすることで正しく表示することができます。</p>
   <![endif]-->
-<!--headerスタート-->
-  <header>
-    <!--boxA-innerはヘッダー内の諸々が1190px以上外に出ないようにするためのもの-->
-    <div class="boxA-inner">
-      <!--boxKUUHAKUはSP版表示になった時に左上に空白を持たせておくためのもの（今後戻るボタンなどがはいるかもしれない）-->
-      <div class="boxse">
-        <a href="javascript:void(0);"><img src="../imgs/se.png" alt="" width="25" height="auto"></a>
-      </div>
-      <!--ロゴ画像のボックス-->
-      <div class="box1">
-        <a href="javascript:void(0);"><img src="../imgs/logo.png" alt="" width="140" height="auto"></a>
-      </div>
-      <!--PC版表示の時のメニューボックス-->
-      <div class="box2">
-        <a href="javascript:void(0);"><div class="box2-1">Home</div></a>
-        <a href="javascript:void(0);"><div class="box2-2">Search</div></a>
-        <a href="<?php echo $link ?>"><div class="box2-3"><?php echo $link_name ?></div></a>
-      </div>
-      <!--マイページに遷移する為のボックス-->
-      <div class="box3">
-      <div class="box3-1">
-        <a href="javascript:void(0);"><img src="../imgs/my.png" alt="" width="25" height="auto"></a>
-      </div>
-      <!--スケジュールに遷移する為のボックス-->
-      <div class="box3-2">
-        <a href="javascript:void(0);"><img src="../imgs/kare.png" alt="" width="28" height="auto"></a>
-      </div>
-    </div>
-    </div>
-</header>
-<!--header終わり-->
-
-
+  <!--header-->
+  <?php include $pathList->headerPath ?>
 <!--
 maincontents
 -->
-<div class="main_content col-md-10 col-xs-12 col-lg-12">
+<div class="main_content">
+  <div class="main_content_inner">
 
   <ul class="kategori col-md-12 col-xs-12 col-lg-12">
     <li class="col-md-2  col-xs-2 col-lg-2">
@@ -114,153 +99,115 @@ maincontents
       <a href="#area" data-toggle="tab">AREA</a>
     </li>
   </ul>
-
+  <!--index.php全体を囲むwrap-->
   <div class="tab-content col-xs-12 col-md-12 col-lg-12" id="myTapContent">
 
+    <!--レビュー順で表示のエリア-->
     <div class="tab-pane fade in active" id="recommend">
       <div class="week_mon">
         <a href="#">WEEK</a>
         <a href="#" class="month2">MONTH</a>
       </div>
 
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_01.jpg" alt="祭り"></a>
-      </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_02.jpg" alt="祭り"></a>
-      </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_01.jpg" alt="祭り"></a>
-      </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/matsuri_02.jpg" alt="祭り"></a>
-      </div>
-    </div>
+            <div class="news_info_event">
+              <?php foreach($festivals as $festival) { ?>
+              <div class="news_info_event_box">
+                      <a href="festival.php?festival_id=<?php echo $festival['festival_id'] ?>">
+                          <div class="news_box">
+                          <div class="news_box1">
+                            <img src="<?php echo $pathList->imgsPath; ?><?php echo $festival['festival_img']; ?>" class="event_image">
+                          </div>
+                          <div class="news_box2">
+                            <h4 class="news_title"><?php echo $festival['festival_name'] ?></h4>
+                            <h6 class="date_big"><?php echo $festival['start_date'] ?></h6>
+                          </div>
+                        </div>
+                    </a>
+                </div>
+                <?php } ?>
+            </div>
 
+    </div>
+    <!--投票機能エリア-->
     <div class="tab-pane fade" id="vote">
-      2
+      投票を実装予定
     </div>
-
+    <!--記事エリア-->
     <div class="tab-pane fade" id="news">
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-        <h6 class="author_big">abc</h6>
-        <h6 class="date_big">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 ">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h4 class="news_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-        <h6 class="author_big">abc</h6>
-        <h6 class="date_big">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5 col-lg-offset-1">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
-      <div class="home_img home_img_sub col-xs-6 col-md-6 col-lg-5">
-        <a href="#"><img src="../imgs/news_01.jpg" alt="祭りニュース"></a>
-        <h5 class="news_title_sub">Main procession passes along Cuo-dori Street</h5>
-        <h6 class="author_sub">abc</h6>
-        <h6 class="date_sub">2018.6.15</h6>
-      </div>
-
+      <!--wrapのようなもの-->
+      <div class="news_info_event">
+        <!--記事1-->
+        <div class="news_info_event_box">
+              <?php foreach($articles as $article) { ?>
+              <a href="article.php?article_id=?">
+                  <div class="news_box">
+                  <div class="news_box1">
+                    <img src="<?php echo $article['article_img']; ?>" class="event_image">
+                  </div>
+                  <div class="news_box2">
+                    <h4 class="news_title"><?php echo $article['article_title']; ?></h4>
+                    <h6 class="date_big"><?php echo $article['post_date']; ?></h6>
+                  </div>
+                </div>
+              </a>
+              <?php } ?>
+          </div>
+        </div>
     </div>
-
+    <!--季節リア-->
     <div class="tab-pane fade" id="season">
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>spring.jpg" alt="春"></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>summer.jpg" alt="夏"></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>autumn.jpg" alt="秋"></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/spring.jpg" alt="春"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>winter.jpg" alt="冬"></a>
       </div>
     </div>
-
+    <!--地方エリア-->
     <div class="tab-pane fade" id="area">
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/hokkaidou.jpg" alt="北海道"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hokkaidou.jpg" alt=""></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/hokkaidou.jpg" alt="北海道"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>tohoku.jpg" alt=""></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/hokkaidou.jpg" alt="北海道"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kinki.jpg" alt=""></a>
       </div>
-      <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-        <a href="#"><img src="../imgs/hokkaidou.jpg" alt="北海道"></a>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kanto.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>chubu.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>chugoku.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>shikoku.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kyushu.jpg" alt=""></a>
+      </div>
+      <div class="home_img">
+        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>okinawa.jpg" alt=""></a>
       </div>
     </div>
 
+    </div>
   </div>
-
 </div>
+<!--フッター（SP版では非表示になってる）-->
+<?php include $pathList->footerPath ?>
+</body>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--フッター（SP版では非表示になってる）-->
-<footer>
-<div class="box8">
-  <div class="box8-1">
-    <p class="copy">
-      Copyright © 2018 MATURI All Rights Reserved<br>
-    </p>
-  </div>
-</div>
-</footer>
-
-</body>
 </html>
