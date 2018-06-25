@@ -63,7 +63,7 @@ if(isset($_POST['r_button']) == 'registration'){
     $registration->bindValue(':end_time', $end_time, PDO::PARAM_STR);
     $registration->bindValue(':location', $location, PDO::PARAM_STR);
     $registration->execute();
-    
+
 }else if(isset($_POST['review_button']) == 'review'){
     $review = $pdo -> prepare("INSERT INTO review (festival_id,user_id,review,star)VALUES(:festival_id,:user_id,:review,:star)");
     $review->bindValue(":festival_id",$festival_id,PDO::PARAM_INT);
@@ -124,8 +124,8 @@ return false;
   </head>
   <body>
 <!-- Bootstrap -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
   <!--[if lt IE 8]>
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
@@ -142,11 +142,14 @@ maincontents
   <div class="main_content_fes_inner">
     <!--記事or祭りタイトル-->
   <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $name[0] ?></h1>
-    <!--祭りor記事画像＆お気に入りボタン（仮）-->
+    <!--祭りor記事画像(仮)-->
   <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <a href="#"><img src="<?php echo $pathList->imgsPath; ?>article_img2.jpg" alt="祭り"></a>
-    <a href="#"><div class="fev_button"><p>♡</p></div></a>
   </div>
+  <!--お気に入りボタン-->
+  <a href="#"><div class="fev_button"><p>♡</p></div></a>
+  <!--スケジュール追加ボタン-->
+  <a href="#"><div class="fev_button2"><p>仮</p></div></a>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <h5 class="date"><?php echo $start_time[0] ?></h5>
