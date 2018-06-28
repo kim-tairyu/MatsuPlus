@@ -495,7 +495,46 @@ color: #e60033; padding-top: 5px; opacity: 0.7; z-index: 999;}
   vertical-align: middle;}
 .tag a{color: #fff; margin-right: 2%; text-decoration: none;}
 .comment_submit_box{}
-.comment_area{width: 80%; text-align: center;}
+.comment_content2 ul{
+  list-style: none; padding: 0px;}
+.comment_content2 li{
+  cursor : pointer;
+  display: inline;}
+.user_hosi{
+  width: 80%; height: auto; border:solid 2px #ccc; margin: 0 auto; border-bottom: 0px;
+  color: #FFCC66; font-size: 30px;
+  padding: 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+.user_hosi:after{content: ""; display: block; clear: both;}
+/*星評価*/
+.evaluation{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;}
+.evaluation input[type='radio']{
+  display: none;}
+.evaluation label{
+  position: relative;
+  padding: 10px 10px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 30px;}
+.evaluation label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 8px;
+  color: gray;}
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;}
+/*星評価終わり*/
+.comment_area{width: 80%; text-align: center; border:solid 2px #ccc; height: 200px;}
 .comment_button{
   margin-top: 10px;
   line-height: 10px;

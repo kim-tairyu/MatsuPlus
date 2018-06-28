@@ -251,6 +251,22 @@ maincontents
     <div class="comment_submit">
       <form action="cgi-bin/formmail.cgi" method="post">
       comment<br>
+      <!--星評価-->
+      <div class="user_hosi">
+        <div class="evaluation">
+          <input id="star1" type="radio" name="star" value="5" />
+          <label for="star1"><span class="text">Very good</span>★</label>
+          <input id="star2" type="radio" name="star" value="4" />
+          <label for="star2"><span class="text">Good</span>★</label>
+          <input id="star3" type="radio" name="star" value="3" />
+          <label for="star3"><span class="text">Medium</span>★</label>
+          <input id="star4" type="radio" name="star" value="2" />
+          <label for="star4"><span class="text">Bad</span>★</label>
+          <input id="star5" type="radio" name="star" value="1" />
+          <label for="star5"><span class="text">Very Bad</span>★</label>
+        </div>
+      </div>
+      <!--コメント記入-->
       <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
       <input type="submit" value="送信" class="comment_button">
       <input type="reset" value="リセット" class="comment_button">
