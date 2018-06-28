@@ -124,8 +124,7 @@ return false;
   </head>
   <body>
 <!-- Bootstrap -->
-    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
+    <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
   <!--[if lt IE 8]>
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
@@ -290,7 +289,7 @@ maincontents
     <h2>Tag</h2>
   </div>
 
-  <div class="tag_li">
+  <div class="related_article_title_tag col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <a href="#" class="tag">#Japan</a>
     <a href="#" class="tag">#Tokyo</a>
     <a href="#" class="tag">#Kanda</a>
@@ -302,9 +301,9 @@ maincontents
   </div>
 </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="<?php echo $pathList->jsPath; ?>jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="<?php echo $pathList->jsPath; ?>bootstrap.min.js"></script>
 <!--フッター（SP版では非表示になってる）-->
 <?php include $pathList->footerPath ?>
 

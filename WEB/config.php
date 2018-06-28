@@ -57,6 +57,8 @@ return false;
 });
 });
 </script>
+<!-- Bootstrap -->
+    <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
 </head>
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
 <body>
@@ -80,7 +82,7 @@ maincontents
   </div>
   <!--ユーザーネーム表示-->
   <div class="user_name_box">
-    <p class="user_name">ユーザーネーム</p>
+    <p class="user_name2">ユーザーネーム</p>
   </div>
   <!--設定変更-->
   <div class="set">

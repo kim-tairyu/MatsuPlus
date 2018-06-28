@@ -63,6 +63,8 @@ return false;
 });
 });
 </script>
+<!-- Bootstrap -->
+    <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
 </head>
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
 <body>
