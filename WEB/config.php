@@ -30,32 +30,48 @@ if(isset($_SESSION["user_id"])) {
 <link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
 <script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-//まだ使うかわからんjsの処理
-$(function() {
-    var topBtn = $('.page-top');
-    topBtn.hide();
-    //スクロールが100に達したらボタン表示
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            topBtn.fadeIn();
-        } else {
-            topBtn.fadeOut();
-        }
-    });
-    //スクロールしてトップ
-    topBtn.click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-    });
-});
-//画像のみ保存禁止
-$(function(){
-$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
-return false;
-});
-});
+//ユーザーネーム
+document.getElementById("name").style.display ="none";
+
+function btn1_click(){
+	var y1 = document.getElementById("name");
+
+	if(y1.style.display=="block"){
+		// noneで非表示
+		y1.style.display ="none";
+	}else{
+		// blockで表示
+		y1.style.display ="block";
+	}
+}
+//メールアドレス
+document.getElementById("mailaddress").style.display ="none";
+
+function btn2_click(){
+	var y1 = document.getElementById("mailaddress");
+
+	if(y1.style.display=="block"){
+		// noneで非表示
+		y1.style.display ="none";
+	}else{
+		// blockで表示
+		y1.style.display ="block";
+	}
+}
+//パスワード
+document.getElementById("password").style.display ="none";
+
+function btn3_click(){
+	var y1 = document.getElementById("password");
+
+	if(y1.style.display=="block"){
+		// noneで非表示
+		y1.style.display ="none";
+	}else{
+		// blockで表示
+		y1.style.display ="block";
+	}
+}
 </script>
 <!-- Bootstrap -->
     <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
@@ -82,35 +98,70 @@ maincontents
   </div>
   <!--ユーザーネーム表示-->
   <div class="user_name_box">
+<<<<<<< HEAD
     <p class="user_name2">ユーザーネーム</p>
+=======
+>>>>>>> c4c08ad90dd6d514357e32bc95234d246b747fa0
   </div>
   <!--設定変更-->
   <div class="set">
     <form method="post">
-      <input type="text" class="name" placeholder="名前">
-      <input type="text" class="mailaddress" placeholder="mailaddress">
-      <input type="password" class="password" placeholder="password">
-      <input type="password" class="password-2" placeholder="password確認">
+      <!--ユーザーネーム変更-->
+      <div class="config_box">
+        <div class="config_box_name">
+          <p>USERNAME</p>
+        </div>
+        <div class="config_box_hensyu">
+          <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hensyu.png" onclick="btn1_click()"></a>
+        </div>
+        <input type="text" id="name" placeholder="USER NAME">
+      </div>
+      <!--メールアドレス変更-->
+      <div class="config_box">
+        <div class="config_box_name">
+          <p>kimu0227@gmail.com</p>
+        </div>
+        <div class="config_box_hensyu">
+          <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hensyu.png" onclick="btn2_click()"></a>
+        </div>
+      <input type="text" id="mailaddress" placeholder="mailaddress">
+      </div>
+      <!--パスワード変更-->
+      <div class="config_box">
+        <div class="config_box_name">
+          <p>kimukimukimu</p>
+        </div>
+        <div class="config_box_hensyu">
+          <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hensyu.png" onclick="btn3_click()"></a>
+        </div>
+        <input type="password" id="password" placeholder="password">
+      </div>
+      <!--出身国-->
+      <div class="config_box">
+        <div class="config_box_name">
+          <p>出身国</p>
+        </div>
+      </div>
+
+      <!--言語変更-->
       <select name="country_id" class="country-width">
-        <option value="">選択してください</option>
-        <option value="1">japan</option>
-        <option value="2">america</option>
+        <option value="">言語変更</option>
+        <option value="1">Japn</option>
+        <option value="2">English</option>
       </select>
       <div class="user_button">
         <input type="submit" class="henkou" value="変更">
       </div>
     </form>
   </div>
-  <!--残りの設定の項目-->
-  <div class="setting">
-    <div class="setting-inner">
-    <a href="#" class="exit2"><div class="inquiry_box">言語変更</div></a>
-    <a href="../app/logout.php" class="exit2"><div class="logout_box">Log Out</div></a>
-  </div>
-</div>
 <!--お問い合わせ-->
 <div class="company">
-  <a href="#" class="exit3">お問い合わせ</a>
+  <div class="company-1">
+    <a href="../app/logout.php" class="exit3">Log out</a>
+  </div>
+  <div class="company-2">
+    <a href="#" class="exit3">Contact</a>
+</div>
 </div>
 
   </div>

@@ -193,6 +193,12 @@ hr{width:400px;}
     margin-top: 40px;
     width: 300px;
     height:50px;}
+#name{
+    margin-top: 40px;
+    width: 300px;
+    height:50px;
+    display: none;
+}
 .userid{
     width: 300px;
     height:50px;
@@ -254,8 +260,12 @@ hr{width:400px;}
   background-color: #fff;}
 
 /**/
-.company{ margin-top: 10px;}
-.company a{ color: #e60033; font-size: 12px;}
+.company{width: 150px; margin: 0 auto; margin-top: 50px; margin-bottom: 100px;}
+.company:after{content:""; display:block; clear:both;}
+.company-1{width: 50%; height: auto; float: left;}
+.company-2{width: 50%; height: auto; float: left;}
+.company a{color: #e60033; font-size: 15px; border-bottom: 1px solid #e60033;}
+.company a:hover{border-bottom: 0px;}
 
 /**/
 .henkou{
@@ -485,7 +495,46 @@ color: #e60033; padding-top: 5px; opacity: 0.7; z-index: 999;}
   vertical-align: middle;}
 .tag a{color: #fff; margin-right: 2%; text-decoration: none;}
 .comment_submit_box{}
-.comment_area{width: 80%; text-align: center;}
+.comment_content2 ul{
+  list-style: none; padding: 0px;}
+.comment_content2 li{
+  cursor : pointer;
+  display: inline;}
+.user_hosi{
+  width: 80%; height: auto; border:solid 2px #ccc; margin: 0 auto; border-bottom: 0px;
+  color: #FFCC66; font-size: 30px;
+  padding: 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;}
+.user_hosi:after{content: ""; display: block; clear: both;}
+/*星評価*/
+.evaluation{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;}
+.evaluation input[type='radio']{
+  display: none;}
+.evaluation label{
+  position: relative;
+  padding: 10px 10px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 30px;}
+.evaluation label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 8px;
+  color: gray;}
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;}
+/*星評価終わり*/
+.comment_area{width: 80%; text-align: center; border:solid 2px #ccc; height: 200px;}
 .comment_button{
   margin-top: 10px;
   line-height: 10px;
@@ -526,30 +575,58 @@ color: #e60033; padding-top: 5px; opacity: 0.7; z-index: 999;}
   margin:0 auto;
   padding-top: 100px;}
 /**/
+.config_box{width: 100%; height: auto; margin-top: 20px; position: relative;}
+.config_box:after{content: ""; display: block; clear: both;}
+.config_box_name{width: 100%; float: left;}
+.config_box_name p{margin: 0 auto; line-height: 2.7em;}
+.config_box_hensyu{position: absolute; right:0px;}
+.config_box_hensyu img{width:30px; height: auto;}
+.config_box_hensyu a:hover{opacity: 0.5;}
+.config_box_hensyu a:active{}
+.hidden{display: none;}
+/**/
 .name{
   width: 300px;
   height:50px;
   margin-top: 30px;}
-
+#name{
+  width: 300px;
+  height:50px;
+  margin-top: 30px;
+  display: none;}
 .mailaddress{
   width: 300px;
   height:50px;
   margin-top: 30px;}
-
+#mailaddress{
+  width: 300px;
+  height:50px;
+  margin-top: 30px;
+  display: none;}
 .password{
     width: 300px;
     height: 50px;
     margin-top: 30px;}
-
-.password-2{
-    width: 300px;
-    height:50px;
-    margin-top: 30px;}
-.kuni{
+#password{
+    display: none;
     width: 300px;
     height: 50px;
-    margin-top: 30px;
-    display: flex;}
+    margin-top: 30px;}
+.password-2{
+    display: none;
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;}
+#password-2{
+    display: none;
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;}
+.kuni{
+  width: 300px;
+  height: 50px;
+  margin-top: 30px;
+  display: flex;}
 .user_button{
     width: 300px;
     margin-top: 30px;

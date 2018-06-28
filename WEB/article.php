@@ -42,32 +42,6 @@ foreach($articles as $article){
 <link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
 <script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-//まだ使うかわからんjsの処理
-$(function() {
-    var topBtn = $('.page-top');
-    topBtn.hide();
-    //スクロールが100に達したらボタン表示
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            topBtn.fadeIn();
-        } else {
-            topBtn.fadeOut();
-        }
-    });
-    //スクロールしてトップ
-    topBtn.click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-    });
-});
-//画像のみ保存禁止
-$(function(){
-$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
-return false;
-});
-});
 </script>
 <!-- Bootstrap -->
     <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
