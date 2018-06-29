@@ -98,10 +98,6 @@ maincontents
   </div>
   <!--ユーザーネーム表示-->
   <div class="user_name_box">
-<<<<<<< HEAD
-    <p class="user_name2">ユーザーネーム</p>
-=======
->>>>>>> c4c08ad90dd6d514357e32bc95234d246b747fa0
   </div>
   <!--設定変更-->
   <div class="set">
