@@ -51,11 +51,11 @@ maincontents
 <div class="mypage">
   <div class="mypage-inner">
 
-  <!--ユーザーのプロフィール画像-->
+  <!-- ユーザーのプロフィール画像 -->
   <div class="my_image">
       <img src="<?php echo $pathList->imgsPath; ?>gaijin.png" class="">
   </div>
-  <!--ユーザーネームをかこっているボックス-->
+  <!-- ユーザーネームをかこっているボックス -->
   <div class="user_name_box">
     <p class="user_name">ユーザーネーム</p>
   </div>
