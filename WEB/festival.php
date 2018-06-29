@@ -107,32 +107,6 @@ function r_star($star){
 <link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
 <script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-//まだ使うかわからんjsの処理
-$(function() {
-    var topBtn = $('.page-top');
-    topBtn.hide();
-    //スクロールが100に達したらボタン表示
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            topBtn.fadeIn();
-        } else {
-            topBtn.fadeOut();
-        }
-    });
-    //スクロールしてトップ
-    topBtn.click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-    });
-});
-//画像のみ保存禁止
-$(function(){
-$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
-return false;
-});
-});
 </script>
   </head>
   <body>
@@ -290,6 +264,22 @@ maincontents
     <div class="comment_submit">
       <form action="cgi-bin/formmail.cgi" method="post">
       comment<br>
+      <!--星評価-->
+      <div class="user_hosi">
+        <div class="evaluation">
+          <input id="star1" type="radio" name="star" value="5" />
+          <label for="star1"><span class="text">Very good</span>★</label>
+          <input id="star2" type="radio" name="star" value="4" />
+          <label for="star2"><span class="text">Good</span>★</label>
+          <input id="star3" type="radio" name="star" value="3" />
+          <label for="star3"><span class="text">Medium</span>★</label>
+          <input id="star4" type="radio" name="star" value="2" />
+          <label for="star4"><span class="text">Bad</span>★</label>
+          <input id="star5" type="radio" name="star" value="1" />
+          <label for="star5"><span class="text">Very Bad</span>★</label>
+        </div>
+      </div>
+      <!--コメント記入-->
       <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
       <input type="submit" value="送信" class="comment_button">
       <input type="reset" value="リセット" class="comment_button">
