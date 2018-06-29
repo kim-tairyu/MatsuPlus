@@ -1,4 +1,9 @@
 <?php
+
+if(!isset($_GET['festival_id'])){
+    header("Location:index.php");
+}
+
 // パス取得
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
@@ -42,8 +47,9 @@ require_once('../app/DAO/ReviewDAO.class.php');
 $reviewDAO = new ReviewDAO();
 $reviews   = $reviewDAO->getReviewInfo();
 foreach($reviews as $review){
-  $review_user[] = $review['user_name'].PHP_EOL;
-  $review_content[] = $review['review'].PHP_EOL;
+    $review_user[] = $review['user_name'].PHP_EOL;
+    $review_content[] = $review['review'].PHP_EOL;
+    $review_star[] = $review['star'].PHP_EOL;
 }
 
 // 登録処理
@@ -77,6 +83,13 @@ if(isset($_POST['r_button']) == 'registration'){
     $favorite_fes->bindValue(":user_id",$user,PDO::PARAM_STR);
     $favorite_fes->bindValue(":festival_id",$festival_id,PDO::PARAM_INT);
     $favorite_fes->execute();
+}
+
+//レビュー☆表示
+function r_star($star){
+    for($i=0; $i<$star; $i++){
+        echo "☆";
+    }
 }
 
 
@@ -227,7 +240,7 @@ maincontents
         <img src="<?php echo $pathList->imgsPath; ?>user.jpg" alt="ユーザーアイコン">
     </div>
     <div class="comment_hosi">
-      <p>☆☆☆☆☆</p>
+      <p><?php r_star($review_star[0]) ?></p>
     </div>
     <div class="comment_user_name">
       <p><?php echo $review_user[0] ?></p>
@@ -244,7 +257,7 @@ maincontents
         <img src="<?php echo $pathList->imgsPath; ?>user.jpg" alt="ユーザーアイコン">
     </div>
     <div class="comment_hosi">
-      <p>☆☆☆☆☆</p>
+      <p><?php r_star($review_star[1]) ?></p>
     </div>
     <div class="comment_user_name">
       <p><?php echo $review_user[1] ?></p>
@@ -261,7 +274,7 @@ maincontents
         <img src="<?php echo $pathList->imgsPath; ?>user.jpg" alt="ユーザーアイコン">
     </div>
     <div class="comment_hosi">
-      <p>☆☆☆☆☆</p>
+      <p><?php r_star($review_star[2]) ?></p>
     </div>
     <div class="comment_user_name">
       <p><?php echo $review_user[2] ?></p>
