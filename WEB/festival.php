@@ -1,4 +1,9 @@
 <?php
+
+if(!isset($_GET['festival_id'])){
+    header("Location:index.php");
+}
+
 // パス取得
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
@@ -42,8 +47,9 @@ require_once('../app/DAO/ReviewDAO.class.php');
 $reviewDAO = new ReviewDAO();
 $reviews   = $reviewDAO->getReviewInfo();
 foreach($reviews as $review){
-  $review_user[] = $review['user_name'].PHP_EOL;
-  $review_content[] = $review['review'].PHP_EOL;
+    $review_user[] = $review['user_name'].PHP_EOL;
+    $review_content[] = $review['review'].PHP_EOL;
+    $review_star[] = $review['star'].PHP_EOL;
 }
 
 // 登録処理
@@ -63,7 +69,7 @@ if(isset($_POST['r_button']) == 'registration'){
     $registration->bindValue(':end_time', $end_time, PDO::PARAM_STR);
     $registration->bindValue(':location', $location, PDO::PARAM_STR);
     $registration->execute();
-    
+
 }else if(isset($_POST['review_button']) == 'review'){
     $review = $pdo -> prepare("INSERT INTO review (festival_id,user_id,review,star)VALUES(:festival_id,:user_id,:review,:star)");
     $review->bindValue(":festival_id",$festival_id,PDO::PARAM_INT);
@@ -77,6 +83,13 @@ if(isset($_POST['r_button']) == 'registration'){
     $favorite_fes->bindValue(":user_id",$user,PDO::PARAM_STR);
     $favorite_fes->bindValue(":festival_id",$festival_id,PDO::PARAM_INT);
     $favorite_fes->execute();
+}
+
+//レビュー☆表示
+function r_star($star){
+    for($i=0; $i<$star; $i++){
+        echo "☆";
+    }
 }
 
 
@@ -124,8 +137,7 @@ return false;
   </head>
   <body>
 <!-- Bootstrap -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
   <!--[if lt IE 8]>
           <p>お使いのブラウザは<strong>古い</strong>ため、表示が崩れることがあります。
@@ -142,11 +154,14 @@ maincontents
   <div class="main_content_fes_inner">
     <!--記事or祭りタイトル-->
   <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $name[0] ?></h1>
-    <!--祭りor記事画像＆お気に入りボタン（仮）-->
+    <!--祭りor記事画像(仮)-->
   <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <a href="#"><img src="<?php echo $pathList->imgsPath; ?>article_img2.jpg" alt="祭り"></a>
-    <a href="#"><div class="fev_button"><p>♡</p></div></a>
   </div>
+  <!--お気に入りボタン-->
+  <a href="#"><div class="fev_button"><p>♡</p></div></a>
+  <!--スケジュール追加ボタン-->
+  <a href="#"><div class="fev_button2"><p>仮</p></div></a>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <h5 class="date"><?php echo $start_time[0] ?></h5>
@@ -225,7 +240,7 @@ maincontents
         <img src="<?php echo $pathList->imgsPath; ?>user.jpg" alt="ユーザーアイコン">
     </div>
     <div class="comment_hosi">
-      <p>☆☆☆☆☆</p>
+      <p><?php r_star($review_star[0]) ?></p>
     </div>
     <div class="comment_user_name">
       <p><?php echo $review_user[0] ?></p>
@@ -242,7 +257,7 @@ maincontents
         <img src="<?php echo $pathList->imgsPath; ?>user.jpg" alt="ユーザーアイコン">
     </div>
     <div class="comment_hosi">
-      <p>☆☆☆☆☆</p>
+      <p><?php r_star($review_star[1]) ?></p>
     </div>
     <div class="comment_user_name">
       <p><?php echo $review_user[1] ?></p>
@@ -259,7 +274,7 @@ maincontents
         <img src="<?php echo $pathList->imgsPath; ?>user.jpg" alt="ユーザーアイコン">
     </div>
     <div class="comment_hosi">
-      <p>☆☆☆☆☆</p>
+      <p><?php r_star($review_star[2]) ?></p>
     </div>
     <div class="comment_user_name">
       <p><?php echo $review_user[2] ?></p>
@@ -287,7 +302,7 @@ maincontents
     <h2>Tag</h2>
   </div>
 
-  <div class="tag_li">
+  <div class="related_article_title_tag col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <a href="#" class="tag">#Japan</a>
     <a href="#" class="tag">#Tokyo</a>
     <a href="#" class="tag">#Kanda</a>
@@ -299,9 +314,9 @@ maincontents
   </div>
 </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="<?php echo $pathList->jsPath; ?>jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="<?php echo $pathList->jsPath; ?>bootstrap.min.js"></script>
 <!--フッター（SP版では非表示になってる）-->
 <?php include $pathList->footerPath ?>
 

@@ -70,9 +70,7 @@ return false;
 });
 </script>
 <!-- Bootstrap -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
+    <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
 </head>
 <!--画像の保存を禁止するという意味（後で外してもよい(UXの観点)）-->
 <body>
@@ -87,45 +85,59 @@ return false;
 <!--
 maincontents
 -->
-<div class="main_content col-md-10 col-xs-12 col-lg-12">
-
-  <div class="home_img col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#"><img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" alt="祭り"></a>
+<div class="main_content" id="myTapContent">
+  <div class="main_content_fes_inner">
+    <!--記事or祭りタイトル-->
+  <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $name[0] ?></h1>
+    <!--祭りor記事画像(仮)-->
+  <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <a href="#"><img src="<?php echo $pathList->imgsPath; ?>article_img2.jpg" alt="祭り"></a>
   </div>
-
+  <!--お気に入りボタン-->
+  <a href="#"><div class="fev_button"><p>♡</p></div></a>
+  <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <h5 class="date"><?php echo $date[0] ?></h5>
-    <h2><?php echo $title[0] ?></h2>
-    <i class="fas fa-user"></i>
-    <i class="fas fa-heart"></i>
+    <h5 class="date"><?php echo $start_time[0] ?></h5>
+    <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
+  </div>
+  <!--記事本文-->
+  <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <p><?php echo $description[0] ?></p>
   </div>
 
-  <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <p><?php echo $txt[0] ?></p>
-  </div>
+
+  <!--関連-->
 
   <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <h2>Related article</h2>
   </div>
 
-  <div class="home_img home_img_sub related_article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#"><img src="<?php echo $pathList->imgsPath; ?>news_01.jpg" alt="祭りニュース"></a>
-    <div class="related_article_title_small">
-      <h2 class="news_title_sub">Main procession passes along Cuo-dori Street</h2>
+  <!--wrapのようなもの-->
+  <div class="news_info_event">
+    <!--記事1-->
+    <div class="news_info_event_box">
+          <?php foreach($articles as $article) { ?>
+          <a href="article.php?article_id=?">
+              <div class="news_box">
+              <div class="news_box1">
+                <img src="<?php echo $article['article_img']; ?>" class="event_image">
+              </div>
+              <div class="news_box2">
+                <h4 class="news_title"><?php echo $article['article_title']; ?></h4>
+                <h6 class="date_big"><?php echo $article['post_date']; ?></h6>
+              </div>
+            </div>
+          </a>
+          <?php } ?>
+      </div>
     </div>
-  </div>
 
-  <div class="home_img home_img_sub related_article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#"><img src="<?php echo $pathList->imgsPath; ?>news_01.jpg" alt="祭りニュース"></a>
-    <div class="related_article_title_small">
-      <h2 class="news_title_sub">Main procession passes along Cuo-dori Street</h2>
-    </div>
-  </div>
+</div>
 </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="<?php echo $pathList->jsPath; ?>jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="<?php echo $pathList->jsPath; ?>bootstrap.min.js"></script>
 <!--フッター（SP版では非表示になってる）-->
 <?php include $pathList->footerPath ?>
 

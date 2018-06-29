@@ -3,7 +3,7 @@
     <div class="boxA-inner">
       <!--boxKUUHAKUはSP版表示になった時に左上に空白を持たせておくためのもの（今後戻るボタンなどがはいるかもしれない）-->
       <div class="boxse">
-        <a href="javascript:void(0);"><img src="../imgs/se.png" alt="" width="25" height="auto"></a>
+        <a href="search.php"><img src="../imgs/se.png" alt="" width="25" height="auto"></a>
       </div>
       <!--ロゴ画像のボックス-->
       <div class="box1">
