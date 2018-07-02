@@ -6,11 +6,9 @@ $pathList = new PathList();
 // おすすめお祭り情報を取得
 require_once('../app/DAO/FestivalDAO.class.php');
 $festivalDAO = new FestivalDAO();
-$festivals   = $festivalDAO->getRecommendedFestivals();
 // 記事情報を取得
 require_once('../app/DAO/ArticleDAO.class.php');
 $articleDAO = new ArticleDAO();
-$articles   = $articleDAO->getArticles();
 
 session_start();
 $link_mypage      = "";
@@ -84,7 +82,10 @@ maincontents
       </div>
 
             <div class="news_info_event">
-              <?php foreach($festivals as $festival) { ?>
+              <?php if($festivalDAO->getRecommendedFestivals() != null) { 
+                  $festivals = $festivalDAO->getRecommendedFestivals();
+                  foreach($festivals as $festival) {
+              ?>
               <div class="news_info_event_box">
                       <a href="festival.php?festival_id=<?php echo $festival['festival_id'] ?>">
                           <div class="news_box">
@@ -98,7 +99,9 @@ maincontents
                         </div>
                     </a>
                 </div>
-                <?php } ?>
+              <?php } } else { ?>
+              <div>祭りデータがありません。</div>
+              <?php } ?>
             </div>
 
     </div>
@@ -109,24 +112,27 @@ maincontents
     <!--記事エリア-->
     <div class="tab-pane fade" id="news">
       <!--wrapのようなもの-->
-      <div class="news_info_event">
         <!--記事1-->
+        <?php if($articleDAO->getArticles() != null) { 
+            $articles = $articleDAO->getArticles();
+            foreach($articles as $article) {
+        ?>
         <div class="news_info_event_box">
-              <?php foreach($articles as $article) { ?>
-              <a href="article.php?article_id=?">
-                  <div class="news_box">
-                  <div class="news_box1">
-                    <img src="<?php echo $article['article_img']; ?>" class="event_image">
-                  </div>
-                  <div class="news_box2">
-                    <h4 class="news_title"><?php echo $article['article_title']; ?></h4>
-                    <h6 class="date_big"><?php echo $article['post_date']; ?></h6>
-                  </div>
-                </div>
-              </a>
-              <?php } ?>
-          </div>
+          <a href="article.php?article_id=?">
+            <div class="news_box">
+              <div class="news_box1">
+                <img src="<?php echo $article['article_img']; ?>" class="event_image">
+              </div>
+              <div class="news_box2">
+                <h4 class="news_title"><?php echo $article['article_title']; ?></h4>
+                <h6 class="date_big"><?php echo $article['post_date']; ?></h6>
+              </div>
+            </div>
+          </a>
         </div>
+        <?php } } else { ?>
+        <div class="news_info_event_box">記事がありません。</div>
+        <?php } ?>
     </div>
     <!--季節リア-->
     <div class="tab-pane fade" id="season">
