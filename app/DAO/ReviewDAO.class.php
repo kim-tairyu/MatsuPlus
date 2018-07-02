@@ -12,15 +12,15 @@ class ReviewDAO extends SuperDAO {
   // 祭りのレビュー情報を取得
   public function getReviewInfo() {
     try {
-      $sql  = 'SELECT user.user_id, user.user_name, review.festival_id, review.user_id, review.review, review.star FROM user LEFT JOIN review ON user.user_id = review.user_id;';
-      $pdo  = parent::getConnection();  // DB接続
-      $stmt = $pdo->prepare($sql);      // ステートメント
-      $stmt->execute();                 // SQL文実行
-      parent::closeDB();                // DB切断
+      $sql    = 'SELECT user.user_id, user.user_name, review.festival_id, review.user_id, review.review, review.star FROM user LEFT JOIN review ON user.user_id = review.user_id;';
+      $pdo    = parent::getConnection(); // DB接続
+      $stmt   = $pdo->prepare($sql);     // ステートメント
+      $result = $stmt->execute();        // SQL文実行
+      parent::closeDB();                 // DB切断
     } catch(PDOException $e) {
-      echo 'DB SELECT Error!'.$e->getMesseage;
+      $result = 'DB SELECT Error!'.$e->getMesseage;
       die();
     }
-    return $stmt;
+    return $result;
   }
 }

@@ -12,16 +12,16 @@ class UserDAO extends SuperDAO {
   // ユーザ情報を取得（全件）
   public function signIn() {
     try {
-      $sql  = 'SELECT * FROM user';    // SQL文
-      $pdo  = parent::getConnection(); // DB接続
-      $stmt = $pdo->prepare($sql);     // ステートメント
-      $stmt->execute();                // SQL文実行
-      parent::closeDB();               // DB切断
+      $sql    = 'SELECT * FROM user';    // SQL文
+      $pdo    = parent::getConnection(); // DB接続
+      $stmt   = $pdo->prepare($sql);     // ステートメント
+      $result = $stmt->execute();        // SQL文実行
+      parent::closeDB();                 // DB切断
     } catch(PDOException $e) {
-      echo 'DB SELECT Error!'.$e->getMesseage;
+      $result = 'DB SELECT Error!'.$e->getMesseage;
       die();
     }
-    return $stmt;
+    return $result;
   }
   
   // 新規登録

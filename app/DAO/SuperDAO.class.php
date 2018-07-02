@@ -22,7 +22,7 @@ class SuperDAO {
         $this->DBPass,
         [                                            // オプション
           PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, // 例外を投げる
-          PDO::ATTR_EMULATE_PREPARES => false,       // 静的プレースホルダ
+          //PDO::ATTR_EMULATE_PREPARES => false,       // 静的プレースホルダ
         ]
       );
     } catch(PDOException $e) {
