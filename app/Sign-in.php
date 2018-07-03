@@ -25,8 +25,10 @@ foreach( $users as $user ){
     $_SESSION["user_name"]    = $user['user_name'];
     $_SESSION["mail_address"] = $user['mail_address'];
     $_SESSION["country_id"]   = $user['country_id'];
-    $_SESSION["languege_id"] = $user['languege_id'];
+    $_SESSION["languege_id"]  = $user['languege_id'];
     $_SESSION["user_status"]  = $user['user_status'];
+    $_SESSION["user_icon"]    = $user['user_icon'];
+    $_SESSION["authority"]    = $user['authority'];
     // cookie
     setcookie($user['user_id'], time()+$oneday);
     setcookie($user['password'], time()+$oneday);
@@ -35,9 +37,12 @@ foreach( $users as $user ){
     setcookie($user['country_id'], time()+$oneday);
     setcookie($user['languege_id'], time()+$oneday);
     setcookie($user['user_status'], time()+$oneday);
+    setcookie($user['user_icon'], time()+$oneday);
+    setcookie($user['authority'], time()+$oneday);
     break;
   }
 }
+
 // 画面遷移制御
 $url = null;
 if($success){
@@ -45,5 +50,6 @@ if($success){
 }else{
   $url = "../WEB/sign-in.php?error";
 }
+
 // 画面遷移
 header("Location: $url");
