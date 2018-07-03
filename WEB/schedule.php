@@ -17,7 +17,7 @@ $schedules   = $scheduleDAO->getSchedules($_SESSION["user_id"]);
 
 <head>
 <meta charset="utf-8">
-<title>スケジュール</title>
+<title>Schedule</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />

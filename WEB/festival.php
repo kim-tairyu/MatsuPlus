@@ -76,7 +76,7 @@ if(isset($_POST['r_button']) == 'registration'){
 
 <head>
 <meta charset="utf-8">
-<title>祭り詳細</title>
+<title>Festival Detail</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css?update=20180203" />

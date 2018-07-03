@@ -17,7 +17,7 @@ if(isset($_GET["error"])) {
 
 <head>
 <meta charset="utf-8">
-<title>ログイン</title>
+<title>SignIn</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
@@ -46,13 +46,13 @@ maincontents
 <div class="box4-inner">
       <div class="user">
         <form method="post" action="../app/Sign-in.php">
-            <input type="text" class="mailaddress" name="mail_address" placeholder="MailAddress">
+            <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
             <input type="password" class="password" name="password" placeholder="Password">
           <div><p><?php echo $err_msg ?></p></div>
           <input type="submit" class="login" value="Login">
         </form>
             <div class="company">
-              <a href="sign-up.php" class="admin_new">新規登録</a>
+              <a href="sign-up.php" class="admin_new">SignUp</a>
             </div>
 
       </div>

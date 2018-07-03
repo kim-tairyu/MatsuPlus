@@ -13,7 +13,7 @@ include $pathList->accountCheckPath;
 
 <head>
 <meta charset="utf-8">
-<title>設定</title>
+<title>Config</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />

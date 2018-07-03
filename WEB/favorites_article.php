@@ -13,7 +13,7 @@ include $pathList->accountCheckPath;
 
 <head>
 <meta charset="utf-8">
-<title>記事お気に入り</title>
+<title>Favorite Article</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />

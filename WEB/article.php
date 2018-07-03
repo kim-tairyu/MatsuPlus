@@ -25,7 +25,7 @@ foreach($articles as $article){
 
 <head>
 <meta charset="utf-8">
-<title>記事詳細</title>
+<title>Article Detail</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
