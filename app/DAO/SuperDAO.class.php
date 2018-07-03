@@ -2,15 +2,19 @@
 // DB Connection
 class SuperDAO {
   // DBプロパティ
-  private $dsn;     // Data Source Name
-  private $DBUser;  // DB USER
-  private $DBPass;  // DB PASSWORD
+  private $dsn;    // Data Source Name
+  private $DBUser; // DB USER
+  private $DBPass; // DB PASSWORD
+  private $stmt;   // Statment
+  private $result; // Statment Result
   
   // コンストラクタ
   public function __construct() {
-    $this->dsn     = 'mysql:host=localhost; dbname=matsuri; charset=utf8;';
-    $this->DBUser  = 'root';
-    $this->DBPass  = '';
+    $this->dsn    = 'mysql:host=localhost; dbname=matsuri; charset=utf8;';
+    $this->DBUser = 'root';
+    $this->DBPass = '';
+    $this->stmt   = '';
+    $this->result = '';
   }
   
   // DB接続関数
@@ -26,15 +30,19 @@ class SuperDAO {
         ]
       );
     } catch(PDOException $e) {
-      echo 'DB Connection Error!'.$e->getMesseage;
+      $this->result = 'DB Connection Error!'.$e->getMesseage;
       die();
     }
     return $pdo;
   }
   
   // DB切断関数
-  public function closeDB() {
+  public function closeDB($stmt, $pdo) {
+    var_dump($stmt);
+    var_dump($pdo);
     $stmt = null;
     $pdo  = null;
+    var_dump($stmt);
+    var_dump($pdo);
   }
 }

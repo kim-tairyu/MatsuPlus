@@ -153,7 +153,7 @@ maincontents
 <!--お問い合わせ-->
 <div class="company">
   <div class="company-1">
-    <a href="../app/logout.php" class="exit3">Log out</a>
+    <a href="../app/Sign-out.php" class="exit3">Sign out</a>
   </div>
   <div class="company-2">
     <a href="#" class="exit3">Contact</a>

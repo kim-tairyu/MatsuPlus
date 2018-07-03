@@ -57,8 +57,8 @@ maincontents
 <div class="box4-inner">
       <div class="user">
         <form method="post" action="../app/Sign-in.php">
-            <input type="text" class="mailaddress" name="user_id" placeholder="id">
-            <input type="password" class="password" name="password" placeholder="password">
+            <input type="text" class="mailaddress" name="mail_address" placeholder="MailAddress">
+            <input type="password" class="password" name="password" placeholder="Password">
           <div><p><?php echo $err_msg ?></p></div>
           <input type="submit" class="login" value="Login">
         </form>
