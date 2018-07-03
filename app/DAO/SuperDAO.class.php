@@ -38,11 +38,7 @@ class SuperDAO {
   
   // DB切断関数
   public function closeDB($stmt, $pdo) {
-    var_dump($stmt);
-    var_dump($pdo);
     $stmt = null;
     $pdo  = null;
-    var_dump($stmt);
-    var_dump($pdo);
   }
 }
