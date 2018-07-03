@@ -3,19 +3,8 @@
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
 
-session_start();
-$link_mypage      = "";
-$link_schedule    = "";
-$link_mypage_name = "";
-if(isset($_SESSION["user_id"])) {
-  $link_mypage      = "mypage.php";
-  $link_schedule    = "schedule.php";
-  $link_mypage_name = "My page";
-} else {
-  $link_mypage      = "sign-in.php";
-  $link_schedule    = "sign-in.php";
-  $link_mypage_name = "SIGN IN";
-}
+// アカウントチェック
+include $pathList->accountCheckPath;
 
 $err_msg = "";
 if(isset($_GET["error"])) {
@@ -58,10 +47,9 @@ maincontents
       <div class="adduser">
         <form method="post" action="../app/Sign-up.php">
           <div><p><?php echo $err_msg ?></p></div>
-            <input type="text" class="userid" name="user_id" placeholder="USER NAME">
-            <input type="text" class="mailaddress" name="mail_address" placeholder="mailaddress">
-            <input type="password" class="password" name="password" placeholder="password">
-            <input type="password" class="password-2" name="repassword" placeholder="password確認">
+            <input type="text" class="mailaddress" name="mail_address" placeholder="メールアドレス">
+            <input type="password" class="password" name="password" placeholder="パスワード">
+            <input type="password" class="password" name="repassword" placeholder="パスワード確認">
             <input type="text" class="name" name="user_name" placeholder="名前">
             <select name="country_id" class="country-width">
               <option value="">選択してください</option>

@@ -3,6 +3,9 @@
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
 
+// アカウントチェック
+include $pathList->accountCheckPath;
+
 // おすすめお祭り情報を取得
 require_once('../app/DAO/FestivalDAO.class.php');
 $festivalDAO = new FestivalDAO();
@@ -10,19 +13,6 @@ $festivalDAO = new FestivalDAO();
 require_once('../app/DAO/ArticleDAO.class.php');
 $articleDAO = new ArticleDAO();
 
-session_start();
-$link_mypage      = "";
-$link_schedule    = "";
-$link_mypage_name = "";
-if(isset($_SESSION["user_id"])) {
-  $link_mypage      = "mypage.php";
-  $link_schedule    = "schedule.php";
-  $link_mypage_name = "My page";
-} else {
-  $link_mypage      = "sign-in.php";
-  $link_schedule    = "sign-in.php";
-  $link_mypage_name = "SIGN IN";
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -82,7 +72,7 @@ maincontents
       </div>
 
             <div class="news_info_event">
-              <?php if($festivalDAO->getRecommendedFestivals() != null) { 
+              <?php if($festivalDAO->getRecommendedFestivals() != null) {
                   $festivals = $festivalDAO->getRecommendedFestivals();
                   foreach($festivals as $festival) {
               ?>
@@ -131,7 +121,7 @@ maincontents
           </a>
         </div>
         <?php } } else { ?>
-        <div class="news_info_event_box">記事がありません。</div>
+        <div>記事がありません。</div>
         <?php } ?>
     </div>
     <!--季節リア-->
