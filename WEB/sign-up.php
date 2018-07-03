@@ -6,6 +6,11 @@ $pathList = new PathList();
 // アカウントチェック
 include $pathList->accountCheckPath;
 
+// 言語を取得
+require_once('../app/DAO/CountryDAO.class.php');
+$countryDAO = new CountryDAO();
+$countrys   = $countryDAO->getCountrysInfo();
+
 $err_msg = "";
 if(isset($_GET["error"])) {
   $err_msg = "入力に誤りがあります！";
@@ -17,7 +22,7 @@ if(isset($_GET["error"])) {
 
 <head>
 <meta charset="utf-8">
-<title>新規登録</title>
+<title>SignUp</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
@@ -47,19 +52,20 @@ maincontents
       <div class="adduser">
         <form method="post" action="../app/Sign-up.php">
           <div><p><?php echo $err_msg ?></p></div>
-            <input type="text" class="mailaddress" name="mail_address" placeholder="メールアドレス">
-            <input type="password" class="password" name="password" placeholder="パスワード">
-            <input type="password" class="password" name="repassword" placeholder="パスワード確認">
-            <input type="text" class="name" name="user_name" placeholder="名前">
+            <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
+            <input type="password" class="password" name="password" placeholder="Password">
+            <input type="password" class="password" name="repassword" placeholder="Password Second">
+            <input type="text" class="name" name="user_name" placeholder="Name">
             <select name="country_id" class="country-width">
-              <option value="">選択してください</option>
-              <option value="1">japan</option>
-              <option value="2">america</option>
+              <option value="">Select Country</option>
+              <?php foreach($countrys as $country) { ?>
+              <option value="<?php echo $country['country_id']; ?>"><?php echo $country['country_name'] ?></option>
+              <?php } ?>
             </select>
-            <input type="submit" class="touroku" value="登録">
+            <input type="submit" class="touroku" value="Create an account">
         </form>
           <div class="company">
-            <a href="sign-in.php" class="exit3">戻る</a>
+            <a href="sign-in.php" class="exit3">back</a>
           </div>
       </div>
 </div>
