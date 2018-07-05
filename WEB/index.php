@@ -108,7 +108,7 @@ maincontents
             foreach($articles as $article) {
         ?>
         <div class="news_info_event_box">
-          <a href="article.php?article_id=?">
+          <a href="article.php?article_id=1">
             <div class="news_box">
               <div class="news_box1">
                 <img src="<?php echo $article['article_img']; ?>" class="event_image">

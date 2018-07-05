@@ -339,6 +339,7 @@ maincontents
   <!--コメントエリア-->
   <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
   <h2>Comment</h2>
+  <?php if(!empty($review_star[0]) && !empty($review_user[0]) && !empty($review_content[0])){ ?>
   <!--コメント１-->
   <div class="comment_content">
     <div class="">
@@ -346,16 +347,18 @@ maincontents
         <img src="<?php echo $pathList->imgsPath; ?>user.jpg" alt="ユーザーアイコン">
     </div>
     <div class="comment_hosi">
-      <p><?php r_star($review_star[0]) ?></p>
+      <p><?php r_star($review_star[0]); ?></p>
     </div>
     <div class="comment_user_name">
-      <p><?php echo $review_user[0] ?></p>
+      <p><?php echo $review_user[0]; ?></p>
     </div>
     <div class="comment">
-      <p><?php echo $review_content[0] ?></p>
+      <p><?php echo $review_content[0]; ?></p>
     </div>
     </div>
   </div>
+  <?php } ?>
+  <?php if(!empty($review_star[1]) && !empty($review_user[1]) && !empty($review_content[1])){ ?>
   <!--コメント２-->
   <div class="comment_content">
     <div class="">
@@ -373,6 +376,8 @@ maincontents
     </div>
     </div>
   </div>
+  <?php } ?>
+  <?php if(!empty($review_star[2]) && !empty($review_user[2]) && !empty($review_content[2])){ ?>
   <!--コメント３-->
   <div class="comment_content">
     <div class="">
@@ -390,6 +395,7 @@ maincontents
     </div>
     </div>
   </div>
+  <?php } ?>
 
   <!--コメント入力エリア-->
   <div class="comment_content2">

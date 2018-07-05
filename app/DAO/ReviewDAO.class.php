@@ -17,7 +17,7 @@ class ReviewDAO extends SuperDAO {
       $this->stmt   = $pdo->prepare($sql);     // ステートメント
       $this->stmt->bindValue(1,$festival_id);
       $this->stmt->execute();                  // SQL文実行
-      $this->result = $this->stmt;             // 結果を代入
+      $this->result = $this->stmt->fetchAll();;             // 結果を代入
       parent::closeDB($this->stmt, $pdo);      // DB切断
         
     } catch(PDOException $e) {
