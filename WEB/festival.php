@@ -31,22 +31,24 @@ if(isset($_GET["festival_id"])) {
   foreach($festivals as $festival){
     $festival_id[] = $festival['festival_id'].PHP_EOL;
     $name[]        = $festival['festival_name'].PHP_EOL;
+    $img[]         = $festival['festival_img'].PHP_EOL;
     $description[] = $festival['description'].PHP_EOL;
     $location[]    = $festival['location'].PHP_EOL;
     $start_time[]  = $festival['start_time'].PHP_EOL;
     $end_time[]    = $festival['end_time'].PHP_EOL;
     $x[]           = $festival['x_coordinate'].PHP_EOL;
     $y[]           = $festival['y_coordinate'].PHP_EOL;
-    $movie_url[]   = $festival['movie_url'];
-    // lat:40.822286,lng: 140.745205
+    $movie_url[]   = $festival['movie_url'].PHP_EOL;
   }
 }
 
 // レビュー情報を取得
 require_once('../app/DAO/ReviewDAO.class.php');
 $reviewDAO = new ReviewDAO();
-$reviews   = $reviewDAO->getReviewInfo();
+$reviews   = $reviewDAO -> getReviewInfo($fes_id);
+
 foreach($reviews as $review){
+    $review_festival_id[] = $review['festival_id'].PHP_EOL;
     $review_user[] = $review['user_name'].PHP_EOL;
     $review_content[] = $review['review'].PHP_EOL;
     $review_star[] = $review['star'].PHP_EOL;
@@ -58,8 +60,7 @@ foreach($reviews as $review){
 $days ="2018-06-018";
 $schedule_id = 1;
 // レビュー仮データ
-$user = "bbb";
-$star = 3;
+
 if(isset($_POST['r_button']) == 'registration'){
     $registration = $pdo -> prepare("INSERT INTO schedule_detail (days, schedule_id,festival_id,start_time,end_time,location) VALUES (:days, :schedule_id,:festival_id,:start_time,:end_time,:location)");
     $registration->bindValue(':days', $days, PDO::PARAM_STR);
@@ -107,32 +108,6 @@ function r_star($star){
 <link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
 <script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-//まだ使うかわからんjsの処理
-$(function() {
-    var topBtn = $('.page-top');
-    topBtn.hide();
-    //スクロールが100に達したらボタン表示
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            topBtn.fadeIn();
-        } else {
-            topBtn.fadeOut();
-        }
-    });
-    //スクロールしてトップ
-    topBtn.click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-    });
-});
-//画像のみ保存禁止
-$(function(){
-$("<?php echo $pathList->imgsPath; ?>").on("contextmenu",function(){
-return false;
-});
-});
 </script>
   </head>
   <body>
@@ -156,7 +131,7 @@ maincontents
   <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $name[0] ?></h1>
     <!--祭りor記事画像(仮)-->
   <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#"><img src="<?php echo $pathList->imgsPath; ?>article_img2.jpg" alt="祭り"></a>
+    <a href="#"><img src="<?php echo $pathList->imgsPath; ?><?php echo $img[0] ?>" alt="祭り"></a>
   </div>
   <!--お気に入りボタン-->
   <a href="#"><div class="fev_button"><p>♡</p></div></a>
@@ -171,6 +146,8 @@ maincontents
   <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <p><?php echo $description[0] ?></p>
   </div>
+  <!--動画-->
+  <?php echo $movie_url[0] ?>
   <!--MAP-->
   <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q=<?php echo $x[0] ?>,<?php echo $y[0] ?>&output=embed" width=100% height="450" frameborder="0" style="border:0"></iframe>
   <!--グッズ-->
@@ -290,6 +267,22 @@ maincontents
     <div class="comment_submit">
       <form action="cgi-bin/formmail.cgi" method="post">
       comment<br>
+      <!--星評価-->
+      <div class="user_hosi">
+        <div class="evaluation">
+          <input id="star1" type="radio" name="star" value="5" />
+          <label for="star1"><span class="text">Very good</span>★</label>
+          <input id="star2" type="radio" name="star" value="4" />
+          <label for="star2"><span class="text">Good</span>★</label>
+          <input id="star3" type="radio" name="star" value="3" />
+          <label for="star3"><span class="text">Medium</span>★</label>
+          <input id="star4" type="radio" name="star" value="2" />
+          <label for="star4"><span class="text">Bad</span>★</label>
+          <input id="star5" type="radio" name="star" value="1" />
+          <label for="star5"><span class="text">Very Bad</span>★</label>
+        </div>
+      </div>
+      <!--コメント記入-->
       <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
       <input type="submit" value="送信" class="comment_button">
       <input type="reset" value="リセット" class="comment_button">

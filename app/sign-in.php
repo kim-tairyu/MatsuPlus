@@ -1,6 +1,6 @@
 <?php
 // 入力チェック
-if( !isset($_POST["user_id"]) || !isset($_POST["password"]) ){
+if(!isset($_POST["user_id"]) || !isset($_POST["password"])){
     header("Location: ../WEB/sign.php?error");
     exit;
 }
