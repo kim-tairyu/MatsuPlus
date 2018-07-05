@@ -10,7 +10,6 @@ $pathList = new PathList();
 
 // アカウントチェック
 include $pathList->accountCheckPath;
-
 if(isset($_GET["festival_id"])) {
   $fes_id = $_GET["festival_id"];
   // 祭り情報を取得
