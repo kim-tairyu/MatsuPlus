@@ -8,20 +8,8 @@ if(!isset($_GET['festival_id'])){
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
 
-session_start();
-$link_mypage      = "";
-$link_schedule    = "";
-$link_mypage_name = "";
-if(isset($_SESSION["user_id"])) {
-  $link_mypage      = "mypage.php";
-  $link_schedule    = "schedule.php";
-  $link_mypage_name = "My page";
-} else {
-  $link_mypage      = "sign-in.php";
-  $link_schedule    = "sign-in.php";
-  $link_mypage_name = "SIGN IN";
-}
-
+// アカウントチェック
+include $pathList->accountCheckPath;
 if(isset($_GET["festival_id"])) {
   $fes_id = $_GET["festival_id"];
   // 祭り情報を取得
@@ -101,15 +89,20 @@ function r_star($star){
 
 <head>
 <meta charset="utf-8">
-<title>祭り詳細</title>
+<title>Festival Detail</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
-<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css?update=20180203" />
+    <link href="<?php echo $pathList->cssPath; ?>modal.css?update=20180203" rel="stylesheet" type="text/css">
 <link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
+<!--カレンダー表示読み込み-->
+<link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+<script src="https://unpkg.com/flatpickr"></script>
+<!--カレンダー表示読み込みおわり-->
 <script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 </script>
-  </head>
+</head>
   <body>
 <!-- Bootstrap -->
     <link href="<?php echo $pathList->cssPath; ?>bootstrap.min.css" rel="stylesheet">
@@ -120,8 +113,6 @@ function r_star($star){
   <![endif]-->
   <!--header-->
   <?php include $pathList->headerPath ?>
-
-
 <!--
 maincontents
 -->
@@ -134,9 +125,147 @@ maincontents
     <a href="#"><img src="<?php echo $pathList->imgsPath; ?><?php echo $img[0] ?>" alt="祭り"></a>
   </div>
   <!--お気に入りボタン-->
-  <a href="#"><div class="fev_button"><p>♡</p></div></a>
+  <div class="fev_button_box">
+  <div class="fev_button"><p>♡</p></div>
   <!--スケジュール追加ボタン-->
-  <a href="#"><div class="fev_button2"><p>仮</p></div></a>
+  <div class="fev_button2" id="Modal_Open" class="btn_price"><p>+</p></div>
+  </div>
+  <!--モーダルウインドウ-->
+  <div id="Modal_Content">
+      <p>Scheduling</p>
+      <!--イベント-->
+      <input type="text" id="event" placeholder="event"><br/>
+      <!--場所-->
+      <input type="text" id="place" placeholder="place"><br/>
+      <div class="suke-box">
+      <!--カレンダー開始1-->
+      <input type="text" id="calendar" class="suke-box1" placeholder="startDay" data-mindate=today>
+      <!--時間開始1-->
+      <select name="time_id" id="time">
+        <option value="time"></option>
+        <option value="">0:00</option>
+        <option value="">0:30</option>
+        <option value="">1:00</option>
+        <option value="">1:30</option>
+        <option value="">2:00</option>
+        <option value="">2:30</option>
+        <option value="">3:00</option>
+        <option value="">3:30</option>
+        <option value="">4:00</option>
+        <option value="">4:30</option>
+        <option value="">5:00</option>
+        <option value="">5:30</option>
+        <option value="">6:00</option>
+        <option value="">6:30</option>
+        <option value="">7:00</option>
+        <option value="">7:30</option>
+        <option value="">8:00</option>
+        <option value="">8:30</option>
+        <option value="">9:00</option>
+        <option value="">9:30</option>
+        <option value="">10:00</option>
+        <option value="">10:30</option>
+        <option value="">11:00</option>
+        <option value="">11:30</option>
+        <option value="">12:00</option>
+        <option value="">12:30</option>
+        <option value="">13:00</option>
+        <option value="">13:30</option>
+        <option value="">14:00</option>
+        <option value="">14:30</option>
+        <option value="">15:00</option>
+        <option value="">15:30</option>
+        <option value="">16:00</option>
+        <option value="">16:30</option>
+        <option value="">17:00</option>
+        <option value="">17:30</option>
+        <option value="">18:00</option>
+        <option value="">18:30</option>
+        <option value="">19:00</option>
+        <option value="">19:30</option>
+        <option value="">20:00</option>
+        <option value="">20:30</option>
+        <option value="">21:00</option>
+        <option value="">21:30</option>
+        <option value="">22:00</option>
+        <option value="">22:30</option>
+        <option value="">23:00</option>
+        <option value="">23:30</option>
+        <option value="">24:00</option>
+      </select>
+      </div>
+      <!--カレンダー開始１と時間開始１終了-->
+      <div class="suke-box">
+      <!--カレンダー開始2-->
+      <input type="text" id="calendar" class="suke-box1" placeholder="endDay" data-mindate=today>
+      <!--時間開始2-->
+      <select name="time_id" id="time">
+        <option value="time"></option>
+        <option value="">0:00</option>
+        <option value="">0:30</option>
+        <option value="">1:00</option>
+        <option value="">1:30</option>
+        <option value="">2:00</option>
+        <option value="">2:30</option>
+        <option value="">3:00</option>
+        <option value="">3:30</option>
+        <option value="">4:00</option>
+        <option value="">4:30</option>
+        <option value="">5:00</option>
+        <option value="">5:30</option>
+        <option value="">6:00</option>
+        <option value="">6:30</option>
+        <option value="">7:00</option>
+        <option value="">7:30</option>
+        <option value="">8:00</option>
+        <option value="">8:30</option>
+        <option value="">9:00</option>
+        <option value="">9:30</option>
+        <option value="">10:00</option>
+        <option value="">10:30</option>
+        <option value="">11:00</option>
+        <option value="">11:30</option>
+        <option value="">12:00</option>
+        <option value="">12:30</option>
+        <option value="">13:00</option>
+        <option value="">13:30</option>
+        <option value="">14:00</option>
+        <option value="">14:30</option>
+        <option value="">15:00</option>
+        <option value="">15:30</option>
+        <option value="">16:00</option>
+        <option value="">16:30</option>
+        <option value="">17:00</option>
+        <option value="">17:30</option>
+        <option value="">18:00</option>
+        <option value="">18:30</option>
+        <option value="">19:00</option>
+        <option value="">19:30</option>
+        <option value="">20:00</option>
+        <option value="">20:30</option>
+        <option value="">21:00</option>
+        <option value="">21:30</option>
+        <option value="">22:00</option>
+        <option value="">22:30</option>
+        <option value="">23:00</option>
+        <option value="">23:30</option>
+        <option value="">24:00</option>
+      </select>
+      </div>
+      <!--コメント-->
+      <textarea id="free" placeholder=""></textarea>
+
+
+      <script>
+      // flatpickrの初期化
+      flatpickr('#calendar');
+      </script>
+
+
+      <!--<button id="Modal_Enter" class="btn_link">はい</button>
+      <button id="Modal_Close" class="btn_link">いいえ</button>
+      <input type="checkbox" id="Modal_Cbox"/>-->
+  </div>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <h5 class="date"><?php echo $start_time[0] ?></h5>
@@ -210,6 +339,7 @@ maincontents
   <!--コメントエリア-->
   <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
   <h2>Comment</h2>
+  <?php if(!empty($review_star[0]) && !empty($review_user[0]) && !empty($review_content[0])){ ?>
   <!--コメント１-->
   <div class="comment_content">
     <div class="">
@@ -217,16 +347,18 @@ maincontents
         <img src="<?php echo $pathList->imgsPath; ?>user.jpg" alt="ユーザーアイコン">
     </div>
     <div class="comment_hosi">
-      <p><?php r_star($review_star[0]) ?></p>
+      <p><?php r_star($review_star[0]); ?></p>
     </div>
     <div class="comment_user_name">
-      <p><?php echo $review_user[0] ?></p>
+      <p><?php echo $review_user[0]; ?></p>
     </div>
     <div class="comment">
-      <p><?php echo $review_content[0] ?></p>
+      <p><?php echo $review_content[0]; ?></p>
     </div>
     </div>
   </div>
+  <?php } ?>
+  <?php if(!empty($review_star[1]) && !empty($review_user[1]) && !empty($review_content[1])){ ?>
   <!--コメント２-->
   <div class="comment_content">
     <div class="">
@@ -244,6 +376,8 @@ maincontents
     </div>
     </div>
   </div>
+  <?php } ?>
+  <?php if(!empty($review_star[2]) && !empty($review_user[2]) && !empty($review_content[2])){ ?>
   <!--コメント３-->
   <div class="comment_content">
     <div class="">
@@ -261,6 +395,7 @@ maincontents
     </div>
     </div>
   </div>
+  <?php } ?>
 
   <!--コメント入力エリア-->
   <div class="comment_content2">
@@ -310,6 +445,8 @@ maincontents
 <script src="<?php echo $pathList->jsPath; ?>jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="<?php echo $pathList->jsPath; ?>bootstrap.min.js"></script>
+<!---->
+<script src="<?php echo $pathList->jsPath; ?>modal.js"></script>
 <!--フッター（SP版では非表示になってる）-->
 <?php include $pathList->footerPath ?>
 

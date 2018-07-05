@@ -8,31 +8,18 @@ if(!isset($_GET['article_id'])){
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
 
-session_start();
-$link_mypage      = "";
-$link_schedule    = "";
-$link_mypage_name = "";
-if(isset($_SESSION["user_id"])) {
-  $link_mypage      = "mypage.php";
-  $link_schedule    = "schedule.php";
-  $link_mypage_name = "My page";
-} else {
-  $link_mypage      = "sign-in.php";
-  $link_schedule    = "sign-in.php";
-  $link_mypage_name = "SIGN IN";
-}
-
-$article_id = 1;
+// アカウントチェック
+include $pathList->accountCheckPath;
 
 // 記事情報を取得
 require_once('../app/DAO/ArticleDAO.class.php');
 $articleDAO = new ArticleDAO();
-$articles   = $articleDAO->getOneArticle($article_id);
+$articles   = $articleDAO->getOneArticle(1);
 foreach($articles as $article){
     $title[] = $article['article_title'].PHP_EOL;
-    $date[]  = $article['post_date'].PHP_EOL;
-    $txt[]   = $article['text'].PHP_EOL;
+    $text[]  = $article['text'].PHP_EOL;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +27,7 @@ foreach($articles as $article){
 
 <head>
 <meta charset="utf-8">
-<title>記事詳細</title>
+<title>Article Detail</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
@@ -67,7 +54,7 @@ maincontents
 <div class="main_content" id="myTapContent">
   <div class="main_content_fes_inner">
     <!--記事or祭りタイトル-->
-  <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $name[0] ?></h1>
+  <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $title[0] ?></h1>
     <!--祭りor記事画像(仮)-->
   <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <a href="#"><img src="<?php echo $pathList->imgsPath; ?>article_img2.jpg" alt="祭り"></a>
@@ -76,12 +63,12 @@ maincontents
   <a href="#"><div class="fev_button"><p>♡</p></div></a>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <h5 class="date"><?php echo $start_time[0] ?></h5>
+    <h5 class="date"></h5>
     <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
   </div>
   <!--記事本文-->
   <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <p><?php echo $description[0] ?></p>
+    <p><?php echo $text[0] ?></p>
   </div>
 
 

@@ -12,16 +12,17 @@ class UserDAO extends SuperDAO {
   // ユーザ情報を取得（全件）
   public function signIn() {
     try {
-      $sql  = 'SELECT * FROM user';    // SQL文
-      $pdo  = parent::getConnection(); // DB接続
-      $stmt = $pdo->prepare($sql);     // ステートメント
-      $stmt->execute();                // SQL文実行
-      parent::closeDB();               // DB切断
+      $sql          = 'SELECT * FROM user';
+      $pdo          = parent::getConnection(); // DB接続
+      $this->stmt   = $pdo->prepare($sql);     // ステートメント
+      $this->stmt->execute();                  // SQL文実行
+      $this->result = $this->stmt;             // 結果を代入
+      parent::closeDB($this->stmt, $pdo);      // DB切断
     } catch(PDOException $e) {
-      echo 'DB SELECT Error!'.$e->getMesseage;
+      $this->result = 'DB SELECT Error!'.$e->getMesseage;
       die();
     }
-    return $stmt;
+    return $this->result;
   }
   
   // 新規登録
@@ -42,13 +43,15 @@ class UserDAO extends SuperDAO {
         '.$country_id.',
         '.$launguege_id.'
       );';
-      $pdo  = parent::getConnection(); // DB接続
-      $stmt = $pdo->prepare($sql);     // ステートメント
-      $stmt->execute();                // SQL文実行
-      parent::closeDB();               // DB切断
+      $pdo          = parent::getConnection(); // DB接続
+      $this->stmt   = $pdo->prepare($sql);     // ステートメント
+      $this->stmt->execute();                  // SQL文実行
+      $this->result = "DB INSERT SUCCESS!";    // 結果を代入
+      parent::closeDB($this->stmt, $pdo);      // DB切断
     } catch(PDOException $e) {
-      echo 'DB SELECT Error!'.$e->getMesseage;
+      $this->result = 'DB INSERT Error!'.$e->getMesseage;
       die();
     }
+    return $this->result;
   }
 }

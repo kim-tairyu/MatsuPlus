@@ -1,13 +1,12 @@
 <?php
 // 入力チェック
-if(!isset($_POST["user_id"]) || !isset($_POST["password"])){
+if( !isset($_POST["mail_address"]) || !isset($_POST["password"]) ){
     header("Location: ../WEB/sign.php?error");
     exit;
 }
-
 $oneday  = 86400;
 $success = false;
-$in_id   = $_POST["user_id"];
+$in_mail = $_POST["mail_address"];
 $in_pass = $_POST["password"];
 
 // ログイン認証処理
@@ -15,9 +14,9 @@ require_once('DAO/UserDAO.class.php');
 $userDao = new UserDAO();
 $users   = $userDao->signIn();
 foreach( $users as $user ){
-  $id   = $user['user_id'];
+  $mail = $user['mail_address'];
   $pass = $user['password'];
-  if($in_id == $id && $in_pass == $pass) {
+  if($in_mail == $mail && $in_pass == $pass) {
     $success = true;
     // session
     session_start();
@@ -26,16 +25,20 @@ foreach( $users as $user ){
     $_SESSION["user_name"]    = $user['user_name'];
     $_SESSION["mail_address"] = $user['mail_address'];
     $_SESSION["country_id"]   = $user['country_id'];
-    $_SESSION["launguege_id"] = $user['launguege_id'];
+    $_SESSION["languege_id"]  = $user['languege_id'];
     $_SESSION["user_status"]  = $user['user_status'];
+    $_SESSION["user_icon"]    = $user['user_icon'];
+    $_SESSION["authority"]    = $user['authority'];
     // cookie
     setcookie($user['user_id'], time()+$oneday);
     setcookie($user['password'], time()+$oneday);
     setcookie($user['user_name'], time()+$oneday);
     setcookie($user['mail_address'], time()+$oneday);
     setcookie($user['country_id'], time()+$oneday);
-    setcookie($user['launguege_id'], time()+$oneday);
+    setcookie($user['languege_id'], time()+$oneday);
     setcookie($user['user_status'], time()+$oneday);
+    setcookie($user['user_icon'], time()+$oneday);
+    setcookie($user['authority'], time()+$oneday);
     break;
   }
 }

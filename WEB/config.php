@@ -3,19 +3,9 @@
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
 
-session_start();
-$link_mypage      = "";
-$link_schedule    = "";
-$link_mypage_name = "";
-if(isset($_SESSION["user_id"])) {
-  $link_mypage      = "mypage.php";
-  $link_schedule    = "schedule.php";
-  $link_mypage_name = "My page";
-} else {
-  $link_mypage      = "sign-in.php";
-  $link_schedule    = "sign-in.php";
-  $link_mypage_name = "SIGN IN";
-}
+// アカウントチェック
+include $pathList->accountCheckPath;
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +13,7 @@ if(isset($_SESSION["user_id"])) {
 
 <head>
 <meta charset="utf-8">
-<title>設定</title>
+<title>Config</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css" />
@@ -153,7 +143,7 @@ maincontents
 <!--お問い合わせ-->
 <div class="company">
   <div class="company-1">
-    <a href="../app/logout.php" class="exit3">Log out</a>
+    <a href="../app/Sign-out.php" class="exit3">Sign out</a>
   </div>
   <div class="company-2">
     <a href="#" class="exit3">Contact</a>
