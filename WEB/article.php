@@ -1,4 +1,9 @@
 <?php
+
+if(!isset($_GET['article_id'])){
+    header("Location:index.php");
+}
+
 // パス取得
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
