@@ -100,7 +100,7 @@ header:after{content: ""; display: block; clear: both; box-shadow    : 1px 1px 1
 .my_image{
     margin: 120px 0px 0px 0px;
     text-align: center;}
-.user_name{margin-bottom: 0px; margin-bottom: 70px;}
+.user_name{margin-top: 20px; margin-bottom: 70px;}
 .user_name2{margin-bottom: 0px;}
 .fes_box{width: 100%; height: auto;}
 .fes_box:after{content:""; display:block; clear:both;}
