@@ -130,7 +130,7 @@ $(function(){$("#click5").click(function(){$('#click5').css({'color':'#000', 'te
     <div class="tab-pane fade" id="news">
       <!--wrapのようなもの-->
         <!--記事1-->
-        <?php if(!empty($articleDAO->getArticles())) { 
+        <?php if(!empty($articleDAO->getArticles())) {
             $articles = $articleDAO->getArticles();
             foreach($articles as $article) {
         ?>
@@ -162,14 +162,20 @@ $(function(){$("#click5").click(function(){$('#click5').css({'color':'#000', 'te
     </div>
     <!--季節リア-->
     <div class="tab-pane fade" id="season">
-<<<<<<< HEAD
 
-      <div class="sebox">
-        <div class="sebox1"></div>
-        <div class="sebox2"></div>
-        <div class="sebox3"></div>
-        <div class="sebox4"></div>
+      <div class="week_mon2">
+        <a href="#"><div class="month3">SPRING</div></a>
+        <a href="#"><div class="month3">SUMMER</div></a>
+        <a href="#"><div class="month3">AUTUMN</div></a>
+        <a href="#"><div class="month3">WINTER</div></a>
       </div>
+      <!--
+      <div class="sebox">
+        <div class="sebox1"><div class="sebox1-A"></div></div>
+        <div class="sebox2"><div class="sebox2-A"></div></div>
+        <div class="sebox3"><div class="sebox3-A"></div></div>
+        <div class="sebox4"><div class="sebox4-A"></div></div>
+      </div>-->
 
       <div class="news_info_event">
         <?php if($festivalDAO->getRecommendedFestivals() != null) {
@@ -201,19 +207,6 @@ $(function(){$("#click5").click(function(){$('#click5').css({'color':'#000', 'te
         <?php } } else { ?>
         <div>祭りデータがありません。</div>
         <?php } ?>
-=======
-      <div class="home_img">
-        <a href="../app/Season-tag.php?season=春"><img src="<?php echo $pathList->imgsPath; ?>spring.jpg" alt="春"></a>
-      </div>
-      <div class="home_img">
-        <a href="../app/Season-tag.php?season=夏"><img src="<?php echo $pathList->imgsPath; ?>summer.jpg" alt="夏"></a>
-      </div>
-      <div class="home_img">
-        <a href="../app/Season-tag.php?season=秋"><img src="<?php echo $pathList->imgsPath; ?>autumn.jpg" alt="秋"></a>
-      </div>
-      <div class="home_img">
-        <a href="../app/Season-tag.php?season=冬"><img src="<?php echo $pathList->imgsPath; ?>winter.jpg" alt="冬"></a>
->>>>>>> 4ff48247725e410d68759147e44f57b1cfcaafbc
       </div>
 
     </div>
