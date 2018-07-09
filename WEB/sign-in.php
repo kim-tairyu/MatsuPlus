@@ -51,7 +51,7 @@ maincontents
           <div><p><?php echo $err_msg ?></p></div>
           <input type="submit" class="login" value="Login">
         </form>
-            <div class="company">
+            <div class="company2">
               <a href="sign-up.php" class="admin_new">SignUp</a>
             </div>
 

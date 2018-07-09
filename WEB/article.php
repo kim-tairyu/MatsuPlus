@@ -64,7 +64,7 @@ maincontents
   </div>
   <!--お気に入りボタン-->
   <div class="fev_button_box">
-  <div class="fev_button"><p>♡</p></div>
+  <a href="#" style="text-decoration:none;"><div class="fev_button"><p>♡</p></div></a>
   </div>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">

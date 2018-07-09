@@ -61,7 +61,7 @@ maincontents
               foreach($festivals as $festival) {
           ?>
           <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+              <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                   <a href="festival.php?festival_id=<?php echo $festival['festival_id'] ?>">
                       <div class="news_box">
                       <div class="news_box1">

@@ -125,9 +125,9 @@ maincontents
   </div>
   <!--お気に入りボタン-->
   <div class="fev_button_box">
-  <div class="fev_button"><p>♡</p></div>
+  <a href="#" style="text-decoration:none;"><div class="fev_button"><p>♡</p></div></a>
   <!--スケジュール追加ボタン-->
-  <div class="fev_button2" id="Modal_Open" class="btn_price"><p>+</p></div>
+  <a href="#" style="text-decoration:none;"><div class="fev_button2" id="Modal_Open" class="btn_price"><p>+</p></div></a>
   </div>
   <!--モーダルウインドウ-->
   <div id="Modal_Content">
@@ -253,6 +253,10 @@ maincontents
       </div>
       <!--コメント-->
       <textarea id="free" placeholder=""></textarea>
+      <!--決定-->
+      <div class="user_button4">
+        <input type="submit" class="enter" value="ENTER">
+      </div>
 
 
       <script>
