@@ -1,8 +1,10 @@
 <?php
 
-if(!isset($_GET['festival_id'])){
-    header("Location:index.php");
-}
+//祭り情報
+//if(!isset($_GET['festival_id'])){
+//    header("Location:index.php");
+//}
+
 
 // パス取得
 require_once('../app/PathList.class.php');
@@ -10,25 +12,65 @@ $pathList = new PathList();
 
 // アカウントチェック
 include $pathList->accountCheckPath;
+
 if(isset($_GET["festival_id"])) {
-  $fes_id = $_GET["festival_id"];
+    $fes_id = $_GET["festival_id"];
+}else if(isset($_POST["festival_id"])){
+    $fes_id = $_POST["festival_id"];
+    if(isset($_SESSION["user_id"]) && isset($_POST['star']) && isset($_POST['kanso'])){
+        if($_POST['star'] !=="" && $_POST['kanso'] !==""){
+            $user_id = $_SESSION["user_id"];
+            $kanso = $_POST['kanso'];
+            $star = $_POST['star'];
+            require_once('../app/DAO/ReviewDAO.class.php');
+            $reviewDAO = new ReviewDAO();
+            $reviewDAO -> putReview($fes_id,$user_id,$kanso,$star);
+        }
+    }else{
+        //仮
+        header("Location:index.php");
+    }
+}else{
+    header("Location:index.php");
+}
+
   // 祭り情報を取得
   require_once('../app/DAO/FestivalDAO.class.php');
   $festivalDAO = new FestivalDAO();
   $festivals   = $festivalDAO->getOneFestival($fes_id);
   foreach($festivals as $festival){
     $festival_id[] = $festival['festival_id'].PHP_EOL;
-    $name[]        = $festival['festival_name'].PHP_EOL;
-    $img[]         = $festival['festival_img'].PHP_EOL;
-    $description[] = $festival['description'].PHP_EOL;
-    $location[]    = $festival['location'].PHP_EOL;
+    $name[]        = $festival['festival_name_en'].PHP_EOL;
+    $description[] = $festival['description_en'].PHP_EOL;
     $start_time[]  = $festival['start_time'].PHP_EOL;
     $end_time[]    = $festival['end_time'].PHP_EOL;
     $x[]           = $festival['x_coordinate'].PHP_EOL;
     $y[]           = $festival['y_coordinate'].PHP_EOL;
     $movie_url[]   = $festival['movie_url'].PHP_EOL;
   }
-}
+
+  // 祭り画像の取得
+  $festival_image = $festivalDAO->getImageFestival($fes_id);
+  foreach($festival_image as $image){
+    $fes_image[] = $image['image'].PHP_EOL;
+  }
+
+  // お土産情報の取得
+  require_once('../app/DAO/GiftDAO.class.php');
+  $giftDAO = new GiftDAO();
+  $festival_gift = $giftDAO->getGift($fes_id);
+  foreach($festival_gift as $gift){
+    $name_en[] = $gift['gift_name_en'].PHP_EOL;
+    $gift_image[] = $gift['image'].PHP_EOL;
+  }
+
+  //タグ情報の取得
+  require_once('../app/DAO/TagDAO.class.php');
+  $tagDAO = new TagDAO();
+  $festival_tag = $tagDAO->getTag($fes_id);
+  foreach($festival_tag as $tag){
+    $tag_en[] = $tag['tag_name_en'].PHP_EOL;
+  }
 
 // レビュー情報を取得
 require_once('../app/DAO/ReviewDAO.class.php');
@@ -40,38 +82,6 @@ foreach($reviews as $review){
     $review_user[] = $review['user_name'].PHP_EOL;
     $review_content[] = $review['review'].PHP_EOL;
     $review_star[] = $review['star'].PHP_EOL;
-}
-
-// 登録処理
-
-// スケジュール仮データ
-$days ="2018-06-018";
-$schedule_id = 1;
-// レビュー仮データ
-
-if(isset($_POST['r_button']) == 'registration'){
-    $registration = $pdo -> prepare("INSERT INTO schedule_detail (days, schedule_id,festival_id,start_time,end_time,location) VALUES (:days, :schedule_id,:festival_id,:start_time,:end_time,:location)");
-    $registration->bindValue(':days', $days, PDO::PARAM_STR);
-    $registration->bindValue(':schedule_id', $schedule_id, PDO::PARAM_INT);
-    $registration->bindValue(':festival_id', $festival_id, PDO::PARAM_INT);
-    $registration->bindValue(':start_time', $start_time, PDO::PARAM_STR);
-    $registration->bindValue(':end_time', $end_time, PDO::PARAM_STR);
-    $registration->bindValue(':location', $location, PDO::PARAM_STR);
-    $registration->execute();
-
-}else if(isset($_POST['review_button']) == 'review'){
-    $review = $pdo -> prepare("INSERT INTO review (festival_id,user_id,review,star)VALUES(:festival_id,:user_id,:review,:star)");
-    $review->bindValue(":festival_id",$festival_id,PDO::PARAM_INT);
-    $review->bindValue(":user_id",$user,PDO::PARAM_STR);
-    $review->bindValue(":review",$_POST['content'],PDO::PARAM_STR);
-    $review->bindValue(":star",$star,PDO::PARAM_INT);
-    $review->execute();
-}else if(isset($_POST['f_button']) == 'favorite'){
-    $user = "bbb";
-    $favorite_fes = $pdo -> prepare("INSERT INTO favorite_fes(user_id,festival_id)VALUES(:user_id,:festival_id)");
-    $favorite_fes->bindValue(":user_id",$user,PDO::PARAM_STR);
-    $favorite_fes->bindValue(":festival_id",$festival_id,PDO::PARAM_INT);
-    $favorite_fes->execute();
 }
 
 //レビュー☆表示
@@ -93,7 +103,6 @@ function r_star($star){
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Expires" content="10">
 <link type="text/css" rel="stylesheet" href="<?php echo $pathList->cssPath; ?>style.css?update=20180203" />
-    <link href="<?php echo $pathList->cssPath; ?>modal.css?update=20180203" rel="stylesheet" type="text/css">
 <link rel="SHORTCUT ICON" href="<?php echo $pathList->imgsPath; ?>M.ico">
 <!--カレンダー表示読み込み-->
 <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
@@ -101,6 +110,14 @@ function r_star($star){
 <!--カレンダー表示読み込みおわり-->
 <script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+    
+//お気に入りボタン処理
+$(function(){
+    $("#favorite").click(function() {
+        
+    });
+});
+
 </script>
 </head>
   <body>
@@ -122,11 +139,11 @@ maincontents
   <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $name[0] ?></h1>
     <!--祭りor記事画像(仮)-->
   <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#"><img src="<?php echo $pathList->imgsPath; ?><?php echo $img[0] ?>" alt="祭り"></a>
+    <a href="#"><img src="<?php echo $pathList->imgsPath; ?><?php echo $fes_image[0] ?>" alt="祭り"></a>
   </div>
   <!--お気に入りボタン-->
   <div class="fev_button_box">
-  <div class="fev_button"><p>♡</p></div>
+  <div class="fev_button" id="favorite"><a><p>♡</p></a></div>
   <!--スケジュール追加ボタン-->
   <div class="fev_button2" id="Modal_Open" class="btn_price"><p>+</p></div>
   </div>
@@ -268,7 +285,11 @@ maincontents
   </div>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <div class="date_box2">
+    <!--この下のdate2をアクセスカウンターで稲買いします-->
+    <h5 class="date2"><?php echo $start_time[0] ?></h5>
     <h5 class="date"><?php echo $start_time[0] ?></h5>
+  </div>
     <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
   </div>
   <!--記事本文-->
@@ -284,55 +305,65 @@ maincontents
     <h2>Souvenir</h2>
   <div class="souvenir_img_box">
     <!--グッズ１-->
+    <?php if(!empty($name_en[0]) && !empty($gift_image[0])){ ?>
     <div class="souvenir_img_box2">
       <a href="#">
         <div class="souvenir_img_box3">
           <div class="souvenir_img_boxA">
-            <img src="<?php echo $pathList->imgsPath; ?>omiyage_01.jpg" alt="ねぶた祭お土産">
+            <img src="<?php echo $pathList->imgsPath; ?><?php echo $gift_image[0] ?>" alt="ねぶた祭お土産">
           </div>
           <div class="souvenir_img_boxB">
-            <h4 class="souvenir_title">OMAMORI</h4>
+            <h4 class="souvenir_title"><?php echo $name_en[0] ?></h4>
           </div>
         </div>
       </a>
     </div>
+    <?php }else{ ?>
+      <p>お土産情報がありません</p>
+    <?php } ?>
     <!--グッズ２-->
+    <?php if(!empty($name_en[1]) && !empty($gift_image[1])){ ?>
     <div class="souvenir_img_box2">
       <a href="#">
         <div class="souvenir_img_box3">
           <div class="souvenir_img_boxA">
-            <img src="<?php echo $pathList->imgsPath; ?>omiyage_01.jpg" alt="ねぶた祭お土産">
+            <img src="<?php echo $pathList->imgsPath; ?><?php echo $gift_image[1] ?>" alt="ねぶた祭お土産">
           </div>
           <div class="souvenir_img_boxB">
-            <h4 class="souvenir_title">OMAMORI</h4>
+            <h4 class="souvenir_title"><?php echo $name_en[1] ?></h4>
           </div>
         </div>
       </a>
     </div>
+    <?php } ?>
+    <?php if(!empty($name_en[2]) && !empty($gift_image[2])){ ?>
     <div class="souvenir_img_box2">
       <a href="#">
         <div class="souvenir_img_box3">
           <div class="souvenir_img_boxA">
-            <img src="<?php echo $pathList->imgsPath; ?>omiyage_01.jpg" alt="ねぶた祭お土産">
+            <img src="<?php echo $pathList->imgsPath; ?><?php echo $gift_image[2] ?>" alt="ねぶた祭お土産">
           </div>
           <div class="souvenir_img_boxB">
-            <h4 class="souvenir_title">OMAMORI</h4>
+            <h4 class="souvenir_title"><?php echo $name_en[2] ?></h4>
           </div>
         </div>
       </a>
     </div>
+    <?php } ?>
+    <?php if(!empty($name_en[3]) && !empty($gift_image[3])){ ?>
     <div class="souvenir_img_box2">
       <a href="#">
         <div class="souvenir_img_box3">
           <div class="souvenir_img_boxA">
-            <img src="<?php echo $pathList->imgsPath; ?>omiyage_01.jpg" alt="ねぶた祭お土産">
+            <img src="<?php echo $pathList->imgsPath; ?><?php echo $gift_image[3] ?>" alt="ねぶた祭お土産">
           </div>
           <div class="souvenir_img_boxB">
-            <h4 class="souvenir_title">OMAMORI</h4>
+            <h4 class="souvenir_title"><?php echo $name_en[3] ?></h4>
           </div>
         </div>
       </a>
     </div>
+    <?php } ?>
 
   </div>
   </div>
@@ -400,7 +431,7 @@ maincontents
   <!--コメント入力エリア-->
   <div class="comment_content2">
     <div class="comment_submit">
-      <form action="cgi-bin/formmail.cgi" method="post">
+      <form action="festival.php" method="post">
       comment<br>
       <!--星評価-->
       <div class="user_hosi">
@@ -419,6 +450,8 @@ maincontents
       </div>
       <!--コメント記入-->
       <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
+      <!-- 祭りID -->
+      <input type="hidden" name="festival_id" value="<?php echo $fes_id ?>">
       <input type="submit" value="送信" class="comment_button">
       <input type="reset" value="リセット" class="comment_button">
       </form>
@@ -431,13 +464,13 @@ maincontents
   </div>
 
   <div class="related_article_title_tag col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#" class="tag">#Japan</a>
-    <a href="#" class="tag">#Tokyo</a>
-    <a href="#" class="tag">#Kanda</a>
-    <a href="#" class="tag">#Festival</a>
-    <a href="#" class="tag">#Somanypeople</a>
-    <a href="#" class="tag">#happy</a>
-    <a href="#" class="tag">#June</a>
+    <?php
+    if(!empty($tag_en[0])){
+        foreach($tag_en as $tag){
+    ?>
+      <a href="#" class="tag"><?php echo $tag ?></a>
+    <?php }} ?>
+
   </div>
   </div>
 </div>
