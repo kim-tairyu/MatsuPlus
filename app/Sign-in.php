@@ -1,7 +1,7 @@
 <?php
 // 入力チェック
 if( !isset($_POST["mail_address"]) || !isset($_POST["password"]) ){
-    header("Location: ../WEB/sign.php?error");
+    header("Location: ../WEB/sign-in.php?error");
     exit;
 }
 $oneday  = 86400;

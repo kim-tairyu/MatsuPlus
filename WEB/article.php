@@ -30,8 +30,6 @@ foreach($article_tag as $article){
     $tags[] = $article['tag_name_en'].PHP_EOL;
 }
 
-echo $tags[0];
-exit;
 
 ?>
 
