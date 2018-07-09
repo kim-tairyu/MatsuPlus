@@ -63,11 +63,17 @@ maincontents
     <a href="#"><img src="<?php echo $pathList->imgsPath; ?>article_img2.jpg" alt="祭り"></a>
   </div>
   <!--お気に入りボタン-->
-  <a href="#"><div class="fev_button"><p>♡</p></div></a>
+  <div class="fev_button_box">
+  <div class="fev_button"><p>♡</p></div>
+  </div>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <div class="date_box2">
+    <!--この下のdate2をアクセスカウンターで稲買いします-->
+    <h5 class="date2"><?php echo $start_time[0] ?></h5>
     <h5 class="date"><?php echo $start_time[0] ?></h5>
-    <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
+  </div>
+  <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
   </div>
   <!--記事本文-->
   <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
