@@ -89,7 +89,8 @@ $(function(){$("#click5").click(function(){$('#click5').css({'color':'#000', 'te
       </div>
 
             <div class="news_info_event">
-              <?php if($festivalDAO->getRecommendedFestivals() != null) {
+              <?php
+                  if(!empty($festivalDAO->getRecommendedFestivals())) {
                   $festivals = $festivalDAO->getRecommendedFestivals();
                   foreach($festivals as $festival) {
               ?>
@@ -116,7 +117,7 @@ $(function(){$("#click5").click(function(){$('#click5').css({'color':'#000', 'te
                     </a>
                 </div>
               <?php } } else { ?>
-              <div>祭りデータがありません。</div>
+              <div>No Festival Data!</div>
               <?php } ?>
             </div>
 
@@ -129,7 +130,7 @@ $(function(){$("#click5").click(function(){$('#click5').css({'color':'#000', 'te
     <div class="tab-pane fade" id="news">
       <!--wrapのようなもの-->
         <!--記事1-->
-        <?php if($articleDAO->getArticles() != null) {
+        <?php if(!empty($articleDAO->getArticles())) { 
             $articles = $articleDAO->getArticles();
             foreach($articles as $article) {
         ?>
@@ -162,46 +163,46 @@ $(function(){$("#click5").click(function(){$('#click5').css({'color':'#000', 'te
     <!--季節リア-->
     <div class="tab-pane fade" id="season">
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>spring.jpg" alt="春"></a>
+        <a href="../app/Season-tag.php?season=春"><img src="<?php echo $pathList->imgsPath; ?>spring.jpg" alt="春"></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>summer.jpg" alt="夏"></a>
+        <a href="../app/Season-tag.php?season=夏"><img src="<?php echo $pathList->imgsPath; ?>summer.jpg" alt="夏"></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>autumn.jpg" alt="秋"></a>
+        <a href="../app/Season-tag.php?season=秋"><img src="<?php echo $pathList->imgsPath; ?>autumn.jpg" alt="秋"></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>winter.jpg" alt="冬"></a>
+        <a href="../app/Season-tag.php?season=冬"><img src="<?php echo $pathList->imgsPath; ?>winter.jpg" alt="冬"></a>
       </div>
     </div>
     <!--地方エリア-->
     <div class="tab-pane fade" id="area">
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hokkaidou.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=北海道"><img src="<?php echo $pathList->imgsPath; ?>hokkaidou.jpg" alt=""></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>tohoku.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=東北"><img src="<?php echo $pathList->imgsPath; ?>tohoku.jpg" alt=""></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kinki.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=近畿"><img src="<?php echo $pathList->imgsPath; ?>kinki.jpg" alt=""></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kanto.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=関東"><img src="<?php echo $pathList->imgsPath; ?>kanto.jpg" alt=""></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>chubu.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=中部"><img src="<?php echo $pathList->imgsPath; ?>chubu.jpg" alt=""></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>chugoku.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=中国"><img src="<?php echo $pathList->imgsPath; ?>chugoku.jpg" alt=""></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>shikoku.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=四国"><img src="<?php echo $pathList->imgsPath; ?>shikoku.jpg" alt=""></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>kyushu.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=九州"><img src="<?php echo $pathList->imgsPath; ?>kyushu.jpg" alt=""></a>
       </div>
       <div class="home_img">
-        <a href="#"><img src="<?php echo $pathList->imgsPath; ?>okinawa.jpg" alt=""></a>
+        <a href="../app/Area-tag.php?area=沖縄"><img src="<?php echo $pathList->imgsPath; ?>okinawa.jpg" alt=""></a>
       </div>
     </div>
 
