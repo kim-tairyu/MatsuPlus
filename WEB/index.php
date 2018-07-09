@@ -72,7 +72,8 @@ maincontents
       </div>
 
             <div class="news_info_event">
-              <?php if($festivalDAO->getRecommendedFestivals() != null) {
+              <?php
+                  if(!empty($festivalDAO->getRecommendedFestivals())) {
                   $festivals = $festivalDAO->getRecommendedFestivals();
                   foreach($festivals as $festival) {
               ?>
@@ -90,7 +91,7 @@ maincontents
                     </a>
                 </div>
               <?php } } else { ?>
-              <div>祭りデータがありません。</div>
+              <div>No Festival Data!</div>
               <?php } ?>
             </div>
 
@@ -103,7 +104,7 @@ maincontents
     <div class="tab-pane fade" id="news">
       <!--wrapのようなもの-->
         <!--記事1-->
-        <?php if($articleDAO->getArticles() != null) { 
+        <?php if(!empty($articleDAO->getArticles())) { 
             $articles = $articleDAO->getArticles();
             foreach($articles as $article) {
         ?>
