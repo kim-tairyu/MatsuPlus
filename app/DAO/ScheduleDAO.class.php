@@ -25,4 +25,24 @@ class ScheduleDAO extends SuperDAO {
     }
     return $this->result;
   }
+    
+  //スケジュールの追加
+  public function addSchedule($user_id,$event,$place,$free){
+        try {
+        $sql = 'INSERT INTO schedule (user_id,schedule_name,location,outline) VALUES (?,?,?,?)';
+        $pdo          = parent::getConnection(); // DB接続
+        $this->stmt   = $pdo->prepare($sql);     // ステートメント
+        $this ->stmt -> bindValue(1, $user_id);
+        $this ->stmt -> bindValue(2, $event);
+        $this ->stmt -> bindValue(3, $place);
+        $this ->stmt -> bindValue(4, $free);
+        $this->stmt->execute();                  // SQL文実行
+        parent::closeDB($this->stmt, $pdo);      // DB切断
+
+    } catch(PDOException $e) {
+      $this->result = 'DB SELECT Error!'.$e->getMesseage;
+      die();
+    }
+    return $this->result;
+  }
 }
