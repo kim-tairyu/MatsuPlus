@@ -6,7 +6,7 @@ $pathList = new PathList();
 // アカウントチェック
 include $pathList->accountCheckPath;
 
-// 言語を取得
+// 出身国を取得
 require_once('../app/DAO/CountryDAO.class.php');
 $countryDAO = new CountryDAO();
 $countrys   = $countryDAO->getCountrysInfo();
@@ -54,7 +54,7 @@ maincontents
           <div><p><?php echo $err_msg ?></p></div>
             <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
             <input type="password" class="password" name="password" placeholder="Password">
-            <input type="password" class="password" name="repassword" placeholder="Password Second">
+            <input type="password" class="password" name="passwordSecond" placeholder="Password Second">
             <input type="text" class="name" name="user_name" placeholder="Name">
             <select name="country_id" class="country-width">
               <option value="">Select Country</option>
