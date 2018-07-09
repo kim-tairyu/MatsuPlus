@@ -130,7 +130,7 @@ $(function(){$("#click5").click(function(){$('#click5').css({'color':'#000', 'te
     <div class="tab-pane fade" id="news">
       <!--wrapのようなもの-->
         <!--記事1-->
-        <?php if(!empty($articleDAO->getArticles())) { 
+        <?php if(!empty($articleDAO->getArticles())) {
             $articles = $articleDAO->getArticles();
             foreach($articles as $article) {
         ?>

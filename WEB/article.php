@@ -1,9 +1,5 @@
 <?php
 
-if(!isset($_GET['article_id'])){
-    header("Location:index.php");
-}
-
 // パス取得
 require_once('../app/PathList.class.php');
 $pathList = new PathList();
@@ -11,25 +7,45 @@ $pathList = new PathList();
 // アカウントチェック
 include $pathList->accountCheckPath;
 
+if(isset($_GET["article_id"])) {
+    $arc_id = $_GET["article_id"];
+    if(isset($_GET["f"]) && isset($_SESSION["user_id"])){
+        //お気に入り処理
+        require_once('../app/DAO/FavoriteDAO.class.php');
+        $favoriteDAO = new FavoriteDAO();
+        $article_favorite = $favoriteDAO->putFavoriteArticle($_SESSION["user_id"],$arc_id);
+    }
+}else{
+    header("Location:index.php");
+}
+
 // 記事情報を取得
 require_once('../app/DAO/ArticleDAO.class.php');
 $articleDAO = new ArticleDAO();
 //仮
-$articles   = $articleDAO->getOneArticle(2);
+$articles   = $articleDAO->getOneArticle(1);
 
 foreach($articles as $article){
     $title[] = $article['article_title'].PHP_EOL;
     $text[]  = $article['text'].PHP_EOL;
     $date[]  = $article['post_date'].PHP_EOL;
+    $image[]  = $article['image'].PHP_EOL;
 }
 
 //タグ取得
 //仮
 $article_tag   = $articleDAO->getTagArticle(2);
 foreach($article_tag as $article){
-    $tags[] = $article['tag_name_en'].PHP_EOL;
+    $tag[] = $article['tag_name_en'];
 }
 
+$relation_tag   = $articleDAO->getRelationTag($tag[0]);
+foreach($relation_tag as $relation){
+    $relation_id[]    = $relation['article_id'];
+    $relation_title[] = $relation['article_title'].PHP_EOL;
+    $relation_date[]  = $relation['post_date'].PHP_EOL;
+    $relation_image[]  = $relation['image'].PHP_EOL;
+}
 
 ?>
 
@@ -65,27 +81,35 @@ maincontents
 <div class="main_content" id="myTapContent">
   <div class="main_content_fes_inner">
     <!--記事or祭りタイトル-->
+  <?php if(!empty($title[0])){ ?>
   <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $title[0] ?></h1>
+  <?php } ?>
     <!--祭りor記事画像(仮)-->
-  <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <a href="#"><img src="<?php echo $pathList->imgsPath; ?>article_img2.jpg" alt="祭り"></a>
-  </div>
+    <?php if(!empty($image[0])){ ?>
+    <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <a href="#"><img src="<?php echo $pathList->imgsPath; ?><?php echo $image[0] ?>" alt="祭り"></a>
+    </div>
+    <?php } ?>
   <!--お気に入りボタン-->
   <div class="fev_button_box">
-  <a href="#" style="text-decoration:none;"><div class="fev_button"><p>♡</p></div></a>
+  <a href="?article_id=<?php echo $arc_id ?>&f" style="text-decoration:none;"><div class="fev_button"><p>♡</p></div></a>
   </div>
   <!--記事の日付とサブタイトル？-->
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <div class="date_box2">
     <!--この下のdate2をアクセスカウンターで稲買いします-->
     <h5 class="date2">アクセスカウンター（仮）</h5>
+    <?php if(!empty($date[0])){ ?>
     <h5 class="date"><?php echo $date[0] ?></h5>
+    <?php } ?>
   </div>
   <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
   </div>
   <!--記事本文-->
   <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <?php if(!empty($text[0])){ ?>
     <p><?php echo $text[0] ?></p>
+    <?php } ?>
   </div>
 
 
@@ -98,22 +122,37 @@ maincontents
   <!--wrapのようなもの-->
   <div class="news_info_event">
     <!--記事1-->
+    <?php if(!empty($relation_image[0]) && !empty($relation_title[0]) && !empty($relation_date[0])){ ?>
     <div class="news_info_event_box">
-          <?php foreach($articles as $article) { ?>
           <a href="article.php?article_id=?">
               <div class="news_box">
               <div class="news_box1">
-                <img src="<?php echo $article['article_img']; ?>" class="event_image">
+                <img src="<?php echo $pathList->imgsPath; ?><?php echo $relation_image[0] ?>" class="event_image">
               </div>
               <div class="news_box2">
-                <h4 class="news_title"><?php echo $article['article_title']; ?></h4>
-                <h6 class="date_big"><?php echo $article['post_date']; ?></h6>
+                <h4 class="news_title"><?php echo $relation_title[0]; ?></h4>
+                <h6 class="date_big"><?php echo $relation_date[0]; ?></h6>
               </div>
             </div>
           </a>
-          <?php } ?>
-      </div>
     </div>
+    <?php } ?>
+    <?php if(!empty($relation_image[1]) && !empty($relation_title[1]) && !empty($relation_date[1])){ ?>
+    <div class="news_info_event_box">
+          <a href="article.php?article_id=?">
+              <div class="news_box">
+              <div class="news_box1">
+                <img src="<?php echo $pathList->imgsPath; ?><?php echo $relation_image[1] ?>" class="event_image">
+              </div>
+              <div class="news_box2">
+                <h4 class="news_title"><?php echo $relation_title[1]; ?></h4>
+                <h6 class="date_big"><?php echo $relation_date[1]; ?></h6>
+              </div>
+            </div>
+          </a>
+    </div>
+    <?php } ?>
+  </div>
 
 </div>
 </div>
