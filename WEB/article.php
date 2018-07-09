@@ -14,11 +14,24 @@ include $pathList->accountCheckPath;
 // 記事情報を取得
 require_once('../app/DAO/ArticleDAO.class.php');
 $articleDAO = new ArticleDAO();
-$articles   = $articleDAO->getOneArticle(1);
+//仮
+$articles   = $articleDAO->getOneArticle(2);
+
 foreach($articles as $article){
     $title[] = $article['article_title'].PHP_EOL;
     $text[]  = $article['text'].PHP_EOL;
+    $date[]  = $article['post_date'].PHP_EOL;
 }
+
+//タグ取得
+//仮
+$article_tag   = $articleDAO->getTagArticle(2);
+foreach($article_tag as $article){
+    $tags[] = $article['tag_name_en'].PHP_EOL;
+}
+
+echo $tags[0];
+exit;
 
 ?>
 
@@ -67,8 +80,8 @@ maincontents
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <div class="date_box2">
     <!--この下のdate2をアクセスカウンターで稲買いします-->
-    <h5 class="date2"><?php echo $start_time[0] ?></h5>
-    <h5 class="date"><?php echo $start_time[0] ?></h5>
+    <h5 class="date2">アクセスカウンター（仮）</h5>
+    <h5 class="date"><?php echo $date[0] ?></h5>
   </div>
   <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
   </div>

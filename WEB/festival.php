@@ -110,14 +110,6 @@ function r_star($star){
 <!--カレンダー表示読み込みおわり-->
 <script type="text/javascript" src="<?php echo $pathList->jsPath; ?>jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-    
-//お気に入りボタン処理
-$(function(){
-    $("#favorite").click(function() {
-        
-    });
-});
-
 </script>
 </head>
   <body>
