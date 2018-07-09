@@ -15,8 +15,15 @@ include $pathList->accountCheckPath;
 
 if(isset($_GET["festival_id"])) {
     $fes_id = $_GET["festival_id"];
+    if(isset($_GET["f"]) && isset($_SESSION["user_id"])){
+        //お気に入り処理
+        require_once('../app/DAO/FavoriteDAO.class.php');
+        $favoriteDAO = new FavoriteDAO();
+        $festival_favorite = $favoriteDAO->putFavoriteFestival($_SESSION["user_id"],$fes_id);
+    }
 }else if(isset($_POST["festival_id"])){
     $fes_id = $_POST["festival_id"];
+    //レビュー
     if(isset($_SESSION["user_id"]) && isset($_POST['star']) && isset($_POST['kanso'])){
         if($_POST['star'] !=="" && $_POST['kanso'] !==""){
             $user_id = $_SESSION["user_id"];
@@ -25,6 +32,17 @@ if(isset($_GET["festival_id"])) {
             require_once('../app/DAO/ReviewDAO.class.php');
             $reviewDAO = new ReviewDAO();
             $reviewDAO -> putReview($fes_id,$user_id,$kanso,$star);
+        }
+    //スケジュール
+    }else if(isset($_SESSION["user_id"]) && isset($_POST['event']) ){
+        if($_POST['event'] !==""){
+            $user_id = $_SESSION["user_id"];
+            $event = $_POST['event'];
+            $place = $_POST['place'];
+            $free = $_POST['free'];
+            require_once('../app/DAO/ScheduleDAO.class.php');
+            $scheduleDAO = new ScheduleDAO();
+            $scheduleDAO -> addSchedule($user_id,$event,$place,$free);
         }
     }else{
         //仮
@@ -128,14 +146,18 @@ maincontents
 <div class="main_content" id="myTapContent">
   <div class="main_content_fes_inner">
     <!--記事or祭りタイトル-->
+  <?php if(!empty($name[0])){ ?>
   <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $name[0] ?></h1>
+  <?php } ?>
     <!--祭りor記事画像(仮)-->
+  <?php if(!empty($fes_image[0])){ ?>
   <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <a href="#"><img src="<?php echo $pathList->imgsPath; ?><?php echo $fes_image[0] ?>" alt="祭り"></a>
   </div>
+  <?php } ?>
   <!--お気に入りボタン-->
   <div class="fev_button_box">
-  <a href="#" style="text-decoration:none;"><div class="fev_button"><p>♡</p></div></a>
+  <a href="?festival_id=<?php echo $fes_id ?>&f" style="text-decoration:none;"><div class="fev_button"><p>♡</p></div></a>
   <!--スケジュール追加ボタン-->
   <a href="#" style="text-decoration:none;"><div class="fev_button2" id="Modal_Open" class="btn_price"><p>+</p></div></a>
   </div>
@@ -143,130 +165,133 @@ maincontents
   <div id="Modal_Content">
       <p>Scheduling</p>
       <!--イベント-->
-      <input type="text" id="event" placeholder="event"><br/>
-      <!--場所-->
-      <input type="text" id="place" placeholder="place"><br/>
-      <div class="suke-box">
-      <!--カレンダー開始1-->
-      <input type="text" id="calendar" class="suke-box1" placeholder="startDay" data-mindate=today>
-      <!--時間開始1-->
-      <select name="time_id" id="time">
-        <option value="time"></option>
-        <option value="">0:00</option>
-        <option value="">0:30</option>
-        <option value="">1:00</option>
-        <option value="">1:30</option>
-        <option value="">2:00</option>
-        <option value="">2:30</option>
-        <option value="">3:00</option>
-        <option value="">3:30</option>
-        <option value="">4:00</option>
-        <option value="">4:30</option>
-        <option value="">5:00</option>
-        <option value="">5:30</option>
-        <option value="">6:00</option>
-        <option value="">6:30</option>
-        <option value="">7:00</option>
-        <option value="">7:30</option>
-        <option value="">8:00</option>
-        <option value="">8:30</option>
-        <option value="">9:00</option>
-        <option value="">9:30</option>
-        <option value="">10:00</option>
-        <option value="">10:30</option>
-        <option value="">11:00</option>
-        <option value="">11:30</option>
-        <option value="">12:00</option>
-        <option value="">12:30</option>
-        <option value="">13:00</option>
-        <option value="">13:30</option>
-        <option value="">14:00</option>
-        <option value="">14:30</option>
-        <option value="">15:00</option>
-        <option value="">15:30</option>
-        <option value="">16:00</option>
-        <option value="">16:30</option>
-        <option value="">17:00</option>
-        <option value="">17:30</option>
-        <option value="">18:00</option>
-        <option value="">18:30</option>
-        <option value="">19:00</option>
-        <option value="">19:30</option>
-        <option value="">20:00</option>
-        <option value="">20:30</option>
-        <option value="">21:00</option>
-        <option value="">21:30</option>
-        <option value="">22:00</option>
-        <option value="">22:30</option>
-        <option value="">23:00</option>
-        <option value="">23:30</option>
-        <option value="">24:00</option>
-      </select>
-      </div>
-      <!--カレンダー開始１と時間開始１終了-->
-      <div class="suke-box">
-      <!--カレンダー開始2-->
-      <input type="text" id="calendar" class="suke-box1" placeholder="endDay" data-mindate=today>
-      <!--時間開始2-->
-      <select name="time_id" id="time">
-        <option value="time"></option>
-        <option value="">0:00</option>
-        <option value="">0:30</option>
-        <option value="">1:00</option>
-        <option value="">1:30</option>
-        <option value="">2:00</option>
-        <option value="">2:30</option>
-        <option value="">3:00</option>
-        <option value="">3:30</option>
-        <option value="">4:00</option>
-        <option value="">4:30</option>
-        <option value="">5:00</option>
-        <option value="">5:30</option>
-        <option value="">6:00</option>
-        <option value="">6:30</option>
-        <option value="">7:00</option>
-        <option value="">7:30</option>
-        <option value="">8:00</option>
-        <option value="">8:30</option>
-        <option value="">9:00</option>
-        <option value="">9:30</option>
-        <option value="">10:00</option>
-        <option value="">10:30</option>
-        <option value="">11:00</option>
-        <option value="">11:30</option>
-        <option value="">12:00</option>
-        <option value="">12:30</option>
-        <option value="">13:00</option>
-        <option value="">13:30</option>
-        <option value="">14:00</option>
-        <option value="">14:30</option>
-        <option value="">15:00</option>
-        <option value="">15:30</option>
-        <option value="">16:00</option>
-        <option value="">16:30</option>
-        <option value="">17:00</option>
-        <option value="">17:30</option>
-        <option value="">18:00</option>
-        <option value="">18:30</option>
-        <option value="">19:00</option>
-        <option value="">19:30</option>
-        <option value="">20:00</option>
-        <option value="">20:30</option>
-        <option value="">21:00</option>
-        <option value="">21:30</option>
-        <option value="">22:00</option>
-        <option value="">22:30</option>
-        <option value="">23:00</option>
-        <option value="">23:30</option>
-        <option value="">24:00</option>
-      </select>
-      </div>
-      <!--コメント-->
-      <textarea id="free" placeholder=""></textarea>
-      <!--決定-->
-      <div class="user_button4">
-        <input type="submit" class="enter" value="ENTER">
-      </div>
+      <form action="festival.php" method="post">
+          <input type="text" id="event" name="event" placeholder="event"><br/>
+          <!--場所-->
+          <input type="text" id="place" name="place" placeholder="place"><br/>
+          <div class="suke-box">
+          <!--カレンダー開始1-->
+          <input type="text" id="calendar" class="suke-box1" placeholder="startDay" data-mindate=today>
+          <!--時間開始1-->
+          <select name="time_id" id="time">
+            <option value="time"></option>
+            <option value="">0:00</option>
+            <option value="">0:30</option>
+            <option value="">1:00</option>
+            <option value="">1:30</option>
+            <option value="">2:00</option>
+            <option value="">2:30</option>
+            <option value="">3:00</option>
+            <option value="">3:30</option>
+            <option value="">4:00</option>
+            <option value="">4:30</option>
+            <option value="">5:00</option>
+            <option value="">5:30</option>
+            <option value="">6:00</option>
+            <option value="">6:30</option>
+            <option value="">7:00</option>
+            <option value="">7:30</option>
+            <option value="">8:00</option>
+            <option value="">8:30</option>
+            <option value="">9:00</option>
+            <option value="">9:30</option>
+            <option value="">10:00</option>
+            <option value="">10:30</option>
+            <option value="">11:00</option>
+            <option value="">11:30</option>
+            <option value="">12:00</option>
+            <option value="">12:30</option>
+            <option value="">13:00</option>
+            <option value="">13:30</option>
+            <option value="">14:00</option>
+            <option value="">14:30</option>
+            <option value="">15:00</option>
+            <option value="">15:30</option>
+            <option value="">16:00</option>
+            <option value="">16:30</option>
+            <option value="">17:00</option>
+            <option value="">17:30</option>
+            <option value="">18:00</option>
+            <option value="">18:30</option>
+            <option value="">19:00</option>
+            <option value="">19:30</option>
+            <option value="">20:00</option>
+            <option value="">20:30</option>
+            <option value="">21:00</option>
+            <option value="">21:30</option>
+            <option value="">22:00</option>
+            <option value="">22:30</option>
+            <option value="">23:00</option>
+            <option value="">23:30</option>
+            <option value="">24:00</option>
+          </select>
+          </div>
+          <!--カレンダー開始１と時間開始１終了-->
+          <div class="suke-box">
+          <!--カレンダー開始2-->
+          <input type="text" id="calendar" class="suke-box1" placeholder="endDay" data-mindate=today>
+          <!--時間開始2-->
+          <select name="time_id" id="time">
+            <option value="time"></option>
+            <option value="">0:00</option>
+            <option value="">0:30</option>
+            <option value="">1:00</option>
+            <option value="">1:30</option>
+            <option value="">2:00</option>
+            <option value="">2:30</option>
+            <option value="">3:00</option>
+            <option value="">3:30</option>
+            <option value="">4:00</option>
+            <option value="">4:30</option>
+            <option value="">5:00</option>
+            <option value="">5:30</option>
+            <option value="">6:00</option>
+            <option value="">6:30</option>
+            <option value="">7:00</option>
+            <option value="">7:30</option>
+            <option value="">8:00</option>
+            <option value="">8:30</option>
+            <option value="">9:00</option>
+            <option value="">9:30</option>
+            <option value="">10:00</option>
+            <option value="">10:30</option>
+            <option value="">11:00</option>
+            <option value="">11:30</option>
+            <option value="">12:00</option>
+            <option value="">12:30</option>
+            <option value="">13:00</option>
+            <option value="">13:30</option>
+            <option value="">14:00</option>
+            <option value="">14:30</option>
+            <option value="">15:00</option>
+            <option value="">15:30</option>
+            <option value="">16:00</option>
+            <option value="">16:30</option>
+            <option value="">17:00</option>
+            <option value="">17:30</option>
+            <option value="">18:00</option>
+            <option value="">18:30</option>
+            <option value="">19:00</option>
+            <option value="">19:30</option>
+            <option value="">20:00</option>
+            <option value="">20:30</option>
+            <option value="">21:00</option>
+            <option value="">21:30</option>
+            <option value="">22:00</option>
+            <option value="">22:30</option>
+            <option value="">23:00</option>
+            <option value="">23:30</option>
+            <option value="">24:00</option>
+          </select>
+          </div>
+          <input type="hidden" name="festival_id" value="<?php echo $fes_id ?>">
+          <!--コメント-->
+          <textarea id="free" name="free" placeholder=""></textarea>
+          <!--決定-->
+          <div class="user_button4">
+            <input type="submit" class="enter" id="e" value="ENTER">
+          </div>
+      </form>
 
 
       <script>
@@ -283,17 +308,27 @@ maincontents
   <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
     <div class="date_box2">
     <!--この下のdate2をアクセスカウンターで稲買いします-->
+    <?php if(!empty($start_time)){ ?>
     <h5 class="date2"><?php echo $start_time[0] ?></h5>
+    <?php } ?>
+    <?php if(!empty($start_time[0])){ ?>
     <h5 class="date"><?php echo $start_time[0] ?></h5>
+    <?php } ?>
   </div>
     <h2>The next full edition of the Kanda Matsuri is scheduled for May 2019</h2>
   </div>
   <!--記事本文-->
   <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+    <?php if(!empty($description[0])){ ?>
     <p><?php echo $description[0] ?></p>
+    <?php } ?>
   </div>
   <!--動画-->
-  <?php echo $movie_url[0] ?>
+  <?php
+    if(!empty($movie_url[0])){
+        echo $movie_url[0];
+    }
+  ?>
   <!--MAP-->
   <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q=<?php echo $x[0] ?>,<?php echo $y[0] ?>&output=embed" width=100% height="450" frameborder="0" style="border:0"></iframe>
   <!--グッズ-->
