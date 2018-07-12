@@ -6,6 +6,34 @@ $pathList = new PathList();
 // アカウントチェック
 include $pathList->accountCheckPath;
 
+require_once('../app/DAO/ConfigDAO.class.php');
+$configDAO = new ConfigDAO();
+
+//ユーザ情報変更
+if($_POST["user_name"] != "" && isset($_POST["user_name"])){
+	$calm  = 'user_name';
+	$value = $_POST["user_name"];
+	$configDAO->updateUserStatus($_SESSION["user_id"],$calm,$value);
+}
+if($_POST["mail_address"] != "" && isset($_POST["mail_address"])){
+	$calm  = 'mail_address';
+	$value = $_POST["mail_address"];
+	$configDAO->updateUserStatus($_SESSION["user_id"],$calm,$value);
+}
+if($_POST["password"] != "" && isset($_POST["password"])){
+	$calm  = 'password';
+	$value = $_POST["password"];
+	$configDAO->updateUserStatus($_SESSION["user_id"],$calm,$value);
+}
+//ユーザ情報取得
+$user_status = $configDAO->getUserStatus($_SESSION["user_id"]);
+foreach ($user_status as $user) {
+	// code...
+	$user_name[] = $user['user_name'];
+	$password[] = $user['password'];
+	$mail_address[] = $user['mail_address'];
+	$country_name[] = $user['country_name'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,41 +119,41 @@ maincontents
   </div>
   <!--設定変更-->
   <div class="set">
-    <form method="post">
+    <form action ="config.php" method="post">
       <!--ユーザーネーム変更-->
       <div class="config_box">
         <div class="config_box_name">
-          <p>USERNAME</p>
+          <p><?php echo $user_name[0]?></p>
         </div>
         <div class="config_box_hensyu">
           <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hensyu.png" onclick="btn1_click()"></a>
         </div>
-        <input type="text" id="name" placeholder="USER NAME">
+        <input type="text" id="name" name="user_name" placeholder="USER NAME">
       </div>
       <!--メールアドレス変更-->
       <div class="config_box">
         <div class="config_box_name">
-          <p>kimu0227@gmail.com</p>
+          <p><?php echo $mail_address[0]?></p>
         </div>
         <div class="config_box_hensyu">
           <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hensyu.png" onclick="btn2_click()"></a>
         </div>
-      <input type="text" id="mailaddress" placeholder="mailaddress">
+      <input type="text" id="mailaddress" name="mail_address" placeholder="mailaddress">
       </div>
       <!--パスワード変更-->
       <div class="config_box">
         <div class="config_box_name">
-          <p>kimukimukimu</p>
+          <p><?php echo $password[0]?></p>
         </div>
         <div class="config_box_hensyu">
           <a href="#"><img src="<?php echo $pathList->imgsPath; ?>hensyu.png" onclick="btn3_click()"></a>
         </div>
-        <input type="password" id="password" placeholder="password">
+        <input type="password" id="password" name="password" placeholder="password">
       </div>
       <!--出身国-->
       <div class="config_box">
         <div class="config_box_name">
-          <p>出身国</p>
+          <p><?php echo $country_name[0]?></p>
         </div>
       </div>
 

@@ -6,15 +6,17 @@ $pathList = new PathList();
 // アカウントチェック
 include $pathList->accountCheckPath;
 
+require_once('../app/DAO/FavoriteDAO.class.php');
+$FavoriteDAO = new FavoriteDAO();
+$favorites = $FavoriteDAO->getFavorites($_SESSION["user_id"],0);
+
 // おすすめお祭り情報を取得
 require_once('../app/DAO/FestivalDAO.class.php');
 $festivalDAO = new FestivalDAO();
 // 記事情報を取得
 require_once('../app/DAO/ArticleDAO.class.php');
 $articleDAO = new ArticleDAO();
-
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -51,57 +53,40 @@ maincontents
 <div class="fevpage-title">
   <p>Festival Favorites</p>
 </div>
-<!--さらに中のwrap-->
 <!--レビュー順で表示のエリア-->
-<div class="tab-pane fade in active" id="recommend">
+    <div class="tab-pane fade in active" id="recommend">
 
-        <div class="news_info_event">
-          <?php if($festivalDAO->getRecommendedFestivals() != null) {
-              $festivals = $festivalDAO->getRecommendedFestivals();
-              foreach($festivals as $festival) {
-          ?>
-          <div class="news_info_event_box">
-              <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
-                  <a href="festival.php?festival_id=<?php echo $festival['festival_id'] ?>">
-                      <div class="news_box">
-                      <div class="news_box1">
-                        <img src="<?php echo $pathList->imgsPath; ?><?php echo $festival['festival_img']; ?>" class="event_image">
-                      </div>
-                      <div class="news_box2">
-                        <h4 class="news_title"><?php echo $festival['festival_name'] ?></h4>
-                        <!--demoが表示される文章でお願いします-->
-                        <div class="demo">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            <div class="news_info_event">
+              <?php if($favorites != null) {
+                  foreach($favorites as $favorite) {
+              ?>
+              <div class="news_info_event_box">
+                  <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                      <a href="festival.php?festival_id=<?php echo "#"//$festival['festival_id'] ?>">
+                          <div class="news_box">
+                          <div class="news_box1">
+                            <img src="<?php echo $pathList->imgsPath; ?><?php echo $favorite['image']; ?>" class="event_image">
+                          </div>
+                          <div class="news_box2">
+                            <h4 class="news_title"><?php echo $favorite['festival_name_jp'] ?></h4>
+                            <!--demoが表示される文章でお願いします-->
+                            <div class="demo">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                            </div>
+                            <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                            <div class="date_box">
+                            <h6 class="date_big2"><?php echo $favorite['start_date'] ?></h6>
+                            <h6 class="date_big"><?php echo $favorite['start_date'] ?></h6>
+                            </div>
+                          </div>
                         </div>
-                        <!--この下のdata_big2がアクセスカウンタでおねがいします-->
-                        <div class="date_box">
-                        <h6 class="date_big2"><?php echo $festival['start_date'] ?></h6>
-                        <h6 class="date_big"><?php echo $festival['start_date'] ?></h6>
-                        </div>
-                      </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+              <?php } } else { ?>
+              <div>祭りデータがありません。</div>
+              <?php } ?>
             </div>
-          <?php } } else { ?>
-          <div>祭りデータがありません。</div>
-          <?php } ?>
-        </div>
-
-</div>
-
-    <!--祭りお気に入りボックス（旧
-    <div class="fev-box">
-      <a href="javascript:void(0);">
-      <div class="fev-imagebox"><img src="<?php echo $pathList->imgsPath; ?>fev2.png" class="fev-image"></div>
-      <div class="fev-td-box">
-        <div class="fev-day"><p class="">August 26</p></div>
-        <div class="fev-title"><p class="">NEBUTA MATURI</p></div>
-      </div>
-    </a>
     </div>
-  -->
-
-
   </div>
 </div>
 

@@ -3,12 +3,12 @@ require_once 'SuperDAO.class.php';
 
 // User DAO
 class FestivalDAO extends SuperDAO {
-  
+
   // コンストラクタ
   public function __construct() {
     parent::__construct();
   }
-  
+
   // おすすめ祭り情報を取得
   public function getRecommendedFestivals() {
     try {
@@ -24,7 +24,7 @@ class FestivalDAO extends SuperDAO {
     }
     return $this->result;
   }
-  
+
   // 祭り情報を取得（一件）
   public function getOneFestival($festival_id) {
     try {
@@ -41,7 +41,7 @@ class FestivalDAO extends SuperDAO {
     }
     return $this->result;
   }
-  
+
   // 祭り画像を取得
   public function getImageFestival($festival_id) {
     try {
@@ -58,5 +58,5 @@ class FestivalDAO extends SuperDAO {
     }
     return $this->result;
   }
-    
+
 }
