@@ -9,6 +9,9 @@ include $pathList->accountCheckPath;
 require_once('../app/DAO/FavoriteDAO.class.php');
 $FavoriteDAO = new FavoriteDAO();
 $favorites = $FavoriteDAO->getFavorites($_SESSION["user_id"],1);
+// 記事情報を取得
+require_once('../app/DAO/ArticleDAO.class.php');
+$articleDAO = new ArticleDAO();
 ?>
 
 <!DOCTYPE html>
@@ -47,57 +50,42 @@ maincontents
     <div class="fevpage-title">
       <p>Article Favorites</p>
     </div>
-    <!--さらに中のwrap-->
-    <div class="search_results_box">
-      <div class="search_results_box_inner">
-        <!--お気に入り１-->
-        <?php foreach($favorites as $favorite){ ?>
-        <div class="search_results_box1">
-              <a href="#">
-                  <div class="search_results_box2">
-                  <div class="search_results_box2-1">
-                    <img src="<?php echo $pathList->imgsPath;
-                                    echo $image[] = $favorite['title_image']?>" class="event_image">
-                  </div>
-                  <div class="search_results_box2-2">
-                    <h4 class="search_results_title"><?php echo $article_name[] = $favorite['article_title']?></h4>
-                    <h6 class="search_results_date_big"><?php echo $date[] = $favorite['post_date'] ?></h6>
-                  </div>
-                </div>
-            </a>
-        </div>
-      <?php } ?>
-        <!--お気に入り２（以下略
-        <div class="search_results_box1">
-              <a href="#">
-                  <div class="search_results_box2">
-                  <div class="search_results_box2-1">
-                    <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
-                  </div>
-                  <div class="search_results_box2-2">
-                    <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                    <h6 class="search_results_date_big">2018.6.15</h6>
-                  </div>
-                </div>
-            </a>
-        </div>
-        <div class="search_results_box1">
-              <a href="#">
-                  <div class="search_results_box2">
-                  <div class="search_results_box2-1">
-                    <img src="<?php echo $pathList->imgsPath; ?>article_img.jpg" class="event_image">
-                  </div>
-                  <div class="search_results_box2-2">
-                    <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                    <h6 class="search_results_date_big">2018.6.15</h6>
-                  </div>
-                </div>
-            </a>
-        </div>
-      -->
-      </div>
-    </div>
+<!--さらに中のwrap-->
+<!--レビュー順で表示のエリア-->
+    <div class="tab-pane fade in active" id="recommend">
 
+            <div class="news_info_event">
+              <?php if($favorites != null) {
+                  foreach($favorites as $favorite) {
+              ?>
+              <div class="news_info_event_box">
+                  <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                      <a href="festival.php?festival_id=<?php echo "#"//echo $festival['festival_id'] ?>">
+                          <div class="news_box">
+                          <div class="news_box1">
+                            <img src="<?php echo $pathList->imgsPath; ?><?php echo $favorite['image']; ?>" class="event_image">
+                          </div>
+                          <div class="news_box2">
+                            <h4 class="news_title"><?php echo $favorite['article_title'] ?></h4>
+                            <!--demoが表示される文章でお願いします-->
+                            <div class="demo">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                            </div>
+                            <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                            <div class="date_box">
+                            <h6 class="date_big2"><?php echo $favorite['post_date'] ?></h6>
+                            <h6 class="date_big"><?php echo $favorite['post_date'] ?></h6>
+                            </div>
+                          </div>
+                        </div>
+                    </a>
+                </div>
+              <?php } } else { ?>
+              <div>祭りデータがありません。</div>
+              <?php } ?>
+            </div>
+
+    </div>
   </div>
 </div>
 
