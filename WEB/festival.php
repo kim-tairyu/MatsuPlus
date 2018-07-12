@@ -157,9 +157,11 @@ maincontents
   <?php } ?>
   <!--お気に入りボタン-->
   <div class="fev_button_box">
-  <a href="?festival_id=<?php echo $fes_id ?>&f" style="text-decoration:none;"><div class="fev_button"><p>♡</p></div></a>
+  <a href="?festival_id=<?php echo $fes_id ?>&f" style="text-decoration:none;"><div class="fev_button">
+  <img src="../imgs/fev.png" width="40" height="40" alt="サンプル"></div></a>
   <!--スケジュール追加ボタン-->
-  <a href="#" style="text-decoration:none;"><div class="fev_button2" id="Modal_Open" class="btn_price"><p>+</p></div></a>
+  <a href="#" style="text-decoration:none;"><div class="fev_button2" id="Modal_Open" class="btn_price">
+  <img src="../imgs/plus.png" width="40" height="40" alt="サンプル"></div></a>
   </div>
   <!--モーダルウインドウ-->
   <div id="Modal_Content">
