@@ -6,6 +6,14 @@ $pathList = new PathList();
 // アカウントチェック
 include $pathList->accountCheckPath;
 
+require_once('../app/DAO/ConfigDAO.class.php');
+$configDAO = new ConfigDAO();
+
+//ユーザ情報取得
+$user_status = $configDAO->getUserStatus($_SESSION["user_id"]);
+foreach ($user_status as $user) {
+	$user_name[] = $user['user_name'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +55,7 @@ maincontents
   </div>
   <!-- ユーザーネームをかこっているボックス -->
   <div class="user_name_box">
-    <p class="user_name">ユーザーネーム</p>
+    <p class="user_name"><?php echo $user_name[0] ?></p>
   </div>
 <!--祭りお気に入り、記事お気に入り、設定への遷移ボタンをかこっているボックス-->
   <div class="fes_box">
