@@ -1,11 +1,36 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.32, created on 2018-07-17 09:40:36
+  from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5b4db9949c1910_66733593',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '4a9d49a8d7b9fd2a13a49a2d5946e0c27d129b48' => 
+    array (
+      0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl',
+      1 => 1531820433,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5b4db9949c1910_66733593 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="ja">
   <head>
-    {include file=_HTML_HEAD_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_HTML_HEAD_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
   </head>
   <body>
     <!--header-->
-    {include file=_HEADER_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_HEADER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
 
     <!-- maincontents -->
     <div class="main_content">
@@ -36,30 +61,44 @@
               <a href="#" class="month2">MONTH</a>
             </div>
             <div class="news_info_event">
-              {foreach from=$festivals item=festival}
+              <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['festivals']->value, 'festival');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['festival']->value) {
+?>
               <div class="news_info_event_box">
                 <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
-                <a href="{$SCRIPT_NAME}?type=festival&festival_id=1">
+                <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=festival&festival_id=1">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="{_IMGS_DIR}/" class="event_image">
+                      <img src="<?php echo _IMGS_DIR;?>
+/" class="event_image">
                     </div>
                     <div class="news_box2">
-                      <h4 class="news_title">{$festival.festival_name_en}</h4>
+                      <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
+</h4>
                       <!--demoが表示される文章でお願いします-->
                       <div class="demo"></div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2">{$festival.start_date}</h6>
-                        <h6 class="date_big">{$festival.end_date}</h6>
+                        <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_date'];?>
+</h6>
+                        <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['festival']->value['end_date'];?>
+</h6>
                       </div>
                     </div>
                   </div>
                 </a>
               </div>
-              {foreachelse}
+              <?php
+}
+} else {
+?>
               <div>No Festival Data!</div>
-              {/foreach}
+              <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </div>
           </div>
           <!--投票機能エリア-->
@@ -70,27 +109,41 @@
           <div class="tab-pane fade" id="news">
             <!--wrapのようなもの-->
             <!--記事1-->
-            {foreach from=$articles item=article}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articles']->value, 'article');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
+?>
             <div class="news_info_event_box">
               <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
-              <a href="{$SCRIPT_NAME}?type=article&article_id={$article.article_id}">
+              <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=article&article_id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+">
                 <div class="news_box">
                   <div class="news_box1">
-                    <img src="{_IMGS_DIR}/" class="event_image">
+                    <img src="<?php echo _IMGS_DIR;?>
+/" class="event_image">
                   </div>
                   <div class="news_box2">
-                    <h4 class="news_title">{$article.article_title}</h4>
+                    <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['article']->value['article_title'];?>
+</h4>
                     <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                     <div class="date_box">
-                      <h6 class="date_big2">{$article.post_date}</h6>
+                      <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['article']->value['post_date'];?>
+</h6>
                     </div>
                   </div>
                 </div>
               </a>
             </div>
-            {foreachelse}
+            <?php
+}
+} else {
+?>
             <div>No Article Data!</div>
-            {/foreach}
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </div>
           <!--季節リア-->
           <div class="tab-pane fade" id="season">
@@ -128,31 +181,40 @@
           <!--地方エリア-->
           <div class="tab-pane fade" id="area">
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=北海道"><img src="{_IMGS_DIR}/hokkaidou.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=北海道"><img src="<?php echo _IMGS_DIR;?>
+/hokkaidou.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=東北"><img src="{_IMGS_DIR}/tohoku.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=東北"><img src="<?php echo _IMGS_DIR;?>
+/tohoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=近畿"><img src="{_IMGS_DIR}/kinki.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=近畿"><img src="<?php echo _IMGS_DIR;?>
+/kinki.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=関東"><img src="{_IMGS_DIR}/kanto.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=関東"><img src="<?php echo _IMGS_DIR;?>
+/kanto.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=中部"><img src="{_IMGS_DIR}/chubu.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=中部"><img src="<?php echo _IMGS_DIR;?>
+/chubu.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=中国"><img src="{_IMGS_DIR}/chugoku.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=中国"><img src="<?php echo _IMGS_DIR;?>
+/chugoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=四国"><img src="{_IMGS_DIR}/shikoku.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=四国"><img src="<?php echo _IMGS_DIR;?>
+/shikoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=九州"><img src="{_IMGS_DIR}/kyushu.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=九州"><img src="<?php echo _IMGS_DIR;?>
+/kyushu.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=沖縄"><img src="{_IMGS_DIR}/okinawa.jpg" alt=""></a>
+              <a href="../app/Area-tag.php?area=沖縄"><img src="<?php echo _IMGS_DIR;?>
+/okinawa.jpg" alt=""></a>
             </div>
           </div>
         </div>
@@ -160,9 +222,21 @@
     </div>
     
     <!--フッター（SP版では非表示になってる）-->
-    {include file=_FOOTER_DIR}
-    <script src="{_JS_DIR}/jquery.min.js"></script>
-    <script src="{_JS_DIR}/bootstrap.min.js"></script>
-    <script src="{_JS_DIR}/tab-change.js"></script>
+    <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/tab-change.js"><?php echo '</script'; ?>
+>
   </body>
 </html>
+<?php }
+}

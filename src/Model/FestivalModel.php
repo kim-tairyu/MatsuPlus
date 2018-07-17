@@ -3,7 +3,7 @@
 class FestivalModel extends BaseModel {
 
   // おすすめ祭り情報を取得
-  public function getRecommendedFestivals() {
+  public function getRecommendFestivals() {
     try {
       $sql    = 'SELECT * FROM festival LEFT JOIN review ON festival.festival_id = review.festival_id ORDER BY review.star DESC;';
       $stmt   = $this->pdo->prepare($sql);

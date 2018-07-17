@@ -72,7 +72,7 @@ class IndexController extends BaseController
         $this->screen_article();
         break;
       case "festival":
-        $this->scree_festival();
+        $this->screen_festival();
         break;
       default:
         $this->screen_top();
@@ -199,7 +199,7 @@ class IndexController extends BaseController
   public function getRecommendFestivals()
   {
     $festivalModel = new FestivalModel();
-    return $festivalModel->getRecommendedFestivals();
+    return $festivalModel->getRecommendFestivals();
   }
   
   //----------------------------------------------------
@@ -216,38 +216,39 @@ class IndexController extends BaseController
   //----------------------------------------------------
   public function getFestival()
   {
-    $festivalController = new FestivalController();
-    if(isset($_GET["festival_id"])) {
-      $fes_id = $_GET["festival_id"];
-      if(isset($_GET["f"]) && isset($_SESSION["user_id"])) {
-        // お気に入り処理
-        $festivalController->putFavoriteFestival($_SESSION["user_id"], $fes_id);
-      }
-    } else if(isset($_POST["festival_id"])) {
-      $fes_id = $_POST["festival_id"];
-      if(isset($_SESSION["user_id"]) && isset($_POST['star']) && isset($_POST['kanso'])) {
-        if($_POST['star'] !=="" && $_POST['kanso'] !=="") {
-          $user_id = $_SESSION["user_id"];
-          $kanso = $_POST['kanso'];
-          $star = $_POST['star'];
-          // レビュー処理
-          $festivalController->putReview($fes_id, $user_id, $kanso, $star);
-        }
-      } else if(isset($_SESSION["user_id"]) && isset($_POST['event'])) {
-        if($_POST['event'] !==""){
-          $user_id = $_SESSION["user_id"];
-          $event = $_POST['event'];
-          $place = $_POST['place'];
-          $free = $_POST['free'];
-          // スケジュール登録処理
-          $festivalController->addSchedule($user_id, $event, $place, $free);
-        }
-      } else {
-        $this->screen_top();
-      }
-    } else {
-      $this->screen_top();
-    }
+//    $festivalController = new FestivalController();
+//    if(isset($_GET["festival_id"])) {
+//      $fes_id = $_GET["festival_id"];
+//      if(isset($_GET["f"]) && isset($_SESSION["user_id"])) {
+//        // お気に入り処理
+//        $festivalController->putFavoriteFestival($_SESSION["user_id"], $fes_id);
+//      }
+//    } else if(isset($_POST["festival_id"])) {
+//      $fes_id = $_POST["festival_id"];
+//      if(isset($_SESSION["user_id"]) && isset($_POST['star']) && isset($_POST['kanso'])) {
+//        if($_POST['star'] !=="" && $_POST['kanso'] !=="") {
+//          $user_id = $_SESSION["user_id"];
+//          $kanso = $_POST['kanso'];
+//          $star = $_POST['star'];
+//          // レビュー処理
+//          $festivalController->putReview($fes_id, $user_id, $kanso, $star);
+//        }
+//      } else if(isset($_SESSION["user_id"]) && isset($_POST['event'])) {
+//        if($_POST['event'] !==""){
+//          $user_id = $_SESSION["user_id"];
+//          $event = $_POST['event'];
+//          $place = $_POST['place'];
+//          $free = $_POST['free'];
+//          // スケジュール登録処理
+//          $festivalController->addSchedule($user_id, $event, $place, $free);
+//        }
+//      } else {
+//        $this->screen_top();
+//      }
+//    } else {
+//      $this->screen_top();
+//    }
+    $fes_id = $this->festival_id;
     $this->view->assign('festival', $festivalController->getOneFestival($fes_id));
     $this->view->assign('festival_image', $festivalController->getImageFestival($fes_id));
     $this->view->assign('gift', $festivalController->getGift($fes_id));
@@ -266,7 +267,7 @@ class IndexController extends BaseController
         $favoriteModel = new FavoriteModel();
         $article_favorite = $favoriteModel->putFavoriteArticle($_SESSION["user_id"], $arc_id);
       }
-    }else{
+    } else {
       $this->screen_top();
     }
     // 記事情報を取得
@@ -274,7 +275,7 @@ class IndexController extends BaseController
 
     $this->view->assign('article', $articleModel->getOneArticle(1));
     $this->view->assign('$article_tag', $articleModel->getTagArticle(2));
-    $this->view->assign('$relation_tag', $articleModel->getRelationTag($tag[0]));
+    $this->view->assign('$relation_tag', $articleModel->getRelationTag($tag));
   }
   
   //----------------------------------------------------
@@ -282,9 +283,47 @@ class IndexController extends BaseController
   //----------------------------------------------------
   public function login()
   {
-    $userController = new UserController();
-    $userController->login();
-    $this->screen_top();
+    $in_id   = $_POST["id"];
+    $in_pass = $_POST["pass"];
+
+    $userModel = new UserModel();
+    $users     = $userModel->login();
+
+    foreach($users as $user)
+    {
+      $id   = $user['user_id'];
+      $mail = $user['mail_address'];
+      $pass = $user['password'];
+      if(($in_id == $id && $in_pass == $pass) ||
+         ($in_id == $mail && $in_pass == $pass)) {
+        // session
+        session_start();
+        $_SESSION["user_id"]      = $user['user_id'];
+        $_SESSION["password"]     = $user['password'];
+        $_SESSION["user_name"]    = $user['user_name'];
+        $_SESSION["mail_address"] = $user['mail_address'];
+        $_SESSION["country_id"]   = $user['country_id'];
+        $_SESSION["languege_id"]  = $user['languege_id'];
+        $_SESSION["user_status"]  = $user['user_status'];
+        $_SESSION["user_icon"]    = $user['user_icon'];
+        $_SESSION["authority"]    = $user['authority'];
+        // cookie
+        $oneday = 86400;
+        setcookie($user['user_id'], time()+$oneday);
+        setcookie($user['password'], time()+$oneday);
+        setcookie($user['user_name'], time()+$oneday);
+        setcookie($user['mail_address'], time()+$oneday);
+        setcookie($user['country_id'], time()+$oneday);
+        setcookie($user['languege_id'], time()+$oneday);
+        setcookie($user['user_status'], time()+$oneday);
+        setcookie($user['user_icon'], time()+$oneday);
+        setcookie($user['authority'], time()+$oneday);
+        
+        $this->screen_top();
+        break;
+      }
+    }
+    $this->screen_signIn();
   }
   
   //----------------------------------------------------
