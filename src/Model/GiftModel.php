@@ -3,7 +3,7 @@
 class GiftModel extends BaseModel {
   
   // お土産情報の取得
-  public function getGift($festival_id) {
+  public function getGifts($festival_id) {
     try {
       $sql          = 'SELECT * FROM gift WHERE festival_id = ?';
       $stmt   = $this->pdo->prepare($sql);

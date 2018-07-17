@@ -12,11 +12,11 @@
     <div class="mypage-inner">
       <!-- ユーザーのプロフィール画像 -->
       <div class="my_image">
-        <img src="{_IMGS_DIR}/gaijin.png" class="">
+        <img src="{_IMGS_DIR}/{$smarty.session.user_icon}" class="">
       </div>
       <!-- ユーザーネームをかこっているボックス -->
       <div class="user_name_box">
-        <p class="user_name"></p>
+        <p class="user_name">{$smarty.session.user_name}</p>
       </div>
       <!--祭りお気に入り、記事お気に入り、設定への遷移ボタンをかこっているボックス-->
       <div class="fes_box">

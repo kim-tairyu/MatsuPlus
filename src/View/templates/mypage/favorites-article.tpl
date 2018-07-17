@@ -18,28 +18,28 @@
         <!--レビュー順で表示のエリア-->
         <div class="tab-pane fade in active" id="recommend">
           <div class="news_info_event">
+            {foreach from=$favorite_art item=article}
             <div class="news_info_event_box">
               <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="festival.php?festival_id=?">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="{_IMGS_DIR}/" class="event_image">
+                      <img src="{_IMGS_DIR}/{$article.image}" class="event_image">
                     </div>
                     <div class="news_box2">
-                      <h4 class="news_title">name</h4>
-                      <!--demoが表示される文章でお願いします-->
-                      <div class="demo">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                      </div>
+                      <h4 class="news_title">{$article.article_title}</h4>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                      <h6 class="date_big2">start date</h6>
-                      <h6 class="date_big">end date</h6>
+                      <h6 class="date_big2"></h6>
+                      <h6 class="date_big">{$article.post_date}</h6>
                       </div>
                     </div>
                   </div>
                 </a>
             </div>
+            {foreachelse}
+            <div>No Favorite Festival!</div>
+            {/foreach}
           </div>
         </div>
       </div>

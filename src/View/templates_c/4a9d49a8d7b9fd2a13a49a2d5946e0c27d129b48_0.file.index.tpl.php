@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-17 09:40:36
+/* Smarty version 3.1.32, created on 2018-07-17 16:43:08
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4db9949c1910_66733593',
+  'unifunc' => 'content_5b4e1c9c638812_32696573',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4a9d49a8d7b9fd2a13a49a2d5946e0c27d129b48' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl',
-      1 => 1531820433,
+      1 => 1531845785,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4db9949c1910_66733593 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b4e1c9c638812_32696573 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -69,11 +69,13 @@ foreach ($_from as $_smarty_tpl->tpl_vars['festival']->value) {
               <div class="news_info_event_box">
                 <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=festival&festival_id=1">
+?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+">
                   <div class="news_box">
                     <div class="news_box1">
                       <img src="<?php echo _IMGS_DIR;?>
-/" class="event_image">
+/<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
+" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
@@ -129,7 +131,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
 </h4>
                     <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                     <div class="date_box">
-                      <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['article']->value['post_date'];?>
+                      <h6 class="date_big2"></h6>
+                      <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['article']->value['post_date'];?>
 </h6>
                     </div>
                   </div>

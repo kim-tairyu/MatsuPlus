@@ -3,7 +3,7 @@
 class LanguegeModel extends BaseModel {
   
   // 言語情報を取得
-  public function getLanguegesInfo() {
+  public function getLangueges() {
     try {
       $sql    = 'SELECT * FROM languege';
       $stmt   = $this->pdo->prepare($sql);

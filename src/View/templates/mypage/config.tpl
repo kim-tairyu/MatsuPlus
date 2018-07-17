@@ -13,7 +13,7 @@
       <div class="mypage-inner">
         <!--ユーザーの画像表示？-->
         <div class="my_image">
-          <img src="{_IMGS_DIR}/gaijin.png" class="">
+          <img src="{_IMGS_DIR}/{$smarty.session.user_icon}" class="">
         </div>
         <!--ユーザーネーム表示-->
         <div class="user_name_box"></div>
@@ -23,44 +23,45 @@
             <!--ユーザーネーム変更-->
             <div class="config_box">
               <div class="config_box_name">
-                <p>USERNAME</p>
+                <p>{$userInfo.user_name}</p>
               </div>
               <div class="config_box_hensyu">
                 <a href="#"><img src="{_IMGS_DIR}/hensyu.png" onclick="btn1_click()"></a>
               </div>
-              <input type="text" id="name" placeholder="USER NAME">
+              <input type="text" id="name" placeholder="User Name">
             </div>
             <!--メールアドレス変更-->
             <div class="config_box">
               <div class="config_box_name">
-                <p>kimu0227@gmail.com</p>
+                <p>{$userInfo.mail_address}</p>
               </div>
               <div class="config_box_hensyu">
                 <a href="#"><img src="{_IMGS_DIR}/hensyu.png" onclick="btn2_click()"></a>
               </div>
-              <input type="text" id="mailaddress" placeholder="mailaddress">
+              <input type="text" id="mailaddress" placeholder="Mail Address">
             </div>
             <!--パスワード変更-->
             <div class="config_box">
               <div class="config_box_name">
-                <p>kimukimukimu</p>
+                <p>********</p>
               </div>
               <div class="config_box_hensyu">
                 <a href="#"><img src="{_IMGS_DIR}/hensyu.png" onclick="btn3_click()"></a>
               </div>
-              <input type="password" id="password" placeholder="password">
+              <input type="password" id="password" placeholder="Password">
             </div>
             <!--出身国-->
             <div class="config_box">
               <div class="config_box_name">
-                <p>出身国</p>
+                <p>{$userInfo.country_name}</p>
               </div>
             </div>
             <!--言語変更-->
             <select name="country_id" class="country-width">
-              <option value="">言語変更</option>
-              <option value="1">Japn</option>
-              <option value="2">English</option>
+              <option value="">Change Languege</option>
+              {foreach from=$langueges item=languege}
+              <option value="{$languege.languege_id}">{$languege.languege}</option>
+              {/foreach}
             </select>
             <div class="user_button">
               <input type="submit" class="henkou" value="変更">
@@ -70,7 +71,7 @@
         <!--お問い合わせ-->
         <div class="company">
           <div class="company-1">
-            <a href="{$SCRIPT_NAME}?type=logout" class="exit3">Sign out</a>
+            <a href="{$SCRIPT_NAME}?type=config&action=logout" class="exit3">Sign out</a>
           </div>
           <div class="company-2">
             <a href="#" class="exit3">Contact</a>

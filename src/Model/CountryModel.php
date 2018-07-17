@@ -3,7 +3,7 @@
 class CountryModel extends BaseModel {
   
   // 国情報を取得
-  public function getCountrysInfo() {
+  public function getCountrys() {
     try {
       $sql    = 'SELECT * FROM country';
       $stmt   = $this->pdo->prepare($sql);

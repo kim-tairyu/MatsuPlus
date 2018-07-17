@@ -22,7 +22,7 @@ class ArticleModel extends BaseModel {
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $article_id);
       $stmt->execute();
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $result = $stmt->fetch(PDO::FETCH_ASSOC);
     } catch(PDOException $e) {
       die('DB ERROR:'.$e->getMesseage);
     }
@@ -32,7 +32,7 @@ class ArticleModel extends BaseModel {
   // タグ記事
   public function getTagArticle($article_id) {
     try {
-      $sql    = 'SELECT * FROM `article_tag` WHERE `article_id`=? AND `type`="season";';
+      $sql    = 'SELECT * FROM article_tag WHERE article_id=1 AND type="season";';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $article_id);
       $stmt->execute();

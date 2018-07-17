@@ -1,34 +1,66 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.32, created on 2018-07-17 15:08:03
+  from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5b4e0653ec6433_78095975',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '1a040f172673923420008e4825709a9489a9c6d3' => 
+    array (
+      0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl',
+      1 => 1531839861,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5b4e0653ec6433_78095975 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="ja">
   <head>
-    {include file=_HTML_HEAD_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_HTML_HEAD_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
   </head>
   <body>
     <!--header-->
-    {include file=_HEADER_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_HEADER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
     
     <!-- maincontents -->
     <div class="main_content" id="myTapContent">
       <div class="main_content_fes_inner">
         <!--記事or祭りタイトル-->
-        <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">{$festival.festival_name_en}</h1>
+        <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
+</h1>
           <!--祭りor記事画像(仮)-->
         <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <a href="#"><img src="{_IMGS_DIR}/{$festival_image.image}" alt="祭り"></a>
+          <a href="#"><img src="<?php echo _IMGS_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['festival_image']->value['image'];?>
+" alt="祭り"></a>
         </div>
         <!--お気に入りボタン-->
         <div class="fev_button_box">
-          <a href="{$SCRIPT_NAME}?type=festivalfestival_id={$festival.festival_id}&action=favorite" style="text-decoration:none;"><div class="fev_button">
-          <img src="{_IMGS_DIR}/fev.png" width="40" height="40" alt="サンプル"></div></a>
+          <a href="?festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+&f" style="text-decoration:none;"><div class="fev_button">
+          <img src="<?php echo _IMGS_DIR;?>
+/fev.png" width="40" height="40" alt="サンプル"></div></a>
           <!--スケジュール追加ボタン-->
           <a href="#" style="text-decoration:none;"><div class="fev_button2" id="Modal_Open" class="btn_price">
-          <img src="{_IMGS_DIR}/plus.png" width="40" height="40" alt="サンプル"></div></a>
+          <img src="<?php echo _IMGS_DIR;?>
+/plus.png" width="40" height="40" alt="サンプル"></div></a>
         </div>
         <!--モーダルウインドウ-->
         <div id="Modal_Content">
           <p>Scheduling</p>
           <!--イベント-->
-          <form action="{$SCRIPT_NAME}?type=festival" method="post">
+          <form action="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=festival" method="post">
             <input type="text" id="event" name="event" placeholder="event"><br/>
             <!--場所-->
             <input type="text" id="place" name="place" placeholder="place"><br/>
@@ -147,7 +179,8 @@
               <option value="">24:00</option>
             </select>
             </div>
-            <input type="hidden" name="festival_id" value="{$festival.festival_id}">
+            <input type="hidden" name="festival_id" value="<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+">
             <!--コメント-->
             <textarea id="free" name="free" placeholder=""></textarea>
             <!--決定-->
@@ -155,13 +188,7 @@
               <input type="submit" class="enter" id="e" value="ENTER">
             </div>
           </form>
-      {*
-          <script>
-            // flatpickrの初期化
-            flatpickr('#calendar');
-          </script>
-      *}
-          <!--<button id="Modal_Enter" class="btn_link">はい</button>
+                <!--<button id="Modal_Enter" class="btn_link">はい</button>
           <button id="Modal_Close" class="btn_link">いいえ</button>
           <input type="checkbox" id="Modal_Cbox"/>-->
         </div>
@@ -169,68 +196,100 @@
         <div class="article_header col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <div class="date_box2">
             <!--この下のdate2をアクセスカウンターで稲買いします-->
-            <h5 class="date2">{$festival.start_time}</h5>
-            <h5 class="date">{$festival.start_time}</h5>
+            <h5 class="date2"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_time'];?>
+</h5>
+            <h5 class="date"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_time'];?>
+</h5>
           </div>
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p>{$festival.description_en}</p>
+          <p><?php echo $_smarty_tpl->tpl_vars['festival']->value['description_en'];?>
+</p>
         </div>
         <!--動画-->
-        <p>{$festival.movie_url}</p>
+        <p><?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
+</p>
         <!--MAP-->
-        <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q={$festival.x_coordinate},{$festival.y_coordinate}&output=embed" width=100% height="450" frameborder="0" style="border:0"></iframe>
+        <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q=<?php echo $_smarty_tpl->tpl_vars['festival']->value['x_coordinate'];?>
+,<?php echo $_smarty_tpl->tpl_vars['festival']->value['y_coordinate'];?>
+&output=embed" width=100% height="450" frameborder="0" style="border:0"></iframe>
         <!--グッズ-->
         <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <h2>Souvenir</h2>
           <div class="souvenir_img_box">
-            {foreach from=$gifts item=gift}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['gifts']->value, 'gift');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['gift']->value) {
+?>
             <div class="souvenir_img_box2">
               <a href="#">
                 <div class="souvenir_img_box3">
                   <div class="souvenir_img_boxA">
-                    <img src="{_IMGS_DIR}/{$gift.image}" alt="ねぶた祭お土産">
+                    <img src="<?php echo _IMGS_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['gift']->value['image'];?>
+" alt="ねぶた祭お土産">
                   </div>
                   <div class="souvenir_img_boxB">
-                    <h4 class="souvenir_title">{$gift.gift_name_en}</h4>
+                    <h4 class="souvenir_title"><?php echo $_smarty_tpl->tpl_vars['gift']->value['gift_name_en'];?>
+</h4>
                   </div>
                 </div>
               </a>
             </div>
-            {foreachelse}
+            <?php
+}
+} else {
+?>
             <div>No Gift Data!</div>
-            {/foreach}
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </div>
         </div>
         <!--コメントエリア-->
         <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <h2>Comment</h2>
-          {foreach from=$reviews item=review}
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['reviews']->value, 'review');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['review']->value) {
+?>
           <!--コメント１-->
           <div class="comment_content">
             <div class="">
               <div class="comment_user_img">
-                  <img src="{_IMGS_DIR}/user.jpg" alt="ユーザーアイコン">
+                  <img src="<?php echo _IMGS_DIR;?>
+/user.jpg" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
-                <p>{$review.star}</p>
+                <p><?php echo $_smarty_tpl->tpl_vars['review']->value['star'];?>
+</p>
               </div>
               <div class="comment_user_name">
-                <p>{$review.user_name}</p>
+                <p><?php echo $_smarty_tpl->tpl_vars['review']->value['user_name'];?>
+</p>
               </div>
               <div class="comment">
-                <p>{$review.review}</p>
+                <p><?php echo $_smarty_tpl->tpl_vars['review']->value['review'];?>
+</p>
               </div>
             </div>
           </div>
-          {foreachelse}
+          <?php
+}
+} else {
+?>
           <div>No Review!</div>
-          {/foreach}
+          <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <!--コメント入力エリア-->
           <div class="comment_content2">
             <div class="comment_submit">
-              <form action="{$SCRIPT_NAME}?type=festival&action=review" method="post">
+              <form action="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=festival" method="post">
                 comment<br>
                 <!--星評価-->
                 <div class="user_hosi">
@@ -250,7 +309,7 @@
                 <!--コメント記入-->
                 <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
                 <!-- 祭りID -->
-                <input type="hidden" name="festival_id" value="<?php echo $fes_id ?>">
+                <input type="hidden" name="festival_id" value="<?php echo '<?php ';?>echo $fes_id <?php echo '?>';?>">
                 <input type="submit" value="送信" class="comment_button">
                 <input type="reset" value="リセット" class="comment_button">
               </form>
@@ -261,22 +320,25 @@
         <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <h2>Tag</h2>
         </div>
-{*
-        <div class="related_article_title_tag col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          {foreach from=$tags item=tag}
-          <a href="#" class="tag"></a>
-          {foreachelse}
-          <div>No Tag!</div>
-          {/foreach}
-        </div>
-*}
       </div>
     </div>
     
     <!--フッター（SP版では非表示になってる）-->
-    {include file=_FOOTER_DIR}
-    <script src="{_JS_DIR}/jquery.min.js"></script>
-    <script src="{_JS_DIR}/bootstrap.min.js"></script>
-    <script src="{_JS_DIR}/modal.js"></script>
+    <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/modal.js"><?php echo '</script'; ?>
+>
   </body>
 </html>
+<?php }
+}

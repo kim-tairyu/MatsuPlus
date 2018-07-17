@@ -11,7 +11,7 @@
     <div class="box4" id="myTapContent">
       <div class="box4-inner">
         <div class="user">
-          <form method="post" action="{$SCRIPT_NAME}?type=login">
+          <form method="post" action="{$SCRIPT_NAME}?type=sign-in&action=login">
               <input type="text" class="mailaddress" name="id" placeholder="User ID or Mail Address">
               <input type="password" class="password" name="pass" placeholder="Password">
             <div><p></p></div>

@@ -34,16 +34,30 @@ class UserModel extends BaseModel {
   }
   
   // ユーザ情報を取得（一件）
-  public function getUserInfo($mail_address) {
+  public function getOneUser($user_id) {
     try {
-      $sql    = 'SELECT * FROM user WHERE mail_address = ?';
+      $sql    = 'SELECT * FROM user LEFT JOIN country ON user.country_id = country.country_id LEFT JOIN languege ON user.languege_id = languege.languege_id WHERE user_id = ?;';
       $stmt   = $this->pdo->prepare($sql);
-      $stmt->bindValue(1, $mail_address);
+      $stmt->bindValue(1, $user_id);
       $stmt->execute();
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $result = $stmt->fetch(PDO::FETCH_ASSOC);
     } catch(PDOException $e) {
       die('DB ERROR:'.$e->getMesseage);
     }
     return $result;
   }
+  
+  //ユーザ名変更
+  public function updateUserStatus($user_id, $calm, $value){
+    try{
+      $sql  = "UPDATE user SET ".$calm." = ? WHERE user_id = ?;";
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(1, $value);
+      $stmt->bindValue(2, $user_id);
+      $stmt->execute();
+    } catch(PDOException $e){
+      die('DB ERROR:'.$e->getMesseage);
+    }
+  }
+  
 }

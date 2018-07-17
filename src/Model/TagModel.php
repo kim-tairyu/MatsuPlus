@@ -3,7 +3,7 @@
 class TagModel extends BaseModel {
   
   // 祭りタグ取得
-  public function getTag($festival_id) {
+  public function getTags($festival_id) {
     try {
       $sql    = 'SELECT * FROM festival_tag WHERE festival_id =?';
       $stmt   = $this->pdo->prepare($sql);

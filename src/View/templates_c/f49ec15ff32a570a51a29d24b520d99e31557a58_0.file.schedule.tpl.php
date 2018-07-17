@@ -1,11 +1,36 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.32, created on 2018-07-17 16:37:47
+  from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/schedule/schedule.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5b4e1b5bf35f46_59200012',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'f49ec15ff32a570a51a29d24b520d99e31557a58' => 
+    array (
+      0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/schedule/schedule.tpl',
+      1 => 1531845462,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="ja">
   <head>
-    {include file=_HTML_HEAD_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_HTML_HEAD_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
   </head>
   <body>
     <!--header-->
-    {include file=_HEADER_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_HEADER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
 
     <!-- maincontents -->
     <div class="box4" id="myTapContent">
@@ -86,7 +111,8 @@
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="{_IMGS_DIR}/article_img.jpg" class="event_image">
+                      <img src="<?php echo _IMGS_DIR;?>
+/article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">
                       <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
@@ -100,7 +126,8 @@
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="{_IMGS_DIR}/article_img.jpg" class="event_image">
+                      <img src="<?php echo _IMGS_DIR;?>
+/article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">
                       <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
@@ -114,7 +141,8 @@
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="{_IMGS_DIR}/article_img.jpg" class="event_image">
+                      <img src="<?php echo _IMGS_DIR;?>
+/article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">
                       <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
@@ -129,6 +157,9 @@
     </div>
 
     <!--フッター（SP版では非表示になってる）-->
-    {include file=_FOOTER_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
   </body>
 </html>
+<?php }
+}
