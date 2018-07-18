@@ -11,8 +11,9 @@
     <div class="box4" id="myTapContent">
       <div class="box4-inner">
         <div class="adduser">
-          <form method="post" action="../app/Sign-up.php">
+          <form method="post" action="{$SCRIPT_NAME}?type=sign-up?action=signUp">
             <div><p>error表示</p></div>
+              <input type="text" class="mailaddress" name="user_id" placeholder="User ID">
               <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
               <input type="password" class="password" name="password" placeholder="Password">
               <input type="password" class="password" name="passwordSecond" placeholder="Password Second">

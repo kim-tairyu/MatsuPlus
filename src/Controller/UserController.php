@@ -110,7 +110,6 @@ class UserController extends BaseController
   public function screen_signIn()
   {
     if($this->action == 'login') {
-      $success = false;
       if($this->login()) {
         $this->screen_top();
       } else {
@@ -132,9 +131,25 @@ class UserController extends BaseController
   {
     $countryModel = new CountryModel();
     $this->view->assign('countrys', $countryModel->getCountrys());
-    $this->title = 'MATSURI PLUS : SIGN-UP';
-    $this->file  = _SIGNUP_DIR;
-    $this->view_display();
+    if($this->action == 'signUp') {
+      if($_POST["password"] == $_POST["passwordSecond"]) {
+        if($this->signUp()) {
+          $this->screen_top();
+        } else {
+          $this->title = 'MATSURI PLUS : SIGN-UP';
+          $this->file  = _SIGNUP_DIR;
+          $this->view_display();
+        }
+      } else {
+        $this->title = 'MATSURI PLUS : SIGN-UP';
+        $this->file  = _SIGNUP_DIR;
+        $this->view_display();
+      }
+    } else {
+      $this->title = 'MATSURI PLUS : SIGN-UP';
+      $this->file  = _SIGNUP_DIR;
+      $this->view_display();
+    }
   }
   
   //----------------------------------------------------
@@ -327,6 +342,56 @@ class UserController extends BaseController
       $pass = $user['password'];
       if(($in_id == $id && $in_pass == $pass) ||
          ($in_id == $mail && $in_pass == $pass)) {
+        // session
+        session_start();
+        $_SESSION["user_id"]      = $user['user_id'];
+        $_SESSION["password"]     = $user['password'];
+        $_SESSION["user_name"]    = $user['user_name'];
+        $_SESSION["mail_address"] = $user['mail_address'];
+        $_SESSION["country_id"]   = $user['country_id'];
+        $_SESSION["languege_id"]  = $user['languege_id'];
+        $_SESSION["user_status"]  = $user['user_status'];
+        $_SESSION["user_icon"]    = $user['user_icon'];
+        $_SESSION["authority"]    = $user['authority'];
+        // cookie
+        $oneday = 86400;
+        setcookie($user['user_id'], time()+$oneday);
+        setcookie($user['password'], time()+$oneday);
+        setcookie($user['user_name'], time()+$oneday);
+        setcookie($user['mail_address'], time()+$oneday);
+        setcookie($user['country_id'], time()+$oneday);
+        setcookie($user['languege_id'], time()+$oneday);
+        setcookie($user['user_status'], time()+$oneday);
+        setcookie($user['user_icon'], time()+$oneday);
+        setcookie($user['authority'], time()+$oneday);
+        
+        return true;
+        break;
+      }
+    }
+  }
+  
+  //----------------------------------------------------
+  // 新規登録処理
+  //----------------------------------------------------
+  public function signUp()
+  {
+    $in_id         = $_POST["user_id"];
+    $in_pass       = $_POST["password"];
+    $in_name       = $_POST["user_name"];
+    $in_mail       = $_POST["mail_address"];
+    $in_country_id = $_POST["country_id"];
+    $authority     = 'comon';
+    
+    $userModel = new UserModel();
+    $userModel->signUp($in_id, $in_pass, $in_name, $in_mail, $in_country_id, $in_country_id, $authority);
+    $users = $userModel->login();
+
+    foreach($users as $user)
+    {
+      $id   = $user['user_id'];
+      $pass = $user['password'];
+      if($in_id == $id && $in_pass == $pass) {
         // session
         session_start();
         $_SESSION["user_id"]      = $user['user_id'];
