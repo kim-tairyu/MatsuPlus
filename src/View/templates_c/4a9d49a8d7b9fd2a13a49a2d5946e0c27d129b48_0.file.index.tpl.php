@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-17 16:43:08
+/* Smarty version 3.1.32, created on 2018-07-18 15:24:52
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4e1c9c638812_32696573',
+  'unifunc' => 'content_5b4f5bc497bf35_23769447',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4a9d49a8d7b9fd2a13a49a2d5946e0c27d129b48' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl',
-      1 => 1531845785,
+      1 => 1531925428,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4e1c9c638812_32696573 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b4f5bc497bf35_23769447 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -36,23 +36,23 @@ function content_5b4e1c9c638812_32696573 (Smarty_Internal_Template $_smarty_tpl)
     <div class="main_content">
       <div class="main_content_inner">
         <ul class="kategori col-md-12 col-xs-12 col-lg-12">
-        <li class="col-md-2  col-xs-2 col-lg-2">
-          <a href="#vote" data-toggle="tab" id="click1">VOTE</a>
-        </li>
-        <li class="col-md-2 col-xs-2 col-lg-2">
-          <a href="#news" data-toggle="tab" id="click2">NEWS</a>
-        </li>
-        <li class="col-md-4 col-xs-4 active col-lg-4 ">
-          <a href="#recommend" data-toggle="tab" id="click3">RECOMMEND</a>
-        </li>
-        <li class="col-md-2 col-xs-2 col-lg-2">
-          <a href="#season" data-toggle="tab" id="click4">SEASON</a>
-        </li>
-        <li class="col-md-2 col-xs-2 col-lg-2">
-          <a href="#area" data-toggle="tab" id="click5">AREA</a>
-        </li>
-      </ul>
-      <!--index.php全体を囲むwrap-->
+          <li class="col-md-2  col-xs-2 col-lg-2">
+            <a href="#vote" data-toggle="tab" id="click1">VOTE</a>
+          </li>
+          <li class="col-md-2 col-xs-2 col-lg-2">
+            <a href="#news" data-toggle="tab" id="click2">NEWS</a>
+          </li>
+          <li class="col-md-4 col-xs-4 active col-lg-4 ">
+            <a href="#recommend" data-toggle="tab" id="click3">RECOMMEND</a>
+          </li>
+          <li class="col-md-2 col-xs-2 col-lg-2">
+            <a href="#season" data-toggle="tab" id="click4">SEASON</a>
+          </li>
+          <li class="col-md-2 col-xs-2 col-lg-2">
+            <a href="#area" data-toggle="tab" id="click5">AREA</a>
+          </li>
+        </ul>
+        <!--index.php全体を囲むwrap-->
         <div class="tab-content col-xs-12 col-md-12 col-lg-12" id="myTapContent">
           <!--レビュー順で表示のエリア-->
           <div class="tab-pane fade in active" id="recommend">

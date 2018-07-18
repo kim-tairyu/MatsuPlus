@@ -61,6 +61,7 @@ class BaseController
       $this->view->assign('changeBtn_name', "My page");
       $this->view->assign('user', "mypage");
       $this->view->assign('schedule', "schedule");
+      $this->view->assign('authority', $_SESSION["authority"]);
     } else {
       $this->view->assign('changeBtn_name', "SIGN IN");
       $this->view->assign('user', "sign-in");

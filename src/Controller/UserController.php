@@ -43,6 +43,12 @@ class UserController extends BaseController
       case "festival":
         $this->screen_festival();
         break;
+      case "editer":
+        $this->screen_editer();
+        break;
+      case "manager":
+        $this->screen_manager();
+        break;
       default:
         $this->screen_top();
     }
@@ -222,6 +228,26 @@ class UserController extends BaseController
   }
   
   //----------------------------------------------------
+  // 編集者画面へ遷移
+  //----------------------------------------------------
+  public function screen_editer()
+  {
+    $this->title = 'MATSURI PLUS : EDITER';
+    $this->file  = _EDITER_DIR;
+    $this->view_display();
+  }
+  
+  //----------------------------------------------------
+  // 管理者画面へ遷移
+  //----------------------------------------------------
+  public function screen_manager()
+  {
+    $this->title = 'MATSURI PLUS : MANAGER';
+    $this->file  = _MANAGER_DIR;
+    $this->view_display();
+  }
+  
+  //----------------------------------------------------
   // 祭り詳細画面へ遷移
   //----------------------------------------------------
   public function screen_festival()
@@ -348,7 +374,7 @@ class UserController extends BaseController
     if(isset($_COOKIE["launguege_id"])) setcookie($_COOKIE['launguege_id'], time()-$oneday);
     if(isset($_COOKIE["user_status"])) setcookie($_COOKIE['user_status'], time()-$oneday);
     if(isset($_COOKIE["user_icon"])) setcookie($_COOKIE['user_icon'], time()-$oneday);
-    if(isset($_COOKIE["authority"])) setcookie($_COOKIE['user_status'], time()-$oneday);
+    if(isset($_COOKIE["authority"])) setcookie($_COOKIE['authority'], time()-$oneday);
   }
   
 }

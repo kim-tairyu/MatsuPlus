@@ -11,23 +11,23 @@
     <div class="main_content">
       <div class="main_content_inner">
         <ul class="kategori col-md-12 col-xs-12 col-lg-12">
-        <li class="col-md-2  col-xs-2 col-lg-2">
-          <a href="#vote" data-toggle="tab" id="click1">VOTE</a>
-        </li>
-        <li class="col-md-2 col-xs-2 col-lg-2">
-          <a href="#news" data-toggle="tab" id="click2">NEWS</a>
-        </li>
-        <li class="col-md-4 col-xs-4 active col-lg-4 ">
-          <a href="#recommend" data-toggle="tab" id="click3">RECOMMEND</a>
-        </li>
-        <li class="col-md-2 col-xs-2 col-lg-2">
-          <a href="#season" data-toggle="tab" id="click4">SEASON</a>
-        </li>
-        <li class="col-md-2 col-xs-2 col-lg-2">
-          <a href="#area" data-toggle="tab" id="click5">AREA</a>
-        </li>
-      </ul>
-      <!--index.php全体を囲むwrap-->
+          <li class="col-md-2  col-xs-2 col-lg-2">
+            <a href="#vote" data-toggle="tab" id="click1">VOTE</a>
+          </li>
+          <li class="col-md-2 col-xs-2 col-lg-2">
+            <a href="#news" data-toggle="tab" id="click2">NEWS</a>
+          </li>
+          <li class="col-md-4 col-xs-4 active col-lg-4 ">
+            <a href="#recommend" data-toggle="tab" id="click3">RECOMMEND</a>
+          </li>
+          <li class="col-md-2 col-xs-2 col-lg-2">
+            <a href="#season" data-toggle="tab" id="click4">SEASON</a>
+          </li>
+          <li class="col-md-2 col-xs-2 col-lg-2">
+            <a href="#area" data-toggle="tab" id="click5">AREA</a>
+          </li>
+        </ul>
+        <!--index.php全体を囲むwrap-->
         <div class="tab-content col-xs-12 col-md-12 col-lg-12" id="myTapContent">
           <!--レビュー順で表示のエリア-->
           <div class="tab-pane fade in active" id="recommend">
