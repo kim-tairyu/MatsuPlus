@@ -58,9 +58,9 @@
             </div>
             <!--言語変更-->
             <select name="country_id" class="country-width">
-              <option value="">Change Languege</option>
-              {foreach from=$langueges item=languege}
-              <option value="{$languege.languege_id}">{$languege.languege}</option>
+              <option value="">Change Language</option>
+              {foreach from=$languages item=language}
+              <option value="{$language.language_id}">{$language.language}</option>
               {/foreach}
             </select>
             <div class="user_button">

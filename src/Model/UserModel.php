@@ -19,7 +19,7 @@ class UserModel extends BaseModel {
   public function signUp($user_id, $password, $user_name, $mail_address, $country_id, $launguege_id, $authority) {
     try {
       $sql  = 'INSERT INTO user (
-        user_id, password, user_name, mail_address, country_id, languege_id, authority
+        user_id, password, user_name, mail_address, country_id, language_id, authority
       ) VALUES (?, ?, ?, ?, ?, ?, ?);';
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
@@ -38,7 +38,7 @@ class UserModel extends BaseModel {
   // ユーザ情報を取得（一件）
   public function getOneUser($user_id) {
     try {
-      $sql    = 'SELECT * FROM user LEFT JOIN country ON user.country_id = country.country_id LEFT JOIN languege ON user.languege_id = languege.languege_id WHERE user_id = ?;';
+      $sql    = 'SELECT * FROM user LEFT JOIN country ON user.country_id = country.country_id LEFT JOIN language ON user.language_id = language.language_id WHERE user_id = ?;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
       $stmt->execute();

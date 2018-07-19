@@ -94,14 +94,14 @@ function content_5b4e229b164e77_98342286 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <!--言語変更-->
             <select name="country_id" class="country-width">
-              <option value="">Change Languege</option>
+              <option value="">Change Language</option>
               <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['langueges']->value, 'languege');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['languages']->value, 'language');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['languege']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['language']->value) {
 ?>
-              <option value="<?php echo $_smarty_tpl->tpl_vars['languege']->value['languege_id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['languege']->value['languege'];?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['language']->value['language_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['language']->value['language'];?>
 </option>
               <?php
 }
