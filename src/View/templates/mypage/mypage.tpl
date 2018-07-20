@@ -12,7 +12,7 @@
     <div class="mypage-inner">
       <!-- ユーザーのプロフィール画像 -->
       <div class="my_image">
-        <img src="{_IMGS_DIR}/{$smarty.session.user_icon}" class="">
+        <img src="{_IMGS_SERVER_DIR}/{$smarty.session.user_icon}" class="">
       </div>
       <!-- ユーザーネームをかこっているボックス -->
       <div class="user_name_box">

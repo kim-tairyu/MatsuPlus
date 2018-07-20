@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-17 17:08:43
+/* Smarty version 3.1.32, created on 2018-07-19 06:19:41
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/config.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4e229b164e77_98342286',
+  'unifunc' => 'content_5b502d7ddb9a71_99861140',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c4a32bd842ce96b0697fd4eca67d083792f77c01' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/config.tpl',
-      1 => 1531847140,
+      1 => 1531980956,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4e229b164e77_98342286 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b502d7ddb9a71_99861140 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -41,7 +41,7 @@ function content_5b4e229b164e77_98342286 (Smarty_Internal_Template $_smarty_tpl)
       <div class="mypage-inner">
         <!--ユーザーの画像表示？-->
         <div class="my_image">
-          <img src="<?php echo _IMGS_DIR;?>
+          <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_SESSION['user_icon'];?>
 " class="">
         </div>

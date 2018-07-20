@@ -14,7 +14,7 @@
         <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">{$festival.festival_name_en}</h1>
           <!--祭りor記事画像(仮)-->
         <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <a href="#"><img src="{_IMGS_DIR}/{$festival_image.image}" alt="祭り"></a>
+          <a href="#"><img src="{_IMGS_SERVER_DIR}/{$festival_image.image}" alt="祭り"></a>
         </div>
         <!--お気に入りボタン-->
         <div class="fev_button_box">
@@ -190,7 +190,7 @@
               <a href="#">
                 <div class="souvenir_img_box3">
                   <div class="souvenir_img_boxA">
-                    <img src="{_IMGS_DIR}/{$gift.image}" alt="ねぶた祭お土産">
+                    <img src="{_IMGS_SERVER_DIR}/{$gift.image}" alt="ねぶた祭お土産">
                   </div>
                   <div class="souvenir_img_boxB">
                     <h4 class="souvenir_title">{$gift.gift_name_en}</h4>
@@ -211,7 +211,7 @@
           <div class="comment_content">
             <div class="">
               <div class="comment_user_img">
-                  <img src="{_IMGS_DIR}/user.jpg" alt="ユーザーアイコン">
+                  <img src="{_IMGS_SERVER_DIR}/user.jpg" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
                 {for $evaluation=1 to {$review.star}}<p>☆</p>{/for}
