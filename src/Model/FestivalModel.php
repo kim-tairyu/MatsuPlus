@@ -45,5 +45,5 @@ class FestivalModel extends BaseModel {
       die('DB ERROR:'.$e->getMesseage);
     }
     return $result;
-  } 
+  }
 }
