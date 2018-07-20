@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-18 15:24:52
+/* Smarty version 3.1.32, created on 2018-07-19 06:13:30
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4f5bc497bf35_23769447',
+  'unifunc' => 'content_5b502c0aede7a5_04736791',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4a9d49a8d7b9fd2a13a49a2d5946e0c27d129b48' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl',
-      1 => 1531925428,
+      1 => 1531980808,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4f5bc497bf35_23769447 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b502c0aede7a5_04736791 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -73,7 +73,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['festival']->value) {
 ">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="<?php echo _IMGS_DIR;?>
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
 " class="event_image">
                     </div>
@@ -123,8 +123,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
 ">
                 <div class="news_box">
                   <div class="news_box1">
-                    <img src="<?php echo _IMGS_DIR;?>
-/" class="event_image">
+                    <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['article']->value['image'];?>
+" class="event_image">
                   </div>
                   <div class="news_box2">
                     <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['article']->value['article_title'];?>

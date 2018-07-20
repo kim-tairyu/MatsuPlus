@@ -24,7 +24,7 @@
               <a href="festival.php?festival_id=?">
                 <div class="news_box">
                   <div class="news_box1">
-                    <img src="{_IMGS_DIR}/{$festival.image}" class="event_image">
+                    <img src="{_IMGS_SERVER_DIR}/{$festival.image}" class="event_image">
                   </div>
                   <div class="news_box2">
                     <h4 class="news_title">{$festival.festival_name_en}</h4>

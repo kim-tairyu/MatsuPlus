@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-17 16:37:47
+/* Smarty version 3.1.32, created on 2018-07-19 06:19:48
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/schedule/schedule.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4e1b5bf35f46_59200012',
+  'unifunc' => 'content_5b502d84980423_51938152',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f49ec15ff32a570a51a29d24b520d99e31557a58' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/schedule/schedule.tpl',
-      1 => 1531845462,
+      1 => 1531980916,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b502d84980423_51938152 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -111,7 +111,7 @@ function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="<?php echo _IMGS_DIR;?>
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
 /article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">
@@ -126,7 +126,7 @@ function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="<?php echo _IMGS_DIR;?>
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
 /article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">
@@ -141,7 +141,7 @@ function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="<?php echo _IMGS_DIR;?>
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
 /article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">

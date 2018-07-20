@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-17 15:08:03
+/* Smarty version 3.1.32, created on 2018-07-20 03:25:29
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4e0653ec6433_78095975',
+  'unifunc' => 'content_5b5156294172f8_23097533',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a040f172673923420008e4825709a9489a9c6d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl',
-      1 => 1531839861,
+      1 => 1531981092,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4e0653ec6433_78095975 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5156294172f8_23097533 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -40,14 +40,15 @@ function content_5b4e0653ec6433_78095975 (Smarty_Internal_Template $_smarty_tpl)
 </h1>
           <!--祭りor記事画像(仮)-->
         <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <a href="#"><img src="<?php echo _IMGS_DIR;?>
+          <a href="#"><img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['festival_image']->value['image'];?>
 " alt="祭り"></a>
         </div>
         <!--お気に入りボタン-->
         <div class="fev_button_box">
-          <a href="?festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
-&f" style="text-decoration:none;"><div class="fev_button">
+          <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=festivalfestival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+&action=favorite" style="text-decoration:none;"><div class="fev_button">
           <img src="<?php echo _IMGS_DIR;?>
 /fev.png" width="40" height="40" alt="サンプル"></div></a>
           <!--スケジュール追加ボタン-->
@@ -227,7 +228,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['gift']->value) {
               <a href="#">
                 <div class="souvenir_img_box3">
                   <div class="souvenir_img_boxA">
-                    <img src="<?php echo _IMGS_DIR;?>
+                    <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['gift']->value['image'];?>
 " alt="ねぶた祭お土産">
                   </div>
@@ -260,7 +261,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['review']->value) {
           <div class="comment_content">
             <div class="">
               <div class="comment_user_img">
-                  <img src="<?php echo _IMGS_DIR;?>
+                  <img src="<?php echo _IMGS_SERVER_DIR;?>
 /user.jpg" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
@@ -289,7 +290,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <div class="comment_content2">
             <div class="comment_submit">
               <form action="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=festival" method="post">
+?type=festival&action=review" method="post">
                 comment<br>
                 <!--星評価-->
                 <div class="user_hosi">

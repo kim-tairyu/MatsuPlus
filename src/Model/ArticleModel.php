@@ -5,7 +5,7 @@ class ArticleModel extends BaseModel {
   // 記事情報を取得（全件）
   public function getArticles() {
     try {
-      $sql    = 'SELECT * FROM article;';
+      $sql    = 'SELECT * FROM article LEFT JOIN article_image ON article.article_id = article_image.article_id;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->execute();
       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

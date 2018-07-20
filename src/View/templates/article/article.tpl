@@ -14,7 +14,7 @@
         <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">{$article.article_title}</h1>
         <!--祭りor記事画像(仮)-->
         <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <a href="#"><img src="{_IMGS_DIR}/{$article.image}" alt="祭り"></a>
+          <a href="#"><img src="{_IMGS_SERVER_DIR}/{$article.image}" alt="祭り"></a>
         </div>
         <!--お気に入りボタン-->
         <div class="fev_button_box">
@@ -44,7 +44,7 @@
             <a href="{$SCRIPT_NAME}?type=article&article_id=?">
               <div class="news_box">
                 <div class="news_box1">
-                  <img src="{_IMGS_DIR}/{$relation.image}" class="event_image">
+                  <img src="{_IMGS_SERVER_DIR}/{$relation.image}" class="event_image">
                 </div>
                 <div class="news_box2">
                   <h4 class="news_title">{$relation.article_title}</h4>
