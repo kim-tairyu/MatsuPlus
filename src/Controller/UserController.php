@@ -196,9 +196,9 @@ class UserController extends BaseController
       $this->screen_top();
     } else {
       $userModel     = new UserModel();
-      $languegeModel = new LanguegeModel();
+      $languageModel = new LanguageModel();
       $this->view->assign('userInfo', $userModel->getOneUser($_SESSION["user_id"]));
-      $this->view->assign('langueges', $languegeModel->getLangueges());
+      $this->view->assign('languages', $languageModel->getLanguages());
       $this->title = 'MATSURI PLUS : CONFIG';
       $this->file  = _CONFIG_DIR;
       $this->view_display();
@@ -344,21 +344,21 @@ class UserController extends BaseController
         $_SESSION["user_name"]    = $user['user_name'];
         $_SESSION["mail_address"] = $user['mail_address'];
         $_SESSION["country_id"]   = $user['country_id'];
-        $_SESSION["languege_id"]  = $user['languege_id'];
+        $_SESSION["language_id"]  = $user['language_id'];
         $_SESSION["user_status"]  = $user['user_status'];
         $_SESSION["user_icon"]    = $user['user_icon'];
         $_SESSION["authority"]    = $user['authority'];
         // cookie
         $oneday = 86400;
-        setcookie($user['user_id'], time()+$oneday);
-        setcookie($user['password'], time()+$oneday);
-        setcookie($user['user_name'], time()+$oneday);
+        setcookie($user['user_id'],      time()+$oneday);
+        setcookie($user['password'],     time()+$oneday);
+        setcookie($user['user_name'],    time()+$oneday);
         setcookie($user['mail_address'], time()+$oneday);
-        setcookie($user['country_id'], time()+$oneday);
-        setcookie($user['languege_id'], time()+$oneday);
-        setcookie($user['user_status'], time()+$oneday);
-        setcookie($user['user_icon'], time()+$oneday);
-        setcookie($user['authority'], time()+$oneday);
+        setcookie($user['country_id'],   time()+$oneday);
+        setcookie($user['language_id'],  time()+$oneday);
+        setcookie($user['user_status'],  time()+$oneday);
+        setcookie($user['user_icon'],    time()+$oneday);
+        setcookie($user['authority'],    time()+$oneday);
         
         return true;
         break;
@@ -394,21 +394,21 @@ class UserController extends BaseController
         $_SESSION["user_name"]    = $user['user_name'];
         $_SESSION["mail_address"] = $user['mail_address'];
         $_SESSION["country_id"]   = $user['country_id'];
-        $_SESSION["languege_id"]  = $user['languege_id'];
+        $_SESSION["language_id"]  = $user['language_id'];
         $_SESSION["user_status"]  = $user['user_status'];
         $_SESSION["user_icon"]    = $user['user_icon'];
         $_SESSION["authority"]    = $user['authority'];
         // cookie
         $oneday = 86400;
-        setcookie($user['user_id'], time()+$oneday);
-        setcookie($user['password'], time()+$oneday);
-        setcookie($user['user_name'], time()+$oneday);
+        setcookie($user['user_id'],      time()+$oneday);
+        setcookie($user['password'],     time()+$oneday);
+        setcookie($user['user_name'],    time()+$oneday);
         setcookie($user['mail_address'], time()+$oneday);
-        setcookie($user['country_id'], time()+$oneday);
-        setcookie($user['languege_id'], time()+$oneday);
-        setcookie($user['user_status'], time()+$oneday);
-        setcookie($user['user_icon'], time()+$oneday);
-        setcookie($user['authority'], time()+$oneday);
+        setcookie($user['country_id'],   time()+$oneday);
+        setcookie($user['language_id'],  time()+$oneday);
+        setcookie($user['user_status'],  time()+$oneday);
+        setcookie($user['user_icon'],    time()+$oneday);
+        setcookie($user['authority'],    time()+$oneday);
         
         return true;
         break;
