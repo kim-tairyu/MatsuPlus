@@ -277,54 +277,48 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_festival()
   {
-//    if(isset($_GET["festival_id"])) {
-//      $fes_id = $_GET["festival_id"];
-//      if(isset($_GET["f"]) && isset($_SESSION["user_id"])) {
-//        // お気に入り処理
-//        $favoriteModel = new FavoriteModel();
-//        $favoriteModel->putFavoriteFestival($_SESSION["user_id"], $fes_id);
-//      }
-//    } else if(isset($_POST["festival_id"])) {
-//      $fes_id = $_POST["festival_id"];
-//      if(isset($_SESSION["user_id"]) && isset($_POST['star']) && isset($_POST['kanso'])) {
-//        if($_POST['star'] !=="" && $_POST['kanso'] !=="") {
-//          $user_id = $_SESSION["user_id"];
-//          $kanso = $_POST['kanso'];
-//          $star = $_POST['star'];
-//          // レビュー処理
-//          $reviewModel = new ReviewModel();
-//          $reviewModel->putReview($fes_id, $user_id, $kanso, $star);
-//        }
-//      } else if(isset($_SESSION["user_id"]) && isset($_POST['event'])) {
-//        if($_POST['event'] !==""){
-//          $user_id = $_SESSION["user_id"];
-//          $event = $_POST['event'];
-//          $place = $_POST['place'];
-//          $free = $_POST['free'];
-//          // スケジュール登録処理
-//          $scheduleModel = new ScheduleModel();
-//          $scheduleModel->addSchedule($user_id, $event, $place, $free);
-//        }
-//      } else {
-//        $this->screen_top();
-//      }
-//    }
+    if(isset($_GET["festival_id"])) {
+        echo "get";
+      $fes_id = $_GET["festival_id"];
+      if(isset($_GET["action"]) && isset($_SESSION["user_id"])) {
+        // お気に入り処理
+        $favoriteModel = new FavoriteModel();
+        $favoriteModel->putFavoriteFestival($_SESSION["user_id"], $fes_id);
+      }
+    }else if(isset($_POST["festival_id"])) {
+      $fes_id = $_POST["festival_id"];
+      if(isset($_SESSION["user_id"]) && isset($_POST['star']) && isset($_POST['kanso'])) {
+        if($_POST['star'] !=="" && $_POST['kanso'] !=="") {
+          $user_id = $_SESSION["user_id"];
+          $kanso = $_POST['kanso'];
+          $star = $_POST['star'];
+          // レビュー処理
+          $reviewModel = new ReviewModel();
+          $reviewModel->putReview($fes_id, $user_id, $kanso, $star);
+        }
+      }else if(isset($_SESSION["user_id"]) && isset($_POST['event'])) {
+        if($_POST['event'] !==""){
+          $user_id = $_SESSION["user_id"];
+          $event = $_POST['event'];
+          $place = $_POST['place'];
+          $free = $_POST['free'];
+          // スケジュール登録処理
+          $scheduleModel = new ScheduleModel();
+          $scheduleModel->addSchedule($user_id, $event, $place, $free);
+        }
+      }
+    }
     
     if(isset($this->festival_id)) {
-      // お気に入り登録
-      if($this->action == "favorite") {
-        $favoriteModel = new FavoriteModel();
-        $favoriteModel->putFavoriteFestival($_SESSION["user_id"], $this->festival_id);
-      }
       $festivalModel = new FestivalModel();
       $giftModel     = new GiftModel();
       $reviewModel   = new ReviewModel();
       $tagModel      = new TagModel();
-      $this->view->assign('festival',       $festivalModel->getOneFestival($this->festival_id));
-      $this->view->assign('festival_images', $festivalModel->getFestivalImages($this->festival_id));
+      $this->view->assign('festival',       $festivalModel->getOneFestival($fes_id));
+      $this->view->assign('festival_images', $festivalModel->getFestivalImages($fes_id));
       $this->view->assign('gifts',           $giftModel->getGifts($this->festival_id));
       $this->view->assign('reviews',         $reviewModel->getReviews($this->festival_id));
-      //$this->view->assign('tags',            $tagModel->getTag());
+      $this->view->assign('tags',            $tagModel->getTags($this->festival_id));
 
       $this->title = 'MATSURI PLUS : FESTIVAL';
       $this->file  = _FESTIVAL_DIR;
@@ -332,6 +326,7 @@ class UserController extends BaseController
     } else {
       $this->screen_top();
     }
+    
   }
   
   //----------------------------------------------------
@@ -451,5 +446,5 @@ class UserController extends BaseController
     if(isset($_COOKIE["user_icon"])) setcookie($_COOKIE['user_icon'], time()-$oneday);
     if(isset($_COOKIE["authority"])) setcookie($_COOKIE['authority'], time()-$oneday);
   }
-  
+
 }
