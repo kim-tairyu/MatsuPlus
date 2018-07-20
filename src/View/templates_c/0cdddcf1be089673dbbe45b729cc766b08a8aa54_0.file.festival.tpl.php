@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-20 12:22:09
+/* Smarty version 3.1.32, created on 2018-07-20 14:24:52
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b515561d5a352_95684189',
+  'unifunc' => 'content_5b51722443dc82_44006040',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0cdddcf1be089673dbbe45b729cc766b08a8aa54' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\festival\\festival.tpl',
-      1 => 1532056925,
+      1 => 1532062835,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b515561d5a352_95684189 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b51722443dc82_44006040 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -40,7 +40,7 @@ function content_5b515561d5a352_95684189 (Smarty_Internal_Template $_smarty_tpl)
 </h1>
           <!--祭りor記事画像(仮)-->
         <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <a href="#"><img src="<?php echo _IMGS_DIR;?>
+          <a href="#"><img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['festival_image']->value['image'];?>
 " alt="祭り"></a>
         </div>
@@ -228,7 +228,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['gift']->value) {
               <a href="#">
                 <div class="souvenir_img_box3">
                   <div class="souvenir_img_boxA">
-                    <img src="<?php echo _IMGS_DIR;?>
+                    <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['gift']->value['image'];?>
 " alt="ねぶた祭お土産">
                   </div>
@@ -261,7 +261,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['review']->value) {
           <div class="comment_content">
             <div class="">
               <div class="comment_user_img">
-                  <img src="<?php echo _IMGS_DIR;?>
+                  <img src="<?php echo _IMGS_SERVER_DIR;?>
 /user.jpg" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
