@@ -278,7 +278,6 @@ class UserController extends BaseController
   public function screen_festival()
   {
     if(isset($_GET["festival_id"])) {
-        echo "get";
       $fes_id = $_GET["festival_id"];
       if(isset($_GET["action"]) && isset($_SESSION["user_id"])) {
         // お気に入り処理
