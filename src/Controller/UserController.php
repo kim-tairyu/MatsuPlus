@@ -54,6 +54,12 @@ class UserController extends BaseController
       case "manager":
         $this->screen_manager();
         break;
+      case "upload":
+        $this->screen_upload();
+        break;
+      case "upload_complete":
+        $this->screen_upload_complete();
+        break;
       default:
         $this->screen_top();
     }
@@ -329,6 +335,101 @@ class UserController extends BaseController
   }
   
   //----------------------------------------------------
+  // アップロード画面に遷移
+  //----------------------------------------------------
+  public function screen_upload()
+  {
+    $this->title = 'MATSURI PLUS : UPLOAD';
+    $this->file  = _UPLOAD_DIR;
+    $this->view_display();
+  }
+  
+  //----------------------------------------------------
+  // アップロード完了画面に遷移
+  //----------------------------------------------------
+  public function screen_upload_complete()
+  {
+    $festival_name = (isset($_POST["name_data"])) ? $_POST["name_data"]:"";
+    $location      = (isset($_POST["pref_name_data"]) && isset($_POST["location_details_data"]))?$_POST["location_details_data"].",".$_POST["pref_name_data"]:"";
+    $start_date    = (isset($_POST["start_date_data"]))?$_POST["start_date_data"]:"";
+    $end_date      = (isset($_POST["end_date_data"]))?$_POST["end_date_data"]:"";
+    $start_time    = (isset($_POST["start_hour_data"]) && isset($_POST["start_minute_data"]))?$start_date." ".$_POST["start_hour_data"].":".$_POST["start_minute_data"].":00":"";
+    $end_time      = (isset($_POST["end_hour_data"]))?$end_date." ".$_POST["end_hour_data"].":".$_POST["end_minute_data"].":00":"";
+    $url           = (isset($_POST["url_data"]))?$_POST["url_data"]:"";
+    $description   = (isset($_POST["InputDetailed"]))?$_POST["InputDetailed"]:"";
+    $movie         = (isset($_POST["InputVideoURL"]))?$_POST["InputVideoURL"]:"";
+    $x             = (isset($_POST["x_data"]))?$_POST["x_data"]:"";
+    $y             = (isset($_POST["y_data"]))?$_POST["y_data"]:"";
+    $tel           = (isset($_POST["InputTEL"]))?$_POST["InputTEL"]:"";
+    $fax           = (isset($_POST["InputFAX"]))?$_POST["InputFAX"]:"";
+    $email         = (isset($_POST["InputE-mail"]))?$_POST["InputE-mail"]:"";
+    $facebook      = (isset($_POST["InputFacebook"]))?$_POST["InputFacebook"]:"";
+    $twitter       = (isset($_POST["InputTwitter"]))?$_POST["InputTwitter"]:"";
+    $timetable     = (isset($_POST["InputTimeTable"]))?$_POST["InputTimeTable"]:"";
+    $sponsor       = (isset($_POST["InputSponsor"]))?$_POST["InputSponsor"]:"";
+    $history       = (isset($_POST["InputFesHistory"]))?$_POST["InputFesHistory"]:"";
+
+    $uploadModel = new UploadModel();
+    
+    $id = $uploadModel-> putMatsuri($festival_name, $location, $start_date, $end_date, $start_time, $end_time, $url, $description, $movie, $x, $y, $tel, $fax, $email, $facebook, $twitter, $timetable, $sponsor, $history);
+    
+    //画像
+    if(isset($_FILES["img"])){
+        $image = $_FILES['img']['name'];
+        $uploadModel-> putFestival_img($id,$image);
+    }
+    
+    //タグ
+    if(isset($_POST["season_tag"]) && isset($_POST["place_tag"])){
+        $season = $_POST["season_tag"];
+        $place = $_POST["place_tag"];
+        $uploadModel-> putFestival_tag($id,"season",$season);
+        $uploadModel-> putFestival_tag($id,"region",$place);
+    }
+    
+    //お土産
+    if(isset($_POST["gift_name1"]) && isset($_FILES["gift_image1"]) && isset($_POST["gift_price1"]) ){
+        $gift_name  = $_POST["gift_name1"];
+        $gift_image = $_FILES['gift_image1']['name'];
+        $gift_price = $_POST["gift_price1"];
+        if($gift_name !== "" && $gift_price !== ""){
+            $uploadModel-> putFestival_gift($id,$gift_name,$gift_image,$gift_price);
+        }
+    }
+      
+    if(isset($_POST["gift_name2"]) && isset($_FILES["gift_image2"]) && isset($_POST["gift_price2"]) ){
+        $gift_name  = $_POST["gift_name2"];
+        $gift_image = $_FILES['gift_image2']['name'];
+        $gift_price = $_POST["gift_price2"];
+        if($gift_name !== "" && $gift_price !== ""){
+            $uploadModel-> putFestival_gift($id,$gift_name,$gift_image,$gift_price);
+        }
+    }
+      
+    if(isset($_POST["gift_name3"]) && isset($_FILES["gift_image3"]) && isset($_POST["gift_price3"]) ){
+        $gift_name  = $_POST["gift_name3"];
+        $gift_image = $_FILES['gift_image3']['name'];
+        $gift_price = $_POST["gift_price3"];
+        if($gift_name !== "" && $gift_price !== ""){
+            $uploadModel-> putFestival_gift($id,$gift_name,$gift_image,$gift_price);
+        }
+    }
+    
+    if(isset($_POST["gift_name4"]) && isset($_FILES["gift_image4"]) && isset($_POST["gift_price4"]) ){
+        $gift_name  = $_POST["gift_name4"];
+        $gift_image = $_FILES['gift_image4']['name'];
+        $gift_price = $_POST["gift_price4"];
+        if($gift_name !== "" && $gift_price !== ""){
+            $uploadModel-> putFestival_gift($id,$gift_name,$gift_image,$gift_price);
+        }
+    }
+    
+    $this->title = 'MATSURI PLUS : UPLOAD_COMPLETE';
+    $this->file  = _UPLOAD_COMPLETE_DIR;
+    $this->view_display();
+  }
+
+  //----------------------------------------------------
   // ログイン認証処理
   //----------------------------------------------------
   public function login()
@@ -424,7 +525,7 @@ class UserController extends BaseController
       }
     }
   }
-  
+
   //----------------------------------------------------
   // ログアウト処理
   //----------------------------------------------------
