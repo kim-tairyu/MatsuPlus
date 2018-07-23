@@ -49,10 +49,10 @@ class UserModel extends BaseModel {
     return $result;
   }
   
-  //ユーザ名変更
+  // ユーザステータス変更
   public function updateUserStatus($user_id, $calm, $value){
     try{
-      $sql  = "UPDATE user SET ".$calm." = ? WHERE user_id = ?;";
+      $sql  = "UPDATE user SET " . $calm . " = ? WHERE user_id = ?;";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $value);
       $stmt->bindValue(2, $user_id);

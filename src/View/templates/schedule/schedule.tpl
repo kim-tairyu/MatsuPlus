@@ -24,56 +24,9 @@
     <!-- maincontents -->
     <div class="box4" id="myTapContent">
       <div class="box4-inner">
+        <h2>SCHEDULE</h2>
         <!--カレンダー-->
-        <div class="schedule" id="calendar"></div>
-        <!--何月何日のエリア-->
-        <div class="schedule_info">
-          <div class="schedule_info_day"><h1 id="schedule_info_day">何月何日の予定</h1></div>
-            <div class="search_results_box">
-              <!--結果1-->
-              <div class="search_results_box1-1">
-                <a href="#">
-                  <div class="search_results_box2">
-                    <div class="search_results_box2-1">
-                      <img src="{_IMGS_SERVER_DIR}/article_img.jpg" class="event_image">
-                    </div>
-                    <div class="search_results_box2-2">
-                      <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                      <h6 class="search_results_date_big">2018.6.15</h6>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <!--結果２-->
-              <div class="search_results_box1-1">
-                <a href="#">
-                  <div class="search_results_box2">
-                    <div class="search_results_box2-1">
-                      <img src="{_IMGS_SERVER_DIR}/article_img.jpg" class="event_image">
-                    </div>
-                    <div class="search_results_box2-2">
-                      <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                      <h6 class="search_results_date_big">2018.6.15</h6>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <!--結果３-->
-              <div class="search_results_box1-1">
-                <a href="#">
-                  <div class="search_results_box2">
-                    <div class="search_results_box2-1">
-                      <img src="{_IMGS_SERVER_DIR}/article_img.jpg" class="event_image">
-                    </div>
-                    <div class="search_results_box2-2">
-                      <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
-                      <h6 class="search_results_date_big">2018.6.15</h6>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-        </div>
+        <div class="schedule" id="calendar" style="width: 640px; height: 600px;"></div>
       </div>
     </div>
 

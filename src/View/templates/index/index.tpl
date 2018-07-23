@@ -31,37 +31,80 @@
         <div class="tab-content col-xs-12 col-md-12 col-lg-12" id="myTapContent">
           <!--レビュー順で表示のエリア-->
           <div class="tab-pane fade in active" id="recommend">
-            <div class="week_mon">
-              <a href="#">WEEK</a>
-              <a href="#" class="month2">MONTH</a>
-            </div>
-            <div class="news_info_event">
-              {foreach from=$festivals item=festival}
-              <div class="news_info_event_box">
-                <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
-                <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
-                  <div class="news_box">
-                    <div class="news_box1">
-                      <img src="{_IMGS_SERVER_DIR}/{$festival.image}" class="event_image">
-                    </div>
-                    <div class="news_box2">
-                      <h4 class="news_title">{$festival.festival_name_en}</h4>
-                      <!--demoが表示される文章でお願いします-->
-                      <div class="demo">{$festival.description_en}</div>
-                      <!--この下のdata_big2がアクセスカウンタでおねがいします-->
-                      <div class="date_box">
-                        <h6 class="date_big2">{$festival.start_date}</h6>
-                        <h6 class="date_big">{$festival.end_date}</h6>
-                      </div>
-                    </div>
-                  </div>
-                </a>
+            <!--タブ切り替え-->
+            <div class="tab_wrap">
+            <input id="tab1" type="radio" name="tab_btn" checked="checked">
+            <input id="tab2" type="radio" name="tab_btn">
+            <div class="tab_area">
+              <div class="week_mon">
+                <a href="#"><label class="tab1_label" for="tab1">WEEK</label></a>
+                <a href="#" class="month2"><label class="tab2_label" for="tab2">MONTH</label></a>
               </div>
-              {foreachelse}
-              <div>No Festival Data!</div>
-              {/foreach}
             </div>
+            <!--main-->
+            <div class="panel_area">
+              <!--WEEKタブ-->
+              <div id="panel1" class="tab_panel">
+                <div class="news_info_event">
+                  {foreach from=$festivals item=festival}
+                  <div class="news_info_event_box">
+                    <a href="{$SCRIPT_NAME}?festival_id={$festival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                    <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
+                      <div class="news_box">
+                        <div class="news_box1">
+                          <img src="{_IMGS_SERVER_DIR}/{$festival.image}" class="event_image">
+                        </div>
+                        <div class="news_box2">
+                          <h4 class="news_title">{$festival.festival_name_en}</h4>
+                          <!--demoが表示される文章でお願いします-->
+                          <div class="demo">{$festival.description_en}</div>
+                          <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                          <div class="date_box">
+                            <h6 class="date_big2">{$festival.start_date}</h6>
+                            <h6 class="date_big">{$festival.end_date}</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  {foreachelse}
+                  <div>No Festival Data!</div>
+                  {/foreach}
+                </div>
+              </div>
+              <!--MONTHタブ-->
+              <div id="panel2" class="tab_panel">
+                <div class="news_info_event">
+                  {foreach from=$festivals item=festival}
+                  <div class="news_info_event_box">
+                    <a href="{$SCRIPT_NAME}?festival_id={$festival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                    <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
+                      <div class="news_box">
+                        <div class="news_box1">
+                          <img src="{_IMGS_SERVER_DIR}/{$festival.image}" class="event_image">
+                        </div>
+                        <div class="news_box2">
+                          <h4 class="news_title">{$festival.festival_name_en}</h4>
+                          <!--demoが表示される文章でお願いします-->
+                          <div class="demo">{$festival.description_en}</div>
+                          <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                          <div class="date_box">
+                            <h6 class="date_big2">{$festival.start_date}</h6>
+                            <h6 class="date_big">{$festival.end_date}</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  {foreachelse}
+                  <div>No Festival Data!</div>
+                  {/foreach}
+                </div>
+              </div><!--MONTHタブ終わり-->
+            </div><!--main終わり-->
           </div>
+        </div>
+
           <!--投票機能エリア-->
           <div class="tab-pane fade" id="vote">
             投票を実装予定
@@ -72,7 +115,7 @@
             <!--記事1-->
             {foreach from=$articles item=article}
             <div class="news_info_event_box">
-              <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                <a href="{$SCRIPT_NAME}?article_id={$article.article_id}&action=article_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
               <a href="{$SCRIPT_NAME}?type=article&article_id={$article.article_id}">
                 <div class="news_box">
                   <div class="news_box1">
@@ -94,19 +137,34 @@
             <div>No Article Data!</div>
             {/foreach}
           </div>
+
           <!--季節リア-->
-          <div class="tab-pane fade" id="season">
+        <div class="tab-pane fade" id="season">
+            <!--タブ切り替え-->
+        <div class="tab_wrap2">
+            <input id="tabA" type="radio" name="tab_btn2" checked>
+            <input id="tabB" type="radio" name="tab_btn2">
+            <input id="tabC" type="radio" name="tab_btn2">
+            <input id="tabD" type="radio" name="tab_btn2">
+          <div class="tab_area2">
+            <!--カテゴリ-->
             <div class="week_mon2">
-              <a href="#"><div class="month3">SPRING</div></a>
-              <a href="#"><div class="month3">SUMMER</div></a>
-              <a href="#"><div class="month3">AUTUMN</div></a>
-              <a href="#"><div class="month3">WINTER</div></a>
+              <a href="#"><label class="tabA_label" for="tabA">SPRING</label></a>
+              <a href="#"><label class="tabB_label" for="tabB">SUMMER</label></a>
+              <a href="#"><label class="tabC_label" for="tabC">AUTUMN</label></a>
+              <a href="#"><label class="tabD_label" for="tabD">WINTER</label></a>
             </div>
+          </div>
+
+          <!--main-->
+          <div class="panel_area2">
+            <!--季節タブ-->
+            <div id="panelA" class="tab_panel2">
+            <!-- SPRING -->
             <div class="news_info_event">
-              <!-- SPRING -->
               {foreach from=$springFestivals item=springFestival}
               <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?festival_id={$springFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$springFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
@@ -125,10 +183,15 @@
                 </a>
               </div>
               {/foreach}
+            </div>
+          </div>
+          <!--季節タブ-->
+          <div id="panelB" class="tab_panel2">
               <!-- SUMMER -->
+              <div class="news_info_event">
               {foreach from=$summerFestivals item=summerFestival}
               <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?festival_id={$summerFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$summerFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
@@ -146,11 +209,16 @@
                   </div>
                 </a>
               </div>
-              {/foreach}
+            {/foreach}
+            </div>
+        </div>
+            <!--季節タブ-->
+            <div id="panelC" class="tab_panel2">
               <!-- AUTUMN -->
+              <div class="news_info_event">
               {foreach from=$autumnFestivals item=autumnFestival}
               <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?festival_id={$autumnFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$autumnFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
@@ -169,10 +237,15 @@
                 </a>
               </div>
               {/foreach}
+              </div>
+            </div>
+              <!--季節タブ-->
+              <div id="panelD" class="tab_panel2">
               <!-- WINTER -->
+              <div class="news_info_event">
               {foreach from=$winterFestivals item=winterFestival}
               <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?festival_id={$winterFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$winterFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
@@ -191,8 +264,13 @@
                 </a>
               </div>
               {/foreach}
+              </div>
             </div>
-          </div>
+          </div><!--mainEND-->
+        </div><!--tab_wrapEND-->
+      </div>
+
+
           <!--地方エリア-->
           <div class="tab-pane fade" id="area">
             <div class="home_img">
@@ -226,7 +304,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--フッター（SP版では非表示になってる）-->
     {include file=_FOOTER_DIR}
     <script src="{_JS_DIR}/jquery.min.js"></script>
