@@ -37,8 +37,8 @@
             <input id="tab2" type="radio" name="tab_btn">
             <div class="tab_area">
               <div class="week_mon">
-                <a href="#"><label class="tab1_label" for="tab1">WEEK</lebel></a>
-                <a href="#" class="month2"><label class="tab2_label" for="tab2">MONTH</lebel></a>
+                <a href="#"><label class="tab1_label" for="tab1">WEEK</label></a>
+                <a href="#" class="month2"><label class="tab2_label" for="tab2">MONTH</label></a>
               </div>
             </div>
             <!--main-->
@@ -150,10 +150,10 @@
           <div class="tab_area2">
             <!--カテゴリ-->
             <div class="week_mon2">
-              <a href="#"><label class="tabA_label" for="tabA">SPRING</lebel></a>
-              <a href="#"><label class="tabB_label" for="tabB">SUMMER</lebel></a>
-              <a href="#"><label class="tabC_label" for="tabC">AUTUMN</lebel></a>
-              <a href="#"><label class="tabD_label" for="tabD">WINTER</lebel></a>
+              <a href="#"><label class="tabA_label" for="tabA">SPRING</label></a>
+              <a href="#"><label class="tabB_label" for="tabB">SUMMER</label></a>
+              <a href="#"><label class="tabC_label" for="tabC">AUTUMN</label></a>
+              <a href="#"><label class="tabD_label" for="tabD">WINTER</label></a>
             </div>
           </div>
 

@@ -208,15 +208,21 @@ class UserController extends BaseController
   {
     $userModel     = new UserModel();
     $languageModel = new LanguageModel();
-    if($this->action == 'logout') {
+    if($this->action == 'logout')
+    {
       $this->logout();
       $this->screen_top();
-    } else if($this->action == 'update') {
-      if($this->inputCheck()) {
+    }
+    else if($this->action == 'update')
+    {
+      if($this->inputCheck())
+      {
         $this->updateUserStatus();
         $this->action = null;
         $this->screen_config();
-      } else {
+      }
+      else
+      {
         $this->view->assign('errMsg', "INPUT ERROR!");
         $this->view->assign('userInfo', $userModel->getOneUser($_SESSION["user_id"]));
         $this->view->assign('languages', $languageModel->getLanguages());
@@ -224,7 +230,9 @@ class UserController extends BaseController
         $this->file  = _CONFIG_DIR;
         $this->view_display();
       }
-    } else {
+    }
+    else
+    {
       $this->view->assign('errMsg', "");
       $this->view->assign('userInfo', $userModel->getOneUser($_SESSION["user_id"]));
       $this->view->assign('languages', $languageModel->getLanguages());
