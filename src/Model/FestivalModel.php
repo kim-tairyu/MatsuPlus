@@ -9,6 +9,7 @@ class FestivalModel extends BaseModel {
                 LEFT JOIN review ON festival.festival_id = review.festival_id
                 LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id 
                 WHERE title_image = 1 
+                GROUP BY review.festival_id
                 ORDER BY review.star DESC;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->execute();

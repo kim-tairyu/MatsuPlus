@@ -110,7 +110,7 @@
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$springFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="" class="event_image">
+                      <img src="{_IMGS_SERVER_DIR}/{$springFestival.image}" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title">{$springFestival.festival_name_en}</h4>
@@ -132,7 +132,7 @@
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$summerFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="" class="event_image">
+                      <img src="{_IMGS_SERVER_DIR}/{$summerFestival.image}" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title">{$summerFestival.festival_name_en}</h4>
@@ -154,7 +154,7 @@
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$autumnFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="" class="event_image">
+                      <img src="{_IMGS_SERVER_DIR}/{$autumnFestival.image}" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title">{$autumnFestival.festival_name_en}</h4>
@@ -176,7 +176,7 @@
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$winterFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="" class="event_image">
+                      <img src="{_IMGS_SERVER_DIR}/{$winterFestival.image}" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title">{$winterFestival.festival_name_en}</h4>
