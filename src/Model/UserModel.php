@@ -16,32 +16,19 @@ class UserModel extends BaseModel {
   }
   
   // 新規登録
-<<<<<<< HEAD
   public function signUp($user_id, $password, $user_name, $mail_address, $country_id, $launguege_id) {
     try {
       $sql  = 'INSERT INTO user (
         user_id, password, user_name, mail_address, country_id, languege_id, user_status, user_icon, authority
       ) VALUES (?, ?, ?, ?, ?)';
-=======
-  public function signUp($user_id, $password, $user_name, $mail_address, $country_id, $launguege_id, $authority) {
-    try {
-      $sql  = 'INSERT INTO user (
-        user_id, password, user_name, mail_address, country_id, language_id, authority
-      ) VALUES (?, ?, ?, ?, ?, ?, ?);';
->>>>>>> feature
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
       $stmt->bindValue(2, $password);
       $stmt->bindValue(3, $user_name);
-<<<<<<< HEAD
-      $stmt->bindValue(4, $country_id);
-      $stmt->bindValue(5, $launguege_id);
-=======
       $stmt->bindValue(4, $mail_address);
       $stmt->bindValue(5, $country_id);
       $stmt->bindValue(6, $launguege_id);
       $stmt->bindValue(7, $authority);
->>>>>>> feature
       $stmt->execute();
     } catch(PDOException $e) {
       die('DB ERROR:'.$e->getMesseage);
