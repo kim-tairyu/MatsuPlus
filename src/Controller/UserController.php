@@ -3,7 +3,12 @@ class UserController extends BaseController
 {
   public function run()
   {
-    session_start();
+    if(session_status() === PHP_SESSION_DISABLED) {
+      session_start();
+    } else if(session_status() === PHP_SESSION_NONE) {
+      session_start();
+    }
+    
     if(isset($_SESSION["user_id"])) {
       // 会員
       $this->menu_login();
@@ -87,8 +92,13 @@ class UserController extends BaseController
   { 
     $festivalModel = new FestivalModel();
     $articleModel  = new ArticleModel();
+    $tagModel      = new TagModel();
     $this->view->assign('festivals', $festivalModel->getRecommendFestivals());
     $this->view->assign('articles',  $articleModel->getArticles());
+    $this->view->assign('springFestivals',  $tagModel->getSpringTags());
+    $this->view->assign('summerFestivals',  $tagModel->getSummerTags());
+    $this->view->assign('autumnFestivals',  $tagModel->getAutumnTags());
+    $this->view->assign('winterFestivals',  $tagModel->getWinterTags());
     $this->title = 'MATSURI PLUS : TOP';
     $this->file  = _INDEX_DIR;
     $this->view_display();
