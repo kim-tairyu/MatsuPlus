@@ -147,10 +147,17 @@ class UserController extends BaseController
   public function screen_signIn()
   {
     if($this->action == 'login') {
-      if($this->login()) {
-        $this->screen_top();
+      if($this->inputCheck()) {
+        if($this->login()) {
+          $this->screen_top();
+        } else {
+          $this->view->assign('errMsg', "USER ID OR PASSWORD ERROR!");
+          $this->title = 'MATSURI PLUS : SIGN-IN';
+          $this->file  = _SIGNIN_DIR;
+          $this->view_display();
+        }
       } else {
-        $this->view->assign('errMsg', "USER ID or PASSWORD ERROR!");
+        $this->view->assign('errMsg', "PLEASE INPUT!");
         $this->title = 'MATSURI PLUS : SIGN-IN';
         $this->file  = _SIGNIN_DIR;
         $this->view_display();
@@ -490,7 +497,11 @@ class UserController extends BaseController
       if(($in_id == $id && $in_pass == $pass) ||
          ($in_id == $mail && $in_pass == $pass)) {
         // session
-        session_start();
+        if(session_status() === PHP_SESSION_DISABLED) {
+          session_start();
+        } else if(session_status() === PHP_SESSION_NONE) {
+          session_start();
+        }
         $_SESSION["user_id"]      = $user['user_id'];
         $_SESSION["password"]     = $user['password'];
         $_SESSION["user_name"]    = $user['user_name'];
@@ -511,11 +522,13 @@ class UserController extends BaseController
         setcookie($user['user_status'],  time()+$oneday);
         setcookie($user['user_icon'],    time()+$oneday);
         setcookie($user['authority'],    time()+$oneday);
-        
+
         return true;
         break;
       }
     }
+    
+    return false;
   }
   
   //----------------------------------------------------
@@ -561,7 +574,18 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function inputCheck()
   {
-    if($this->action == 'signUp')
+    // ログインチェック
+    if($this->action == 'login')
+    {
+      if((!isset($_POST["id"]) || $_POST["id"] == '') ||
+         (!isset($_POST["pass"]) || $_POST["pass"] == ''))
+      {
+        return false;
+      }
+      return true;
+    }
+    // 新規登録チェック
+    else if($this->action == 'signUp')
     {
       if(!isset($_POST["user_id"]) ||
          !isset($_POST["mail_address"]) ||
@@ -589,6 +613,7 @@ class UserController extends BaseController
       }
       return false;
     }
+    // ユーザ設定チェック
     else if($this->action == 'update')
     {
       if((strlen($_POST["user_name"]) >= 8 && strlen($_POST["user_name"]) <= 16) ||
