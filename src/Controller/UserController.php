@@ -535,7 +535,7 @@ class UserController extends BaseController
     session_destroy();
 
     // cookie
-    $oneday = 86400;  
+    $oneday = 86400;
     if(isset($_COOKIE["user_id"])) setcookie($_COOKIE['user_id'], time()-$oneday);
     if(isset($_COOKIE["password"])) setcookie($_COOKIE['password'], time()-$oneday);
     if(isset($_COOKIE["user_name"])) setcookie($_COOKIE['user_name'], time()-$oneday);
