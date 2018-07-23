@@ -48,7 +48,7 @@
                 <div class="news_info_event">
                   {foreach from=$festivals item=festival}
                   <div class="news_info_event_box">
-                    <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                    <a href="{$SCRIPT_NAME}?festival_id={$festival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                     <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
                       <div class="news_box">
                         <div class="news_box1">
@@ -74,11 +74,10 @@
               </div>
               <!--MONTHタブ-->
               <div id="panel2" class="tab_panel">
-                <p>MONTH(タブが切り替わってることを確認するためです消してください)</p>
                 <div class="news_info_event">
                   {foreach from=$festivals item=festival}
                   <div class="news_info_event_box">
-                    <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                    <a href="{$SCRIPT_NAME}?festival_id={$festival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                     <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
                       <div class="news_box">
                         <div class="news_box1">
@@ -116,7 +115,7 @@
             <!--記事1-->
             {foreach from=$articles item=article}
             <div class="news_info_event_box">
-              <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                <a href="{$SCRIPT_NAME}?article_id={$article.article_id}&action=article_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
               <a href="{$SCRIPT_NAME}?type=article&article_id={$article.article_id}">
                 <div class="news_box">
                   <div class="news_box1">
@@ -165,7 +164,7 @@
             <div class="news_info_event">
               {foreach from=$springFestivals item=springFestival}
               <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?festival_id={$springFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$springFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
@@ -189,11 +188,10 @@
           <!--季節タブ-->
           <div id="panelB" class="tab_panel2">
               <!-- SUMMER -->
-              <p>夏(切り替わってることが確認できたら後で消してください)</p>
               <div class="news_info_event">
               {foreach from=$summerFestivals item=summerFestival}
               <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?festival_id={$summerFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$summerFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
@@ -217,11 +215,10 @@
             <!--季節タブ-->
             <div id="panelC" class="tab_panel2">
               <!-- AUTUMN -->
-              <p>秋(切り替わってることが確認できたら後で消してください)</p>
               <div class="news_info_event">
               {foreach from=$autumnFestivals item=autumnFestival}
               <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?festival_id={$autumnFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$autumnFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
@@ -245,11 +242,10 @@
               <!--季節タブ-->
               <div id="panelD" class="tab_panel2">
               <!-- WINTER -->
-              <p>冬(切り替わってることが確認できたら後で消してください)</p>
               <div class="news_info_event">
               {foreach from=$winterFestivals item=winterFestival}
               <div class="news_info_event_box">
-                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?festival_id={$winterFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$winterFestival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">

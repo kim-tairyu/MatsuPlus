@@ -99,6 +99,27 @@ class UserController extends BaseController
     $festivalModel = new FestivalModel();
     $articleModel  = new ArticleModel();
     $tagModel      = new TagModel();
+    // 祭りお気に入り処理
+    if($this->action == 'festival_favorite')
+    {
+      $fes_id = $_GET["festival_id"];
+      if(isset($_SESSION["user_id"])) {
+        $favoriteModel = new FavoriteModel();
+        $favoriteModel->putFavoriteFestival($_SESSION["user_id"], $fes_id);
+        $this->action = '';
+      }
+    }
+    // 記事お気に入り処理
+    else if($this->action == 'article_favorite')
+    {
+      $arc_id = $_GET["article_id"];
+      if(isset($_SESSION["user_id"])){
+        //お気に入り処理
+        $favoriteModel = new FavoriteModel();
+        $article_favorite = $favoriteModel->putFavoriteArticle($_SESSION["user_id"], $arc_id);
+        $this->action = '';
+      }
+    }
     $this->view->assign('festivals', $festivalModel->getRecommendFestivals());
     $this->view->assign('articles',  $articleModel->getArticles());
     $this->view->assign('springFestivals',  $tagModel->getSpringTags());
