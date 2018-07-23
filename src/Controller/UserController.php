@@ -126,18 +126,16 @@ class UserController extends BaseController
   public function screen_signIn()
   {
     if($this->action == 'login') {
-<<<<<<< HEAD
-      $success = false;
-=======
->>>>>>> feature
       if($this->login()) {
         $this->screen_top();
       } else {
+        $this->view->assign('errMsg', "USER ID or PASSWORD ERROR!");
         $this->title = 'MATSURI PLUS : SIGN-IN';
         $this->file  = _SIGNIN_DIR;
         $this->view_display();
       }
     } else {
+      $this->view->assign('errMsg', "");
       $this->title = 'MATSURI PLUS : SIGN-IN';
       $this->file  = _SIGNIN_DIR;
       $this->view_display();
@@ -151,31 +149,22 @@ class UserController extends BaseController
   {
     $countryModel = new CountryModel();
     $this->view->assign('countrys', $countryModel->getCountrys());
-<<<<<<< HEAD
-    $this->title = 'MATSURI PLUS : SIGN-UP';
-    $this->file  = _SIGNUP_DIR;
-    $this->view_display();
-=======
     if($this->action == 'signUp') {
-      if($_POST["password"] == $_POST["passwordSecond"]) {
-        if($this->signUp()) {
-          $this->screen_top();
-        } else {
-          $this->title = 'MATSURI PLUS : SIGN-UP';
-          $this->file  = _SIGNUP_DIR;
-          $this->view_display();
-        }
+      if($this->inputCheck()) {
+        $this->signUp();
+        $this->screen_signIn();
       } else {
+        $this->view->assign('errMsg', "INPUT ERROR!");
         $this->title = 'MATSURI PLUS : SIGN-UP';
         $this->file  = _SIGNUP_DIR;
         $this->view_display();
       }
     } else {
+      $this->view->assign('errMsg', "");
       $this->title = 'MATSURI PLUS : SIGN-UP';
       $this->file  = _SIGNUP_DIR;
       $this->view_display();
     }
->>>>>>> feature
   }
   
   //----------------------------------------------------
@@ -487,8 +476,6 @@ class UserController extends BaseController
   }
   
   //----------------------------------------------------
-<<<<<<< HEAD
-=======
   // 新規登録処理
   //----------------------------------------------------
   public function signUp()
@@ -502,44 +489,9 @@ class UserController extends BaseController
     
     $userModel = new UserModel();
     $userModel->signUp($in_id, $in_pass, $in_name, $in_mail, $in_country_id, $in_country_id, $authority);
-    $users = $userModel->login();
-
-    foreach($users as $user)
-    {
-      $id   = $user['user_id'];
-      $pass = $user['password'];
-      if($in_id == $id && $in_pass == $pass) {
-        // session
-        session_start();
-        $_SESSION["user_id"]      = $user['user_id'];
-        $_SESSION["password"]     = $user['password'];
-        $_SESSION["user_name"]    = $user['user_name'];
-        $_SESSION["mail_address"] = $user['mail_address'];
-        $_SESSION["country_id"]   = $user['country_id'];
-        $_SESSION["language_id"]  = $user['language_id'];
-        $_SESSION["user_status"]  = $user['user_status'];
-        $_SESSION["user_icon"]    = $user['user_icon'];
-        $_SESSION["authority"]    = $user['authority'];
-        // cookie
-        $oneday = 86400;
-        setcookie($user['user_id'],      time()+$oneday);
-        setcookie($user['password'],     time()+$oneday);
-        setcookie($user['user_name'],    time()+$oneday);
-        setcookie($user['mail_address'], time()+$oneday);
-        setcookie($user['country_id'],   time()+$oneday);
-        setcookie($user['language_id'],  time()+$oneday);
-        setcookie($user['user_status'],  time()+$oneday);
-        setcookie($user['user_icon'],    time()+$oneday);
-        setcookie($user['authority'],    time()+$oneday);
-        
-        return true;
-        break;
-      }
-    }
   }
 
   //----------------------------------------------------
->>>>>>> feature
   // ログアウト処理
   //----------------------------------------------------
   public function logout()
@@ -560,4 +512,36 @@ class UserController extends BaseController
     if(isset($_COOKIE["authority"])) setcookie($_COOKIE['authority'], time()-$oneday);
   }
 
+  //----------------------------------------------------
+  // 新規登録入力チェック処理
+  //----------------------------------------------------
+  public function inputCheck()
+  {
+    if(!isset($_POST["user_id"]) ||
+       !isset($_POST["mail_address"]) ||
+       !isset($_POST["password"]) ||
+       !isset($_POST["passwordSecond"]) ||
+       !isset($_POST["user_name"]) ||
+       !isset($_POST["country_id"]))
+    {
+      return false;
+    }
+    
+    $in_id      = $_POST["user_id"];
+    $in_mail    = $_POST["mail_address"];
+    $in_pass    = $_POST["password"];
+    $in_pass2   = $_POST["passwordSecond"];
+    $in_name    = $_POST["user_name"];
+    
+    if(($in_pass == $in_pass2) &&
+       (strlen($in_id) >= 8 && strlen($in_id) <= 16) &&
+       (strlen($in_mail) >= 8 && strlen($in_mail) <= 32) &&
+       (strlen($in_pass) >= 8 && strlen($in_pass) <= 16) &&
+       (strlen($in_name) >= 8 && strlen($in_name) <= 16))
+    {
+      return true;
+    }
+    return false;
+  }
+  
 }
