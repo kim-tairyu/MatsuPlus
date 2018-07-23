@@ -21,7 +21,7 @@ class TagModel extends BaseModel {
       $sql    = 'SELECT * FROM festival 
                  LEFT JOIN festival_tag ON festival.festival_id = festival_tag.festival_id 
                  LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id 
-                 WHERE festival_tag.type = "region" AND tag_name_en = "spring" 
+                 WHERE festival_tag.type = "season" AND tag_name_en = "spring" 
                  GROUP BY festival_image.festival_id;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->execute();
@@ -37,7 +37,7 @@ class TagModel extends BaseModel {
       $sql    = 'SELECT * FROM festival 
                  LEFT JOIN festival_tag ON festival.festival_id = festival_tag.festival_id 
                  LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id 
-                 WHERE festival_tag.type = "region" AND tag_name_en = "summer" 
+                 WHERE festival_tag.type = "season" AND tag_name_en = "summer" 
                  GROUP BY festival_image.festival_id;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->execute();
@@ -53,7 +53,7 @@ class TagModel extends BaseModel {
       $sql    = 'SELECT * FROM festival 
                  LEFT JOIN festival_tag ON festival.festival_id = festival_tag.festival_id 
                  LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id 
-                 WHERE festival_tag.type = "region" AND tag_name_en = "autumn" 
+                 WHERE festival_tag.type = "season" AND tag_name_en = "autumn" 
                  GROUP BY festival_image.festival_id;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->execute();
@@ -69,7 +69,7 @@ class TagModel extends BaseModel {
       $sql    = 'SELECT * FROM festival 
                  LEFT JOIN festival_tag ON festival.festival_id = festival_tag.festival_id 
                  LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id 
-                 WHERE festival_tag.type = "region" AND tag_name_en = "winter" 
+                 WHERE festival_tag.type = "season" AND tag_name_en = "winter" 
                  GROUP BY festival_image.festival_id;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->execute();
