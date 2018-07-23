@@ -570,21 +570,9 @@ class UserController extends BaseController
     }
     else if($this->action == 'update')
     {
-      if(!isset($_POST["user_name"]) ||
-         !isset($_POST["mail_address"]) ||
-         !isset($_POST["password"]) ||
-         !isset($_POST["country_id"]))
-      {
-        return false;
-      }
-      
-      $in_name    = $_POST["user_name"];
-      $in_mail    = $_POST["mail_address"];
-      $in_pass    = $_POST["password"];
-
-      if((strlen($in_name) >= 8 && strlen($in_name) <= 16) &&
-         (strlen($in_mail) >= 8 && strlen($in_mail) <= 32) &&
-         (strlen($in_pass) >= 8 && strlen($in_pass) <= 16))
+      if((strlen($_POST["user_name"]) >= 8 && strlen($_POST["user_name"]) <= 16) ||
+         (strlen($_POST["mail_address"]) >= 8 && strlen($_POST["mail_address"]) <= 32) ||
+         (strlen($_POST["password"]) >= 8 && strlen($_POST["password"]) <= 16))
       {
         return true;
       }
