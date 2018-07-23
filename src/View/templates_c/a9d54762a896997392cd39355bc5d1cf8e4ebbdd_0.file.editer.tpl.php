@@ -1,11 +1,36 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.32, created on 2018-07-23 15:37:16
+  from 'C:\xampp\htdocs\kimu\src\View\templates\manager\editer.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5b55da0ccd1866_86697884',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'a9d54762a896997392cd39355bc5d1cf8e4ebbdd' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\manager\\editer.tpl',
+      1 => 1532353035,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5b55da0ccd1866_86697884 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="ja">
   <head>
-    {include file=_HTML_HEAD_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_HTML_HEAD_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
   </head>
   <body>
     <!--header-->
-    {include file=_HEADER_DIR}
+    <?php $_smarty_tpl->_subTemplateRender(_HEADER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
 
     <!-- maincontents -->
     <div class="main_content">
@@ -52,9 +77,21 @@
     </div>
 
     <!--フッター（SP版では非表示になってる）-->
-    {include file=_FOOTER_DIR}
-    <script src="{_JS_DIR}/jquery.min.js"></script>
-    <script src="{_JS_DIR}/bootstrap.min.js"></script>
-    <script src="{_JS_DIR}/tab-change.js"></script>
+    <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/tab-change.js"><?php echo '</script'; ?>
+>
   </body>
 </html>
+<?php }
+}
