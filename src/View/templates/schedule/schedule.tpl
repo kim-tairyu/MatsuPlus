@@ -5,22 +5,17 @@
     <!--この順番で読み込む-->
     <link rel="stylesheet" href="{_CSS_DIR}/fullcalendar.css">
     <script src="{_JS_DIR}/moment.min.js"></script>
-    <script src="{_JS_DIR}/jquery.min.js"></script>
     <script src="{_JS_DIR}/jquery-ui.min.js"></script>
     <script src="{_JS_DIR}/fullcalendar.js"></script>
-    <script src="{_JS_DIR}/getCalendarData.js"></script>
-{*
-    <!--これで実行-->
     <script>
-        $(function () {
-            $('#calendar').fullCalendar(
-                {
-                    events:'../app/getdata.php',//表示するJSONのリンク
-                }
-            );
-        });
+      $(function () {
+        $('#calendar').fullCalendar(
+          {
+            events:'../../src/Controller/ScheduleController.php',//表示するJSONのリンク
+          }
+        );
+      });
     </script>
-*}
   </head>
   <body>
     <!--header-->

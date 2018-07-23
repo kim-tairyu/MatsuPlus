@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-22 10:56:02
+/* Smarty version 3.1.32, created on 2018-07-23 02:07:40
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/schedule/schedule.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5462c2238f46_39394491',
+  'unifunc' => 'content_5b55386c2c28e1_77139220',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f49ec15ff32a570a51a29d24b520d99e31557a58' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/schedule/schedule.tpl',
-      1 => 1532256960,
+      1 => 1532311618,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5462c2238f46_39394491 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b55386c2c28e1_77139220 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -35,10 +35,6 @@ function content_5b5462c2238f46_39394491 (Smarty_Internal_Template $_smarty_tpl)
 >
     <?php echo '<script'; ?>
  src="<?php echo _JS_DIR;?>
-/jquery.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo _JS_DIR;?>
 /jquery-ui.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
@@ -46,8 +42,15 @@ function content_5b5462c2238f46_39394491 (Smarty_Internal_Template $_smarty_tpl)
 /fullcalendar.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="<?php echo _JS_DIR;?>
-/getCalendarData.js"><?php echo '</script'; ?>
+>
+      $(function () {
+        $('#calendar').fullCalendar(
+          {
+            events:'../../src/Controller/ScheduleController.php',//表示するJSONのリンク
+          }
+        );
+      });
+    <?php echo '</script'; ?>
 >
   </head>
   <body>

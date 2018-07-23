@@ -1,7 +1,7 @@
 $(function () {
   $('#calendar').fullCalendar(
     {
-      events:'../app/getdata.php',//表示するJSONのリンク
+      events: 'src/Controller/ScheduleController.php',//表示するJSONのリンク
     }
   );
 });
