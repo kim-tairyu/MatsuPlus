@@ -20,10 +20,10 @@
             <input type="password" class="password" name="passwordSecond" placeholder="Password Second">
             <input type="text" class="name" name="user_name" placeholder="Name">
             <select name="country_id" class="country-width">
-            <option value="">Select Country</option>
-            {foreach from=$countrys item=country}
-            <option value="{$country.country_id}">{$country.country_name}</option>
-            {/foreach}
+              <option value="">Select Country</option>
+              {foreach from=$countrys item=country}
+              <option value="{$country.country_id}">{$country.country_name}</option>
+              {/foreach}
             </select>
             <input type="submit" class="touroku" value="Create an account">
           </form>

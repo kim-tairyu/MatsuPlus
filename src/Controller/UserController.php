@@ -206,12 +206,26 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_config()
   {
+    $userModel     = new UserModel();
+    $languageModel = new LanguageModel();
     if($this->action == 'logout') {
       $this->logout();
       $this->screen_top();
+    } else if($this->action == 'update') {
+      if($this->inputCheck()) {
+        $this->updateUserStatus();
+        $this->action = null;
+        $this->screen_config();
+      } else {
+        $this->view->assign('errMsg', "INPUT ERROR!");
+        $this->view->assign('userInfo', $userModel->getOneUser($_SESSION["user_id"]));
+        $this->view->assign('languages', $languageModel->getLanguages());
+        $this->title = 'MATSURI PLUS : CONFIG';
+        $this->file  = _CONFIG_DIR;
+        $this->view_display();
+      }
     } else {
-      $userModel     = new UserModel();
-      $languageModel = new LanguageModel();
+      $this->view->assign('errMsg', "");
       $this->view->assign('userInfo', $userModel->getOneUser($_SESSION["user_id"]));
       $this->view->assign('languages', $languageModel->getLanguages());
       $this->title = 'MATSURI PLUS : CONFIG';
@@ -518,31 +532,84 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function inputCheck()
   {
-    if(!isset($_POST["user_id"]) ||
-       !isset($_POST["mail_address"]) ||
-       !isset($_POST["password"]) ||
-       !isset($_POST["passwordSecond"]) ||
-       !isset($_POST["user_name"]) ||
-       !isset($_POST["country_id"]))
+    if($this->action == 'signUp')
     {
+      if(!isset($_POST["user_id"]) ||
+         !isset($_POST["mail_address"]) ||
+         !isset($_POST["password"]) ||
+         !isset($_POST["passwordSecond"]) ||
+         !isset($_POST["user_name"]) ||
+         !isset($_POST["country_id"]))
+      {
+        return false;
+      }
+
+      $in_id      = $_POST["user_id"];
+      $in_mail    = $_POST["mail_address"];
+      $in_pass    = $_POST["password"];
+      $in_pass2   = $_POST["passwordSecond"];
+      $in_name    = $_POST["user_name"];
+
+      if(($in_pass == $in_pass2) &&
+         (strlen($in_id) >= 8 && strlen($in_id) <= 16) &&
+         (strlen($in_mail) >= 8 && strlen($in_mail) <= 32) &&
+         (strlen($in_pass) >= 8 && strlen($in_pass) <= 16) &&
+         (strlen($in_name) >= 8 && strlen($in_name) <= 16))
+      {
+        return true;
+      }
       return false;
     }
-    
-    $in_id      = $_POST["user_id"];
-    $in_mail    = $_POST["mail_address"];
-    $in_pass    = $_POST["password"];
-    $in_pass2   = $_POST["passwordSecond"];
-    $in_name    = $_POST["user_name"];
-    
-    if(($in_pass == $in_pass2) &&
-       (strlen($in_id) >= 8 && strlen($in_id) <= 16) &&
-       (strlen($in_mail) >= 8 && strlen($in_mail) <= 32) &&
-       (strlen($in_pass) >= 8 && strlen($in_pass) <= 16) &&
-       (strlen($in_name) >= 8 && strlen($in_name) <= 16))
+    else if($this->action == 'update')
     {
-      return true;
+      if(!isset($_POST["user_name"]) ||
+         !isset($_POST["mail_address"]) ||
+         !isset($_POST["password"]) ||
+         !isset($_POST["country_id"]))
+      {
+        return false;
+      }
+      
+      $in_name    = $_POST["user_name"];
+      $in_mail    = $_POST["mail_address"];
+      $in_pass    = $_POST["password"];
+
+      if((strlen($in_name) >= 8 && strlen($in_name) <= 16) &&
+         (strlen($in_mail) >= 8 && strlen($in_mail) <= 32) &&
+         (strlen($in_pass) >= 8 && strlen($in_pass) <= 16))
+      {
+        return true;
+      }
+      return false;
     }
-    return false;
+  }
+  
+  //----------------------------------------------------
+  // ユーザステータス処理
+  //----------------------------------------------------
+  public function updateUserStatus() {
+    $userModel = new UserModel();
+    //ユーザ情報変更
+    if($_POST["user_name"] != "" && isset($_POST["user_name"])){
+      $calm  = 'user_name';
+      $value = $_POST["user_name"];
+      $userModel->updateUserStatus($_SESSION["user_id"], $calm, $value);
+    }
+    if($_POST["mail_address"] != "" && isset($_POST["mail_address"])){
+      $calm  = 'mail_address';
+      $value = $_POST["mail_address"];
+      $userModel->updateUserStatus($_SESSION["user_id"], $calm, $value);
+    }
+    if($_POST["password"] != "" && isset($_POST["password"])){
+      $calm  = 'password';
+      $value = $_POST["password"];
+      $userModel->updateUserStatus($_SESSION["user_id"], $calm, $value);
+    }
+    if($_POST["language_id"] != "" && isset($_POST["language_id"])){
+      $calm  = 'language_id';
+      $value = $_POST["language_id"];
+      $userModel->updateUserStatus($_SESSION["user_id"], $calm, $value);
+    }
   }
   
 }
