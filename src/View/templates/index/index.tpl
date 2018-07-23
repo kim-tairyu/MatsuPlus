@@ -42,12 +42,12 @@
                 <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="{_IMGS_DIR}/{$festival.image}" class="event_image">
+                      <img src="{_IMGS_SERVER_DIR}/{$festival.image}" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title">{$festival.festival_name_en}</h4>
                       <!--demoが表示される文章でお願いします-->
-                      <div class="demo"></div>
+                      <div class="demo">{$festival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
                         <h6 class="date_big2">{$festival.start_date}</h6>
@@ -76,10 +76,11 @@
               <a href="{$SCRIPT_NAME}?type=article&article_id={$article.article_id}">
                 <div class="news_box">
                   <div class="news_box1">
-                    <img src="{_IMGS_DIR}/" class="event_image">
+                    <img src="{_IMGS_SERVER_DIR}/{$article.image}" class="event_image">
                   </div>
                   <div class="news_box2">
                     <h4 class="news_title">{$article.article_title}</h4>
+                    <div class="demo">{$article.text}</div>
                     <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                     <div class="date_box">
                       <h6 class="date_big2"></h6>
@@ -102,58 +103,124 @@
               <a href="#"><div class="month3">WINTER</div></a>
             </div>
             <div class="news_info_event">
+              <!-- SPRING -->
+              {foreach from=$springFestivals item=springFestival}
               <div class="news_info_event_box">
                 <div class="fev_button-top"><p>♡</p></div>
-                  <a href="festival.php">
-                    <div class="news_box">
-                      <div class="news_box1">
-                        <img src="" class="event_image">
-                      </div>
-                      <div class="news_box2">
-                        <h4 class="news_title"></h4>
-                        <!--demoが表示される文章でお願いします-->
-                        <div class="demo">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                        </div>
-                        <!--この下のdata_big2がアクセスカウンタでおねがいします-->
-                        <div class="date_box">
-                          <h6 class="date_big2"></h6>
-                          <h6 class="date_big"></h6>
-                        </div>
+                <a href="{$SCRIPT_NAME}?type=festival&festival_id={$springFestival.festival_id}">
+                  <div class="news_box">
+                    <div class="news_box1">
+                      <img src="" class="event_image">
+                    </div>
+                    <div class="news_box2">
+                      <h4 class="news_title">{$springFestival.festival_name_en}</h4>
+                      <div class="demo">{$springFestival.description_en}</div>
+                      <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                      <div class="date_box">
+                        <h6 class="date_big2"></h6>
+                        <h6 class="date_big"></h6>
                       </div>
                     </div>
-                  </a>
+                  </div>
+                </a>
               </div>
+              {/foreach}
+              <!-- SUMMER -->
+              {foreach from=$summerFestivals item=summerFestival}
+              <div class="news_info_event_box">
+                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?type=festival&festival_id={$summerFestival.festival_id}">
+                  <div class="news_box">
+                    <div class="news_box1">
+                      <img src="" class="event_image">
+                    </div>
+                    <div class="news_box2">
+                      <h4 class="news_title">{$summerFestival.festival_name_en}</h4>
+                      <div class="demo">{$summerFestival.description_en}</div>
+                      <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                      <div class="date_box">
+                        <h6 class="date_big2"></h6>
+                        <h6 class="date_big"></h6>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {/foreach}
+              <!-- AUTUMN -->
+              {foreach from=$autumnFestivals item=autumnFestival}
+              <div class="news_info_event_box">
+                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?type=festival&festival_id={$autumnFestival.festival_id}">
+                  <div class="news_box">
+                    <div class="news_box1">
+                      <img src="" class="event_image">
+                    </div>
+                    <div class="news_box2">
+                      <h4 class="news_title">{$autumnFestival.festival_name_en}</h4>
+                      <div class="demo">{$autumnFestival.description_en}</div>
+                      <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                      <div class="date_box">
+                        <h6 class="date_big2"></h6>
+                        <h6 class="date_big"></h6>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {/foreach}
+              <!-- WINTER -->
+              {foreach from=$winterFestivals item=winterFestival}
+              <div class="news_info_event_box">
+                <div class="fev_button-top"><p>♡</p></div>
+                <a href="{$SCRIPT_NAME}?type=festival&festival_id={$winterFestival.festival_id}">
+                  <div class="news_box">
+                    <div class="news_box1">
+                      <img src="" class="event_image">
+                    </div>
+                    <div class="news_box2">
+                      <h4 class="news_title">{$winterFestival.festival_name_en}</h4>
+                      <div class="demo">{$winterFestival.description_en}</div>
+                      <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                      <div class="date_box">
+                        <h6 class="date_big2"></h6>
+                        <h6 class="date_big"></h6>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {/foreach}
             </div>
           </div>
           <!--地方エリア-->
           <div class="tab-pane fade" id="area">
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=北海道"><img src="{_IMGS_DIR}/hokkaidou.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=hokkaidou"><img src="{_IMGS_DIR}/hokkaidou.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=東北"><img src="{_IMGS_DIR}/tohoku.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=tohoku"><img src="{_IMGS_DIR}/tohoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=近畿"><img src="{_IMGS_DIR}/kinki.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=kinki"><img src="{_IMGS_DIR}/kinki.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=関東"><img src="{_IMGS_DIR}/kanto.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=kanto"><img src="{_IMGS_DIR}/kanto.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=中部"><img src="{_IMGS_DIR}/chubu.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=chubu"><img src="{_IMGS_DIR}/chubu.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=中国"><img src="{_IMGS_DIR}/chugoku.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=chugoku"><img src="{_IMGS_DIR}/chugoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=四国"><img src="{_IMGS_DIR}/shikoku.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=shikoku"><img src="{_IMGS_DIR}/shikoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=九州"><img src="{_IMGS_DIR}/kyushu.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=kyushu"><img src="{_IMGS_DIR}/kyushu.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="../app/Area-tag.php?area=沖縄"><img src="{_IMGS_DIR}/okinawa.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&area=okinawa"><img src="{_IMGS_DIR}/okinawa.jpg" alt=""></a>
             </div>
           </div>
         </div>

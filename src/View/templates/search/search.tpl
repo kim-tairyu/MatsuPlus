@@ -133,7 +133,7 @@
           <a href="#">
             <div class="search_results_box2">
               <div class="search_results_box2-1">
-                <img src="{_IMGS_DIR}/article_img.jpg" class="event_image">
+                <img src="{_IMGS_SERVER_DIR}/article_img.jpg" class="event_image">
               </div>
               <div class="search_results_box2-2">
                 <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
@@ -147,7 +147,7 @@
           <a href="#">
             <div class="search_results_box2">
               <div class="search_results_box2-1">
-                <img src="{_IMGS_DIR}/article_img.jpg" class="event_image">
+                <img src="{_IMGS_SERVER_DIR}/article_img.jpg" class="event_image">
               </div>
               <div class="search_results_box2-2">
                 <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>
@@ -160,7 +160,7 @@
           <a href="#">
             <div class="search_results_box2">
               <div class="search_results_box2-1">
-                <img src="{_IMGS_DIR}/article_img.jpg" class="event_image">
+                <img src="{_IMGS_SERVER_DIR}/article_img.jpg" class="event_image">
               </div>
               <div class="search_results_box2-2">
                 <h4 class="search_results_title">The next Sanja Matsuri is expected to be held from May 17 to 19, 2019</h4>

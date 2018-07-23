@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-19 06:19:35
-  from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/mypage.tpl' */
+/* Smarty version 3.1.32, created on 2018-07-19 10:21:54
+  from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\mypage\mypage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b502d77e89ac9_66435893',
+  'unifunc' => 'content_5b4fe7b21616d8_63991860',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '04e008b573b3205af933d9d6fe5b841e460fdf3c' => 
+    '30cfc3c08bf343653b2cf9ccf9157c2ea56f8e41' => 
     array (
-      0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/mypage.tpl',
-      1 => 1531980980,
+      0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\mypage\\mypage.tpl',
+      1 => 1531962444,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b502d77e89ac9_66435893 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b4fe7b21616d8_63991860 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -37,7 +37,7 @@ function content_5b502d77e89ac9_66435893 (Smarty_Internal_Template $_smarty_tpl)
     <div class="mypage-inner">
       <!-- ユーザーのプロフィール画像 -->
       <div class="my_image">
-        <img src="<?php echo _IMGS_SERVER_DIR;?>
+        <img src="<?php echo _IMGS_DIR;?>
 /<?php echo $_SESSION['user_icon'];?>
 " class="">
       </div>

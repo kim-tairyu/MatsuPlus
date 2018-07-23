@@ -14,11 +14,11 @@
         <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">{$festival.festival_name_en}</h1>
           <!--祭りor記事画像(仮)-->
         <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <a href="#"><img src="{_IMGS_DIR}/{$festival_image.image}" alt="祭り"></a>
+          <a href="#"><img src="{_IMGS_SERVER_DIR}/{$festival_image.image}" alt="祭り"></a>
         </div>
         <!--お気に入りボタン-->
         <div class="fev_button_box">
-          <a href="{$SCRIPT_NAME}?type=festivalfestival_id={$festival.festival_id}&action=favorite" style="text-decoration:none;"><div class="fev_button">
+          <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}&action=favorite" style="text-decoration:none;"><div class="fev_button">
           <img src="{_IMGS_DIR}/fev.png" width="40" height="40" alt="サンプル"></div></a>
           <!--スケジュール追加ボタン-->
           <a href="#" style="text-decoration:none;"><div class="fev_button2" id="Modal_Open" class="btn_price">
@@ -190,7 +190,7 @@
               <a href="#">
                 <div class="souvenir_img_box3">
                   <div class="souvenir_img_boxA">
-                    <img src="{_IMGS_DIR}/{$gift.image}" alt="ねぶた祭お土産">
+                    <img src="{_IMGS_SERVER_DIR}/{$gift.image}" alt="ねぶた祭お土産">
                   </div>
                   <div class="souvenir_img_boxB">
                     <h4 class="souvenir_title">{$gift.gift_name_en}</h4>
@@ -211,10 +211,10 @@
           <div class="comment_content">
             <div class="">
               <div class="comment_user_img">
-                  <img src="{_IMGS_DIR}/user.jpg" alt="ユーザーアイコン">
+                  <img src="{_IMGS_SERVER_DIR}/user.jpg" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
-                <p>{$review.star}</p>
+                {for $evaluation=1 to {$review.star}}<p>☆</p>{/for}
               </div>
               <div class="comment_user_name">
                 <p>{$review.user_name}</p>
@@ -230,7 +230,7 @@
           <!--コメント入力エリア-->
           <div class="comment_content2">
             <div class="comment_submit">
-              <form action="{$SCRIPT_NAME}?type=festival&action=review" method="post">
+              <form action="{$SCRIPT_NAME}?type=festival" method="post">
                 comment<br>
                 <!--星評価-->
                 <div class="user_hosi">
@@ -250,7 +250,7 @@
                 <!--コメント記入-->
                 <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
                 <!-- 祭りID -->
-                <input type="hidden" name="festival_id" value="<?php echo $fes_id ?>">
+                <input type="hidden" name="festival_id" value="{$festival.festival_id}">
                 <input type="submit" value="送信" class="comment_button">
                 <input type="reset" value="リセット" class="comment_button">
               </form>
@@ -261,15 +261,15 @@
         <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <h2>Tag</h2>
         </div>
-{*
+
         <div class="related_article_title_tag col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           {foreach from=$tags item=tag}
-          <a href="#" class="tag"></a>
+          <a href="#" class="tag">{$tag.tag_name_en}</a>
           {foreachelse}
           <div>No Tag!</div>
           {/foreach}
         </div>
-*}
+
       </div>
     </div>
     

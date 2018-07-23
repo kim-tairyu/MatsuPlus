@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-17 15:35:44
+/* Smarty version 3.1.32, created on 2018-07-19 06:19:39
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/favorites-article.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4e0cd045e012_39521161',
+  'unifunc' => 'content_5b502d7bce4342_22711348',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e631b7bd4aa2541cc3c01d76231101cb505c4628' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/favorites-article.tpl',
-      1 => 1531841741,
+      1 => 1531980966,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4e0cd045e012_39521161 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b502d7bce4342_22711348 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -53,7 +53,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
                 <a href="festival.php?festival_id=?">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="<?php echo _IMGS_DIR;?>
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['article']->value['image'];?>
 " class="event_image">
                     </div>

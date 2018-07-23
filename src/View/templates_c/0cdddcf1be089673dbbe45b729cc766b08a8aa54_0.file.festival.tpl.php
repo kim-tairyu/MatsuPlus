@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-20 03:25:29
-  from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl' */
+/* Smarty version 3.1.32, created on 2018-07-20 14:24:52
+  from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5156294172f8_23097533',
+  'unifunc' => 'content_5b51722443dc82_44006040',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '1a040f172673923420008e4825709a9489a9c6d3' => 
+    '0cdddcf1be089673dbbe45b729cc766b08a8aa54' => 
     array (
-      0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl',
-      1 => 1531981092,
+      0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\festival\\festival.tpl',
+      1 => 1532062835,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5156294172f8_23097533 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b51722443dc82_44006040 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -47,7 +47,7 @@ function content_5b5156294172f8_23097533 (Smarty_Internal_Template $_smarty_tpl)
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=festivalfestival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
 &action=favorite" style="text-decoration:none;"><div class="fev_button">
           <img src="<?php echo _IMGS_DIR;?>
 /fev.png" width="40" height="40" alt="サンプル"></div></a>
@@ -265,8 +265,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['review']->value) {
 /user.jpg" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
-                <p><?php echo $_smarty_tpl->tpl_vars['review']->value['star'];?>
-</p>
+                <?php ob_start();
+echo $_smarty_tpl->tpl_vars['review']->value['star'];
+$_prefixVariable1 = ob_get_clean();
+$_smarty_tpl->tpl_vars['evaluation'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['evaluation']->step = 1;$_smarty_tpl->tpl_vars['evaluation']->total = (int) ceil(($_smarty_tpl->tpl_vars['evaluation']->step > 0 ? $_prefixVariable1+1 - (1) : 1-($_prefixVariable1)+1)/abs($_smarty_tpl->tpl_vars['evaluation']->step));
+if ($_smarty_tpl->tpl_vars['evaluation']->total > 0) {
+for ($_smarty_tpl->tpl_vars['evaluation']->value = 1, $_smarty_tpl->tpl_vars['evaluation']->iteration = 1;$_smarty_tpl->tpl_vars['evaluation']->iteration <= $_smarty_tpl->tpl_vars['evaluation']->total;$_smarty_tpl->tpl_vars['evaluation']->value += $_smarty_tpl->tpl_vars['evaluation']->step, $_smarty_tpl->tpl_vars['evaluation']->iteration++) {
+$_smarty_tpl->tpl_vars['evaluation']->first = $_smarty_tpl->tpl_vars['evaluation']->iteration === 1;$_smarty_tpl->tpl_vars['evaluation']->last = $_smarty_tpl->tpl_vars['evaluation']->iteration === $_smarty_tpl->tpl_vars['evaluation']->total;?><p>☆</p><?php }
+}
+?>
               </div>
               <div class="comment_user_name">
                 <p><?php echo $_smarty_tpl->tpl_vars['review']->value['user_name'];?>
@@ -290,7 +297,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <div class="comment_content2">
             <div class="comment_submit">
               <form action="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=festival&action=review" method="post">
+?type=festival" method="post">
                 comment<br>
                 <!--星評価-->
                 <div class="user_hosi">
@@ -310,7 +317,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <!--コメント記入-->
                 <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
                 <!-- 祭りID -->
-                <input type="hidden" name="festival_id" value="<?php echo '<?php ';?>echo $fes_id <?php echo '?>';?>">
+                <input type="hidden" name="festival_id" value="<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+">
                 <input type="submit" value="送信" class="comment_button">
                 <input type="reset" value="リセット" class="comment_button">
               </form>
@@ -321,6 +329,25 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <div class="related_article_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <h2>Tag</h2>
         </div>
+
+        <div class="related_article_title_tag col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tags']->value, 'tag');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
+?>
+          <a href="#" class="tag"><?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
+</a>
+          <?php
+}
+} else {
+?>
+          <div>No Tag!</div>
+          <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        </div>
+
       </div>
     </div>
     

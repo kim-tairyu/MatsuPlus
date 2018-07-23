@@ -33,7 +33,7 @@ class FavoriteModel extends BaseModel {
       $sql  = 'INSERT INTO favorite_fes (user_id,festival_id) VALUES (?,?)';
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
-      $stmt->bindValue(1, $fes_id);
+      $stmt->bindValue(2, $fes_id);
       $stmt->execute();
     } catch(PDOException $e) {
       die('DB ERROR:'.$e->getMesseage);
@@ -46,7 +46,7 @@ class FavoriteModel extends BaseModel {
       $sql = 'INSERT INTO favorite_arc (user_id,article_id) VALUES (?,?)';
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
-      $stmt->bindValue(1, $arc_id);
+      $stmt->bindValue(2, $arc_id);
       $stmt->execute();
     } catch(PDOException $e) {
       die('DB ERROR:'.$e->getMesseage);

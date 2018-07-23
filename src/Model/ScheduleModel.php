@@ -9,11 +9,21 @@ class ScheduleModel extends BaseModel {
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
       $stmt->execute();
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      while($array = $select->fetch(PDO::FETCH_ASSOC)){
+        $fesData[]=array(
+          'id'=>$array['schedule_id'],//カレンダー内部で利用するID
+          'title'=>$array['schedule_name'],//カレンダーに表示されるタイトル
+          'start'=>$array['start_time'],//開始日
+          'end'=>$array['end_time'],//終了日
+          'allDay'=>'true',//終日
+          'url'=>'festival.php?festival_id='.$array['festival_id']//祭詳細ページに飛ぶリンク
+        );
+      }
+      header('Content-type: application/json');
+      echo json_encode($fesData);
     } catch(PDOException $e) {
       die('DB ERROR:'.$e->getMesseage);
     }
-    return $result;
   }
     
   //スケジュールの追加

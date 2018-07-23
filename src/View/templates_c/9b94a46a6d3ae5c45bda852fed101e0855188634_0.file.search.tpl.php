@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-19 06:19:23
-  from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/search/search.tpl' */
+/* Smarty version 3.1.32, created on 2018-07-19 10:14:10
+  from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\search\search.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b502d6b7f5d87_78678137',
+  'unifunc' => 'content_5b4fe5e2f0ebf8_51401881',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'dffe5532e8cd99cc396a3a19f7ebfa91a352c92e' => 
+    '9b94a46a6d3ae5c45bda852fed101e0855188634' => 
     array (
-      0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/search/search.tpl',
-      1 => 1531980898,
+      0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\search\\search.tpl',
+      1 => 1531962444,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b502d6b7f5d87_78678137 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b4fe5e2f0ebf8_51401881 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -161,7 +161,7 @@ function content_5b502d6b7f5d87_78678137 (Smarty_Internal_Template $_smarty_tpl)
           <a href="#">
             <div class="search_results_box2">
               <div class="search_results_box2-1">
-                <img src="<?php echo _IMGS_SERVER_DIR;?>
+                <img src="<?php echo _IMGS_DIR;?>
 /article_img.jpg" class="event_image">
               </div>
               <div class="search_results_box2-2">
@@ -176,7 +176,7 @@ function content_5b502d6b7f5d87_78678137 (Smarty_Internal_Template $_smarty_tpl)
           <a href="#">
             <div class="search_results_box2">
               <div class="search_results_box2-1">
-                <img src="<?php echo _IMGS_SERVER_DIR;?>
+                <img src="<?php echo _IMGS_DIR;?>
 /article_img.jpg" class="event_image">
               </div>
               <div class="search_results_box2-2">
@@ -190,7 +190,7 @@ function content_5b502d6b7f5d87_78678137 (Smarty_Internal_Template $_smarty_tpl)
           <a href="#">
             <div class="search_results_box2">
               <div class="search_results_box2-1">
-                <img src="<?php echo _IMGS_SERVER_DIR;?>
+                <img src="<?php echo _IMGS_DIR;?>
 /article_img.jpg" class="event_image">
               </div>
               <div class="search_results_box2-2">

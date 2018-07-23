@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-17 16:37:47
+/* Smarty version 3.1.32, created on 2018-07-23 02:07:40
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/schedule/schedule.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4e1b5bf35f46_59200012',
+  'unifunc' => 'content_5b55386c2c28e1_77139220',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f49ec15ff32a570a51a29d24b520d99e31557a58' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/schedule/schedule.tpl',
-      1 => 1531845462,
+      1 => 1532311618,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,38 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b55386c2c28e1_77139220 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
     <?php $_smarty_tpl->_subTemplateRender(_HTML_HEAD_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
+    <!--この順番で読み込む-->
+    <link rel="stylesheet" href="<?php echo _CSS_DIR;?>
+/fullcalendar.css">
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/moment.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/jquery-ui.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo _JS_DIR;?>
+/fullcalendar.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+>
+      $(function () {
+        $('#calendar').fullCalendar(
+          {
+            events:'../../src/Controller/ScheduleController.php',//表示するJSONのリンク
+          }
+        );
+      });
+    <?php echo '</script'; ?>
+>
   </head>
   <body>
     <!--header-->
@@ -35,73 +61,8 @@ function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl)
     <!-- maincontents -->
     <div class="box4" id="myTapContent">
       <div class="box4-inner">
-        <div class="schedule" id="calendar">
-          <table>
-            <tr>
-              <td class="weekday"><a href="#">←</a></td>
-              <td class="weekday"></td>
-              <td class="weekday"></td>
-              <td class="month">1月</td>
-              <td class="weekday"></td>
-              <td class="weekday"></td>
-              <td class="weekday"><a href="#">→</a></td>
-            </tr>
-            <tr>
-              <td class="weekday">Sun</td>
-              <td class="weekday">Mon</td>
-              <td class="weekday">Tue</td>
-              <td class="weekday">Wed</td>
-              <td class="weekday">Thu</td>
-              <td class="weekday">Fri</td>
-              <td class="weekday">Sat</td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-              <td>4</td>
-              <td>5</td>
-              <td>6</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>8</td>
-              <td>9</td>
-              <td>10</td>
-              <td>11</td>
-              <td>12</td>
-              <td>13</td>
-            </tr>
-            <tr>
-              <td>14</td>
-              <td>15</td>
-              <td>16</td>
-              <td>17</td>
-              <td>18</td>
-              <td>19</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>21</td>
-              <td>22</td>
-              <td>23</td>
-              <td>24</td>
-              <td>25</td>
-              <td>26</td>
-              <td>27</td>
-            </tr>
-            <tr>
-              <td>28</td>
-              <td>29</td>
-              <td>30</td>
-              <td>31</td>
-              <td>  </td>
-              <td>  </td>
-              <td>  </td>
-            </tr>
-          </table>
-        </div>
+        <!--カレンダー-->
+        <div class="schedule" id="calendar"></div>
         <!--何月何日のエリア-->
         <div class="schedule_info">
           <div class="schedule_info_day"><h1 id="schedule_info_day">何月何日の予定</h1></div>
@@ -111,7 +72,7 @@ function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="<?php echo _IMGS_DIR;?>
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
 /article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">
@@ -126,7 +87,7 @@ function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="<?php echo _IMGS_DIR;?>
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
 /article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">
@@ -141,7 +102,7 @@ function content_5b4e1b5bf35f46_59200012 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#">
                   <div class="search_results_box2">
                     <div class="search_results_box2-1">
-                      <img src="<?php echo _IMGS_DIR;?>
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
 /article_img.jpg" class="event_image">
                     </div>
                     <div class="search_results_box2-2">

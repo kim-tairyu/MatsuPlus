@@ -19,6 +19,19 @@ class FestivalModel extends BaseModel {
     return $result;
   }
   
+  // 祭り情報を取得（全件）
+  public function getFestivals() {
+    try {
+      $sql    = 'SELECT * FROM festival;';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  }
+  
   // 祭り情報を取得（一件）
   public function getOneFestival($festival_id) {
     try {
@@ -45,5 +58,5 @@ class FestivalModel extends BaseModel {
       die('DB ERROR:'.$e->getMesseage);
     }
     return $result;
-  } 
+  }
 }

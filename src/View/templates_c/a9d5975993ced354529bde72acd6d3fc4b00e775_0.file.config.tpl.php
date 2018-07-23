@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-19 06:19:41
-  from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/config.tpl' */
+/* Smarty version 3.1.32, created on 2018-07-19 10:22:59
+  from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\mypage\config.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b502d7ddb9a71_99861140',
+  'unifunc' => 'content_5b4fe7f3989476_13090706',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c4a32bd842ce96b0697fd4eca67d083792f77c01' => 
+    'a9d5975993ced354529bde72acd6d3fc4b00e775' => 
     array (
-      0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/config.tpl',
-      1 => 1531980956,
+      0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\mypage\\config.tpl',
+      1 => 1531962444,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b502d7ddb9a71_99861140 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b4fe7f3989476_13090706 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -41,7 +41,7 @@ function content_5b502d7ddb9a71_99861140 (Smarty_Internal_Template $_smarty_tpl)
       <div class="mypage-inner">
         <!--ユーザーの画像表示？-->
         <div class="my_image">
-          <img src="<?php echo _IMGS_SERVER_DIR;?>
+          <img src="<?php echo _IMGS_DIR;?>
 /<?php echo $_SESSION['user_icon'];?>
 " class="">
         </div>
@@ -94,14 +94,14 @@ function content_5b502d7ddb9a71_99861140 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <!--言語変更-->
             <select name="country_id" class="country-width">
-              <option value="">Change Language</option>
+              <option value="">Change Languege</option>
               <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['languages']->value, 'language');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['langueges']->value, 'languege');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['language']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['languege']->value) {
 ?>
-              <option value="<?php echo $_smarty_tpl->tpl_vars['language']->value['language_id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['language']->value['language'];?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['languege']->value['languege_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['languege']->value['languege'];?>
 </option>
               <?php
 }
