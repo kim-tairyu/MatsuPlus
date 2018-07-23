@@ -1,2 +1,5 @@
 # 初期設定ファイル
 /src/init.php
+
+# MacOSフォルダ表示設定ファイル
+/.DS_Store

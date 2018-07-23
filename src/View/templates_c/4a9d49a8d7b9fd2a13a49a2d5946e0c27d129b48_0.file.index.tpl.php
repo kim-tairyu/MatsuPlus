@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 15:17:09
+/* Smarty version 3.1.32, created on 2018-07-23 18:09:55
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55f1756972a6_80311615',
+  'unifunc' => 'content_5b5619f34fe004_08203128',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4a9d49a8d7b9fd2a13a49a2d5946e0c27d129b48' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl',
-      1 => 1532359026,
+      1 => 1532369391,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55f1756972a6_80311615 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5619f34fe004_08203128 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -72,34 +72,34 @@ function content_5b55f1756972a6_80311615 (Smarty_Internal_Template $_smarty_tpl)
               <div id="panel1" class="tab_panel">
                 <div class="news_info_event">
                   <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['festivals']->value, 'festival');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['weekFestivals']->value, 'weekFestival');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['festival']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['weekFestival']->value) {
 ?>
                   <div class="news_info_event_box">
                     <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+?festival_id=<?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['festival_id'];?>
 &action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['festival_id'];?>
 ">
                       <div class="news_box">
                         <div class="news_box1">
                           <img src="<?php echo _IMGS_SERVER_DIR;?>
-/<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
+/<?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['image'];?>
 " class="event_image">
                         </div>
                         <div class="news_box2">
-                          <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
+                          <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['festival_name_en'];?>
 </h4>
                           <!--demoが表示される文章でお願いします-->
-                          <div class="demo"><?php echo $_smarty_tpl->tpl_vars['festival']->value['description_en'];?>
+                          <div class="demo"><?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['description_en'];?>
 </div>
                           <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                           <div class="date_box">
-                            <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_date'];?>
+                            <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['start_date'];?>
 </h6>
-                            <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['festival']->value['end_date'];?>
+                            <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['end_date'];?>
 </h6>
                           </div>
                         </div>
@@ -120,34 +120,34 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               <div id="panel2" class="tab_panel">
                 <div class="news_info_event">
                   <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['festivals']->value, 'festival');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['monthFestivals']->value, 'monthFestival');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['festival']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['monthFestival']->value) {
 ?>
                   <div class="news_info_event_box">
                     <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+?festival_id=<?php echo $_smarty_tpl->tpl_vars['monthFestival']->value['festival_id'];?>
 &action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['monthFestival']->value['festival_id'];?>
 ">
                       <div class="news_box">
                         <div class="news_box1">
                           <img src="<?php echo _IMGS_SERVER_DIR;?>
-/<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
+/<?php echo $_smarty_tpl->tpl_vars['monthFestival']->value['image'];?>
 " class="event_image">
                         </div>
                         <div class="news_box2">
-                          <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
+                          <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['monthFestival']->value['festival_name_en'];?>
 </h4>
                           <!--demoが表示される文章でお願いします-->
-                          <div class="demo"><?php echo $_smarty_tpl->tpl_vars['festival']->value['description_en'];?>
+                          <div class="demo"><?php echo $_smarty_tpl->tpl_vars['monthFestival']->value['description_en'];?>
 </div>
                           <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                           <div class="date_box">
-                            <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_date'];?>
+                            <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['monthFestival']->value['start_date'];?>
 </h6>
-                            <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['festival']->value['end_date'];?>
+                            <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['monthFestival']->value['end_date'];?>
 </h6>
                           </div>
                         </div>
