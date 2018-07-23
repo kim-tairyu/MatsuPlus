@@ -11,10 +11,11 @@
     <div class="box4" id="myTapContent">
       <div class="box4-inner">
         <div class="user">
+          <h2>SIGN IN</h2>
           <form method="post" action="{$SCRIPT_NAME}?type=sign-in&action=login">
-              <input type="text" class="mailaddress" name="id" placeholder="User ID or Mail Address">
-              <input type="password" class="password" name="pass" placeholder="Password">
-            <div><p></p></div>
+            <input type="text" class="mailaddress" name="id" placeholder="User ID or Mail Address">
+            <input type="password" class="password" name="pass" placeholder="Password">
+            <div><p style="color: red">{$errMsg}</p></div>
             <input type="submit" class="login" value="Login">
           </form>
           <div class="company2">

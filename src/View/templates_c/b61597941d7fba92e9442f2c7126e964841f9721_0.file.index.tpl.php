@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 15:21:45
+/* Smarty version 3.1.32, created on 2018-07-23 16:03:35
   from 'C:\xampp\htdocs\kimu\src\View\templates\index\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55d669347992_39940951',
+  'unifunc' => 'content_5b55e037c7e087_47306661',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b61597941d7fba92e9442f2c7126e964841f9721' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\index\\index.tpl',
-      1 => 1532351848,
+      1 => 1532354437,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55d669347992_39940951 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b55e037c7e087_47306661 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -250,7 +250,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['springFestival']->value) {
 ">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="" class="event_image">
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['springFestival']->value['image'];?>
+" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['springFestival']->value['festival_name_en'];?>
@@ -289,7 +291,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['summerFestival']->value) {
 ">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="" class="event_image">
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['summerFestival']->value['image'];?>
+" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['summerFestival']->value['festival_name_en'];?>
@@ -328,7 +332,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['autumnFestival']->value) {
 ">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="" class="event_image">
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['autumnFestival']->value['image'];?>
+" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['autumnFestival']->value['festival_name_en'];?>
@@ -367,7 +373,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['winterFestival']->value) {
 ">
                   <div class="news_box">
                     <div class="news_box1">
-                      <img src="" class="event_image">
+                      <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['winterFestival']->value['image'];?>
+" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['winterFestival']->value['festival_name_en'];?>

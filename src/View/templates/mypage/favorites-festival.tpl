@@ -21,7 +21,7 @@
             {foreach from=$favorite_fes item=festival}
             <div class="news_info_event_box">
               <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
-              <a href="festival.php?festival_id=?">
+              <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
                 <div class="news_box">
                   <div class="news_box1">
                     <img src="{_IMGS_SERVER_DIR}/{$festival.image}" class="event_image">
