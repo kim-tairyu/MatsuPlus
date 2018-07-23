@@ -46,22 +46,22 @@
               <!--WEEKタブ-->
               <div id="panel1" class="tab_panel">
                 <div class="news_info_event">
-                  {foreach from=$festivals item=festival}
+                  {foreach from=$weekFestivals item=weekFestival}
                   <div class="news_info_event_box">
-                    <a href="{$SCRIPT_NAME}?festival_id={$festival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
-                    <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
+                    <a href="{$SCRIPT_NAME}?festival_id={$weekFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                    <a href="{$SCRIPT_NAME}?type=festival&festival_id={$weekFestival.festival_id}">
                       <div class="news_box">
                         <div class="news_box1">
-                          <img src="{_IMGS_SERVER_DIR}/{$festival.image}" class="event_image">
+                          <img src="{_IMGS_SERVER_DIR}/{$weekFestival.image}" class="event_image">
                         </div>
                         <div class="news_box2">
-                          <h4 class="news_title">{$festival.festival_name_en}</h4>
+                          <h4 class="news_title">{$weekFestival.festival_name_en}</h4>
                           <!--demoが表示される文章でお願いします-->
-                          <div class="demo">{$festival.description_en}</div>
+                          <div class="demo">{$weekFestival.description_en}</div>
                           <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                           <div class="date_box">
-                            <h6 class="date_big2">{$festival.start_date}</h6>
-                            <h6 class="date_big">{$festival.end_date}</h6>
+                            <h6 class="date_big2">{$weekFestival.start_date}</h6>
+                            <h6 class="date_big">{$weekFestival.end_date}</h6>
                           </div>
                         </div>
                       </div>
@@ -75,22 +75,22 @@
               <!--MONTHタブ-->
               <div id="panel2" class="tab_panel">
                 <div class="news_info_event">
-                  {foreach from=$festivals item=festival}
+                  {foreach from=$monthFestivals item=monthFestival}
                   <div class="news_info_event_box">
-                    <a href="{$SCRIPT_NAME}?festival_id={$festival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
-                    <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}">
+                    <a href="{$SCRIPT_NAME}?festival_id={$monthFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+                    <a href="{$SCRIPT_NAME}?type=festival&festival_id={$monthFestival.festival_id}">
                       <div class="news_box">
                         <div class="news_box1">
-                          <img src="{_IMGS_SERVER_DIR}/{$festival.image}" class="event_image">
+                          <img src="{_IMGS_SERVER_DIR}/{$monthFestival.image}" class="event_image">
                         </div>
                         <div class="news_box2">
-                          <h4 class="news_title">{$festival.festival_name_en}</h4>
+                          <h4 class="news_title">{$monthFestival.festival_name_en}</h4>
                           <!--demoが表示される文章でお願いします-->
-                          <div class="demo">{$festival.description_en}</div>
+                          <div class="demo">{$monthFestival.description_en}</div>
                           <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                           <div class="date_box">
-                            <h6 class="date_big2">{$festival.start_date}</h6>
-                            <h6 class="date_big">{$festival.end_date}</h6>
+                            <h6 class="date_big2">{$monthFestival.start_date}</h6>
+                            <h6 class="date_big">{$monthFestival.end_date}</h6>
                           </div>
                         </div>
                       </div>

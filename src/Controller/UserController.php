@@ -120,7 +120,8 @@ class UserController extends BaseController
         $this->action = '';
       }
     }
-    $this->view->assign('festivals', $festivalModel->getRecommendFestivals());
+    $this->view->assign('weekFestivals', $festivalModel->getWeekRecommendFestivals());
+    $this->view->assign('monthFestivals', $festivalModel->getMonthRecommendFestivals());
     $this->view->assign('articles',  $articleModel->getArticles());
     $this->view->assign('springFestivals',  $tagModel->getSpringTags());
     $this->view->assign('summerFestivals',  $tagModel->getSummerTags());
