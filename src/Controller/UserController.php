@@ -137,9 +137,40 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_search()
   {
+    $searchModel = new SearchModel();
     $this->title = 'MATSURI PLUS : SEARCH';
-    $this->file  = _SEARCH_DIR;
-    $this->view_display();
+    if($this->action == 'kensaku'){
+        if(isset($_POST["festival_name"]) && !empty($_POST['festival_name']) && $_POST['festival_name'] == !null){
+            $name = $_POST["festival_name"];
+            // 名前検索
+            $this->view->assign('searches', $searchModel->getNameSearch($name));
+            $this->file  = _SEARCH_DIR;
+            $this->view_display();
+            exit;
+        }  
+        else if(isset($_POST['location']) && !empty($_POST['location']) && $_POST['location'] == !null){
+            $location = $_POST['location'];
+            // 開催地検索
+            $this->view->assign('searches', $searchModel->getLocationSearch($location));
+            $this->file  = _SEARCH_DIR;
+            $this->view_display();
+            exit;
+        }
+        else if(isset($_POST["start_date"]) && !empty($_POST['start_date']) && $_POST['start_date'] == !null){
+            $start_date = $_POST["start_date"];            
+            // 開催日検索
+            $this->view->assign('searches', $searchModel->getStartDateSearch($start_date));
+            $this->file  = _SEARCH_DIR;
+            $this->view_display();
+            exit;
+        }
+    }
+    else {
+        $this->view->assign('searches', $searchModel->getRecommendFestivals());
+        $this->file  = _SEARCH_DIR;
+        $this->view_display();
+        exit;
+    }
   }
   
   //----------------------------------------------------
