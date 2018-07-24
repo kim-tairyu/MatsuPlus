@@ -11,7 +11,7 @@
       $(function () {
         $('#calendar').fullCalendar(
           {
-            events:'{$SCRIPT_NAME}?type=schedule&action=calendar',//表示するJSONのリンク
+            events:'{_CONTROLLER_CLASS_DIR}/ScheduleController.php',//表示するJSONのリンク
           }
         );
       });
