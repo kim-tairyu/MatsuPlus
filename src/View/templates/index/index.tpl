@@ -175,8 +175,8 @@
                       <div class="demo">{$springFestival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2">{$springFestival.start_date}</h6>
+                        <h6 class="date_big">{$springFestival.end_date}</h6>
                       </div>
                     </div>
                   </div>
@@ -202,8 +202,8 @@
                       <div class="demo">{$summerFestival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2">{$summerFestival.start_date}</h6>
+                        <h6 class="date_big">{$summerFestival.end_date}</h6>
                       </div>
                     </div>
                   </div>
@@ -229,8 +229,8 @@
                       <div class="demo">{$autumnFestival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2">{$autumnFestival.start_date}</h6>
+                        <h6 class="date_big">{$autumnFestival.end_date}</h6>
                       </div>
                     </div>
                   </div>
@@ -256,8 +256,8 @@
                       <div class="demo">{$winterFestival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2">{$winterFestival.start_date}</h6>
+                        <h6 class="date_big">{$winterFestival.end_date}</h6>
                       </div>
                     </div>
                   </div>
