@@ -721,9 +721,9 @@ input[type="radio"]{display:none;}
 .panel_area{transition: 1s;}
 .tab_panel{display:none;}
 /*タブ詳細*/
-#tab1:checked ~ .tab_area .tab1_label{color: 000;}
+#tab1:checked ~ .tab_area .tab1_label{color: #fff; background-color: #e60033; border-radius: 18.5px;}
 #tab1:checked ~ .panel_area #panel1{display:block; transition: 1s;}
-#tab2:checked ~ .tab_area .tab2_label{color: 000;}
+#tab2:checked ~ .tab_area .tab2_label{color: #fff; background-color: #e60033; border-radius: 18.5px;}
 #tab2:checked ~ .panel_area #panel2{display:block; transition: 1s;}
 
 /*タブ切り替えKISETU*/
@@ -735,13 +735,13 @@ input[type="radio"]{display:none;}
 .panel_area2{transition: 1s;}
 .tab_panel2{display:none;}
 /*タブ詳細*/
-#tabA:checked ~ .tab_area2 .tabA_label{color: 000;}
+#tabA:checked ~ .tab_area2 .tabA_label{color: #fff; background-color: #e60033; border-radius: 20px;}
 #tabA:checked ~ .panel_area2 #panelA{display:block; transition: 1s;}
-#tabB:checked ~ .tab_area2 .tabB_label{color: 000;}
+#tabB:checked ~ .tab_area2 .tabB_label{color: #fff; background-color: #e60033; border-radius: 20px;}
 #tabB:checked ~ .panel_area2 #panelB{display:block; transition: 1s;}
-#tabC:checked ~ .tab_area2 .tabC_label{color: 000;}
+#tabC:checked ~ .tab_area2 .tabC_label{color: #fff; background-color: #e60033; border-radius: 20px;}
 #tabC:checked ~ .panel_area2 #panelC{display:block; transition: 1s;}
-#tabD:checked ~ .tab_area2 .tabD_label{color: 000;}
+#tabD:checked ~ .tab_area2 .tabD_label{color: #fff; background-color: #e60033; border-radius: 20px;}
 #tabD:checked ~ .panel_area2 #panelD{display:block; transition: 1s;}
 
 
