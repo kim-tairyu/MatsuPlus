@@ -49,10 +49,10 @@ class UserModel extends BaseModel {
     return $result;
   }
   
-  //ユーザ名変更
+  // ユーザステータス変更
   public function updateUserStatus($user_id, $calm, $value){
     try{
-      $sql  = "UPDATE user SET ".$calm." = ? WHERE user_id = ?;";
+      $sql  = "UPDATE user SET " . $calm . " = ? WHERE user_id = ?;";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $value);
       $stmt->bindValue(2, $user_id);
@@ -60,6 +60,22 @@ class UserModel extends BaseModel {
     } catch(PDOException $e){
       die('DB ERROR:'.$e->getMesseage);
     }
+  }
+  
+  // ユーザ情報を取得（ユーザ一覧）
+  public function getUsers() {
+    try {
+      $sql    = 'SELECT * FROM user 
+                LEFT JOIN country ON user.country_id = country.country_id 
+                LEFT JOIN language ON user.language_id = language.language_id
+                ORDER BY user.user_id';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
   }
   
 }

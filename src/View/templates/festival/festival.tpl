@@ -211,10 +211,14 @@
           <div class="comment_content">
             <div class="">
               <div class="comment_user_img">
-                  <img src="{_IMGS_SERVER_DIR}/user.jpg" alt="ユーザーアイコン">
+                  <img src="{_IMGS_SERVER_DIR}/{$review.user_icon}" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
+<<<<<<< HEAD
                 {for $evaluation=1 to {$review.star}}<p>☆</p>{/for}
+=======
+                {for $evaluation=1 to {$review.star}}<p>★</p>{/for}
+>>>>>>> 69bd69e35bfb1dc4e528eb4542449fea8a248dea
               </div>
               <div class="comment_user_name">
                 <p>{$review.user_name}</p>

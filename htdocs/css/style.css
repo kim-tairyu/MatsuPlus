@@ -105,6 +105,7 @@ header:after{content: ""; display: block; clear: both; box-shadow    : 1px 1px 1
 .fes_box{width: 100%; height: auto;}
 .fes_box:after{content:""; display:block; clear:both;}
 .btn-fes-box{float: left; width: 100%;　margin:0 auto;}
+.fes_box a{border-radius: 20px;}
 .btn-fes{
   width:300px; height: auto;
   color: #e60033;
@@ -298,7 +299,7 @@ hr{width:400px;}
   color: #e60033;}
 
 /*wrapper*/
-#myTapContent{margin-bottom: 30px; height: auto;}
+#myTapContent{margin-bottom: 40px; height: auto;}
 
 .main_content{
   width: 100%;
@@ -329,24 +330,25 @@ hr{width:400px;}
 /* recommend */
 /*上右左下*/
 .week_mon{
-  width:40%;
-  margin:5px auto 20px;
-  box-shadow    : 1px 1px 1px #666666;}
-.week_mon a{
   width:50%;
-  color:#000;
-  margin: 0;
+  margin:5px auto 20px;}
+.week_mon a{
+  width:44%;
+  color:#555;
+  margin: 0% 3% 0%;
   text-align: center;
-  padding:10px;
   display: inline-block;
   border:solid 1px #e60033;
-  text-decoration: none;}
+  text-decoration: none;
+  box-shadow    : 1px 1px 1px #666666;
+  border-radius: 20px;}
 .week_mon a:hover{
   background-color: #e60033;
   color: #fff;
   text-decoration: none;
-  transition    : .3s;}
-.month2{float:right;}
+  transition    : 0.3s;}
+.month2{width: auto; height: auto;
+  float:right;}
 
 /*季節のカテゴリ*/
 /*上右左下*/
@@ -358,24 +360,39 @@ margin: 5px auto 15px;}
   display: inline-block;
   margin: 0 5px 0px;
   color: #000;
-  text-decoration: none;}
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow:1px 1px 1px #666666;
+  height: auto;
+  border:solid 1px #e60033;}
 .week_mon2 a:hover{
   background-color: #e60033;
   color: #fff;
   text-decoration: none;
+  border-radius: 20px;
   transition    : .3s;}
-.month3{
-    box-shadow:1px 1px 1px #666666;
-    float:left;
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-    border:solid 1px #e60033;
-    padding:10px;
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    box-sizing:border-box;}
+
+/*カンロ画面*/
+/*上右左下*/
+.week_mon3{width:100%; height: auto;
+margin: 5px auto 15px;}
+.week_mon3:after{content:""; display:block; clear:both;}
+.week_mon3 a{
+  width: 150px;
+  display: inline-block;
+  margin: 0 5px 0px;
+  color: #000;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow:1px 1px 1px #666666;
+  height: auto;
+  border:solid 1px #e60033;}
+.week_mon3 a:hover{
+  background-color: #e60033;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  transition    : .3s;}
 
 /* ホーム写真 */
 .home_img{width: auto; margin-bottom: 10px; text-align: center;}
@@ -399,7 +416,7 @@ color: #e60033; opacity: 0.8; margin-top: 10px;
 -webkit-appearance: none;}
 .fev_button2:hover{opacity: 0.4;}
 /**/
-.fev_button_box img{margin-top: 8px;}
+.fev_button_box img{margin-bottom: 5px;}
 
 
 /*変更*/
@@ -413,7 +430,7 @@ color: #e60033; opacity: 0.8; margin-top: 10px;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
-  margin-bottom: 10px;}
+  margin-bottom: 20px;}
 /*ＴＯＰでのお気に入りボタン*/
 .fev_button-top{
 position: absolute;bottom: 85px; right: 15px;
@@ -695,6 +712,57 @@ margin-bottom: 5px;}
 .box4box4-inner{margin-bottom: 100px;}
 .box4 a{color: #ffff;}
 
+/*タブ切り替えTOP*/
+input[type="radio"]{display:none;}
+.tab_area{width: auto; height: auto;}
+.tab_area label{display:inline-block;
+  text-align:center; margin: 0px; width: 100%; height: 100%;
+  cursor:pointer; padding: 10px; z-index: 999; transition: 0/5s;}
+.panel_area{transition: 1s;}
+.tab_panel{display:none;}
+/*タブ詳細*/
+#tab1:checked ~ .tab_area .tab1_label{color: #fff; background-color: #e60033; border-radius: 18.5px;}
+#tab1:checked ~ .panel_area #panel1{display:block; transition: 1s;}
+#tab2:checked ~ .tab_area .tab2_label{color: #fff; background-color: #e60033; border-radius: 18.5px;}
+#tab2:checked ~ .panel_area #panel2{display:block; transition: 1s;}
+
+/*タブ切り替えKISETU*/
+input[type="radio"]{display:none;}
+.tab_area2{width: auto; height: auto;}
+.tab_area2 label{display:inline-block;
+  text-align:center; margin: 0px; width: 100%; height: 100%;
+  cursor:pointer; padding: 10px; z-index: 999; transition: 0/5s;}
+.panel_area2{transition: 1s;}
+.tab_panel2{display:none;}
+/*タブ詳細*/
+#tabA:checked ~ .tab_area2 .tabA_label{color: #fff; background-color: #e60033; border-radius: 20px;}
+#tabA:checked ~ .panel_area2 #panelA{display:block; transition: 1s;}
+#tabB:checked ~ .tab_area2 .tabB_label{color: #fff; background-color: #e60033; border-radius: 20px;}
+#tabB:checked ~ .panel_area2 #panelB{display:block; transition: 1s;}
+#tabC:checked ~ .tab_area2 .tabC_label{color: #fff; background-color: #e60033; border-radius: 20px;}
+#tabC:checked ~ .panel_area2 #panelC{display:block; transition: 1s;}
+#tabD:checked ~ .tab_area2 .tabD_label{color: #fff; background-color: #e60033; border-radius: 20px;}
+#tabD:checked ~ .panel_area2 #panelD{display:block; transition: 1s;}
+
+
+/* スタイルの状態変化を「my-fade-in」という名前で定義 */
+@keyframes my-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.tab_panel{
+  /* .boxが「my-fade-in」で状態変化するように指定 */
+  animation-name:     my-fade-in;
+  animation-duration: 1s;}
+.tab_panel2{
+  /* .boxが「my-fade-in」で状態変化するように指定 */
+  animation-name:     my-fade-in;
+  animation-duration: 1s;}
+
 /*login*/
 .user{
   width: 300px;
@@ -872,24 +940,26 @@ margin-bottom: 5px;}
 
 /* search */
 .search{
-  border-radius: 10px;
-  width: auto;
+  margin-top: 100px;
+  border-radius: 20px;
+  width: 70%;
   height: auto;
   margin:0 auto;
   padding-top: 100px;
   display: none;
-  padding: 10px;
+  padding: 20px;
   box-shadow:3px 3px 3px 3px  #ccc;}
 .search_text{
   width: 50%;
-  border-radius:10px;
+  border-radius:20px;
   box-shadow: none;
   padding: 2px 8px;}
+.day-select{ border-radius: 20px;}
   /* 表示ボタン */
 .openBtn {
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 0 auto;
-  width: 50%;
+  width: 70%;
   margin-top: 80px;
   cursor: pointer;
   padding: 10px;
@@ -944,7 +1014,7 @@ margin-bottom: 5px;}
   box-sizing:border-box;
 margin-bottom: 10px;}
 
-.pref_name{width: 50%;}
+.pref_name{width: 50%; border-radius: 20px;}
 .tag_li{width: 100%; height: auto;}
 .tag_li:after{content: ""; display: block; clear: both;}
 .tag{
@@ -955,14 +1025,18 @@ margin-bottom: 10px;}
   background: #e60033;
   color: #fff;
   border-radius: 3px;}
+  input[type="text"]:focus {
+  outline: 0;
+}
 .kensaku{
   width: 200px;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
+   outline: none;
   background: red;
   color: #ffff;
-  border-radius: 3px;
+  border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;}
 /**/
@@ -1133,8 +1207,11 @@ align-items: center; justify-content: center;}
 .fev-box{width: 90%;}
 .related_article_title_small .news_title_sub{padding:10px 0; font-size: 10px;}
 .schedule_info_event_box{width: 50%;}
-.week_mon{margin:0px auto 15px;}
+.week_mon{margin:0px auto 15px; width: 80%;}
+.week_mon a{width: 44%;}
 .home_img img{width: 100%;}
+.search{width: auto;}
+.openBtn{margin-top: 80px;}
 }
 
 /*767px以下*/
