@@ -7,16 +7,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
   'unifunc' => 'content_5b55e037c7e087_47306661',
   'has_nocache_code' => false,
-  'file_dependency' => 
+  'file_dependency' =>
   array (
-    'b61597941d7fba92e9442f2c7126e964841f9721' => 
+    'b61597941d7fba92e9442f2c7126e964841f9721' =>
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\index\\index.tpl',
       1 => 1532354437,
       2 => 'file',
     ),
   ),
-  'includes' => 
+  'includes' =>
   array (
   ),
 ),false)) {
