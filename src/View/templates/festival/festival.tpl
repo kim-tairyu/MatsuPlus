@@ -211,7 +211,7 @@
           <div class="comment_content">
             <div class="">
               <div class="comment_user_img">
-                  <img src="{_IMGS_SERVER_DIR}/{$smarty.session.user_icon}" alt="ユーザーアイコン">
+                  <img src="{_IMGS_SERVER_DIR}/{$review.user_icon}" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
                 {for $evaluation=1 to {$review.star}}<p>★</p>{/for}

@@ -1025,11 +1025,15 @@ margin-bottom: 10px;}
   background: #e60033;
   color: #fff;
   border-radius: 3px;}
+  input[type="text"]:focus {
+  outline: 0;
+}
 .kensaku{
   width: 200px;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
+   outline: none;
   background: red;
   color: #ffff;
   border-radius: 20px;

@@ -20,25 +20,57 @@
           <input id="tab2" type="radio" name="tab_btn">
           <div class="tab_area">
             <div class="week_mon">
-              <a href="#"><label class="tab1_label" for="tab1">アカウント管理</lebel></a>
-              <a href="#" class="month2"><label class="tab2_label" for="tab2">自治体アカウント管理</lebel></a>
+              <a href="#"><label class="tab1_label" for="tab1">ユーザアカウント管理</label></a>
+              <a href="#" class="month2"><label class="tab2_label" for="tab2">自治体アカウント管理</label></a>
             </div>
           </div>
           <!--main-->
           <div class="panel_area">
             <!--WEEKタブ-->
             <div id="panel1" class="tab_panel">
-              <p>アカウント管理(タブが切り替わってることを確認するためです消してください)</p>
               <div class="week_mon3">
+                <a href="#">アカウント一覧</a>
                 <a href="#">アカウント作成</a>
                 <a href="#">アカウント編集</a>
                 <a href="#">アカウント削除</a>
               </div>
+              <div>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">user_id</th>
+                      <th scope="col">password</th>
+                      <th scope="col">user_name</th>
+                      <th scope="col">mail_address</th>
+                      <th scope="col">country</th>
+                      <th scope="col">language</th>
+                      <th scope="col">user_status</th>
+                      <th scope="col">user_icon</th>
+                      <th scope="col">authority</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {foreach from=$users item=user}
+                    <tr class="table">
+                      <td>{$user.user_id}</td>
+                      <td>{$user.password}</td>
+                      <td>{$user.user_name}</td>
+                      <td>{$user.mail_address}</td>
+                      <td>{$user.country_name}</td>
+                      <td>{$user.language}</td>
+                      <td>{$user.user_status}</td>
+                      <td>{$user.user_icon}</td>
+                      <td>{$user.authority}</td>
+                    </tr>
+                    {/foreach}
+                  </tbody>
+                </table> 
+              </div>
             </div>
             <!--MONTHタブ-->
             <div id="panel2" class="tab_panel">
-              <p>自治体アカウント管理(タブが切り替わってることを確認するためです消してください)</p>
               <div class="week_mon3">
+                <a href="#">アカウント一覧</a>
                 <a href="#">アカウント作成</a>
                 <a href="#">アカウント編集</a>
                 <a href="#">アカウント削除</a>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 18:22:32
+/* Smarty version 3.1.32, created on 2018-07-24 10:25:24
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/config.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b561ce8236341_61535341',
+  'unifunc' => 'content_5b56fe94e960d7_36984008',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c4a32bd842ce96b0697fd4eca67d083792f77c01' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/config.tpl',
-      1 => 1532370144,
+      1 => 1532427864,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b561ce8236341_61535341 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b56fe94e960d7_36984008 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -51,9 +51,6 @@ function content_5b561ce8236341_61535341 (Smarty_Internal_Template $_smarty_tpl)
         <div class="set">
           <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
 ?type=config&action=update">
-            <form>
-              <input type="file" name="user_icon">
-            </form>
             <!--ユーザーネーム変更-->
             <div class="config_box">
               <div class="config_box_name">
