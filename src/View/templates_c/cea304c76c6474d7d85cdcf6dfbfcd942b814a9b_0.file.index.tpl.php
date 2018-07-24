@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 17:59:06
+/* Smarty version 3.1.32, created on 2018-07-24 20:27:36
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\index\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b56ea5a576296_91548055',
+  'unifunc' => 'content_5b570d28a32ea1_03849837',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cea304c76c6474d7d85cdcf6dfbfcd942b814a9b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\index\\index.tpl',
-      1 => 1532420694,
+      1 => 1532431642,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b56ea5a576296_91548055 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b570d28a32ea1_03849837 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -268,8 +268,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['springFestival']->value) {
 </div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['springFestival']->value['start_date'];?>
+</h6>
+                        <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['springFestival']->value['end_date'];?>
+</h6>
                       </div>
                     </div>
                   </div>
@@ -310,8 +312,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['summerFestival']->value) {
 </div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['summerFestival']->value['start_date'];?>
+</h6>
+                        <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['summerFestival']->value['end_date'];?>
+</h6>
                       </div>
                     </div>
                   </div>
@@ -352,8 +356,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['autumnFestival']->value) {
 </div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['autumnFestival']->value['start_date'];?>
+</h6>
+                        <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['autumnFestival']->value['end_date'];?>
+</h6>
                       </div>
                     </div>
                   </div>
@@ -394,8 +400,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['winterFestival']->value) {
 </div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['winterFestival']->value['start_date'];?>
+</h6>
+                        <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['winterFestival']->value['end_date'];?>
+</h6>
                       </div>
                     </div>
                   </div>
