@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 07:49:50
+/* Smarty version 3.1.32, created on 2018-07-24 17:52:08
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/manager.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b56da1e1714a3_31832879',
+  'unifunc' => 'content_5b57674869a038_64434909',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a872bcd9ee27184da4189779eb69893a124ea251' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/manager.tpl',
-      1 => 1532418588,
+      1 => 1532454727,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b56da1e1714a3_31832879 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b57674869a038_64434909 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -36,94 +36,220 @@ function content_5b56da1e1714a3_31832879 (Smarty_Internal_Template $_smarty_tpl)
     <div class="main_content">
       <div class="main_content_inner">
         <h1>管理者画面</h1>
-
-
+        
         <div class="tab-pane fade in active" id="recommend">
           <!--タブ切り替え-->
           <div class="tab_wrap">
-          <input id="tab1" type="radio" name="tab_btn" checked="checked">
-          <input id="tab2" type="radio" name="tab_btn">
-          <div class="tab_area">
-            <div class="week_mon">
-              <a href="#"><label class="tab1_label" for="tab1">ユーザアカウント管理</label></a>
-              <a href="#" class="month2"><label class="tab2_label" for="tab2">自治体アカウント管理</label></a>
-            </div>
-          </div>
-          <!--main-->
-          <div class="panel_area">
-            <!--WEEKタブ-->
-            <div id="panel1" class="tab_panel">
-              <div class="week_mon3">
-                <a href="#">アカウント一覧</a>
-                <a href="#">アカウント作成</a>
-                <a href="#">アカウント編集</a>
-                <a href="#">アカウント削除</a>
+            <input id="tab1" type="radio" name="tab_btn" checked="checked">
+            <input id="tab2" type="radio" name="tab_btn">
+            <div class="tab_area">
+              <div class="week_mon">
+                <a href="#"><label class="tab1_label" for="tab1">ユーザアカウント管理</label></a>
+                <a href="#" class="month2"><label class="tab2_label" for="tab2">自治体アカウント管理</label></a>
               </div>
-              <div>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">user_id</th>
-                      <th scope="col">password</th>
-                      <th scope="col">user_name</th>
-                      <th scope="col">mail_address</th>
-                      <th scope="col">country</th>
-                      <th scope="col">language</th>
-                      <th scope="col">user_status</th>
-                      <th scope="col">user_icon</th>
-                      <th scope="col">authority</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
+            </div>
+            <!--main-->
+            <div class="panel_area">
+              <!--WEEKタブ-->
+              <div id="panel1" class="tab_panel">
+                <!--カテゴリ-->
+                <div class="week_mon3">
+                  <a href="#"><label class="tabA_label" for="tabA">アカウント一覧</label></a>
+                  <a href="#"><label class="tabB_label" for="tabB">アカウント作成</label></a>
+                  <a href="#"><label class="tabC_label" for="tabC">アカウント編集</label></a>
+                  <a href="#"><label class="tabD_label" for="tabD">アカウント削除</label></a>
+                </div>
+                <div id="panel1" class="tab_panel">
+                  <div class="news_info_event">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">user_id</th>
+                          <th scope="col">password</th>
+                          <th scope="col">user_name</th>
+                          <th scope="col">mail_address</th>
+                          <th scope="col">country</th>
+                          <th scope="col">language</th>
+                          <th scope="col">user_status</th>
+                          <th scope="col">user_icon</th>
+                          <th scope="col">authority</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['users']->value, 'user');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
 ?>
-                    <tr class="table">
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+                        <tr class="table">
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
 </td>
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['password'];?>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['password'];?>
 </td>
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_name'];?>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_name'];?>
 </td>
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['mail_address'];?>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['mail_address'];?>
 </td>
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>
 </td>
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['language'];?>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['language'];?>
 </td>
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_status'];?>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_status'];?>
 </td>
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_icon'];?>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_icon'];?>
 </td>
-                      <td><?php echo $_smarty_tpl->tpl_vars['user']->value['authority'];?>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['authority'];?>
 </td>
-                    </tr>
-                    <?php
+                        </tr>
+                        <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                  </tbody>
-                </table> 
+                      </tbody>
+                    </table> 
+                  </div>
+                </div>
+                <div id="panel1" class="tab_panel">
+                  <div class="news_info_event">
+                    <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=sign-up&action=signUp">
+                      <div><p style="color: red">エラー表示</p></div>
+                      <input type="text" class="mailaddress" name="user_id" placeholder="User ID">
+                      <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
+                      <input type="password" class="password" name="password" placeholder="Password">
+                      <input type="password" class="password" name="passwordSecond" placeholder="Password Second">
+                      <input type="text" class="name" name="user_name" placeholder="Name">
+                      <select name="country_id" class="country-width">
+                        <option value="">Select Country</option>
+                        <option value="<?php echo $_smarty_tpl->tpl_vars['country']->value['country_id'];?>
+"></option>
+                      </select>
+                      <input type="submit" class="touroku" value="Create an account">
+                    </form>
+                  </div>
+                </div>
+                <div id="panel1" class="tab_panel">
+                  <!-- SPRING -->
+                  <div class="news_info_event">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">user_id</th>
+                          <th scope="col">password</th>
+                          <th scope="col">user_name</th>
+                          <th scope="col">mail_address</th>
+                          <th scope="col">country</th>
+                          <th scope="col">language</th>
+                          <th scope="col">user_status</th>
+                          <th scope="col">user_icon</th>
+                          <th scope="col">authority</th>
+                          <th scope="col">編集</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['users']->value, 'user');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
+?>
+                        <tr class="table">
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['password'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_name'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['mail_address'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['language'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_status'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_icon'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['authority'];?>
+</td>
+                          <td><a>編集</a></td>
+                        </tr>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                      </tbody>
+                    </table> 
+                  </div>
+                </div>
+                <div id="panel1" class="tab_panel">
+                  <!-- SPRING -->
+                  <div class="news_info_event">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">user_id</th>
+                          <th scope="col">password</th>
+                          <th scope="col">user_name</th>
+                          <th scope="col">mail_address</th>
+                          <th scope="col">country</th>
+                          <th scope="col">language</th>
+                          <th scope="col">user_status</th>
+                          <th scope="col">user_icon</th>
+                          <th scope="col">authority</th>
+                          <th scope="col">削除</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['users']->value, 'user');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
+?>
+                        <tr class="table">
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['password'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_name'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['mail_address'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['country_name'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['language'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_status'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['user_icon'];?>
+</td>
+                          <td><?php echo $_smarty_tpl->tpl_vars['user']->value['authority'];?>
+</td>
+                          <td><a>削除</a></td>
+                        </tr>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                      </tbody>
+                    </table> 
+                  </div>
+                </div>
               </div>
-            </div>
-            <!--MONTHタブ-->
-            <div id="panel2" class="tab_panel">
-              <div class="week_mon3">
-                <a href="#">アカウント一覧</a>
-                <a href="#">アカウント作成</a>
-                <a href="#">アカウント編集</a>
-                <a href="#">アカウント削除</a>
-              </div>
-            </div><!--MONTHタブ終わり-->
-          </div><!--main終わり-->
+              <!--MONTHタブ-->
+              <div id="panel2" class="tab_panel">
+                <div class="week_mon3">
+                  <a href="#"><label class="tabA_label" for="tabA">アカウント一覧</label></a>
+                  <a href="#"><label class="tabB_label" for="tabB">アカウント作成</label></a>
+                  <a href="#"><label class="tabC_label" for="tabC">アカウント編集</label></a>
+                  <a href="#"><label class="tabD_label" for="tabD">アカウント削除</label></a>
+                </div>
+              </div><!--MONTHタブ終わり-->
+            </div><!--main終わり-->
+          </div>
         </div>
       </div>
-
-      </div>
-    </div>
-
+    </div>    
+    
     <!--フッター（SP版では非表示になってる）-->
     <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
