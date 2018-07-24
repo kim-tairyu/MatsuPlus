@@ -28,6 +28,7 @@
                     <!--WEEKタブ-->
                     <div id="panel1" class="tab_panel">
                       <div class="week_mon3">
+                        <a href="#">お祭り情報一覧</a>
                         <a href="#">お祭り情報作成</a>
                         <a href="#">お祭り情報編集</a>
                         <a href="#">お祭り情報削除</a>
@@ -36,9 +37,10 @@
                     <!--MONTHタブ-->
                     <div id="panel2" class="tab_panel">
                       <div class="week_mon3">
-                        <a href="#">お祭り情報作成</a>
-                        <a href="#">お祭り情報編集</a>
-                        <a href="#">お祭り情報削除</a>
+                        <a href="#">記事情報一覧</a>
+                        <a href="#">記事情報作成</a>
+                        <a href="#">記事情報編集</a>
+                        <a href="#">記事情報削除</a>
                       </div>
                     </div><!--MONTHタブ終わり-->
                   </div><!--main終わり-->

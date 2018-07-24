@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 07:24:38
+/* Smarty version 3.1.32, created on 2018-07-24 07:52:57
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b56d43635af32_28504154',
+  'unifunc' => 'content_5b56dad9acc1e4_09031965',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '23afcfe27217092ac2324c9e8c0138ab520539d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl',
-      1 => 1532417065,
+      1 => 1532418776,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b56d43635af32_28504154 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b56dad9acc1e4_09031965 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -53,6 +53,7 @@ function content_5b56d43635af32_28504154 (Smarty_Internal_Template $_smarty_tpl)
                     <!--WEEKタブ-->
                     <div id="panel1" class="tab_panel">
                       <div class="week_mon3">
+                        <a href="#">お祭り情報一覧</a>
                         <a href="#">お祭り情報作成</a>
                         <a href="#">お祭り情報編集</a>
                         <a href="#">お祭り情報削除</a>
@@ -61,9 +62,10 @@ function content_5b56d43635af32_28504154 (Smarty_Internal_Template $_smarty_tpl)
                     <!--MONTHタブ-->
                     <div id="panel2" class="tab_panel">
                       <div class="week_mon3">
-                        <a href="#">お祭り情報作成</a>
-                        <a href="#">お祭り情報編集</a>
-                        <a href="#">お祭り情報削除</a>
+                        <a href="#">記事情報一覧</a>
+                        <a href="#">記事情報作成</a>
+                        <a href="#">記事情報編集</a>
+                        <a href="#">記事情報削除</a>
                       </div>
                     </div><!--MONTHタブ終わり-->
                   </div><!--main終わり-->
