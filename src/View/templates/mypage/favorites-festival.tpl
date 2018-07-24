@@ -17,7 +17,7 @@
         <!--さらに中のwrap-->
         <!--レビュー順で表示のエリア-->
         <div class="tab-pane fade in active" id="recommend">
-          <div class="news_info_event">
+          <div class="flex">
             {foreach from=$favorite_fes item=festival}
             <div class="news_info_event_box">
               <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
@@ -28,6 +28,8 @@
                   </div>
                   <div class="news_box2">
                     <h4 class="news_title">{$festival.festival_name_en}</h4>
+                    <!--demoが表示される文章でお願いします-->
+                    <div class="demo">{$festival.description_en}</div>
                     <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                     <div class="date_box">
                     <h6 class="date_big2"></h6>

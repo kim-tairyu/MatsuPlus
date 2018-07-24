@@ -17,17 +17,18 @@
         <!--さらに中のwrap-->
         <!--レビュー順で表示のエリア-->
         <div class="tab-pane fade in active" id="recommend">
-          <div class="news_info_event">
+          <div class="flex">
             {foreach from=$favorite_art item=article}
             <div class="news_info_event_box">
               <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
                 <a href="{$SCRIPT_NAME}?type=article&article_id={$article.article_id}">
                   <div class="news_box">
-                    <div class="news_box1">
+                    <div class="news_box1-1">
                       <img src="{_IMGS_SERVER_DIR}/{$article.image}" class="event_image">
                     </div>
                     <div class="news_box2">
                       <h4 class="news_title">{$article.article_title}</h4>
+                      <div class="demo">{$article.text}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
                       <h6 class="date_big2"></h6>
