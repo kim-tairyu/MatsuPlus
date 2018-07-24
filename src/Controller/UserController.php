@@ -278,6 +278,8 @@ class UserController extends BaseController
   {
     if($this->action == 'calendar')
     {
+      echo "ok";
+      exit;
       $scheduleModel = new ScheduleModel();
       $scheduleModel->getSchedules($_SESSION["user_id"]);
       $this->title = 'MATSURI PLUS : SCHEDULE';
