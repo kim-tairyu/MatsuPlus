@@ -102,9 +102,10 @@
         </select>
 
         <p>Search by tag</p>
-        <select name="tag" class="tag_li">
-            
-        </select>
+        {foreach from=$randomTags item=tag}
+        <a href="{$SCRIPT_NAME}?type=festival&festival_id={$tag.festival_id}" class="tag">{$tag.tag_name_en}</a>
+        {/foreach}
+        <br>
         <a href="#">
           <input type="submit" class="kensaku" value="検索" />
         </a>
@@ -114,14 +115,37 @@
 </div>
 
 <!--検索結果表示エリア-->
-<div class="search_results_box">
-  <div class="search_results_box_inner">
+<div class="main_content">
+  <div class="main_content_inner">
+  <div class="news_info_event">
     {foreach from=$searches item=search}
+    <div class="news_info_event_box">
+      <a href="{$SCRIPT_NAME}?festival_id={$weekFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+      <a href="{$SCRIPT_NAME}?type=festival&festival_id={$search.festival_id}">
+        <div class="news_box">
+          <div class="news_box1">
+            <img src="{_IMGS_SERVER_DIR}/{$search.image}" class="event_image">
+          </div>
+          <div class="news_box2">
+            <h4 class="news_title">{$search.festival_name_en}</h4>
+            <!--demoが表示される文章でお願いします-->
+            <div class="demo">{$search.description_en}</div>
+            <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+            <div class="date_box">
+              <h6 class="date_big2">{$search.start_date}</h6>
+              <h6 class="date_big">{$search.end_date}</h6>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    {/foreach}
+<!--
     　<div class="search_results_box1">
     　　<a href="{$SCRIPT_NAME}?type=festival&festival_id={$search.festival_id}">
         　<div class="search_results_box2">
             <div class="search_results_box2-1">
-            　　<img src="{_IMGS_DIR}/{$festival.image}" class="event_image">
+            　　<img src="{_IMGS_SERVER_DIR}/{$search.image}" class="event_image">
             </div>
             <div class="search_results_box2-2">
             　<h4 class="search_results_title">{$search.festival_name_en}</h4>
@@ -130,7 +154,8 @@
         　</div>
     　　</a>
     　</div>
-    {/foreach}
+-->
+  </div>
   </div>
 </div>
 <!--フッター（SP版では非表示になってる）-->
