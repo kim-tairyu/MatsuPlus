@@ -54,7 +54,9 @@ class FestivalModel extends BaseModel {
   // 祭り情報を取得（一件）
   public function getOneFestival($festival_id) {
     try {
-      $sql    = 'SELECT * FROM festival WHERE festival_id = ?;';
+      $sql    = 'SELECT * FROM festival
+                LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id
+                WHERE festival.festival_id = ? && festival_image.title_image = 1 ;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $festival_id);
       $stmt->execute();
@@ -68,7 +70,7 @@ class FestivalModel extends BaseModel {
   // 祭り画像を取得
   public function getFestivalImages($festival_id) {
     try {
-      $sql    = 'SELECT * FROM festival_image WHERE festival_id = ?;';
+      $sql    = 'SELECT * FROM festival_image WHERE festival_id = ? && title_image = 1;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $festival_id);
       $stmt->execute();

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-19 10:26:31
+/* Smarty version 3.1.32, created on 2018-07-24 18:55:39
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\article\article.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4fe8c7967346_84858029',
+  'unifunc' => 'content_5b56f79bd74491_62052551',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '67326e7c037ae9ad3b5f5bfa0452c820e1707845' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\article\\article.tpl',
-      1 => 1531962444,
+      1 => 1532425343,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4fe8c7967346_84858029 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b56f79bd74491_62052551 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -40,7 +40,7 @@ function content_5b4fe8c7967346_84858029 (Smarty_Internal_Template $_smarty_tpl)
 </h1>
         <!--祭りor記事画像(仮)-->
         <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <a href="#"><img src="<?php echo _IMGS_DIR;?>
+          <a href="#"><img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['article']->value['image'];?>
 " alt="祭り"></a>
         </div>
@@ -81,7 +81,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['relation']->value) {
 ?type=article&article_id=?">
               <div class="news_box">
                 <div class="news_box1">
-                  <img src="<?php echo _IMGS_DIR;?>
+                  <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['relation']->value['image'];?>
 " class="event_image">
                 </div>

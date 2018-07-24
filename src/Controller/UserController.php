@@ -354,12 +354,24 @@ class UserController extends BaseController
       }else if(isset($_SESSION["user_id"]) && isset($_POST['event'])) {
         if($_POST['event'] !==""){
           $user_id = $_SESSION["user_id"];
-          $event = $_POST['event'];
-          $place = $_POST['place'];
-          $free = $_POST['free'];
+          $event = (isset($_POST["event"])) ? $_POST["event"]:"";
+          $start_date = (isset($_POST["start_date"])) ? $_POST["start_date"]:"";
+          $start_time = (isset($_POST["start_time"])) ? $_POST["start_time"]:"";
+          $end_date = (isset($_POST["end_date"])) ? $_POST["end_date"]:"";
+          $end_time = (isset($_POST["end_time"])) ? $_POST["end_time"]:"";
+          $fes_id = (isset($_POST["festival_id"])) ? $_POST["festival_id"]:"";
+          $place = (isset($_POST["place"])) ? $_POST["place"]:"";
+          $free = (isset($_POST["free"])) ? $_POST["free"]:"";
+            
+          $s_date = $start_date." ".$start_time.":00";
+          $e_date = $end_date." ".$end_time.":00";
+
+//          $event = $_POST['event'];
+//          $place = $_POST['place'];
+//          $free = $_POST['free'];
           // スケジュール登録処理
           $scheduleModel = new ScheduleModel();
-          $scheduleModel->addSchedule($user_id, $event, $place, $free);
+          $scheduleModel->addSchedule($user_id, $event, $s_date, $e_date, $fes_id, $place, $free);
         }
       }
     }
@@ -369,8 +381,8 @@ class UserController extends BaseController
       $giftModel     = new GiftModel();
       $reviewModel   = new ReviewModel();
       $tagModel      = new TagModel();
-      $this->view->assign('festival',       $festivalModel->getOneFestival($fes_id));
-      $this->view->assign('festival_images', $festivalModel->getFestivalImages($fes_id));
+      $this->view->assign('festival',        $festivalModel->getOneFestival($this->festival_id));
+      $this->view->assign('festival_images', $festivalModel->getFestivalImages($this->festival_id));
       $this->view->assign('gifts',           $giftModel->getGifts($this->festival_id));
       $this->view->assign('reviews',         $reviewModel->getReviews($this->festival_id));
       $this->view->assign('tags',            $tagModel->getTags($this->festival_id));
