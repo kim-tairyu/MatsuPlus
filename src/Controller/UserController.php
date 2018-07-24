@@ -276,9 +276,20 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_schedule()
   {
-    $this->title = 'MATSURI PLUS : SCHEDULE';
-    $this->file  = _SCHEDULE_DIR;
-    $this->view_display();
+    if($this->action == 'calendar')
+    {
+      $scheduleModel = new ScheduleModel();
+      $scheduleModel->getSchedules($_SESSION["user_id"]);
+      $this->title = 'MATSURI PLUS : SCHEDULE';
+      $this->file  = _SCHEDULE_DIR;
+      $this->view_display();
+    }
+    else
+    {
+      $this->title = 'MATSURI PLUS : SCHEDULE';
+      $this->file  = _SCHEDULE_DIR;
+      $this->view_display();
+    }
   }
   
   //----------------------------------------------------
@@ -323,6 +334,8 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_manager()
   {
+    $userModel = new UserModel();
+    $this->view->assign('users', $userModel->getUsers());
     $this->title = 'MATSURI PLUS : MANAGER';
     $this->file  = _MANAGER_DIR;
     $this->view_display();
