@@ -20,9 +20,6 @@
         <!--設定変更-->
         <div class="set">
           <form method="post" action="{$SCRIPT_NAME}?type=config&action=update">
-            <form>
-              <input type="file" name="user_icon" accept="{_IMGS_DIR}/*">
-            </form>
             <!--ユーザーネーム変更-->
             <div class="config_box">
               <div class="config_box_name">

@@ -663,8 +663,7 @@ class UserController extends BaseController
     // ユーザ設定チェック
     else if($this->action == 'update')
     {
-      if((isset($_POST["user_icon"])) ||
-         (strlen($_POST["user_name"]) >= 8 && strlen($_POST["user_name"]) <= 16) ||
+      if((strlen($_POST["user_name"]) >= 8 && strlen($_POST["user_name"]) <= 16) ||
          (strlen($_POST["mail_address"]) >= 8 && strlen($_POST["mail_address"]) <= 32) ||
          (strlen($_POST["password"]) >= 8 && strlen($_POST["password"]) <= 16))
       {
