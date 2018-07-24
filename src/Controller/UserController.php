@@ -368,11 +368,32 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_manager()
   {
+    $controller = new ManagerController();
     $userModel = new UserModel();
+    $countryModel = new CountryModel();
     $this->view->assign('users', $userModel->getUsers());
-    $this->title = 'MATSURI PLUS : MANAGER';
-    $this->file  = _MANAGER_DIR;
-    $this->view_display();
+    $this->view->assign('countrys', $countryModel->getCountrys());
+    if($this->action == 'addAccount') {
+      if($controller->inputCheck()) {
+        $controller->addAccount();
+        $this->action = null;
+        $this->screen_manager();
+      } else {
+        $this->view->assign('errMsg', "INPUT ERROR!");
+        $this->title = 'MATSURI PLUS : MANAGER';
+        $this->file  = _MANAGER_DIR;
+        $this->view_display();
+      }
+    } else if($this->action == 'delete') {
+      $controller->deleteAccount($_POST["user_id"]);
+      $this->action = null;
+      $this->screen_manager();
+    } else {
+      $this->view->assign('errMsg', "");
+      $this->title = 'MATSURI PLUS : MANAGER';
+      $this->file  = _MANAGER_DIR;
+      $this->view_display();
+    }
   }
   
   //----------------------------------------------------
@@ -618,7 +639,7 @@ class UserController extends BaseController
   }
 
   //----------------------------------------------------
-  // 新規登録入力チェック処理
+  // 入力チェック処理
   //----------------------------------------------------
   public function inputCheck()
   {

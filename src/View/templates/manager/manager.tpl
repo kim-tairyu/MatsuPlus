@@ -36,6 +36,7 @@
                 </div>
                 <div id="panel1" class="tab_panel">
                   <div class="news_info_event">
+                    <h3>アカウント一覧</h3>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -70,24 +71,37 @@
                 </div>
                 <div id="panel1" class="tab_panel">
                   <div class="news_info_event">
-                    <form method="post" action="{$SCRIPT_NAME}?type=sign-up&action=signUp">
-                      <div><p style="color: red">エラー表示</p></div>
-                      <input type="text" class="mailaddress" name="user_id" placeholder="User ID">
-                      <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
-                      <input type="password" class="password" name="password" placeholder="Password">
-                      <input type="password" class="password" name="passwordSecond" placeholder="Password Second">
-                      <input type="text" class="name" name="user_name" placeholder="Name">
-                      <select name="country_id" class="country-width">
-                        <option value="">Select Country</option>
-                        <option value="{$country.country_id}"></option>
-                      </select>
-                      <input type="submit" class="touroku" value="Create an account">
-                    </form>
+                    <h3>アカウント作成</h3>
+                    <div class="box4-inner">
+                      <div class="adduser">
+                        <form method="post" action="{$SCRIPT_NAME}?type=manager&action=addAccount">
+                          <div><p style="color: red">{$errMsg}</p></div>
+                          <input type="text" class="mailaddress" name="user_id" placeholder="User ID">
+                          <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
+                          <input type="password" class="password" name="password" placeholder="Password">
+                          <input type="text" class="name" name="user_name" placeholder="Name">
+                          <select name="country_id" class="country-width">
+                            <option value="">Select Country</option>
+                            {foreach from=$countrys item=country}
+                            <option value="{$country.country_id}">{$country.country_name}</option>
+                            {/foreach}
+                          </select>
+                          <select name="authority" class="country-width">
+                            <option value="">Select Authority</option>
+                            <option value="comon">comon</option>
+                            <option value="editer">editer</option>
+                            <option value="manager">manager</option>
+                          </select>
+                          <input type="submit" class="touroku" value="Create an account">
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div id="panel1" class="tab_panel">
                   <!-- SPRING -->
                   <div class="news_info_event">
+                    <h3>アカウント編集</h3>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -125,6 +139,7 @@
                 <div id="panel1" class="tab_panel">
                   <!-- SPRING -->
                   <div class="news_info_event">
+                    <h3>アカウント削除</h3>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -152,7 +167,7 @@
                           <td>{$user.user_status}</td>
                           <td>{$user.user_icon}</td>
                           <td>{$user.authority}</td>
-                          <td><a>削除</a></td>
+                          <td><a href="{$SCRIPT_NAME}?type=manager&action=delete&user_id={$user.user_id}">削除</a></td>
                         </tr>
                         {/foreach}
                       </tbody>
