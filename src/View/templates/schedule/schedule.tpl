@@ -22,7 +22,7 @@
     {include file=_HEADER_DIR}
 
     <!-- maincontents -->
-    <div class="box4" id="myTapContent">
+    <div class="box4" id="myTapContent" style="margin: 30px auto;">
       <div class="box4-inner">
         <h2>SCHEDULE</h2>
         <!--カレンダー-->
