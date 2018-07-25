@@ -67,6 +67,22 @@ class FestivalModel extends BaseModel {
     return $result;
   }
   
+  // 祭り情報を取得
+  public function getOneText($festival_id) {
+    try {
+      $sql    = 'SELECT description_en,history_en,festival_program_en FROM festival
+                LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id
+                WHERE festival.festival_id = ? && festival_image.title_image = 1 ;';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->bindValue(1, $festival_id);
+      $stmt->execute();
+      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  }
+  
   // 祭り画像を取得
   public function getFestivalImages($festival_id) {
     try {

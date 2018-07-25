@@ -137,7 +137,7 @@
               <option value="3:00">3:00</option>
               <option value="3:30">3:30</option>
               <option value="4:00">4:00</option>
-              <option value="430">4:30</option>
+              <option value="4:30">4:30</option>
               <option value="5:00">5:00</option>
               <option value="5:30">5:30</option>
               <option value="6:00">6:00</option>
@@ -207,15 +207,12 @@
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p>{$festival.description_en}</p>
+          <p>{$description}</p>
         </div>
         <!--動画-->
         <div class="move col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <iframe width="800" height="400" src="//www.youtube.com/embed/-bCKCl3Gj1M?rel=0"
-          frameborder="0" allowfullscreen>
-          </iframe>
+          {$festival.movie_url}
         </div>
-        <!--<p>{$festival.movie_url}</p>-->
         <!--MAP-->
         <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q={$festival.x_coordinate},{$festival.y_coordinate}&output=embed" width=100% height="450" frameborder="0" style="border:0"></iframe>
         <!--グッズ-->
