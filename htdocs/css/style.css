@@ -91,6 +91,7 @@ header:after{content: ""; display: block; clear: both; box-shadow    : 1px 1px 1
   -webkit-box-sizing:border-box;
   box-sizing:border-box;}
 
+/*スライド*/
 .cp_cssslider {
 width: 300px;
 height: 200px;
@@ -104,11 +105,20 @@ height: 200px;
 float: left;
 position: relative;
 }
+/**/
+.carousel-inner{width: 100%; max-height: 450px; background-color: #000;}
+.carousel-inner img{width: 100%; height: auto;}
+.yazirusi1{position: relative;}
+.yazirusi1{position: absolute; top:45%; left:5%;}
+.yazirusi2{position: relative;}
+.yazirusi2{position: absolute; top:45%; right:5%;}
+
 .cp_slidewrapper {
 width: 500%;/* slideの枚数×100% */
 position: relative;
 left: 0;
-animation: slider 20s infinite ease;/* スピード */
+animation:slide 12s 0s infinite;	/*まず、各スライドに同じ@keyframesで動く様に指示*/
+animation-play-state:running;
 }
 @-webkit-keyframes slider {
 /* 100%を枚数で割った%に割り振る */
