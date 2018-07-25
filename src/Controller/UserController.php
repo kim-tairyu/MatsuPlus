@@ -376,8 +376,13 @@ class UserController extends BaseController
     $controller = new ManagerController();
     $userModel = new UserModel();
     $countryModel = new CountryModel();
+    $muniModel = new MunicipalityModel();
+    $festivalModel = new FestivalModel();
     $this->view->assign('users', $userModel->getUsers());
     $this->view->assign('countrys', $countryModel->getCountrys());
+    $this->view->assign('munis', $muniModel->getMunis());
+    $this->view->assign('festival_id', $festivalModel->getFestivalId());
+    
     if($this->action == 'addAccount') {
       if($controller->inputCheck()) {
         $controller->addAccount();
@@ -390,7 +395,22 @@ class UserController extends BaseController
         $this->view_display();
       }
     } else if($this->action == 'delete') {
-      $controller->deleteAccount($_POST["user_id"]);
+      $controller->deleteAccount($_GET['user_id']);
+      $this->action = null;
+      $this->screen_manager();
+    } else if($this->action == 'addMuniAccount') {
+      if($controller->muniInputCheck()) {
+        $controller->addMuniAccount();
+        $this->action = null;
+        $this->screen_manager();
+      } else {
+        $this->view->assign('errMsg', "INPUT ERROR!");
+        $this->title = 'MATSURI PLUS : MANAGER';
+        $this->file  = _MANAGER_DIR;
+        $this->view_display();
+      }
+    } else if($this->action == 'muni_delete') {
+      $controller->deleteMuniAccount($_GET['muni_id']);
       $this->action = null;
       $this->screen_manager();
     } else {

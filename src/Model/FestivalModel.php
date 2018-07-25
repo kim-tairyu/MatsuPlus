@@ -159,4 +159,17 @@ class FestivalModel extends BaseModel {
     }
     return $result;
   }
+  
+  //　Get Festival ID
+  public function getFestivalId() {
+    try {
+      $sql = 'SELECT festival_id FROM festival ORDER BY festival_id;';
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  }
 }

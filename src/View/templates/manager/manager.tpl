@@ -27,163 +27,281 @@
             <div class="panel_area">
               <!--WEEKタブ-->
               <div id="panel1" class="tab_panel">
-                <!--カテゴリ-->
-                <div class="week_mon3">
-                  <a href="#"><label class="tabA_label" for="tabA">アカウント一覧</label></a>
-                  <a href="#"><label class="tabB_label" for="tabB">アカウント作成</label></a>
-                  <a href="#"><label class="tabC_label" for="tabC">アカウント編集</label></a>
-                  <a href="#"><label class="tabD_label" for="tabD">アカウント削除</label></a>
-                </div>
-                <div id="panel1" class="tab_panel">
-                  <div class="news_info_event">
-                    <h3>アカウント一覧</h3>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">user_id</th>
-                          <th scope="col">password</th>
-                          <th scope="col">user_name</th>
-                          <th scope="col">mail_address</th>
-                          <th scope="col">country</th>
-                          <th scope="col">language</th>
-                          <th scope="col">user_status</th>
-                          <th scope="col">user_icon</th>
-                          <th scope="col">authority</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {foreach from=$users item=user}
-                        <tr class="table">
-                          <td>{$user.user_id}</td>
-                          <td>{$user.password}</td>
-                          <td>{$user.user_name}</td>
-                          <td>{$user.mail_address}</td>
-                          <td>{$user.country_name}</td>
-                          <td>{$user.language}</td>
-                          <td>{$user.user_status}</td>
-                          <td>{$user.user_icon}</td>
-                          <td>{$user.authority}</td>
-                        </tr>
-                        {/foreach}
-                      </tbody>
-                    </table> 
-                  </div>
-                </div>
-                <div id="panel1" class="tab_panel">
-                  <div class="news_info_event">
-                    <h3>アカウント作成</h3>
-                    <div class="box4-inner">
-                      <div class="adduser">
-                        <form method="post" action="{$SCRIPT_NAME}?type=manager&action=addAccount">
-                          <div><p style="color: red">{$errMsg}</p></div>
-                          <input type="text" class="mailaddress" name="user_id" placeholder="User ID">
-                          <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
-                          <input type="password" class="password" name="password" placeholder="Password">
-                          <input type="text" class="name" name="user_name" placeholder="Name">
-                          <select name="country_id" class="country-width">
-                            <option value="">Select Country</option>
-                            {foreach from=$countrys item=country}
-                            <option value="{$country.country_id}">{$country.country_name}</option>
+                <div id="dnweb-tabtest">
+                  <!-- タブの切替部分 -->
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#user_tab1" data-toggle="tab">アカウント一覧</a></li>
+                    <li><a href="#user_tab2" data-toggle="tab">アカウント作成</a></li>
+                    <li><a href="#user_tab3" data-toggle="tab">アカウント編集</a></li>
+                    <li><a href="#user_tab4" data-toggle="tab">アカウント削除</a></li>
+                  </ul>
+
+                  <!-- タブのコンテンツ部分 -->
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="user_tab1">
+                      <div class="news_info_event">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">user_id</th>
+                              <th scope="col">password</th>
+                              <th scope="col">user_name</th>
+                              <th scope="col">mail_address</th>
+                              <th scope="col">country</th>
+                              <th scope="col">language</th>
+                              <th scope="col">user_status</th>
+                              <th scope="col">user_icon</th>
+                              <th scope="col">authority</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {foreach from=$users item=user}
+                            <tr class="table">
+                              <td>{$user.user_id}</td>
+                              <td>{$user.password}</td>
+                              <td>{$user.user_name}</td>
+                              <td>{$user.mail_address}</td>
+                              <td>{$user.country_name}</td>
+                              <td>{$user.language}</td>
+                              <td>{$user.user_status}</td>
+                              <td>{$user.user_icon}</td>
+                              <td>{$user.authority}</td>
+                            </tr>
                             {/foreach}
-                          </select>
-                          <select name="authority" class="country-width">
-                            <option value="">Select Authority</option>
-                            <option value="comon">comon</option>
-                            <option value="editer">editer</option>
-                            <option value="manager">manager</option>
-                          </select>
-                          <input type="submit" class="touroku" value="Create an account">
-                        </form>
+                          </tbody>
+                        </table> 
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div id="panel1" class="tab_panel">
-                  <!-- SPRING -->
-                  <div class="news_info_event">
-                    <h3>アカウント編集</h3>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">user_id</th>
-                          <th scope="col">password</th>
-                          <th scope="col">user_name</th>
-                          <th scope="col">mail_address</th>
-                          <th scope="col">country</th>
-                          <th scope="col">language</th>
-                          <th scope="col">user_status</th>
-                          <th scope="col">user_icon</th>
-                          <th scope="col">authority</th>
-                          <th scope="col">編集</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {foreach from=$users item=user}
-                        <tr class="table">
-                          <td>{$user.user_id}</td>
-                          <td>{$user.password}</td>
-                          <td>{$user.user_name}</td>
-                          <td>{$user.mail_address}</td>
-                          <td>{$user.country_name}</td>
-                          <td>{$user.language}</td>
-                          <td>{$user.user_status}</td>
-                          <td>{$user.user_icon}</td>
-                          <td>{$user.authority}</td>
-                          <td><a>編集</a></td>
-                        </tr>
-                        {/foreach}
-                      </tbody>
-                    </table> 
-                  </div>
-                </div>
-                <div id="panel1" class="tab_panel">
-                  <!-- SPRING -->
-                  <div class="news_info_event">
-                    <h3>アカウント削除</h3>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">user_id</th>
-                          <th scope="col">password</th>
-                          <th scope="col">user_name</th>
-                          <th scope="col">mail_address</th>
-                          <th scope="col">country</th>
-                          <th scope="col">language</th>
-                          <th scope="col">user_status</th>
-                          <th scope="col">user_icon</th>
-                          <th scope="col">authority</th>
-                          <th scope="col">削除</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {foreach from=$users item=user}
-                        <tr class="table">
-                          <td>{$user.user_id}</td>
-                          <td>{$user.password}</td>
-                          <td>{$user.user_name}</td>
-                          <td>{$user.mail_address}</td>
-                          <td>{$user.country_name}</td>
-                          <td>{$user.language}</td>
-                          <td>{$user.user_status}</td>
-                          <td>{$user.user_icon}</td>
-                          <td>{$user.authority}</td>
-                          <td><a href="{$SCRIPT_NAME}?type=manager&action=delete&user_id={$user.user_id}">削除</a></td>
-                        </tr>
-                        {/foreach}
-                      </tbody>
-                    </table> 
+                    <div class="tab-pane" id="user_tab2">
+                      <div class="news_info_event">
+                        <div class="box4-inner">
+                          <div class="adduser">
+                            <form method="post" action="{$SCRIPT_NAME}?type=manager&action=addAccount">
+                              <div><p style="color: red">{$errMsg}</p></div>
+                              <input type="text" class="mailaddress" name="user_id" placeholder="User ID">
+                              <input type="text" class="mailaddress" name="mail_address" placeholder="Mail Address">
+                              <input type="password" class="password" name="password" placeholder="Password">
+                              <input type="text" class="name" name="user_name" placeholder="Name">
+                              <select name="country_id" class="country-width">
+                                <option value="">Select Country</option>
+                                {foreach from=$countrys item=country}
+                                <option value="{$country.country_id}">{$country.country_name}</option>
+                                {/foreach}
+                              </select>
+                              <select name="authority" class="country-width">
+                                <option value="">Select Authority</option>
+                                <option value="comon">comon</option>
+                                <option value="editer">editer</option>
+                                <option value="manager">manager</option>
+                              </select>
+                              <input type="submit" class="touroku" value="Create an account">
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="user_tab3">
+                      <div class="news_info_event">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">user_id</th>
+                              <th scope="col">password</th>
+                              <th scope="col">user_name</th>
+                              <th scope="col">mail_address</th>
+                              <th scope="col">country</th>
+                              <th scope="col">language</th>
+                              <th scope="col">user_status</th>
+                              <th scope="col">user_icon</th>
+                              <th scope="col">authority</th>
+                              <th scope="col">編集</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {foreach from=$users item=user}
+                            <tr class="table">
+                              <td>{$user.user_id}</td>
+                              <td>{$user.password}</td>
+                              <td>{$user.user_name}</td>
+                              <td>{$user.mail_address}</td>
+                              <td>{$user.country_name}</td>
+                              <td>{$user.language}</td>
+                              <td>{$user.user_status}</td>
+                              <td>{$user.user_icon}</td>
+                              <td>{$user.authority}</td>
+                              <td><a>編集</a></td>
+                            </tr>
+                            {/foreach}
+                          </tbody>
+                        </table> 
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="user_tab4">
+                      <div class="news_info_event">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">user_id</th>
+                              <th scope="col">password</th>
+                              <th scope="col">user_name</th>
+                              <th scope="col">mail_address</th>
+                              <th scope="col">country</th>
+                              <th scope="col">language</th>
+                              <th scope="col">user_status</th>
+                              <th scope="col">user_icon</th>
+                              <th scope="col">authority</th>
+                              <th scope="col">削除</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {foreach from=$users item=user}
+                            <tr class="table">
+                              <td>{$user.user_id}</td>
+                              <td>{$user.password}</td>
+                              <td>{$user.user_name}</td>
+                              <td>{$user.mail_address}</td>
+                              <td>{$user.country_name}</td>
+                              <td>{$user.language}</td>
+                              <td>{$user.user_status}</td>
+                              <td>{$user.user_icon}</td>
+                              <td>{$user.authority}</td>
+                              <td><a href="{$SCRIPT_NAME}?type=manager&action=delete&user_id={$user.user_id}">削除</a></td>
+                            </tr>
+                            {/foreach}
+                          </tbody>
+                        </table> 
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <!--MONTHタブ-->
               <div id="panel2" class="tab_panel">
-                <div class="week_mon3">
-                  <a href="#"><label class="tabA_label" for="tabA">アカウント一覧</label></a>
-                  <a href="#"><label class="tabB_label" for="tabB">アカウント作成</label></a>
-                  <a href="#"><label class="tabC_label" for="tabC">アカウント編集</label></a>
-                  <a href="#"><label class="tabD_label" for="tabD">アカウント削除</label></a>
+                <div id="dnweb-tabtest">
+                  <!-- タブの切替部分 -->
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#muni_tab1" data-toggle="tab">アカウント一覧</a></li>
+                    <li><a href="#muni_tab2" data-toggle="tab">アカウント作成</a></li>
+                    <li><a href="#muni_tab3" data-toggle="tab">アカウント編集</a></li>
+                    <li><a href="#muni_tab4" data-toggle="tab">アカウント削除</a></li>
+                  </ul>
+                  
+                  <!-- タブのコンテンツ部分 -->
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="muni_tab1">
+                      <div class="news_info_event">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">muni_id</th>
+                            <th scope="col">muni_pass</th>
+                            <th scope="col">muni_name</th>
+                            <th scope="col">festival_id</th>
+                            <th scope="col">muni_mail</th>
+                            <th scope="col">muni_tel</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {foreach from=$munis item=muni}
+                          <tr class="table">
+                            <td>{$muni.muni_id}</td>
+                            <td>{$muni.muni_pass}</td>
+                            <td>{$muni.muni_name}</td>
+                            <td>{$muni.festival_id}</td>
+                            <td>{$muni.muni_mail}</td>
+                            <td>{$muni.muni_tel}</td>
+                          </tr>
+                          {/foreach}
+                        </tbody>
+                      </table> 
+                    </div>
+                    </div>
+                    <div class="tab-pane" id="muni_tab2">
+                      <div class="news_info_event">
+                        <div class="box4-inner">
+                          <div class="adduser">
+                            <form method="post" action="{$SCRIPT_NAME}?type=manager&action=addMuniAccount">
+                              <div><p style="color: red">{$errMsg}</p></div>
+                              <input type="text" class="mailaddress" name="muni_id" placeholder="Municipality ID">
+                              <input type="password" class="password" name="muni_pass" placeholder="Municipality Password">
+                              <input type="text" class="name" name="muni_name" placeholder="Municipality Name">
+                              <select name="festival_id" class="country-width">
+                                <option value="">Select Festival ID</option>
+                                {foreach from=$festival_id item=fes_id}
+                                <option value="{$fes_id.fes_id}">{$fes_id.festival_id}</option>
+                                {/foreach}
+                              </select>
+                              <input type="text" class="name" name="muni_mail" placeholder="Municipality Mail">
+                              <input type="text" class="name" name="muni_tel" placeholder="Municipality TEL">
+                              <input type="submit" class="touroku" value="Create an municipality account">
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="muni_tab3">
+                      <div class="news_info_event">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">muni_id</th>
+                            <th scope="col">muni_pass</th>
+                            <th scope="col">muni_name</th>
+                            <th scope="col">festival_id</th>
+                            <th scope="col">muni_mail</th>
+                            <th scope="col">muni_tel</th>
+                            <th scope="col">編集</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {foreach from=$munis item=muni}
+                          <tr class="table">
+                            <td>{$muni.muni_id}</td>
+                            <td>{$muni.muni_pass}</td>
+                            <td>{$muni.muni_name}</td>
+                            <td>{$muni.festival_id}</td>
+                            <td>{$muni.muni_mail}</td>
+                            <td>{$muni.muni_tel}</td>
+                            <td><a>編集</a></td>
+                          </tr>
+                          {/foreach}
+                        </tbody>
+                      </table> 
+                    </div>
+                    </div>
+                    <div class="tab-pane" id="muni_tab4">
+                      <div class="news_info_event">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">muni_id</th>
+                            <th scope="col">muni_pass</th>
+                            <th scope="col">muni_name</th>
+                            <th scope="col">festival_id</th>
+                            <th scope="col">muni_mail</th>
+                            <th scope="col">muni_tel</th>
+                            <th scope="col">削除</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {foreach from=$munis item=muni}
+                          <tr class="table">
+                            <td>{$muni.muni_id}</td>
+                            <td>{$muni.muni_pass}</td>
+                            <td>{$muni.muni_name}</td>
+                            <td>{$muni.festival_id}</td>
+                            <td>{$muni.muni_mail}</td>
+                            <td>{$muni.muni_tel}</td>
+                            <td><a href="{$SCRIPT_NAME}?type=manager&action=muni_delete&muni_id={$muni.muni_id}">削除</a></td>
+                          </tr>
+                          {/foreach}
+                        </tbody>
+                      </table> 
+                    </div>
+                    </div>
+                  </div>
                 </div>
-              </div><!--MONTHタブ終わり-->
+              </div>
             </div><!--main終わり-->
           </div>
         </div>
