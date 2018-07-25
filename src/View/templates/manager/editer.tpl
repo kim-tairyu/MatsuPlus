@@ -19,16 +19,16 @@
                   <input id="tab2" type="radio" name="tab_btn">
                   <div class="tab_area">
                     <div class="week_mon">
-                      <a href="#"><label class="tab1_label" for="tab1">お祭り管理</lebel></a>
-                      <a href="#" class="month2"><label class="tab2_label" for="tab2">記事管理</lebel></a>
+                      <a href="#"><label class="tab1_label" for="tab1">お祭り管理</label></a>
+                      <a href="#" class="month2"><label class="tab2_label" for="tab2">記事管理</label></a>
                     </div>
                   </div>
                   <!--main-->
                   <div class="panel_area">
                     <!--WEEKタブ-->
                     <div id="panel1" class="tab_panel">
-                      <p>お祭り管理(タブが切り替わってることを確認するためです消してください)</p>
                       <div class="week_mon3">
+                        <a href="#">お祭り情報一覧</a>
                         <a href="#">お祭り情報作成</a>
                         <a href="#">お祭り情報編集</a>
                         <a href="#">お祭り情報削除</a>
@@ -36,11 +36,11 @@
                     </div>
                     <!--MONTHタブ-->
                     <div id="panel2" class="tab_panel">
-                      <p>記事管理(タブが切り替わってることを確認するためです消してください)</p>
                       <div class="week_mon3">
-                        <a href="#">お祭り情報作成</a>
-                        <a href="#">お祭り情報編集</a>
-                        <a href="#">お祭り情報削除</a>
+                        <a href="#">記事情報一覧</a>
+                        <a href="#">記事情報作成</a>
+                        <a href="#">記事情報編集</a>
+                        <a href="#">記事情報削除</a>
                       </div>
                     </div><!--MONTHタブ終わり-->
                   </div><!--main終わり-->

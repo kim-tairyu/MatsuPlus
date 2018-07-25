@@ -418,6 +418,24 @@ color: #e60033; opacity: 0.8; margin-top: 10px;
 /**/
 .fev_button_box img{margin-bottom: 5px;}
 
+/**/
+.flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.flex > *{
+  position: relative;
+  flex-basis: 33.33333%;
+  margin-bottom: 20px;
+}
+.flex,
+.flex > *{
+  padding: 0px 10px 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
 
 /*変更*/
 .schedule_info_day{}
@@ -425,7 +443,9 @@ color: #e60033; opacity: 0.8; margin-top: 10px;
 .news_info_event:after{content: ""; display: block; clear: both;}
 .news_info_event_box{
   position: relative;
-  float: left; width: 33.333%;
+  float: left;
+  width : -webkit-calc(100% / 3);
+  width : calc(100% / 3);
   padding: 0px 10px 10px;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
@@ -445,6 +465,8 @@ color: #e60033; padding-top: 2px; opacity: 1;}
   box-shadow:3px 3px 3px 3px  #ccc;}
 .news_box:after{content: ""; display: block; clear: both;}
 .news_box1{width: 100%; height: auto; float: left;}
+.news_box1-1{width: 100%; height: auto; float: left;}
+.news_box1-1 img{max-height: 165px; min-height: 165px;}
 .news_box2{width: 100%; height: auto; float: left;}
 /*季節*/
 .sebox{width: 100%; height: auto; margin-bottom: 35px;}
@@ -1025,11 +1047,15 @@ margin-bottom: 10px;}
   background: #e60033;
   color: #fff;
   border-radius: 3px;}
+  input[type="text"]:focus {
+  outline: 0;
+}
 .kensaku{
   width: 200px;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
+   outline: none;
   background: red;
   color: #ffff;
   border-radius: 20px;
@@ -1228,6 +1254,8 @@ table{width:90%;}
 .comment p{ text-align:center;}
 .search_results_box1{width: 100%;}
 .search_results_box1-1{width: 100%;}
+.flex > *{flex-basis: 100%;}
+.news_box1-1 img{max-height: 330px; min-height: 143px;}
 }
 
 /*768px以上*/

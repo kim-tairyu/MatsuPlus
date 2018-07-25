@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 14:13:23
+/* Smarty version 3.1.32, created on 2018-07-24 07:52:57
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55e2830493f2_31613464',
+  'unifunc' => 'content_5b56dad9acc1e4_09031965',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '23afcfe27217092ac2324c9e8c0138ab520539d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl',
-      1 => 1532355121,
+      1 => 1532418776,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55e2830493f2_31613464 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b56dad9acc1e4_09031965 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -44,16 +44,16 @@ function content_5b55e2830493f2_31613464 (Smarty_Internal_Template $_smarty_tpl)
                   <input id="tab2" type="radio" name="tab_btn">
                   <div class="tab_area">
                     <div class="week_mon">
-                      <a href="#"><label class="tab1_label" for="tab1">お祭り管理</lebel></a>
-                      <a href="#" class="month2"><label class="tab2_label" for="tab2">記事管理</lebel></a>
+                      <a href="#"><label class="tab1_label" for="tab1">お祭り管理</label></a>
+                      <a href="#" class="month2"><label class="tab2_label" for="tab2">記事管理</label></a>
                     </div>
                   </div>
                   <!--main-->
                   <div class="panel_area">
                     <!--WEEKタブ-->
                     <div id="panel1" class="tab_panel">
-                      <p>お祭り管理(タブが切り替わってることを確認するためです消してください)</p>
                       <div class="week_mon3">
+                        <a href="#">お祭り情報一覧</a>
                         <a href="#">お祭り情報作成</a>
                         <a href="#">お祭り情報編集</a>
                         <a href="#">お祭り情報削除</a>
@@ -61,11 +61,11 @@ function content_5b55e2830493f2_31613464 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                     <!--MONTHタブ-->
                     <div id="panel2" class="tab_panel">
-                      <p>記事管理(タブが切り替わってることを確認するためです消してください)</p>
                       <div class="week_mon3">
-                        <a href="#">お祭り情報作成</a>
-                        <a href="#">お祭り情報編集</a>
-                        <a href="#">お祭り情報削除</a>
+                        <a href="#">記事情報一覧</a>
+                        <a href="#">記事情報作成</a>
+                        <a href="#">記事情報編集</a>
+                        <a href="#">記事情報削除</a>
                       </div>
                     </div><!--MONTHタブ終わり-->
                   </div><!--main終わり-->

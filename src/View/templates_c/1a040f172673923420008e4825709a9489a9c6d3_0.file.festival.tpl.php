@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 11:22:00
+/* Smarty version 3.1.32, created on 2018-07-24 09:26:12
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55ba5862f252_89767000',
+  'unifunc' => 'content_5b56f0b4e87ab2_00259919',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a040f172673923420008e4825709a9489a9c6d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl',
-      1 => 1532344917,
+      1 => 1532424364,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55ba5862f252_89767000 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b56f0b4e87ab2_00259919 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -262,7 +262,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['review']->value) {
             <div class="">
               <div class="comment_user_img">
                   <img src="<?php echo _IMGS_SERVER_DIR;?>
-/<?php echo $_SESSION['user_icon'];?>
+/<?php echo $_smarty_tpl->tpl_vars['review']->value['user_icon'];?>
 " alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">

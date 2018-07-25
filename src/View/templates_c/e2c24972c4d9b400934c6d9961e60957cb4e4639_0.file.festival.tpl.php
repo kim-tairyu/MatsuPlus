@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 12:19:28
+/* Smarty version 3.1.32, created on 2018-07-23 16:08:33
   from 'C:\xampp\htdocs\kimu\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55abb0779d39_11756234',
+  'unifunc' => 'content_5b55e161f09705_61716032',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e2c24972c4d9b400934c6d9961e60957cb4e4639' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\festival\\festival.tpl',
-      1 => 1532323317,
+      1 => 1532354437,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55abb0779d39_11756234 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b55e161f09705_61716032 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -262,7 +262,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['review']->value) {
             <div class="">
               <div class="comment_user_img">
                   <img src="<?php echo _IMGS_SERVER_DIR;?>
-/user.jpg" alt="ユーザーアイコン">
+/<?php echo $_SESSION['user_icon'];?>
+" alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">
                 <?php ob_start();
@@ -271,7 +272,7 @@ $_prefixVariable1 = ob_get_clean();
 $_smarty_tpl->tpl_vars['evaluation'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['evaluation']->step = 1;$_smarty_tpl->tpl_vars['evaluation']->total = (int) ceil(($_smarty_tpl->tpl_vars['evaluation']->step > 0 ? $_prefixVariable1+1 - (1) : 1-($_prefixVariable1)+1)/abs($_smarty_tpl->tpl_vars['evaluation']->step));
 if ($_smarty_tpl->tpl_vars['evaluation']->total > 0) {
 for ($_smarty_tpl->tpl_vars['evaluation']->value = 1, $_smarty_tpl->tpl_vars['evaluation']->iteration = 1;$_smarty_tpl->tpl_vars['evaluation']->iteration <= $_smarty_tpl->tpl_vars['evaluation']->total;$_smarty_tpl->tpl_vars['evaluation']->value += $_smarty_tpl->tpl_vars['evaluation']->step, $_smarty_tpl->tpl_vars['evaluation']->iteration++) {
-$_smarty_tpl->tpl_vars['evaluation']->first = $_smarty_tpl->tpl_vars['evaluation']->iteration === 1;$_smarty_tpl->tpl_vars['evaluation']->last = $_smarty_tpl->tpl_vars['evaluation']->iteration === $_smarty_tpl->tpl_vars['evaluation']->total;?><p>☆</p><?php }
+$_smarty_tpl->tpl_vars['evaluation']->first = $_smarty_tpl->tpl_vars['evaluation']->iteration === 1;$_smarty_tpl->tpl_vars['evaluation']->last = $_smarty_tpl->tpl_vars['evaluation']->iteration === $_smarty_tpl->tpl_vars['evaluation']->total;?><p>★</p><?php }
 }
 ?>
               </div>

@@ -62,4 +62,32 @@ class UserModel extends BaseModel {
     }
   }
   
+  // ユーザ情報を取得（ユーザ一覧）
+  public function getUsers() {
+    try {
+      $sql    = 'SELECT * FROM user 
+                LEFT JOIN country ON user.country_id = country.country_id 
+                LEFT JOIN language ON user.language_id = language.language_id
+                ORDER BY user.user_id';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  }
+  
+  // アカウント削除
+  public function deleteAccount($user_id) {
+    try {
+      $sql    = 'DELETE FROM user WHERE user_id = ?;';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->bindValue(1, $user_id);
+      $stmt->execute();
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+  }
+  
 }

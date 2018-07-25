@@ -45,7 +45,7 @@
             <div class="panel_area">
               <!--WEEKタブ-->
               <div id="panel1" class="tab_panel">
-                <div class="news_info_event">
+                <div class="flex">
                   {foreach from=$weekFestivals item=weekFestival}
                   <div class="news_info_event_box">
                     <a href="{$SCRIPT_NAME}?festival_id={$weekFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
@@ -74,7 +74,7 @@
               </div>
               <!--MONTHタブ-->
               <div id="panel2" class="tab_panel">
-                <div class="news_info_event">
+                <div class="flex">
                   {foreach from=$monthFestivals item=monthFestival}
                   <div class="news_info_event_box">
                     <a href="{$SCRIPT_NAME}?festival_id={$monthFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
@@ -118,7 +118,7 @@
                 <a href="{$SCRIPT_NAME}?article_id={$article.article_id}&action=article_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
               <a href="{$SCRIPT_NAME}?type=article&article_id={$article.article_id}">
                 <div class="news_box">
-                  <div class="news_box1">
+                  <div class="news_box1-1">
                     <img src="{_IMGS_SERVER_DIR}/{$article.image}" class="event_image">
                   </div>
                   <div class="news_box2">
@@ -161,7 +161,7 @@
             <!--季節タブ-->
             <div id="panelA" class="tab_panel2">
             <!-- SPRING -->
-            <div class="news_info_event">
+            <div class="flex">
               {foreach from=$springFestivals item=springFestival}
               <div class="news_info_event_box">
                 <a href="{$SCRIPT_NAME}?festival_id={$springFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
@@ -175,8 +175,8 @@
                       <div class="demo">{$springFestival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2">{$springFestival.start_date}</h6>
+                        <h6 class="date_big">{$springFestival.end_date}</h6>
                       </div>
                     </div>
                   </div>
@@ -188,7 +188,7 @@
           <!--季節タブ-->
           <div id="panelB" class="tab_panel2">
               <!-- SUMMER -->
-              <div class="news_info_event">
+              <div class="flex">
               {foreach from=$summerFestivals item=summerFestival}
               <div class="news_info_event_box">
                 <a href="{$SCRIPT_NAME}?festival_id={$summerFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
@@ -202,8 +202,8 @@
                       <div class="demo">{$summerFestival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2">{$summerFestival.start_date}</h6>
+                        <h6 class="date_big">{$summerFestival.end_date}</h6>
                       </div>
                     </div>
                   </div>
@@ -215,7 +215,7 @@
             <!--季節タブ-->
             <div id="panelC" class="tab_panel2">
               <!-- AUTUMN -->
-              <div class="news_info_event">
+              <div class="flex">
               {foreach from=$autumnFestivals item=autumnFestival}
               <div class="news_info_event_box">
                 <a href="{$SCRIPT_NAME}?festival_id={$autumnFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
@@ -229,8 +229,8 @@
                       <div class="demo">{$autumnFestival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2">{$autumnFestival.start_date}</h6>
+                        <h6 class="date_big">{$autumnFestival.end_date}</h6>
                       </div>
                     </div>
                   </div>
@@ -242,7 +242,7 @@
               <!--季節タブ-->
               <div id="panelD" class="tab_panel2">
               <!-- WINTER -->
-              <div class="news_info_event">
+              <div class="flex">
               {foreach from=$winterFestivals item=winterFestival}
               <div class="news_info_event_box">
                 <a href="{$SCRIPT_NAME}?festival_id={$winterFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
@@ -256,8 +256,8 @@
                       <div class="demo">{$winterFestival.description_en}</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
-                        <h6 class="date_big2"></h6>
-                        <h6 class="date_big"></h6>
+                        <h6 class="date_big2">{$winterFestival.start_date}</h6>
+                        <h6 class="date_big">{$winterFestival.end_date}</h6>
                       </div>
                     </div>
                   </div>

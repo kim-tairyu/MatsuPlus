@@ -79,4 +79,19 @@ class TagModel extends BaseModel {
     }
     return $result;
   }
+  
+  // ランダムでタグを取得
+  public function getRandomTags() {
+    try {
+      $sql = 'SELECT DISTINCT tag_name_en, festival.festival_id FROM festival_tag 
+              LEFT JOIN festival ON festival_tag.festival_id = festival.festival_id
+              ORDER BY RAND() LIMIT 5;';
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  } 
 }

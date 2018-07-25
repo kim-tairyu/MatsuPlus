@@ -2,4 +2,7 @@
 /src/init.php
 
 # MacOSフォルダ表示設定ファイル
-/.DS_Store
+.DS_Store
+
+# コンパイルファイル
+src/View/templates_c/
