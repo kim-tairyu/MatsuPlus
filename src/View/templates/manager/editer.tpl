@@ -27,11 +27,22 @@
                   <div class="panel_area">
                     <!--WEEKタブ-->
                     <div id="panel1" class="tab_panel">
-                      <div class="week_mon3">
-                        <a href="#">お祭り情報一覧</a>
-                        <a href="#">お祭り情報作成</a>
-                        <a href="#">お祭り情報編集</a>
-                        <a href="#">お祭り情報削除</a>
+                      <div id="dnweb-tabtest">
+                          <!-- タブの切替部分 -->
+                          <ul class="nav nav-tabs">
+                              <li class="active"><a href="#tabtest1" data-toggle="tab">1</a></li>
+                              <li><a href="#tabtest2" data-toggle="tab">2</a></li>
+                              <li><a href="#tabtest3" data-toggle="tab">3</a></li>
+                              <li><a href="#tabtest4" data-toggle="tab">4</a></li>
+                          </ul>
+
+                          <!-- タブのコンテンツ部分 -->
+                          <div class="tab-content">
+                              <div class="tab-pane active" id="tabtest1">AAAA</div>
+                              <div class="tab-pane" id="tabtest2">BBBB</div>
+                              <div class="tab-pane" id="tabtest3">CCCC</div>
+                              <div class="tab-pane" id="tabtest4">DDDD</div>
+                          </div>
                       </div>
                     </div>
                     <!--MONTHタブ-->

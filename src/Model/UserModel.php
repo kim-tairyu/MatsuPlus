@@ -78,4 +78,16 @@ class UserModel extends BaseModel {
     return $result;
   }
   
+  // アカウント削除
+  public function deleteAccount($user_id) {
+    try {
+      $sql    = 'DELETE FROM user WHERE user_id = ?;';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->bindValue(1, $user_id);
+      $stmt->execute();
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+  }
+  
 }

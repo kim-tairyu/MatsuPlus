@@ -137,39 +137,49 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_search()
   {
-    $searchModel = new SearchModel();
+    $festivalModel = new FestivalModel();
+    $tagModel = new TagModel();
     $this->title = 'MATSURI PLUS : SEARCH';
     if($this->action == 'kensaku'){
-        if(isset($_POST["festival_name"]) && !empty($_POST['festival_name']) && $_POST['festival_name'] == !null){
-            $name = $_POST["festival_name"];
-            // 名前検索
-            $this->view->assign('searches', $searchModel->getNameSearch($name));
-            $this->file  = _SEARCH_DIR;
-            $this->view_display();
-            exit;
-        }  
-        else if(isset($_POST['location']) && !empty($_POST['location']) && $_POST['location'] == !null){
-            $location = $_POST['location'];
-            // 開催地検索
-            $this->view->assign('searches', $searchModel->getLocationSearch($location));
-            $this->file  = _SEARCH_DIR;
-            $this->view_display();
-            exit;
-        }
-        else if(isset($_POST["start_date"]) && !empty($_POST['start_date']) && $_POST['start_date'] == !null){
-            $start_date = $_POST["start_date"];
-            // 開催日検索
-            $this->view->assign('searches', $searchModel->getStartDateSearch($start_date));
-            $this->file  = _SEARCH_DIR;
-            $this->view_display();
-            exit;
-        }
-    }
-    else {
-        $this->view->assign('searches', $searchModel->getRecommendFestivals());
+      if(isset($_POST["festival_name"]) && !empty($_POST['festival_name']) && $_POST['festival_name'] == !null){
+          $name = $_POST["festival_name"];
+          // 名前検索
+          $this->view->assign('searches', $festivalModel->getNameSearch($name));
+          $this->view->assign('randomTags', $tagModel->getRandomTags());
+          $this->file  = _SEARCH_DIR;
+          $this->view_display();
+          exit;
+      }  
+      else if(isset($_POST['location']) && !empty($_POST['location']) && $_POST['location'] == !null){
+          $location = $_POST['location'];
+          // 開催地検索
+          $this->view->assign('searches', $festivalModel->getLocationSearch($location));
+          $this->view->assign('randomTags', $tagModel->getRandomTags());
+          $this->file  = _SEARCH_DIR;
+          $this->view_display();
+          exit;
+      }
+      else if(isset($_POST["start_date"]) && !empty($_POST['start_date']) && $_POST['start_date'] == !null){
+          $start_date = $_POST["start_date"];            
+          // 開催日検索
+          $this->view->assign('searches', $festivalModel->getStartDateSearch($start_date));
+          $this->view->assign('randomTags', $tagModel->getRandomTags());
+          $this->file  = _SEARCH_DIR;
+          $this->view_display();
+          exit;
+      }
+      else {
+        $this->view->assign('searches', $festivalModel->getRecommendFestivals());
+        $this->view->assign('randomTags', $tagModel->getRandomTags());
         $this->file  = _SEARCH_DIR;
         $this->view_display();
-        exit;
+      }
+    }
+    else {
+        $this->view->assign('searches', $festivalModel->getRecommendFestivals());
+        $this->view->assign('randomTags', $tagModel->getRandomTags());
+        $this->file  = _SEARCH_DIR;
+        $this->view_display();
     }
   }
   
@@ -307,18 +317,14 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_schedule()
   {
-    if($this->action == 'calendar')
+    if($this->action == "calendar")
     {
-      echo "ok";
-      exit;
       $scheduleModel = new ScheduleModel();
       $scheduleModel->getSchedules($_SESSION["user_id"]);
       $this->title = 'MATSURI PLUS : SCHEDULE';
       $this->file  = _SCHEDULE_DIR;
       $this->view_display();
-    }
-    else
-    {
+    } else {
       $this->title = 'MATSURI PLUS : SCHEDULE';
       $this->file  = _SCHEDULE_DIR;
       $this->view_display();
@@ -368,11 +374,52 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_manager()
   {
+    $controller = new ManagerController();
     $userModel = new UserModel();
+    $countryModel = new CountryModel();
+    $muniModel = new MunicipalityModel();
+    $festivalModel = new FestivalModel();
     $this->view->assign('users', $userModel->getUsers());
-    $this->title = 'MATSURI PLUS : MANAGER';
-    $this->file  = _MANAGER_DIR;
-    $this->view_display();
+    $this->view->assign('countrys', $countryModel->getCountrys());
+    $this->view->assign('munis', $muniModel->getMunis());
+    $this->view->assign('festival_id', $festivalModel->getFestivalId());
+    
+    if($this->action == 'addAccount') {
+      if($controller->inputCheck()) {
+        $controller->addAccount();
+        $this->action = null;
+        $this->screen_manager();
+      } else {
+        $this->view->assign('errMsg', "INPUT ERROR!");
+        $this->title = 'MATSURI PLUS : MANAGER';
+        $this->file  = _MANAGER_DIR;
+        $this->view_display();
+      }
+    } else if($this->action == 'delete') {
+      $controller->deleteAccount($_GET['user_id']);
+      $this->action = null;
+      $this->screen_manager();
+    } else if($this->action == 'addMuniAccount') {
+      if($controller->muniInputCheck()) {
+        $controller->addMuniAccount();
+        $this->action = null;
+        $this->screen_manager();
+      } else {
+        $this->view->assign('errMsg', "INPUT ERROR!");
+        $this->title = 'MATSURI PLUS : MANAGER';
+        $this->file  = _MANAGER_DIR;
+        $this->view_display();
+      }
+    } else if($this->action == 'muni_delete') {
+      $controller->deleteMuniAccount($_GET['muni_id']);
+      $this->action = null;
+      $this->screen_manager();
+    } else {
+      $this->view->assign('errMsg', "");
+      $this->title = 'MATSURI PLUS : MANAGER';
+      $this->file  = _MANAGER_DIR;
+      $this->view_display();
+    }
   }
   
   //----------------------------------------------------
@@ -638,7 +685,7 @@ class UserController extends BaseController
   }
 
   //----------------------------------------------------
-  // 新規登録入力チェック処理
+  // 入力チェック処理
   //----------------------------------------------------
   public function inputCheck()
   {

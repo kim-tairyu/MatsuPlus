@@ -9,7 +9,7 @@ class ScheduleModel extends BaseModel {
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
       $stmt->execute();
-      while($array = $select->fetch(PDO::FETCH_ASSOC)){
+      while($array = $stmt->fetchAll(PDO::FETCH_ASSOC)){
         $fesData[]=array(
           'id'=>$array['schedule_id'],//カレンダー内部で利用するID
           'title'=>$array['schedule_name'],//カレンダーに表示されるタイトル

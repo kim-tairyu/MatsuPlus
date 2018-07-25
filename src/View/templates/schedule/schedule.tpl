@@ -11,7 +11,7 @@
       $(function () {
         $('#calendar').fullCalendar(
           {
-            events:'{$SCRIPT_NAME}?type=schedule&action=calendar',//表示するJSONのリンク
+            events:'{_CONTROLLER_CLASS_DIR}/ScheduleController.php',//表示するJSONのリンク
           }
         );
       });
@@ -22,7 +22,7 @@
     {include file=_HEADER_DIR}
 
     <!-- maincontents -->
-    <div class="box4" id="myTapContent">
+    <div class="box4" id="myTapContent" style="margin: 30px auto;">
       <div class="box4-inner">
         <h2>SCHEDULE</h2>
         <!--カレンダー-->
