@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 05:20:55
+/* Smarty version 3.1.32, created on 2018-07-25 17:56:36
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\article\article.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b578a27c972b0_74295482',
+  'unifunc' => 'content_5b583b44931e77_54006756',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '67326e7c037ae9ad3b5f5bfa0452c820e1707845' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\article\\article.tpl',
-      1 => 1532462647,
+      1 => 1532508983,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b578a27c972b0_74295482 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b583b44931e77_54006756 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -78,7 +78,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['relation']->value) {
 ?>
           <div class="news_info_event_box">
             <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=article&article_id=?">
+?type=article&article_id=<?php echo $_smarty_tpl->tpl_vars['relation']->value['article_id'];?>
+">
               <div class="news_box">
                 <div class="news_box1">
                   <img src="<?php echo _IMGS_SERVER_DIR;?>

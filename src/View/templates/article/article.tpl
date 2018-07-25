@@ -41,7 +41,7 @@
           <!--記事1-->
           {foreach from=$relation_tag item=relation}
           <div class="news_info_event_box">
-            <a href="{$SCRIPT_NAME}?type=article&article_id=?">
+            <a href="{$SCRIPT_NAME}?type=article&article_id={$relation.article_id}">
               <div class="news_box">
                 <div class="news_box1">
                   <img src="{_IMGS_SERVER_DIR}/{$relation.image}" class="event_image">
