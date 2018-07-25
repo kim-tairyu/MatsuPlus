@@ -17,6 +17,19 @@ class ArticleModel extends BaseModel {
     return $result;
   }
 
+  // 記事情報を取得（一覧）
+  public function getArticlesInfo() {
+    try {
+      $sql    = 'SELECT * FROM article;';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  }
+  
   // 記事情報を取得（一件）
   public function getOneArticle($article_id) {
     try {
@@ -86,5 +99,20 @@ class ArticleModel extends BaseModel {
       die('DB ERROR:'.$e->getMesseage);
     }
     return $result;
+  }
+  
+  public function addArticle($article_name, $festival_id, $text){
+    try {
+      $sql  = 'INSERT INTO article (
+        article_name, festival_id, text
+      ) VALUES (?, ?, ?);';
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(1, $article_name);
+      $stmt->bindValue(2, $festival_id);
+      $stmt->bindValue(3, $text);
+      $stmt->execute();
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
   }
 }

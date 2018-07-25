@@ -140,46 +140,50 @@ class UserController extends BaseController
     $festivalModel = new FestivalModel();
     $tagModel = new TagModel();
     $this->title = 'MATSURI PLUS : SEARCH';
-    if($this->action == 'kensaku'){
+    $this->view->assign('randomTags', $tagModel->getRandomTags());
+    
+    if($this->action == 'kensaku') {
       if(isset($_POST["festival_name"]) && !empty($_POST['festival_name']) && $_POST['festival_name'] == !null){
           $name = $_POST["festival_name"];
           // 名前検索
           $this->view->assign('searches', $festivalModel->getNameSearch($name));
-          $this->view->assign('randomTags', $tagModel->getRandomTags());
           $this->file  = _SEARCH_DIR;
           $this->view_display();
-          exit;
       }  
       else if(isset($_POST['location']) && !empty($_POST['location']) && $_POST['location'] == !null){
           $location = $_POST['location'];
           // 開催地検索
           $this->view->assign('searches', $festivalModel->getLocationSearch($location));
-          $this->view->assign('randomTags', $tagModel->getRandomTags());
           $this->file  = _SEARCH_DIR;
           $this->view_display();
-          exit;
       }
       else if(isset($_POST["start_date"]) && !empty($_POST['start_date']) && $_POST['start_date'] == !null){
           $start_date = $_POST["start_date"];            
           // 開催日検索
           $this->view->assign('searches', $festivalModel->getStartDateSearch($start_date));
-          $this->view->assign('randomTags', $tagModel->getRandomTags());
           $this->file  = _SEARCH_DIR;
           $this->view_display();
-          exit;
       }
       else {
         $this->view->assign('searches', $festivalModel->getRecommendFestivals());
-        $this->view->assign('randomTags', $tagModel->getRandomTags());
         $this->file  = _SEARCH_DIR;
         $this->view_display();
       }
     }
+    else if($this->action == 'kensaku_tag') {
+      $this->view->assign('searches', $tagModel->getAreaTags($_GET['area']));
+      $this->file  = _SEARCH_DIR;
+      $this->view_display();
+    }
+    else if($this->action == 'festival_tag') {
+      $this->view->assign('searches', $tagModel->getAreaTags($_GET['tag_name']));
+      $this->file  = _SEARCH_DIR;
+      $this->view_display();
+    }
     else {
-        $this->view->assign('searches', $festivalModel->getRecommendFestivals());
-        $this->view->assign('randomTags', $tagModel->getRandomTags());
-        $this->file  = _SEARCH_DIR;
-        $this->view_display();
+      $this->view->assign('searches', $festivalModel->getRecommendFestivals());
+      $this->file  = _SEARCH_DIR;
+      $this->view_display();
     }
   }
   
@@ -368,9 +372,30 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_editer()
   {
+    $festivalModel = new FestivalModel();
+    $articleModel = new ArticleModel();
+    $this->view->assign('festivals', $festivalModel->getFestivals());
+    $this->view->assign('articles', $articleModel->getArticlesInfo());
+    $this->view->assign('festival_id', $festivalModel->getFestivalId());
     $this->title = 'MATSURI PLUS : EDITER';
-    $this->file  = _EDITER_DIR;
-    $this->view_display();
+    
+    if($this->action == 'addArticle') {
+      if(!isset($_POST['article_name']) ||
+         !isset($_POST['festival_id']) ||
+         !isset($_POST['text'])) {
+        $this->view->assign('errMsg', "INPUT ERROR!");
+        $this->file  = _EDITER_DIR;
+        $this->view_display();
+      } else {
+        $articleModel->addArticle($_POST['article_name'], $_POST['festival_id'], $_POST['text']);
+        $this->action = null;
+        $this->screen_editer();
+      }
+    } else {
+      $this->view->assign('errMsg', "");
+      $this->file  = _EDITER_DIR;
+      $this->view_display();
+    }
   }
   
   //----------------------------------------------------

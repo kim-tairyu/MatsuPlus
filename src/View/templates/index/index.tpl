@@ -276,31 +276,31 @@
           <!--地方エリア-->
           <div class="tab-pane fade" id="area">
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=hokkaidou"><img src="{_IMGS_DIR}/hokkaidou.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=hokkaido"><img src="{_IMGS_DIR}/hokkaidou.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=tohoku"><img src="{_IMGS_DIR}/tohoku.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=tohoku"><img src="{_IMGS_DIR}/tohoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=kinki"><img src="{_IMGS_DIR}/kinki.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=kinki"><img src="{_IMGS_DIR}/kinki.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=kanto"><img src="{_IMGS_DIR}/kanto.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=kanto"><img src="{_IMGS_DIR}/kanto.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=chubu"><img src="{_IMGS_DIR}/chubu.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=chubu"><img src="{_IMGS_DIR}/chubu.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=chugoku"><img src="{_IMGS_DIR}/chugoku.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=shikoku"><img src="{_IMGS_DIR}/shikoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=shikoku"><img src="{_IMGS_DIR}/shikoku.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=kyushu"><img src="{_IMGS_DIR}/kyushu.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=kyushu"><img src="{_IMGS_DIR}/kyushu.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=chugoku"><img src="{_IMGS_DIR}/chugoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
-              <a href="{$SCRIPT_NAME}?type=search&area=okinawa"><img src="{_IMGS_DIR}/okinawa.jpg" alt=""></a>
+              <a href="{$SCRIPT_NAME}?type=search&action=kensaku_tag&area=okinawa"><img src="{_IMGS_DIR}/okinawa.jpg" alt=""></a>
             </div>
           </div>
         </div>

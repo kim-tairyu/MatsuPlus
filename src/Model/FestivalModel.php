@@ -38,7 +38,7 @@ class FestivalModel extends BaseModel {
     return $result;
   }
   
-  // 祭り情報を取得（全件）
+  // 祭り情報を取得（一覧）
   public function getFestivals() {
     try {
       $sql    = 'SELECT * FROM festival;';
@@ -143,7 +143,6 @@ class FestivalModel extends BaseModel {
   //　開催地検索
   public function getLocationSearch($location) {
     try {
-      $location = $_POST['location'];
       $location = " '%{$location}%' ";
       $sql = 'SELECT * FROM festival 
               LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id 
@@ -178,10 +177,10 @@ class FestivalModel extends BaseModel {
     return $result;
   }
   
-  //　Get Festival ID
+  //　Get Festival ID AND NAME
   public function getFestivalId() {
     try {
-      $sql = 'SELECT festival_id FROM festival ORDER BY festival_id;';
+      $sql = 'SELECT festival_id, festival_name_en FROM festival ORDER BY festival_id;';
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute();
       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

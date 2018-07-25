@@ -226,14 +226,14 @@
                               <input type="password" class="password" name="muni_pass" placeholder="Municipality Password">
                               <input type="text" class="name" name="muni_name" placeholder="Municipality Name">
                               <select name="festival_id" class="country-width">
-                                <option value="">Select Festival ID</option>
+                                <option value="">Select Festival</option>
                                 {foreach from=$festival_id item=fes_id}
-                                <option value="{$fes_id.fes_id}">{$fes_id.festival_id}</option>
+                                <option value="{$fes_id.festival_id}">{$fes_id.festival_name_en}</option>
                                 {/foreach}
                               </select>
                               <input type="text" class="name" name="muni_mail" placeholder="Municipality Mail">
                               <input type="text" class="name" name="muni_tel" placeholder="Municipality TEL">
-                              <input type="submit" class="touroku" value="Create an municipality account">
+                              <input type="submit" class="touroku" value="Create a municipality account">
                             </form>
                           </div>
                         </div>

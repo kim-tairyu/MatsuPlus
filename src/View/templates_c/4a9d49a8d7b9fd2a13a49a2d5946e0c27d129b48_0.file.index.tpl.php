@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 10:56:08
+/* Smarty version 3.1.32, created on 2018-07-25 11:33:44
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5705c83209c1_85928914',
+  'unifunc' => 'content_5b586018ab1d15_81867023',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4a9d49a8d7b9fd2a13a49a2d5946e0c27d129b48' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/index/index.tpl',
-      1 => 1532429765,
+      1 => 1532518419,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5705c83209c1_85928914 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b586018ab1d15_81867023 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -70,7 +70,7 @@ function content_5b5705c83209c1_85928914 (Smarty_Internal_Template $_smarty_tpl)
             <div class="panel_area">
               <!--WEEKタブ-->
               <div id="panel1" class="tab_panel">
-                <div class="news_info_event">
+                <div class="flex">
                   <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['weekFestivals']->value, 'weekFestival');
 if ($_from !== null) {
@@ -118,7 +118,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               </div>
               <!--MONTHタブ-->
               <div id="panel2" class="tab_panel">
-                <div class="news_info_event">
+                <div class="flex">
                   <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['monthFestivals']->value, 'monthFestival');
 if ($_from !== null) {
@@ -176,6 +176,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <div class="tab-pane fade" id="news">
             <!--wrapのようなもの-->
             <!--記事1-->
+            <div class="flex">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articles']->value, 'article');
 if ($_from !== null) {
@@ -189,7 +190,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
 ?type=article&article_id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
 ">
                 <div class="news_box">
-                  <div class="news_box1">
+                  <div class="news_box1-1">
                     <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['article']->value['image'];?>
 " class="event_image">
@@ -218,6 +219,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </div>
+        </div>
 
           <!--季節リア-->
         <div class="tab-pane fade" id="season">
@@ -242,7 +244,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <!--季節タブ-->
             <div id="panelA" class="tab_panel2">
             <!-- SPRING -->
-            <div class="news_info_event">
+            <div class="flex">
               <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['springFestivals']->value, 'springFestival');
 if ($_from !== null) {
@@ -286,7 +288,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <!--季節タブ-->
           <div id="panelB" class="tab_panel2">
               <!-- SUMMER -->
-              <div class="news_info_event">
+              <div class="flex">
               <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['summerFestivals']->value, 'summerFestival');
 if ($_from !== null) {
@@ -330,7 +332,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <!--季節タブ-->
             <div id="panelC" class="tab_panel2">
               <!-- AUTUMN -->
-              <div class="news_info_event">
+              <div class="flex">
               <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['autumnFestivals']->value, 'autumnFestival');
 if ($_from !== null) {
@@ -374,7 +376,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               <!--季節タブ-->
               <div id="panelD" class="tab_panel2">
               <!-- WINTER -->
-              <div class="news_info_event">
+              <div class="flex">
               <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['winterFestivals']->value, 'winterFestival');
 if ($_from !== null) {
@@ -424,47 +426,47 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <div class="tab-pane fade" id="area">
             <div class="home_img">
               <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=hokkaidou"><img src="<?php echo _IMGS_DIR;?>
+?type=search&action=kensaku_tag&area=hokkaido"><img src="<?php echo _IMGS_DIR;?>
 /hokkaidou.jpg" alt=""></a>
             </div>
             <div class="home_img">
               <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=tohoku"><img src="<?php echo _IMGS_DIR;?>
+?type=search&action=kensaku_tag&area=tohoku"><img src="<?php echo _IMGS_DIR;?>
 /tohoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
               <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=kinki"><img src="<?php echo _IMGS_DIR;?>
+?type=search&action=kensaku_tag&area=kinki"><img src="<?php echo _IMGS_DIR;?>
 /kinki.jpg" alt=""></a>
             </div>
             <div class="home_img">
               <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=kanto"><img src="<?php echo _IMGS_DIR;?>
+?type=search&action=kensaku_tag&area=kanto"><img src="<?php echo _IMGS_DIR;?>
 /kanto.jpg" alt=""></a>
             </div>
             <div class="home_img">
               <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=chubu"><img src="<?php echo _IMGS_DIR;?>
+?type=search&action=kensaku_tag&area=chubu"><img src="<?php echo _IMGS_DIR;?>
 /chubu.jpg" alt=""></a>
             </div>
             <div class="home_img">
               <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=chugoku"><img src="<?php echo _IMGS_DIR;?>
-/chugoku.jpg" alt=""></a>
-            </div>
-            <div class="home_img">
-              <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=shikoku"><img src="<?php echo _IMGS_DIR;?>
+?type=search&action=kensaku_tag&area=shikoku"><img src="<?php echo _IMGS_DIR;?>
 /shikoku.jpg" alt=""></a>
             </div>
             <div class="home_img">
               <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=kyushu"><img src="<?php echo _IMGS_DIR;?>
+?type=search&action=kensaku_tag&area=kyushu"><img src="<?php echo _IMGS_DIR;?>
 /kyushu.jpg" alt=""></a>
             </div>
             <div class="home_img">
               <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=search&area=okinawa"><img src="<?php echo _IMGS_DIR;?>
+?type=search&action=kensaku_tag&area=chugoku"><img src="<?php echo _IMGS_DIR;?>
+/chugoku.jpg" alt=""></a>
+            </div>
+            <div class="home_img">
+              <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=search&action=kensaku_tag&area=okinawa"><img src="<?php echo _IMGS_DIR;?>
 /okinawa.jpg" alt=""></a>
             </div>
           </div>

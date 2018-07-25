@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-26 00:09:47
+/* Smarty version 3.1.32, created on 2018-07-26 00:23:38
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5892bbe4e033_50488006',
+  'unifunc' => 'content_5b5895fa22e725_71324493',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0cdddcf1be089673dbbe45b729cc766b08a8aa54' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\festival\\festival.tpl',
-      1 => 1532531384,
+      1 => 1532532214,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5892bbe4e033_50488006 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5895fa22e725_71324493 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -31,7 +31,7 @@ function content_5b5892bbe4e033_50488006 (Smarty_Internal_Template $_smarty_tpl)
     <!--header-->
     <?php $_smarty_tpl->_subTemplateRender(_HEADER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
-    
+
     <!-- maincontents -->
     <div class="main_content" id="myTapContent">
       <div class="main_content_fes_inner">
@@ -44,11 +44,7 @@ function content_5b5892bbe4e033_50488006 (Smarty_Internal_Template $_smarty_tpl)
 /<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
 " alt="祭り"></a>
         </div> -->
-        
-        <p><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
-</p>
-        
-    <div class="worksslider inside">
+    <div class="worksslider inside col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
@@ -79,21 +75,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
   <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span aria-hidden="true"><img src="<?php echo _IMGS_DIR;?>
+          <span aria-hidden="true" class="yazirusi1"><img src="<?php echo _IMGS_DIR;?>
 /left.png" width="50px" height="50px"></span>
           <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span aria-hidden="true"><img src="<?php echo _IMGS_DIR;?>
+          <span aria-hidden="true" class="yazirusi2"><img src="<?php echo _IMGS_DIR;?>
 /right.png" width="50px" height="50px"></span>
           <span class="sr-only">Next</span>
         </a>
       </div>
     </div>
-          
-          
-          
-          
+
+
+
+
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
@@ -258,8 +254,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </p>
         </div>
         <!--動画-->
-        <p><?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
-</p>
+        <div class="move col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+          <?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
+
+        </div>
         <!--MAP-->
         <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q=<?php echo $_smarty_tpl->tpl_vars['festival']->value['x_coordinate'];?>
 ,<?php echo $_smarty_tpl->tpl_vars['festival']->value['y_coordinate'];?>
@@ -386,7 +384,9 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
 ?>
-          <a href="#" class="tag"><?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
+          <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=search&action=festival_tag&tag_name=<?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
+" class="tag"><?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
 </a>
           <?php
 }
@@ -400,7 +400,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
       </div>
     </div>
-    
+
     <!--フッター（SP版では非表示になってる）-->
     <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
