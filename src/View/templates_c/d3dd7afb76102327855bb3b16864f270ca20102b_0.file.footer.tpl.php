@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 07:31:32
+/* Smarty version 3.1.32, created on 2018-07-24 12:02:17
   from 'C:\xampp\htdocs\kimu\src\View\templates\include\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5568346b3301_94024979',
+  'unifunc' => 'content_5b56f929678081_79049593',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd3dd7afb76102327855bb3b16864f270ca20102b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\include\\footer.tpl',
-      1 => 1532323317,
+      1 => 1532426516,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5568346b3301_94024979 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b56f929678081_79049593 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer>
   <div class="box8">
     <div class="box8-1">
@@ -31,6 +31,8 @@ function content_5b5568346b3301_94024979 (Smarty_Internal_Template $_smarty_tpl)
 ?type=editer">編集者画面</a>
         <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
 ?type=manager">管理者画面</a>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=upload">自治体用入力画面</a>
         <?php } elseif ($_smarty_tpl->tpl_vars['authority']->value == 'editer') {?>
         <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
 ?type=editer">編集者画面</a>

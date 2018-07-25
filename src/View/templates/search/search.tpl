@@ -117,7 +117,7 @@
 <!--検索結果表示エリア-->
 <div class="main_content">
   <div class="main_content_inner">
-  <div class="news_info_event">
+  <div class="flex">
     {foreach from=$searches item=search}
     <div class="news_info_event_box">
       <a href="{$SCRIPT_NAME}?festival_id={$weekFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
