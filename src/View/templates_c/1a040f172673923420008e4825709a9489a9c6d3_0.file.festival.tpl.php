@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 15:43:37
+/* Smarty version 3.1.32, created on 2018-07-25 16:06:37
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b589aa92a4381_34999122',
+  'unifunc' => 'content_5b58a00d6577a5_30722990',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a040f172673923420008e4825709a9489a9c6d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl',
-      1 => 1532533415,
+      1 => 1532534796,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b589aa92a4381_34999122 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b58a00d6577a5_30722990 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -260,14 +260,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <!-- タブのコンテンツ部分 -->
             <div class="tab-content">
               <div class="tab-pane active" id="fes_tab1">
-                <p><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
+                <p style="text-align: left;"><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
 </p>
               </div>
               <div class="tab-pane" id="fes_tab2">
-                <p>History text</p>
+                <p style="text-align: left;"><?php echo $_smarty_tpl->tpl_vars['history']->value;?>
+</p>
               </div>
               <div class="tab-pane" id="fes_tab3">
-                <p>Program text</p>
+                <p style="text-align: left;"><?php echo $_smarty_tpl->tpl_vars['festival_program']->value;?>
+</p>
               </div>
             </div>
           </div>
@@ -382,7 +384,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                   </div>
                 </div>
                 <!--コメント記入-->
-                <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
+                <textarea name="kanso" rows="4" cols="40" class="comment_area" style="text-align: left;"></textarea><br>
                 <!-- 祭りID -->
                 <input type="hidden" name="festival_id" value="<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
 ">

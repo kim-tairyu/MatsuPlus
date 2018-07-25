@@ -217,13 +217,13 @@
             <!-- タブのコンテンツ部分 -->
             <div class="tab-content">
               <div class="tab-pane active" id="fes_tab1">
-                <p>{$description}</p>
+                <p style="text-align: left;">{$description}</p>
               </div>
               <div class="tab-pane" id="fes_tab2">
-                <p>{$history}</p>
+                <p style="text-align: left;">{$history}</p>
               </div>
               <div class="tab-pane" id="fes_tab3">
-                <p>{$festival_program}</p>
+                <p style="text-align: left;">{$festival_program}</p>
               </div>
             </div>
           </div>
@@ -301,7 +301,7 @@
                   </div>
                 </div>
                 <!--コメント記入-->
-                <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
+                <textarea name="kanso" rows="4" cols="40" class="comment_area" style="text-align: left;"></textarea><br>
                 <!-- 祭りID -->
                 <input type="hidden" name="festival_id" value="{$festival.festival_id}">
                 <input type="submit" value="送信" class="comment_button">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 15:28:46
+/* Smarty version 3.1.32, created on 2018-07-25 16:07:09
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b58972ee86344_16433286',
+  'unifunc' => 'content_5b58a02d21d0e0_89099852',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '23afcfe27217092ac2324c9e8c0138ab520539d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl',
-      1 => 1532532521,
+      1 => 1532532930,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b58972ee86344_16433286 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b58a02d21d0e0_89099852 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -55,15 +55,15 @@ function content_5b58972ee86344_16433286 (Smarty_Internal_Template $_smarty_tpl)
                       <div id="dnweb-tabtest">
                         <!-- タブの切替部分 -->
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#fes_tabtest1" data-toggle="tab">祭り一覧</a></li>
-                          <li><a href="#fes_tabtest2" data-toggle="tab">祭り作成</a></li>
-                          <li><a href="#fes_tabtest3" data-toggle="tab">祭り編集</a></li>
-                          <li><a href="#fes_tabtest3" data-toggle="tab">祭り削除</a></li>
+                          <li class="active"><a href="#fes_tab1" data-toggle="tab">祭り一覧</a></li>
+                          <li><a href="#fes_tab2" data-toggle="tab">祭り作成</a></li>
+                          <li><a href="#fes_tab3" data-toggle="tab">祭り編集</a></li>
+                          <li><a href="#fes_tab4" data-toggle="tab">祭り削除</a></li>
                         </ul>
 
                         <!-- タブのコンテンツ部分 -->
                         <div class="tab-content">
-                          <div class="tab-pane active" id="fes_tabtest1">
+                          <div class="tab-pane active" id="fes_tab1">
                             <div class="news_info_event">
                               <table class="table table-striped">
                                 <thead>
@@ -116,7 +116,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                               </table> 
                             </div>
                           </div>
-                          <div class="tab-pane" id="fes_tabtest2">
+                          <div class="tab-pane" id="fes_tab2">
                             <div class="news_info_event">
                               <div class="box4-inner">
                                 <div class="adduser">
@@ -128,7 +128,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                               </div>
                             </div>
                           </div>
-                          <div class="tab-pane" id="fes_tabtest3">
+                          <div class="tab-pane" id="fes_tab3">
                             <div class="news_info_event">
                               <table class="table table-striped">
                                 <thead>
@@ -183,7 +183,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                               </table> 
                             </div>
                           </div>
-                          <div class="tab-pane" id="fes_tabtest4">
+                          <div class="tab-pane" id="fes_tab4">
                             <div class="news_info_event">
                               <table class="table table-striped">
                                 <thead>
