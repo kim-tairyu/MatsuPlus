@@ -389,6 +389,10 @@ class UserController extends BaseController
         $this->action = null;
         $this->screen_editer();
       }
+    } else if($this->action == 'deleteArticle') {
+      $articleModel->deleteArticle($_GET['article_id']);
+      $this->action = null;
+      $this->screen_editer();
     } else {
       $this->view->assign('errMsg', "");
       $this->file  = _EDITER_DIR;

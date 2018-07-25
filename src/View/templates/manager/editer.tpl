@@ -266,7 +266,7 @@
                                     <td>{$article.article_title}</td>
                                     <td>{$article.festival_id}</td>
                                     <td>{$article.post_date}</td>
-                                    <td><a>削除</a></td>
+                                    <td><a href="{$SCRIPT_NAME}?type=editer&action=deleteArticle&article_id={$article.article_id}">削除</a></td>
                                   </tr>
                                   {/foreach}
                                 </tbody>

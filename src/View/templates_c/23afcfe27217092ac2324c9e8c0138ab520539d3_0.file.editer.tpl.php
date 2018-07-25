@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 14:40:45
+/* Smarty version 3.1.32, created on 2018-07-25 15:28:46
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b588beda5f4d8_45472195',
+  'unifunc' => 'content_5b58972ee86344_16433286',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '23afcfe27217092ac2324c9e8c0138ab520539d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl',
-      1 => 1532529623,
+      1 => 1532532521,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b588beda5f4d8_45472195 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b58972ee86344_16433286 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -384,7 +384,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
 </td>
                                     <td><?php echo $_smarty_tpl->tpl_vars['article']->value['post_date'];?>
 </td>
-                                    <td><a>削除</a></td>
+                                    <td><a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=editer&action=deleteArticle&article_id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
+">削除</a></td>
                                   </tr>
                                   <?php
 }
