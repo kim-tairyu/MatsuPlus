@@ -370,9 +370,30 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_editer()
   {
+    $festivalModel = new FestivalModel();
+    $articleModel = new ArticleModel();
+    $this->view->assign('festivals', $festivalModel->getFestivals());
+    $this->view->assign('articles', $articleModel->getArticlesInfo());
+    $this->view->assign('festival_id', $festivalModel->getFestivalId());
     $this->title = 'MATSURI PLUS : EDITER';
-    $this->file  = _EDITER_DIR;
-    $this->view_display();
+    
+    if($this->action == 'addArticle') {
+      if(!isset($_POST['article_name']) ||
+         !isset($_POST['festival_id']) ||
+         !isset($_POST['text'])) {
+        $this->view->assign('errMsg', "INPUT ERROR!");
+        $this->file  = _EDITER_DIR;
+        $this->view_display();
+      } else {
+        $articleModel->addArticle($_POST['article_name'], $_POST['festival_id'], $_POST['text']);
+        $this->action = null;
+        $this->screen_editer();
+      }
+    } else {
+      $this->view->assign('errMsg', "");
+      $this->file  = _EDITER_DIR;
+      $this->view_display();
+    }
   }
   
   //----------------------------------------------------
