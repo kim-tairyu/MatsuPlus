@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 15:37:16
+/* Smarty version 3.1.32, created on 2018-07-25 10:34:31
   from 'C:\xampp\htdocs\kimu\src\View\templates\manager\editer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55da0ccd1866_86697884',
+  'unifunc' => 'content_5b583617319216_95656068',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9d54762a896997392cd39355bc5d1cf8e4ebbdd' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\manager\\editer.tpl',
-      1 => 1532353035,
+      1 => 1532507016,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55da0ccd1866_86697884 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b583617319216_95656068 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -44,28 +44,39 @@ function content_5b55da0ccd1866_86697884 (Smarty_Internal_Template $_smarty_tpl)
                   <input id="tab2" type="radio" name="tab_btn">
                   <div class="tab_area">
                     <div class="week_mon">
-                      <a href="#"><label class="tab1_label" for="tab1">お祭り管理</lebel></a>
-                      <a href="#" class="month2"><label class="tab2_label" for="tab2">記事管理</lebel></a>
+                      <a href="#"><label class="tab1_label" for="tab1">お祭り管理</label></a>
+                      <a href="#" class="month2"><label class="tab2_label" for="tab2">記事管理</label></a>
                     </div>
                   </div>
                   <!--main-->
                   <div class="panel_area">
                     <!--WEEKタブ-->
                     <div id="panel1" class="tab_panel">
-                      <p>お祭り管理(タブが切り替わってることを確認するためです消してください)</p>
-                      <div class="week_mon3">
-                        <a href="#">お祭り情報作成</a>
-                        <a href="#">お祭り情報編集</a>
-                        <a href="#">お祭り情報削除</a>
+                      <div id="dnweb-tabtest">
+                          <!-- タブの切替部分 -->
+                          <ul class="nav nav-tabs">
+                              <li class="active"><a href="#tabtest1" data-toggle="tab">1</a></li>
+                              <li><a href="#tabtest2" data-toggle="tab">2</a></li>
+                              <li><a href="#tabtest3" data-toggle="tab">3</a></li>
+                              <li><a href="#tabtest4" data-toggle="tab">4</a></li>
+                          </ul>
+
+                          <!-- タブのコンテンツ部分 -->
+                          <div class="tab-content">
+                              <div class="tab-pane active" id="tabtest1">AAAA</div>
+                              <div class="tab-pane" id="tabtest2">BBBB</div>
+                              <div class="tab-pane" id="tabtest3">CCCC</div>
+                              <div class="tab-pane" id="tabtest4">DDDD</div>
+                          </div>
                       </div>
                     </div>
                     <!--MONTHタブ-->
                     <div id="panel2" class="tab_panel">
-                      <p>記事管理(タブが切り替わってることを確認するためです消してください)</p>
                       <div class="week_mon3">
-                        <a href="#">お祭り情報作成</a>
-                        <a href="#">お祭り情報編集</a>
-                        <a href="#">お祭り情報削除</a>
+                        <a href="#">記事情報一覧</a>
+                        <a href="#">記事情報作成</a>
+                        <a href="#">記事情報編集</a>
+                        <a href="#">記事情報削除</a>
                       </div>
                     </div><!--MONTHタブ終わり-->
                   </div><!--main終わり-->
