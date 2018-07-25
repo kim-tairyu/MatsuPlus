@@ -220,10 +220,10 @@
                 <p>{$description}</p>
               </div>
               <div class="tab-pane" id="fes_tab2">
-                <p>History text</p>
+                <p>{$history}</p>
               </div>
               <div class="tab-pane" id="fes_tab3">
-                <p>Program text</p>
+                <p>{$festival_program}</p>
               </div>
             </div>
           </div>

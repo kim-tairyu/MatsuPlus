@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 20:01:54
+/* Smarty version 3.1.32, created on 2018-07-26 00:43:53
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\upload\upload.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5858a25daf26_40089072',
+  'unifunc' => 'content_5b589ab943fc47_08471883',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd37c5cfcdcef1e1bc8e83453a57f1e622d1a0457' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\upload\\upload.tpl',
-      1 => 1532516511,
+      1 => 1532533430,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5858a25daf26_40089072 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b589ab943fc47_08471883 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -348,7 +348,8 @@ function content_5b5858a25daf26_40089072 (Smarty_Internal_Template $_smarty_tpl)
         </div>
 
         <input type="submit" class="btn btn-default btn-lg" name="" value="送信">
-      </form>
+        </form>
+      
     </body>
     <div id="footer">
     <!--フッター（SP版では非表示になってる）-->

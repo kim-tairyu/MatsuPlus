@@ -319,7 +319,8 @@
         </div>
 
         <input type="submit" class="btn btn-default btn-lg" name="" value="送信">
-      </form>
+        </form>
+      
     </body>
     <div id="footer">
     <!--フッター（SP版では非表示になってる）-->

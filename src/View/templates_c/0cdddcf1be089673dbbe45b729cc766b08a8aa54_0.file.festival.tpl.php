@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-26 00:23:38
+/* Smarty version 3.1.32, created on 2018-07-26 00:47:51
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5895fa22e725_71324493',
+  'unifunc' => 'content_5b589ba7b859e2_52703075',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0cdddcf1be089673dbbe45b729cc766b08a8aa54' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\festival\\festival.tpl',
-      1 => 1532532214,
+      1 => 1532533656,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5895fa22e725_71324493 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b589ba7b859e2_52703075 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -250,8 +250,29 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
+          <div id="dnweb-tab">
+            <!-- タブの切替部分 -->
+            <ul class="nav nav-tabs nav-justified">
+              <li class="active"><a href="#fes_tab1" data-toggle="tab">Description</a></li>
+              <li><a href="#fes_tab2" data-toggle="tab">History</a></li>
+              <li><a href="#fes_tab3" data-toggle="tab">Program</a></li>
+            </ul>
+            <!-- タブのコンテンツ部分 -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="fes_tab1">
+                <p><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
 </p>
+              </div>
+              <div class="tab-pane" id="fes_tab2">
+                <p><?php echo $_smarty_tpl->tpl_vars['history']->value;?>
+</p>
+              </div>
+              <div class="tab-pane" id="fes_tab3">
+                <p><?php echo $_smarty_tpl->tpl_vars['festival_program']->value;?>
+</p>
+              </div>
+            </div>
+          </div>
         </div>
         <!--動画-->
         <div class="move col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
