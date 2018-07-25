@@ -113,6 +113,7 @@
           <div class="tab-pane fade" id="news">
             <!--wrapのようなもの-->
             <!--記事1-->
+            <div class="flex">
             {foreach from=$articles item=article}
             <div class="news_info_event_box">
                 <a href="{$SCRIPT_NAME}?article_id={$article.article_id}&action=article_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
@@ -137,6 +138,7 @@
             <div>No Article Data!</div>
             {/foreach}
           </div>
+        </div>
 
           <!--季節リア-->
         <div class="tab-pane fade" id="season">

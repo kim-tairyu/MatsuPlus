@@ -542,7 +542,7 @@ color: #e60033; padding-top: 2px; opacity: 1;}
 .news_box:after{content: ""; display: block; clear: both;}
 .news_box1{width: 100%; height: auto; float: left;}
 .news_box1-1{width: 100%; height: auto; float: left;}
-.news_box1-1 img{max-height: 165px; min-height: 165px;}
+.news_box1-1 img{max-height: 170px; min-height: 170px;}
 .news_box2{width: 100%; height: auto; float: left;}
 /*季節*/
 .sebox{width: 100%; height: auto; margin-bottom: 35px;}
@@ -833,13 +833,13 @@ input[type="radio"]{display:none;}
 .panel_area2{transition: 1s;}
 .tab_panel2{display:none;}
 /*タブ詳細*/
-#tabA:checked ~ .tab_area2 .tabA_label{color: #fff; background-color: #e60033; border-radius: 20px;}
+#tabA:checked ~ .tab_area2 .tabA_label{color: #fff; background-color: #e60033; border-radius: 18.5px;}
 #tabA:checked ~ .panel_area2 #panelA{display:block; transition: 1s;}
-#tabB:checked ~ .tab_area2 .tabB_label{color: #fff; background-color: #e60033; border-radius: 20px;}
+#tabB:checked ~ .tab_area2 .tabB_label{color: #fff; background-color: #e60033; border-radius: 18.5px;}
 #tabB:checked ~ .panel_area2 #panelB{display:block; transition: 1s;}
-#tabC:checked ~ .tab_area2 .tabC_label{color: #fff; background-color: #e60033; border-radius: 20px;}
+#tabC:checked ~ .tab_area2 .tabC_label{color: #fff; background-color: #e60033; border-radius: 18.5px;}
 #tabC:checked ~ .panel_area2 #panelC{display:block; transition: 1s;}
-#tabD:checked ~ .tab_area2 .tabD_label{color: #fff; background-color: #e60033; border-radius: 20px;}
+#tabD:checked ~ .tab_area2 .tabD_label{color: #fff; background-color: #e60033; border-radius: 18.5px;}
 #tabD:checked ~ .panel_area2 #panelD{display:block; transition: 1s;}
 
 
@@ -871,7 +871,7 @@ input[type="radio"]{display:none;}
   width: 300px;
   height: auto;
   margin:0 auto;
-  padding-top: 100px;}
+  padding-top: 20px;}
 /**/
 .config_box{width: 100%; height: auto; margin-top: 20px; position: relative;}
 .config_box:after{content: ""; display: block; clear: both;}
