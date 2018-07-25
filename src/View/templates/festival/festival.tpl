@@ -13,9 +13,42 @@
         <!--記事or祭りタイトル-->
         <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">{$festival.festival_name_en}</h1>
           <!--祭りor記事画像(仮)-->
-        <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <a href="#"><img src="{_IMGS_SERVER_DIR}/{$festival_image.image}" alt="祭り"></a>
+        <!-- <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+          <a href="#"><img src="{_IMGS_SERVER_DIR}/{$festival.image}" alt="祭り"></a>
+        </div> -->
+    <div class="worksslider inside">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="{_IMGS_SERVER_DIR}/{$festival.image}" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          {foreach from=$festival_images item=images}
+          <div class="item">
+            <img src="{_IMGS_SERVER_DIR}/{$images.image}" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          {/foreach}
         </div>
+
+  <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span aria-hidden="true"><img src="{_IMGS_DIR}/left.png" width="50px" height="50px"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span aria-hidden="true"><img src="{_IMGS_DIR}/right.png" width="50px" height="50px"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+          
+          
+          
+          
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}&action=favorite" style="text-decoration:none;"><div class="fev_button">
@@ -34,117 +67,116 @@
             <input type="text" id="place" name="place" placeholder="place"><br/>
             <div class="suke-box">
             <!--カレンダー開始1-->
-            <input type="text" id="calendar" class="suke-box1" placeholder="startDay" data-mindate=today>
+            <!-- <input type="text" id="calendar" class="suke-box1" placeholder="startDay" data-mindate=today> -->
+            <input type="date" id="calendar" name="start_date" class="suke-box1" placeholder="startDay" data-mindate=today>
             <!--時間開始1-->
-            <select name="time_id" id="time">
-              <option value="time"></option>
-              <option value="">0:00</option>
-              <option value="">0:30</option>
-              <option value="">1:00</option>
-              <option value="">1:30</option>
-              <option value="">2:00</option>
-              <option value="">2:30</option>
-              <option value="">3:00</option>
-              <option value="">3:30</option>
-              <option value="">4:00</option>
-              <option value="">4:30</option>
-              <option value="">5:00</option>
-              <option value="">5:30</option>
-              <option value="">6:00</option>
-              <option value="">6:30</option>
-              <option value="">7:00</option>
-              <option value="">7:30</option>
-              <option value="">8:00</option>
-              <option value="">8:30</option>
-              <option value="">9:00</option>
-              <option value="">9:30</option>
-              <option value="">10:00</option>
-              <option value="">10:30</option>
-              <option value="">11:00</option>
-              <option value="">11:30</option>
-              <option value="">12:00</option>
-              <option value="">12:30</option>
-              <option value="">13:00</option>
-              <option value="">13:30</option>
-              <option value="">14:00</option>
-              <option value="">14:30</option>
-              <option value="">15:00</option>
-              <option value="">15:30</option>
-              <option value="">16:00</option>
-              <option value="">16:30</option>
-              <option value="">17:00</option>
-              <option value="">17:30</option>
-              <option value="">18:00</option>
-              <option value="">18:30</option>
-              <option value="">19:00</option>
-              <option value="">19:30</option>
-              <option value="">20:00</option>
-              <option value="">20:30</option>
-              <option value="">21:00</option>
-              <option value="">21:30</option>
-              <option value="">22:00</option>
-              <option value="">22:30</option>
-              <option value="">23:00</option>
-              <option value="">23:30</option>
-              <option value="">24:00</option>
+            <select name="start_time" id="time">
+              <option value="0:00">0:00</option>
+              <option value="0:30">0:30</option>
+              <option value="1:00">1:00</option>
+              <option value="1:30">1:30</option>
+              <option value="2:00">2:00</option>
+              <option value="2:30">2:30</option>
+              <option value="3:00">3:00</option>
+              <option value="3:30">3:30</option>
+              <option value="4:00">4:00</option>
+              <option value="4:30">4:30</option>
+              <option value="5:00">5:00</option>
+              <option value="5:30">5:30</option>
+              <option value="6:00">6:00</option>
+              <option value="6:30">6:30</option>
+              <option value="7:00">7:00</option>
+              <option value="7:30">7:30</option>
+              <option value="8:00">8:00</option>
+              <option value="8:30">8:30</option>
+              <option value="9:00">9:00</option>
+              <option value="9:30">9:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+              <option value="24:00">24:00</option>
             </select>
             </div>
             <!--カレンダー開始１と時間開始１終了-->
             <div class="suke-box">
             <!--カレンダー開始2-->
-            <input type="text" id="calendar" class="suke-box1" placeholder="endDay" data-mindate=today>
+            <input type="date" id="calendar" name="end_date" class="suke-box1" placeholder="endDay" data-mindate=today>
             <!--時間開始2-->
-            <select name="time_id" id="time">
-              <option value="time"></option>
-              <option value="">0:00</option>
-              <option value="">0:30</option>
-              <option value="">1:00</option>
-              <option value="">1:30</option>
-              <option value="">2:00</option>
-              <option value="">2:30</option>
-              <option value="">3:00</option>
-              <option value="">3:30</option>
-              <option value="">4:00</option>
-              <option value="">4:30</option>
-              <option value="">5:00</option>
-              <option value="">5:30</option>
-              <option value="">6:00</option>
-              <option value="">6:30</option>
-              <option value="">7:00</option>
-              <option value="">7:30</option>
-              <option value="">8:00</option>
-              <option value="">8:30</option>
-              <option value="">9:00</option>
-              <option value="">9:30</option>
-              <option value="">10:00</option>
-              <option value="">10:30</option>
-              <option value="">11:00</option>
-              <option value="">11:30</option>
-              <option value="">12:00</option>
-              <option value="">12:30</option>
-              <option value="">13:00</option>
-              <option value="">13:30</option>
-              <option value="">14:00</option>
-              <option value="">14:30</option>
-              <option value="">15:00</option>
-              <option value="">15:30</option>
-              <option value="">16:00</option>
-              <option value="">16:30</option>
-              <option value="">17:00</option>
-              <option value="">17:30</option>
-              <option value="">18:00</option>
-              <option value="">18:30</option>
-              <option value="">19:00</option>
-              <option value="">19:30</option>
-              <option value="">20:00</option>
-              <option value="">20:30</option>
-              <option value="">21:00</option>
-              <option value="">21:30</option>
-              <option value="">22:00</option>
-              <option value="">22:30</option>
-              <option value="">23:00</option>
-              <option value="">23:30</option>
-              <option value="">24:00</option>
+            <select name="end_time" id="time">
+              <option value="0:00">0:00</option>
+              <option value="0:30">0:30</option>
+              <option value="1:00">1:00</option>
+              <option value="1:30">1:30</option>
+              <option value="2:00">2:00</option>
+              <option value="2:30">2:30</option>
+              <option value="3:00">3:00</option>
+              <option value="3:30">3:30</option>
+              <option value="4:00">4:00</option>
+              <option value="430">4:30</option>
+              <option value="5:00">5:00</option>
+              <option value="5:30">5:30</option>
+              <option value="6:00">6:00</option>
+              <option value="6:30">6:30</option>
+              <option value="7:00">7:00</option>
+              <option value="7:30">7:30</option>
+              <option value="8:00">8:00</option>
+              <option value="8:30">8:30</option>
+              <option value="9:00">9:00</option>
+              <option value="9:30">9:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+              <option value="24:00">24:00</option>
             </select>
             </div>
             <input type="hidden" name="festival_id" value="{$festival.festival_id}">
@@ -170,7 +202,7 @@
           <div class="date_box2">
             <!--この下のdate2をアクセスカウンターで稲買いします-->
             <h5 class="date2">{$festival.start_time}</h5>
-            <h5 class="date">{$festival.start_time}</h5>
+            <h5 class="date">{$festival.end_time}</h5>
           </div>
         </div>
         <!--記事本文-->

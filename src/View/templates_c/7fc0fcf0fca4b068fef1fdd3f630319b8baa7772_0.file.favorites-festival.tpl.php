@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 15:46:13
+/* Smarty version 3.1.32, created on 2018-07-24 21:50:53
   from 'C:\xampp\htdocs\kimu\src\View\templates\mypage\favorites-festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55dc25566552_59355423',
+  'unifunc' => 'content_5b57831d025140_56916722',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7fc0fcf0fca4b068fef1fdd3f630319b8baa7772' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\mypage\\favorites-festival.tpl',
-      1 => 1532323317,
+      1 => 1532461851,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55dc25566552_59355423 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b57831d025140_56916722 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -42,7 +42,7 @@ function content_5b55dc25566552_59355423 (Smarty_Internal_Template $_smarty_tpl)
         <!--さらに中のwrap-->
         <!--レビュー順で表示のエリア-->
         <div class="tab-pane fade in active" id="recommend">
-          <div class="news_info_event">
+          <div class="flex">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['favorite_fes']->value, 'festival');
 if ($_from !== null) {
@@ -50,7 +50,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['festival']->value) {
 ?>
             <div class="news_info_event_box">
               <a href="#" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
-              <a href="festival.php?festival_id=?">
+              <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
+">
                 <div class="news_box">
                   <div class="news_box1">
                     <img src="<?php echo _IMGS_SERVER_DIR;?>
@@ -60,6 +62,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['festival']->value) {
                   <div class="news_box2">
                     <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
 </h4>
+                    <!--demoが表示される文章でお願いします-->
+                    <div class="demo"><?php echo $_smarty_tpl->tpl_vars['festival']->value['description_en'];?>
+</div>
                     <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                     <div class="date_box">
                     <h6 class="date_big2"></h6>

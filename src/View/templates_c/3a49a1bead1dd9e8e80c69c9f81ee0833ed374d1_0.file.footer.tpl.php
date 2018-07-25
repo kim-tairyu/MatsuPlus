@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-19 10:12:29
+/* Smarty version 3.1.32, created on 2018-07-24 20:27:36
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\include\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4fe57daf44c5_47991573',
+  'unifunc' => 'content_5b570d28e9e485_66785555',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3a49a1bead1dd9e8e80c69c9f81ee0833ed374d1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\include\\footer.tpl',
-      1 => 1531962444,
+      1 => 1532431642,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4fe57daf44c5_47991573 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b570d28e9e485_66785555 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer>
   <div class="box8">
     <div class="box8-1">
@@ -31,6 +31,8 @@ function content_5b4fe57daf44c5_47991573 (Smarty_Internal_Template $_smarty_tpl)
 ?type=editer">編集者画面</a>
         <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
 ?type=manager">管理者画面</a>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=upload">自治体用入力画面</a>
         <?php } elseif ($_smarty_tpl->tpl_vars['authority']->value == 'editer') {?>
         <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
 ?type=editer">編集者画面</a>

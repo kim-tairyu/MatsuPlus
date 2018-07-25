@@ -91,6 +91,82 @@ header:after{content: ""; display: block; clear: both; box-shadow    : 1px 1px 1
   -webkit-box-sizing:border-box;
   box-sizing:border-box;}
 
+.cp_cssslider {
+width: 300px;
+height: 200px;
+overflow: hidden;
+margin: 2em auto;
+box-shadow:0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+.cp_slide_item {
+width: 300px;
+height: 200px;
+float: left;
+position: relative;
+}
+.cp_slidewrapper {
+width: 500%;/* slideの枚数×100% */
+position: relative;
+left: 0;
+animation: slider 20s infinite ease;/* スピード */
+}
+@-webkit-keyframes slider {
+/* 100%を枚数で割った%に割り振る */
+0% {
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+20% {
+-webkit-transform: translateX(-300px);
+transform: translateX(-300px);
+}
+40% {
+-webkit-transform: translateX(-600px);
+transform: translateX(-600px);
+}
+60% {
+-webkit-transform: translateX(-900px);
+transform: translateX(-900px);
+}
+80% {
+-webkit-transform: translateX(-1200px);
+transform: translateX(-1200px);
+}
+100% {
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+}
+@keyframes slider {
+/* 100%を枚数で割った%に割り振る */
+0% {
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+20% {
+-webkit-transform: translateX(-300px);
+transform: translateX(-300px);
+}
+40% {
+-webkit-transform: translateX(-600px);
+transform: translateX(-600px);
+}
+60% {
+-webkit-transform: translateX(-900px);
+transform: translateX(-900px);
+}
+80% {
+-webkit-transform: translateX(-1200px);
+transform: translateX(-1200px);
+}
+100% {
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+}
+
+
+
 /*Mypageのwrapper*/
 .mypage{
     width: 100%; height: auto;
@@ -418,6 +494,24 @@ color: #e60033; opacity: 0.8; margin-top: 10px;
 /**/
 .fev_button_box img{margin-bottom: 5px;}
 
+/**/
+.flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.flex > *{
+  position: relative;
+  flex-basis: 33.33333%;
+  margin-bottom: 20px;
+}
+.flex,
+.flex > *{
+  padding: 0px 10px 10px;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
 
 /*変更*/
 .schedule_info_day{}
@@ -425,7 +519,9 @@ color: #e60033; opacity: 0.8; margin-top: 10px;
 .news_info_event:after{content: ""; display: block; clear: both;}
 .news_info_event_box{
   position: relative;
-  float: left; width: 33.333%;
+  float: left;
+  width : -webkit-calc(100% / 3);
+  width : calc(100% / 3);
   padding: 0px 10px 10px;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
@@ -445,6 +541,8 @@ color: #e60033; padding-top: 2px; opacity: 1;}
   box-shadow:3px 3px 3px 3px  #ccc;}
 .news_box:after{content: ""; display: block; clear: both;}
 .news_box1{width: 100%; height: auto; float: left;}
+.news_box1-1{width: 100%; height: auto; float: left;}
+.news_box1-1 img{max-height: 165px; min-height: 165px;}
 .news_box2{width: 100%; height: auto; float: left;}
 /*季節*/
 .sebox{width: 100%; height: auto; margin-bottom: 35px;}
@@ -1232,6 +1330,8 @@ table{width:90%;}
 .comment p{ text-align:center;}
 .search_results_box1{width: 100%;}
 .search_results_box1-1{width: 100%;}
+.flex > *{flex-basis: 100%;}
+.news_box1-1 img{max-height: 330px; min-height: 143px;}
 }
 
 /*768px以上*/

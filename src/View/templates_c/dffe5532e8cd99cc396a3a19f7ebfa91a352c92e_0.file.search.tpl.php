@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 09:39:26
+/* Smarty version 3.1.32, created on 2018-07-25 01:08:17
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/search/search.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b56f3cedb9b02_99212132',
+  'unifunc' => 'content_5b57cd81c056b2_68752959',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dffe5532e8cd99cc396a3a19f7ebfa91a352c92e' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/search/search.tpl',
-      1 => 1532425130,
+      1 => 1532480830,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b56f3cedb9b02_99212132 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b57cd81c056b2_68752959 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -130,9 +130,20 @@ echo '<script'; ?>
         </select>
 
         <p>Search by tag</p>
-        <select name="tag" class="tag_li">
-            
-        </select>
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['randomTags']->value, 'tag');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
+?>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['tag']->value['festival_id'];?>
+" class="tag"><?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
+</a>
+        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        <br>
         <a href="#">
           <input type="submit" class="kensaku" value="検索" />
         </a>
@@ -141,40 +152,54 @@ echo '<script'; ?>
   </div>
 </div>
 
-<!--検索結果表示エリア-->
-<div class="search_results_box">
-  <div class="search_results_box_inner">
-    <?php
+    <!--検索結果表示エリア-->
+    <div class="main_content">
+      <div class="main_content_inner">
+        <div class="flex">
+          <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['searches']->value, 'search');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['search']->value) {
 ?>
-    　<div class="search_results_box1">
-    　　<a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+          <div class="news_info_event_box">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?festival_id=<?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['festival_id'];?>
+&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+            <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
 ?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['search']->value['festival_id'];?>
 ">
-        　<div class="search_results_box2">
-            <div class="search_results_box2-1">
-            　　<img src="<?php echo _IMGS_DIR;?>
-/<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
+              <div class="news_box">
+                <div class="news_box1">
+                  <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['search']->value['image'];?>
 " class="event_image">
-            </div>
-            <div class="search_results_box2-2">
-            　<h4 class="search_results_title"><?php echo $_smarty_tpl->tpl_vars['search']->value['festival_name_en'];?>
+                </div>
+                <div class="news_box2">
+                  <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['search']->value['festival_name_en'];?>
 </h4>
-            　<h6 class="search_results_date_big"><?php echo $_smarty_tpl->tpl_vars['search']->value['start_date'];?>
+                  <!--demoが表示される文章でお願いします-->
+                  <div class="demo"><?php echo $_smarty_tpl->tpl_vars['search']->value['description_en'];?>
+</div>
+                  <!--この下のdata_big2がアクセスカウンタでおねがいします-->
+                  <div class="date_box">
+                    <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['search']->value['start_date'];?>
 </h6>
-            </div>
-        　</div>
-    　　</a>
-    　</div>
-    <?php
+                    <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['search']->value['end_date'];?>
+</h6>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-  </div>
-</div>
-<!--フッター（SP版では非表示になってる）-->
+        </div>
+      </div>
+    </div>
+  
+    <!--フッター（SP版では非表示になってる）-->
     <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
     <?php echo '<script'; ?>

@@ -9,7 +9,7 @@ class ScheduleModel extends BaseModel {
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
       $stmt->execute();
-      while($array = $select->fetch(PDO::FETCH_ASSOC)){
+      while($array = $stmt->fetchAll(PDO::FETCH_ASSOC)){
         $fesData[]=array(
           'id'=>$array['schedule_id'],//カレンダー内部で利用するID
           'title'=>$array['schedule_name'],//カレンダーに表示されるタイトル
@@ -27,14 +27,17 @@ class ScheduleModel extends BaseModel {
   }
     
   //スケジュールの追加
-  public function addSchedule($user_id, $event, $place, $free){
+  public function addSchedule($user_id, $schedule_name, $start_time, $end_time, $festival_id, $place, $free){
     try {
-      $sql  = 'INSERT INTO schedule (user_id,schedule_name,location,outline) VALUES (?,?,?,?)';
+      $sql  = 'INSERT INTO schedule (user_id,schedule_name,start_time,end_time,festival_id,location,outline) VALUES (?,?,?,?,?,?,?)';
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $user_id);
-      $stmt->bindValue(2, $event);
-      $stmt->bindValue(3, $place);
-      $stmt->bindValue(4, $free);
+      $stmt->bindValue(2, $schedule_name);
+      $stmt->bindValue(3, $start_time);
+      $stmt->bindValue(4, $end_time);
+      $stmt->bindValue(5, $festival_id);
+      $stmt->bindValue(6, $place);
+      $stmt->bindValue(7, $free);
       $stmt->execute();
     } catch(PDOException $e) {
       die('DB ERROR:'.$e->getMesseage);
