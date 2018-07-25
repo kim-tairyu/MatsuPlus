@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 11:40:44
+/* Smarty version 3.1.32, created on 2018-07-25 01:04:19
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/favorites-article.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55bebcc0f3f9_27905874',
+  'unifunc' => 'content_5b57cc9329f1a0_68212017',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e631b7bd4aa2541cc3c01d76231101cb505c4628' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/favorites-article.tpl',
-      1 => 1532346036,
+      1 => 1532480547,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55bebcc0f3f9_27905874 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b57cc9329f1a0_68212017 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -42,7 +42,7 @@ function content_5b55bebcc0f3f9_27905874 (Smarty_Internal_Template $_smarty_tpl)
         <!--さらに中のwrap-->
         <!--レビュー順で表示のエリア-->
         <div class="tab-pane fade in active" id="recommend">
-          <div class="news_info_event">
+          <div class="flex">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['favorite_art']->value, 'article');
 if ($_from !== null) {
@@ -54,7 +54,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
 ?type=article&article_id=<?php echo $_smarty_tpl->tpl_vars['article']->value['article_id'];?>
 ">
                   <div class="news_box">
-                    <div class="news_box1">
+                    <div class="news_box1-1">
                       <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['article']->value['image'];?>
 " class="event_image">
@@ -62,6 +62,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
                     <div class="news_box2">
                       <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['article']->value['article_title'];?>
 </h4>
+                      <div class="demo"><?php echo $_smarty_tpl->tpl_vars['article']->value['text'];?>
+</div>
                       <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                       <div class="date_box">
                       <h6 class="date_big2"></h6>

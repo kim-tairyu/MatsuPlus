@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 11:40:37
+/* Smarty version 3.1.32, created on 2018-07-25 01:04:09
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/favorites-festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b55beb5b11fe7_45024785',
+  'unifunc' => 'content_5b57cc89effac3_14218142',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c8c3b18e9c8586e140f1c7571e2c63803b688f3a' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/mypage/favorites-festival.tpl',
-      1 => 1532346018,
+      1 => 1532480547,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b55beb5b11fe7_45024785 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b57cc89effac3_14218142 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -42,7 +42,7 @@ function content_5b55beb5b11fe7_45024785 (Smarty_Internal_Template $_smarty_tpl)
         <!--さらに中のwrap-->
         <!--レビュー順で表示のエリア-->
         <div class="tab-pane fade in active" id="recommend">
-          <div class="news_info_event">
+          <div class="flex">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['favorite_fes']->value, 'festival');
 if ($_from !== null) {
@@ -62,6 +62,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['festival']->value) {
                   <div class="news_box2">
                     <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
 </h4>
+                    <!--demoが表示される文章でお願いします-->
+                    <div class="demo"><?php echo $_smarty_tpl->tpl_vars['festival']->value['description_en'];?>
+</div>
                     <!--この下のdata_big2がアクセスカウンタでおねがいします-->
                     <div class="date_box">
                     <h6 class="date_big2"></h6>

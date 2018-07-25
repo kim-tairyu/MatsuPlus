@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-19 10:22:59
+/* Smarty version 3.1.32, created on 2018-07-24 20:35:36
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\mypage\config.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4fe7f3989476_13090706',
+  'unifunc' => 'content_5b570f08460b80_78355263',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9d5975993ced354529bde72acd6d3fc4b00e775' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\mypage\\config.tpl',
-      1 => 1531962444,
+      1 => 1532431642,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4fe7f3989476_13090706 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b570f08460b80_78355263 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -41,7 +41,7 @@ function content_5b4fe7f3989476_13090706 (Smarty_Internal_Template $_smarty_tpl)
       <div class="mypage-inner">
         <!--ユーザーの画像表示？-->
         <div class="my_image">
-          <img src="<?php echo _IMGS_DIR;?>
+          <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_SESSION['user_icon'];?>
 " class="">
         </div>
@@ -49,7 +49,8 @@ function content_5b4fe7f3989476_13090706 (Smarty_Internal_Template $_smarty_tpl)
         <div class="user_name_box"></div>
         <!--設定変更-->
         <div class="set">
-          <form method="post">
+          <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=config&action=update">
             <!--ユーザーネーム変更-->
             <div class="config_box">
               <div class="config_box_name">
@@ -60,7 +61,7 @@ function content_5b4fe7f3989476_13090706 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#"><img src="<?php echo _IMGS_DIR;?>
 /hensyu.png" onclick="btn1_click()"></a>
               </div>
-              <input type="text" id="name" placeholder="User Name">
+              <input type="text" id="name" name="user_name" placeholder="User Name">
             </div>
             <!--メールアドレス変更-->
             <div class="config_box">
@@ -72,7 +73,7 @@ function content_5b4fe7f3989476_13090706 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#"><img src="<?php echo _IMGS_DIR;?>
 /hensyu.png" onclick="btn2_click()"></a>
               </div>
-              <input type="text" id="mailaddress" placeholder="Mail Address">
+              <input type="text" id="mailaddress" name="mail_address" placeholder="Mail Address">
             </div>
             <!--パスワード変更-->
             <div class="config_box">
@@ -83,7 +84,7 @@ function content_5b4fe7f3989476_13090706 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="#"><img src="<?php echo _IMGS_DIR;?>
 /hensyu.png" onclick="btn3_click()"></a>
               </div>
-              <input type="password" id="password" placeholder="Password">
+              <input type="password" id="password" name="password" placeholder="Password">
             </div>
             <!--出身国-->
             <div class="config_box">
@@ -93,23 +94,25 @@ function content_5b4fe7f3989476_13090706 (Smarty_Internal_Template $_smarty_tpl)
               </div>
             </div>
             <!--言語変更-->
-            <select name="country_id" class="country-width">
-              <option value="">Change Languege</option>
+            <select name="language_id" class="country-width">
+              <option value="">Change Language</option>
               <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['langueges']->value, 'languege');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['languages']->value, 'language');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['languege']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['language']->value) {
 ?>
-              <option value="<?php echo $_smarty_tpl->tpl_vars['languege']->value['languege_id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['languege']->value['languege'];?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['language']->value['language_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['language']->value['language'];?>
 </option>
               <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </select>
+            <div><p style="color: red"><?php echo $_smarty_tpl->tpl_vars['errMsg']->value;?>
+</p></div>
             <div class="user_button">
-              <input type="submit" class="henkou" value="変更">
+              <input type="submit" class="henkou" value="UPDATE">
             </div>
           </form>
         </div>
@@ -117,7 +120,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <div class="company">
           <div class="company-1">
             <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=config&action=logout" class="exit3">Sign out</a>
+?type=config&action=logout" class="exit3">Sign Out</a>
           </div>
           <div class="company-2">
             <a href="#" class="exit3">Contact</a>

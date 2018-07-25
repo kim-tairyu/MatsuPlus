@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 07:52:57
+/* Smarty version 3.1.32, created on 2018-07-25 05:34:03
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b56dad9acc1e4_09031965',
+  'unifunc' => 'content_5b580bcb2db632_80417440',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '23afcfe27217092ac2324c9e8c0138ab520539d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/editer.tpl',
-      1 => 1532418776,
+      1 => 1532488961,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b56dad9acc1e4_09031965 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b580bcb2db632_80417440 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -52,11 +52,22 @@ function content_5b56dad9acc1e4_09031965 (Smarty_Internal_Template $_smarty_tpl)
                   <div class="panel_area">
                     <!--WEEKタブ-->
                     <div id="panel1" class="tab_panel">
-                      <div class="week_mon3">
-                        <a href="#">お祭り情報一覧</a>
-                        <a href="#">お祭り情報作成</a>
-                        <a href="#">お祭り情報編集</a>
-                        <a href="#">お祭り情報削除</a>
+                      <div id="dnweb-tabtest">
+                          <!-- タブの切替部分 -->
+                          <ul class="nav nav-tabs">
+                              <li class="active"><a href="#tabtest1" data-toggle="tab">1</a></li>
+                              <li><a href="#tabtest2" data-toggle="tab">2</a></li>
+                              <li><a href="#tabtest3" data-toggle="tab">3</a></li>
+                              <li><a href="#tabtest4" data-toggle="tab">4</a></li>
+                          </ul>
+
+                          <!-- タブのコンテンツ部分 -->
+                          <div class="tab-content">
+                              <div class="tab-pane active" id="tabtest1">AAAA</div>
+                              <div class="tab-pane" id="tabtest2">BBBB</div>
+                              <div class="tab-pane" id="tabtest3">CCCC</div>
+                              <div class="tab-pane" id="tabtest4">DDDD</div>
+                          </div>
                       </div>
                     </div>
                     <!--MONTHタブ-->
