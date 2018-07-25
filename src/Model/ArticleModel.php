@@ -103,8 +103,6 @@ class ArticleModel extends BaseModel {
   
   public function addArticle($article_name, $festival_id, $text){
     try {
-      echo $article_name;
-      exit;
       $sql  = 'INSERT INTO article (
         article_name, festival_id, text
       ) VALUES (?, ?, ?);';
