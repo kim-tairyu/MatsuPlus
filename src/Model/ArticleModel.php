@@ -60,10 +60,24 @@ class ArticleModel extends BaseModel {
     return $result;
   }
     
+  // TOP画像取得
+  public function getTopImageArticle($article_id){
+      try {
+      $sql    = 'SELECT * FROM `article_image` WHERE `article_id`=? && title_image = 1;';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->bindValue(1, $article_id);
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  }
+  
   // 画像取得
   public function getImageArticle($article_id){
       try {
-      $sql    = 'SELECT * FROM `article_image` WHERE `article_id`=?;';
+      $sql    = 'SELECT * FROM `article_image` WHERE `article_id`=? && title_image != 1;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $article_id);
       $stmt->execute();
