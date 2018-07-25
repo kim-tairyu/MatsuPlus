@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 04:57:16
+/* Smarty version 3.1.32, created on 2018-07-25 10:38:32
   from 'C:\xampp\htdocs\kimu\src\View\templates\mypage\config.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b56958cbe2d58_00627623',
+  'unifunc' => 'content_5b5837082e8236_55531697',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b1cf2ef9568c03906327b04f34d783be52c56c89' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\mypage\\config.tpl',
-      1 => 1532400189,
+      1 => 1532507016,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b56958cbe2d58_00627623 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5837082e8236_55531697 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -51,10 +51,6 @@ function content_5b56958cbe2d58_00627623 (Smarty_Internal_Template $_smarty_tpl)
         <div class="set">
           <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
 ?type=config&action=update">
-            <form>
-              <input type="file" name="user_icon" accept="<?php echo _IMGS_DIR;?>
-/*">
-            </form>
             <!--ユーザーネーム変更-->
             <div class="config_box">
               <div class="config_box_name">
