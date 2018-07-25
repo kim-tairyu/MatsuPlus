@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 19:43:12
+/* Smarty version 3.1.32, created on 2018-07-25 15:13:01
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5702c08640b0_88072670',
+  'unifunc' => 'content_5b5814ed48a597_93936568',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0cdddcf1be089673dbbe45b729cc766b08a8aa54' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\festival\\festival.tpl',
-      1 => 1532428982,
+      1 => 1532499175,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5702c08640b0_88072670 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5814ed48a597_93936568 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -39,11 +39,57 @@ function content_5b5702c08640b0_88072670 (Smarty_Internal_Template $_smarty_tpl)
         <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
 </h1>
           <!--祭りor記事画像(仮)-->
-        <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+        <!-- <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <a href="#"><img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
 " alt="祭り"></a>
+        </div> -->
+    <div class="worksslider inside">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
+" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['festival_images']->value, 'images');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['images']->value) {
+?>
+          <div class="item">
+            <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['images']->value['image'];?>
+" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
+
+  <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span aria-hidden="true"><img src="<?php echo _IMGS_DIR;?>
+/left.png" width="50px" height="50px"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span aria-hidden="true"><img src="<?php echo _IMGS_DIR;?>
+/right.png" width="50px" height="50px"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+          
+          
+          
+          
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
@@ -71,7 +117,6 @@ function content_5b5702c08640b0_88072670 (Smarty_Internal_Template $_smarty_tpl)
             <input type="date" id="calendar" name="start_date" class="suke-box1" placeholder="startDay" data-mindate=today>
             <!--時間開始1-->
             <select name="start_time" id="time">
-              <option value="time"></option>
               <option value="0:00">0:00</option>
               <option value="0:30">0:30</option>
               <option value="1:00">1:00</option>
@@ -81,7 +126,7 @@ function content_5b5702c08640b0_88072670 (Smarty_Internal_Template $_smarty_tpl)
               <option value="3:00">3:00</option>
               <option value="3:30">3:30</option>
               <option value="4:00">4:00</option>
-              <option value="430">4:30</option>
+              <option value="4:30">4:30</option>
               <option value="5:00">5:00</option>
               <option value="5:30">5:30</option>
               <option value="6:00">6:00</option>
@@ -199,7 +244,7 @@ function content_5b5702c08640b0_88072670 (Smarty_Internal_Template $_smarty_tpl)
             <!--この下のdate2をアクセスカウンターで稲買いします-->
             <h5 class="date2"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_time'];?>
 </h5>
-            <h5 class="date"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_time'];?>
+            <h5 class="date"><?php echo $_smarty_tpl->tpl_vars['festival']->value['end_time'];?>
 </h5>
           </div>
         </div>
@@ -262,7 +307,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['review']->value) {
             <div class="">
               <div class="comment_user_img">
                   <img src="<?php echo _IMGS_SERVER_DIR;?>
-/<?php echo $_SESSION['user_icon'];?>
+/<?php echo $_smarty_tpl->tpl_vars['review']->value['user_icon'];?>
 " alt="ユーザーアイコン">
               </div>
               <div class="comment_hosi">

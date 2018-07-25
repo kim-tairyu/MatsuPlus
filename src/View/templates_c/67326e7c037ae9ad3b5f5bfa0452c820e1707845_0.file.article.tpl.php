@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 18:55:39
+/* Smarty version 3.1.32, created on 2018-07-25 05:20:55
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\article\article.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b56f79bd74491_62052551',
+  'unifunc' => 'content_5b578a27c972b0_74295482',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '67326e7c037ae9ad3b5f5bfa0452c820e1707845' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\article\\article.tpl',
-      1 => 1532425343,
+      1 => 1532462647,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b56f79bd74491_62052551 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b578a27c972b0_74295482 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>

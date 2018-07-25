@@ -157,7 +157,7 @@ class UserController extends BaseController
             exit;
         }
         else if(isset($_POST["start_date"]) && !empty($_POST['start_date']) && $_POST['start_date'] == !null){
-            $start_date = $_POST["start_date"];            
+            $start_date = $_POST["start_date"];
             // 開催日検索
             $this->view->assign('searches', $searchModel->getStartDateSearch($start_date));
             $this->file  = _SEARCH_DIR;
@@ -342,8 +342,9 @@ class UserController extends BaseController
     $articleModel = new ArticleModel();
     if(isset($this->article_id)) {
       $this->view->assign('article',      $articleModel->getOneArticle($this->article_id));
-      $this->view->assign('article_tag',  $articleModel->getTagArticle(2));
-      $this->view->assign('relation_tag', $articleModel->getRelationTag($tag));
+      //$this->view->assign('article_tag',  $articleModel->getTagArticle(2));
+      $tag = $articleModel->getTagArticle($this->article_id);
+      $this->view->assign('relation_tag', $articleModel->getRelationTag($tag,$arc_id));
       $this->title = 'MATSURI PLUS : ARTICLE';
       $this->file  = _ARTICLE_DIR;
       $this->view_display();
@@ -388,14 +389,21 @@ class UserController extends BaseController
       }
     }else if(isset($_POST["festival_id"])) {
       $fes_id = $_POST["festival_id"];
-      if(isset($_SESSION["user_id"]) && isset($_POST['star']) && isset($_POST['kanso'])) {
+      if(isset($_POST['star']) && isset($_POST['kanso'])) {
         if($_POST['star'] !=="" && $_POST['kanso'] !=="") {
-          $user_id = $_SESSION["user_id"];
-          $kanso = $_POST['kanso'];
-          $star = $_POST['star'];
-          // レビュー処理
-          $reviewModel = new ReviewModel();
-          $reviewModel->putReview($fes_id, $user_id, $kanso, $star);
+          if(isset($_SESSION["user_id"])){
+            $user_id = $_SESSION["user_id"];
+            $kanso = $_POST['kanso'];
+            $star = $_POST['star'];
+            // レビュー処理
+            $reviewModel = new ReviewModel();
+            $reviewModel->putReview($fes_id, $user_id, $kanso, $star);
+          }else{
+            $this->view->assign('errMsg', "");
+            $this->title = 'MATSURI PLUS : SIGN-IN';
+            $this->file  = _SIGNIN_DIR;
+            $this->view_display();
+          }
         }
       }else if(isset($_SESSION["user_id"]) && isset($_POST['event'])) {
         if($_POST['event'] !==""){
@@ -427,6 +435,7 @@ class UserController extends BaseController
       $giftModel     = new GiftModel();
       $reviewModel   = new ReviewModel();
       $tagModel      = new TagModel();
+      $a = $festivalModel->getFestivalImages($this->festival_id);
       $this->view->assign('festival',        $festivalModel->getOneFestival($this->festival_id));
       $this->view->assign('festival_images', $festivalModel->getFestivalImages($this->festival_id));
       $this->view->assign('gifts',           $giftModel->getGifts($this->festival_id));
