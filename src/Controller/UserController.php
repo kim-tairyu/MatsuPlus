@@ -350,6 +350,8 @@ class UserController extends BaseController
       $this->view->assign('article',      $articleModel->getOneArticle($this->article_id));
       //$this->view->assign('article_tag',  $articleModel->getTagArticle(2));
       $tag = $articleModel->getTagArticle($this->article_id);
+      $this->view->assign('top_image', $articleModel->getTopImageArticle($this->article_id));
+      $this->view->assign('images', $articleModel->getImageArticle($this->article_id));
       $this->view->assign('relation_tag', $articleModel->getRelationTag($tag,$arc_id));
       $this->title = 'MATSURI PLUS : ARTICLE';
       $this->file  = _ARTICLE_DIR;
