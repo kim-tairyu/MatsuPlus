@@ -16,9 +16,9 @@
         <!-- <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <a href="#"><img src="{_IMGS_SERVER_DIR}/{$article.image}" alt="祭り"></a>
         </div> -->
-        
+
         <div class="worksslider inside">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="5000">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           {foreach from=$top_image item=top}
@@ -39,17 +39,17 @@
 
   <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span aria-hidden="true"><img src="{_IMGS_DIR}/left.png" width="50px" height="50px"></span>
+          <span aria-hidden="true" class="yazirusi"><img src="{_IMGS_DIR}/left.png" width="50px" height="50px"></span>
           <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span aria-hidden="true"><img src="{_IMGS_DIR}/right.png" width="50px" height="50px"></span>
+          <span aria-hidden="true" class="yazirusi"><img src="{_IMGS_DIR}/right.png" width="50px" height="50px"></span>
           <span class="sr-only">Next</span>
         </a>
       </div>
     </div>
-        
-        
+
+
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="{$SCRIPT_NAME}?type=article&article_id={$article.article_id}&f" style="text-decoration:none;"><div class="fev_button"><p>♡</p></div></a>
@@ -91,7 +91,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--フッター（SP版では非表示になってる）-->
     {include file=_FOOTER_DIR}
     <script src="{_JS_DIR}/jquery.min.js"></script>
