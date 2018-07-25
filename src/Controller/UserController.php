@@ -345,6 +345,8 @@ class UserController extends BaseController
       }
     }
     
+    
+    
     $articleModel = new ArticleModel();
     if(isset($this->article_id)) {
       $this->view->assign('article',      $articleModel->getOneArticle($this->article_id));
@@ -484,7 +486,14 @@ class UserController extends BaseController
       $giftModel     = new GiftModel();
       $reviewModel   = new ReviewModel();
       $tagModel      = new TagModel();
-      $a = $festivalModel->getFestivalImages($this->festival_id);
+      $text = $festivalModel->getOneText($this->festival_id);
+      foreach($text as $a){
+        $b[] =  str_replace( "\\n", '<br />',$a);
+      }
+
+      $this->view->assign('description',        $b[0]);
+      $this->view->assign('history',            $b[1]);
+      $this->view->assign('festival_program',   $b[2]);
       $this->view->assign('festival',        $festivalModel->getOneFestival($this->festival_id));
       $this->view->assign('festival_images', $festivalModel->getFestivalImages($this->festival_id));
       $this->view->assign('gifts',           $giftModel->getGifts($this->festival_id));

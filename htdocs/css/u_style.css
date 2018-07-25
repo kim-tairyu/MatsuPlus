@@ -1,0 +1,27 @@
+
+@charset "UTF-8";
+
+ label,input , textarea,select{
+  margin-bottom: 20px;
+}
+@media (min-width:1000px) {
+  form{
+    width:900px;
+    margin:auto;
+  }
+}
+
+form img.thumb {
+  margin:0 5px 5px 0;
+  max-width:160px;
+  vertical-align:bottom;
+}
+
+.form-group span,.form-inline span{
+  color: red;
+}
+
+.btn{
+  float: right;
+  margin-right: 15px;
+}

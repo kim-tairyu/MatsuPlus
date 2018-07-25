@@ -16,6 +16,11 @@
         <!-- <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <a href="#"><img src="{_IMGS_SERVER_DIR}/{$festival.image}" alt="祭り"></a>
         </div> -->
+        
+        <!-- <p>{$description}</p>
+        <p>{$history}</p>
+        <p>{$festival_program}</p> -->
+        
     <div class="worksslider inside">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
         <!-- Wrapper for slides -->
@@ -137,7 +142,7 @@
               <option value="3:00">3:00</option>
               <option value="3:30">3:30</option>
               <option value="4:00">4:00</option>
-              <option value="430">4:30</option>
+              <option value="4:30">4:30</option>
               <option value="5:00">5:00</option>
               <option value="5:30">5:30</option>
               <option value="6:00">6:00</option>
@@ -207,7 +212,7 @@
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p>{$festival.description_en}</p>
+          <p>{$description}</p>
         </div>
         <!--動画-->
         <p>{$festival.movie_url}</p>

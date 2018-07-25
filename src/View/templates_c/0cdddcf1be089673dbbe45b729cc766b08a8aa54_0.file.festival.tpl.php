@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 16:24:36
+/* Smarty version 3.1.32, created on 2018-07-26 00:09:47
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5825b48af6b3_64621623',
+  'unifunc' => 'content_5b5892bbe4e033_50488006',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0cdddcf1be089673dbbe45b729cc766b08a8aa54' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\festival\\festival.tpl',
-      1 => 1532503459,
+      1 => 1532531384,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5825b48af6b3_64621623 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5892bbe4e033_50488006 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -44,6 +44,10 @@ function content_5b5825b48af6b3_64621623 (Smarty_Internal_Template $_smarty_tpl)
 /<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
 " alt="祭り"></a>
         </div> -->
+        
+        <p><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
+</p>
+        
     <div class="worksslider inside">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
         <!-- Wrapper for slides -->
@@ -183,7 +187,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               <option value="3:00">3:00</option>
               <option value="3:30">3:30</option>
               <option value="4:00">4:00</option>
-              <option value="430">4:30</option>
+              <option value="4:30">4:30</option>
               <option value="5:00">5:00</option>
               <option value="5:30">5:30</option>
               <option value="6:00">6:00</option>
@@ -250,7 +254,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p><?php echo $_smarty_tpl->tpl_vars['festival']->value['description_en'];?>
+          <p><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
 </p>
         </div>
         <!--動画-->
