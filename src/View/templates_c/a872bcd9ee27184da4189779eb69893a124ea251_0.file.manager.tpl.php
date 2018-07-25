@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 05:28:44
+/* Smarty version 3.1.32, created on 2018-07-25 14:55:01
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/manager.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b580a8ccab2c3_22226029',
+  'unifunc' => 'content_5b588f4527c1b9_94300822',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a872bcd9ee27184da4189779eb69893a124ea251' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/manager/manager.tpl',
-      1 => 1532496521,
+      1 => 1532529658,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b580a8ccab2c3_22226029 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b588f4527c1b9_94300822 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -327,14 +327,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                               <input type="password" class="password" name="muni_pass" placeholder="Municipality Password">
                               <input type="text" class="name" name="muni_name" placeholder="Municipality Name">
                               <select name="festival_id" class="country-width">
-                                <option value="">Select Festival ID</option>
+                                <option value="">Select Festival</option>
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['festival_id']->value, 'fes_id');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['fes_id']->value) {
 ?>
-                                <option value="<?php echo $_smarty_tpl->tpl_vars['fes_id']->value['fes_id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['fes_id']->value['festival_id'];?>
+                                <option value="<?php echo $_smarty_tpl->tpl_vars['fes_id']->value['festival_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['fes_id']->value['festival_name_en'];?>
 </option>
                                 <?php
 }
@@ -343,7 +343,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                               </select>
                               <input type="text" class="name" name="muni_mail" placeholder="Municipality Mail">
                               <input type="text" class="name" name="muni_tel" placeholder="Municipality TEL">
-                              <input type="submit" class="touroku" value="Create an municipality account">
+                              <input type="submit" class="touroku" value="Create a municipality account">
                             </form>
                           </div>
                         </div>

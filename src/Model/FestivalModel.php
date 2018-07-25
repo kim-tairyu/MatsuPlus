@@ -38,7 +38,7 @@ class FestivalModel extends BaseModel {
     return $result;
   }
   
-  // 祭り情報を取得（全件）
+  // 祭り情報を取得（一覧）
   public function getFestivals() {
     try {
       $sql    = 'SELECT * FROM festival;';
@@ -55,6 +55,22 @@ class FestivalModel extends BaseModel {
   public function getOneFestival($festival_id) {
     try {
       $sql    = 'SELECT * FROM festival
+                LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id
+                WHERE festival.festival_id = ? && festival_image.title_image = 1 ;';
+      $stmt   = $this->pdo->prepare($sql);
+      $stmt->bindValue(1, $festival_id);
+      $stmt->execute();
+      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  }
+  
+  // 祭り情報を取得
+  public function getOneText($festival_id) {
+    try {
+      $sql    = 'SELECT description_en,history_en,festival_program_en FROM festival
                 LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id
                 WHERE festival.festival_id = ? && festival_image.title_image = 1 ;';
       $stmt   = $this->pdo->prepare($sql);
@@ -161,10 +177,10 @@ class FestivalModel extends BaseModel {
     return $result;
   }
   
-  //　Get Festival ID
+  //　Get Festival ID AND NAME
   public function getFestivalId() {
     try {
-      $sql = 'SELECT festival_id FROM festival ORDER BY festival_id;';
+      $sql = 'SELECT festival_id, festival_name_en FROM festival ORDER BY festival_id;';
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute();
       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

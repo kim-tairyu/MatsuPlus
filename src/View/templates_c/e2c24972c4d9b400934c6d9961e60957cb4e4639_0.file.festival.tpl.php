@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 22:11:31
+/* Smarty version 3.1.32, created on 2018-07-25 16:33:08
   from 'C:\xampp\htdocs\kimu\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5787f3d4d8e5_67702535',
+  'unifunc' => 'content_5b588a24ec6ae0_65555829',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e2c24972c4d9b400934c6d9961e60957cb4e4639' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\festival\\festival.tpl',
-      1 => 1532426516,
+      1 => 1532529187,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5787f3d4d8e5_67702535 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b588a24ec6ae0_65555829 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -31,7 +31,7 @@ function content_5b5787f3d4d8e5_67702535 (Smarty_Internal_Template $_smarty_tpl)
     <!--header-->
     <?php $_smarty_tpl->_subTemplateRender(_HEADER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
-    
+
     <!-- maincontents -->
     <div class="main_content" id="myTapContent">
       <div class="main_content_fes_inner">
@@ -39,11 +39,57 @@ function content_5b5787f3d4d8e5_67702535 (Smarty_Internal_Template $_smarty_tpl)
         <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_name_en'];?>
 </h1>
           <!--祭りor記事画像(仮)-->
-        <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+        <!-- <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <a href="#"><img src="<?php echo _IMGS_SERVER_DIR;?>
-/<?php echo $_smarty_tpl->tpl_vars['festival_image']->value['image'];?>
+/<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
 " alt="祭り"></a>
+        </div> -->
+    <div class="worksslider inside col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
+" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['festival_images']->value, 'images');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['images']->value) {
+?>
+          <div class="item">
+            <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['images']->value['image'];?>
+" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
+
+  <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span aria-hidden="true" class="yazirusi1"><img src="<?php echo _IMGS_DIR;?>
+/left.png" width="50px" height="50px"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span aria-hidden="true" class="yazirusi2"><img src="<?php echo _IMGS_DIR;?>
+/right.png" width="50px" height="50px"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+
+
+
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
@@ -67,117 +113,116 @@ function content_5b5787f3d4d8e5_67702535 (Smarty_Internal_Template $_smarty_tpl)
             <input type="text" id="place" name="place" placeholder="place"><br/>
             <div class="suke-box">
             <!--カレンダー開始1-->
-            <input type="text" id="calendar" class="suke-box1" placeholder="startDay" data-mindate=today>
+            <!-- <input type="text" id="calendar" class="suke-box1" placeholder="startDay" data-mindate=today> -->
+            <input type="date" id="calendar" name="start_date" class="suke-box1" placeholder="startDay" data-mindate=today>
             <!--時間開始1-->
-            <select name="time_id" id="time">
-              <option value="time"></option>
-              <option value="">0:00</option>
-              <option value="">0:30</option>
-              <option value="">1:00</option>
-              <option value="">1:30</option>
-              <option value="">2:00</option>
-              <option value="">2:30</option>
-              <option value="">3:00</option>
-              <option value="">3:30</option>
-              <option value="">4:00</option>
-              <option value="">4:30</option>
-              <option value="">5:00</option>
-              <option value="">5:30</option>
-              <option value="">6:00</option>
-              <option value="">6:30</option>
-              <option value="">7:00</option>
-              <option value="">7:30</option>
-              <option value="">8:00</option>
-              <option value="">8:30</option>
-              <option value="">9:00</option>
-              <option value="">9:30</option>
-              <option value="">10:00</option>
-              <option value="">10:30</option>
-              <option value="">11:00</option>
-              <option value="">11:30</option>
-              <option value="">12:00</option>
-              <option value="">12:30</option>
-              <option value="">13:00</option>
-              <option value="">13:30</option>
-              <option value="">14:00</option>
-              <option value="">14:30</option>
-              <option value="">15:00</option>
-              <option value="">15:30</option>
-              <option value="">16:00</option>
-              <option value="">16:30</option>
-              <option value="">17:00</option>
-              <option value="">17:30</option>
-              <option value="">18:00</option>
-              <option value="">18:30</option>
-              <option value="">19:00</option>
-              <option value="">19:30</option>
-              <option value="">20:00</option>
-              <option value="">20:30</option>
-              <option value="">21:00</option>
-              <option value="">21:30</option>
-              <option value="">22:00</option>
-              <option value="">22:30</option>
-              <option value="">23:00</option>
-              <option value="">23:30</option>
-              <option value="">24:00</option>
+            <select name="start_time" id="time">
+              <option value="0:00">0:00</option>
+              <option value="0:30">0:30</option>
+              <option value="1:00">1:00</option>
+              <option value="1:30">1:30</option>
+              <option value="2:00">2:00</option>
+              <option value="2:30">2:30</option>
+              <option value="3:00">3:00</option>
+              <option value="3:30">3:30</option>
+              <option value="4:00">4:00</option>
+              <option value="4:30">4:30</option>
+              <option value="5:00">5:00</option>
+              <option value="5:30">5:30</option>
+              <option value="6:00">6:00</option>
+              <option value="6:30">6:30</option>
+              <option value="7:00">7:00</option>
+              <option value="7:30">7:30</option>
+              <option value="8:00">8:00</option>
+              <option value="8:30">8:30</option>
+              <option value="9:00">9:00</option>
+              <option value="9:30">9:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+              <option value="24:00">24:00</option>
             </select>
             </div>
             <!--カレンダー開始１と時間開始１終了-->
             <div class="suke-box">
             <!--カレンダー開始2-->
-            <input type="text" id="calendar" class="suke-box1" placeholder="endDay" data-mindate=today>
+            <input type="date" id="calendar" name="end_date" class="suke-box1" placeholder="endDay" data-mindate=today>
             <!--時間開始2-->
-            <select name="time_id" id="time">
-              <option value="time"></option>
-              <option value="">0:00</option>
-              <option value="">0:30</option>
-              <option value="">1:00</option>
-              <option value="">1:30</option>
-              <option value="">2:00</option>
-              <option value="">2:30</option>
-              <option value="">3:00</option>
-              <option value="">3:30</option>
-              <option value="">4:00</option>
-              <option value="">4:30</option>
-              <option value="">5:00</option>
-              <option value="">5:30</option>
-              <option value="">6:00</option>
-              <option value="">6:30</option>
-              <option value="">7:00</option>
-              <option value="">7:30</option>
-              <option value="">8:00</option>
-              <option value="">8:30</option>
-              <option value="">9:00</option>
-              <option value="">9:30</option>
-              <option value="">10:00</option>
-              <option value="">10:30</option>
-              <option value="">11:00</option>
-              <option value="">11:30</option>
-              <option value="">12:00</option>
-              <option value="">12:30</option>
-              <option value="">13:00</option>
-              <option value="">13:30</option>
-              <option value="">14:00</option>
-              <option value="">14:30</option>
-              <option value="">15:00</option>
-              <option value="">15:30</option>
-              <option value="">16:00</option>
-              <option value="">16:30</option>
-              <option value="">17:00</option>
-              <option value="">17:30</option>
-              <option value="">18:00</option>
-              <option value="">18:30</option>
-              <option value="">19:00</option>
-              <option value="">19:30</option>
-              <option value="">20:00</option>
-              <option value="">20:30</option>
-              <option value="">21:00</option>
-              <option value="">21:30</option>
-              <option value="">22:00</option>
-              <option value="">22:30</option>
-              <option value="">23:00</option>
-              <option value="">23:30</option>
-              <option value="">24:00</option>
+            <select name="end_time" id="time">
+              <option value="0:00">0:00</option>
+              <option value="0:30">0:30</option>
+              <option value="1:00">1:00</option>
+              <option value="1:30">1:30</option>
+              <option value="2:00">2:00</option>
+              <option value="2:30">2:30</option>
+              <option value="3:00">3:00</option>
+              <option value="3:30">3:30</option>
+              <option value="4:00">4:00</option>
+              <option value="430">4:30</option>
+              <option value="5:00">5:00</option>
+              <option value="5:30">5:30</option>
+              <option value="6:00">6:00</option>
+              <option value="6:30">6:30</option>
+              <option value="7:00">7:00</option>
+              <option value="7:30">7:30</option>
+              <option value="8:00">8:00</option>
+              <option value="8:30">8:30</option>
+              <option value="9:00">9:00</option>
+              <option value="9:30">9:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+              <option value="24:00">24:00</option>
             </select>
             </div>
             <input type="hidden" name="festival_id" value="<?php echo $_smarty_tpl->tpl_vars['festival']->value['festival_id'];?>
@@ -199,7 +244,7 @@ function content_5b5787f3d4d8e5_67702535 (Smarty_Internal_Template $_smarty_tpl)
             <!--この下のdate2をアクセスカウンターで稲買いします-->
             <h5 class="date2"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_time'];?>
 </h5>
-            <h5 class="date"><?php echo $_smarty_tpl->tpl_vars['festival']->value['start_time'];?>
+            <h5 class="date"><?php echo $_smarty_tpl->tpl_vars['festival']->value['end_time'];?>
 </h5>
           </div>
         </div>
@@ -209,8 +254,13 @@ function content_5b5787f3d4d8e5_67702535 (Smarty_Internal_Template $_smarty_tpl)
 </p>
         </div>
         <!--動画-->
-        <p><?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
-</p>
+        <div class="move col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+          <iframe width="800" height="400" src="//www.youtube.com/embed/-bCKCl3Gj1M?rel=0"
+          frameborder="0" allowfullscreen>
+          </iframe>
+        </div>
+        <!--<p><?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
+</p>-->
         <!--MAP-->
         <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q=<?php echo $_smarty_tpl->tpl_vars['festival']->value['x_coordinate'];?>
 ,<?php echo $_smarty_tpl->tpl_vars['festival']->value['y_coordinate'];?>
@@ -351,7 +401,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
       </div>
     </div>
-    
+
     <!--フッター（SP版では非表示になってる）-->
     <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>

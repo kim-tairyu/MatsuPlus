@@ -349,6 +349,8 @@ class UserController extends BaseController
       }
     }
     
+    
+    
     $articleModel = new ArticleModel();
     if(isset($this->article_id)) {
       $this->view->assign('article',      $articleModel->getOneArticle($this->article_id));
@@ -370,9 +372,34 @@ class UserController extends BaseController
   //----------------------------------------------------
   public function screen_editer()
   {
+    $festivalModel = new FestivalModel();
+    $articleModel = new ArticleModel();
+    $this->view->assign('festivals', $festivalModel->getFestivals());
+    $this->view->assign('articles', $articleModel->getArticlesInfo());
+    $this->view->assign('festival_id', $festivalModel->getFestivalId());
     $this->title = 'MATSURI PLUS : EDITER';
-    $this->file  = _EDITER_DIR;
-    $this->view_display();
+    
+    if($this->action == 'addArticle') {
+      if(!isset($_POST['article_name']) ||
+         !isset($_POST['festival_id']) ||
+         !isset($_POST['text'])) {
+        $this->view->assign('errMsg', "INPUT ERROR!");
+        $this->file  = _EDITER_DIR;
+        $this->view_display();
+      } else {
+        $articleModel->addArticle($_POST['article_name'], $_POST['festival_id'], $_POST['text']);
+        $this->action = null;
+        $this->screen_editer();
+      }
+    } else if($this->action == 'deleteArticle') {
+      $articleModel->deleteArticle($_GET['article_id']);
+      $this->action = null;
+      $this->screen_editer();
+    } else {
+      $this->view->assign('errMsg', "");
+      $this->file  = _EDITER_DIR;
+      $this->view_display();
+    }
   }
   
   //----------------------------------------------------
@@ -488,7 +515,14 @@ class UserController extends BaseController
       $giftModel     = new GiftModel();
       $reviewModel   = new ReviewModel();
       $tagModel      = new TagModel();
-      $a = $festivalModel->getFestivalImages($this->festival_id);
+      $text = $festivalModel->getOneText($this->festival_id);
+      foreach($text as $a){
+        $b[] =  str_replace( "\\n", '<br />',$a);
+      }
+
+      $this->view->assign('description',        $b[0]);
+      $this->view->assign('history',            $b[1]);
+      $this->view->assign('festival_program',   $b[2]);
       $this->view->assign('festival',        $festivalModel->getOneFestival($this->festival_id));
       $this->view->assign('festival_images', $festivalModel->getFestivalImages($this->festival_id));
       $this->view->assign('gifts',           $giftModel->getGifts($this->festival_id));

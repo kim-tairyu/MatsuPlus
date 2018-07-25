@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 16:24:36
+/* Smarty version 3.1.32, created on 2018-07-26 00:47:51
   from 'C:\xampp\htdocs\matsuri\Matsuri-plus\src\View\templates\festival\festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5825b48af6b3_64621623',
+  'unifunc' => 'content_5b589ba7b859e2_52703075',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0cdddcf1be089673dbbe45b729cc766b08a8aa54' => 
     array (
       0 => 'C:\\xampp\\htdocs\\matsuri\\Matsuri-plus\\src\\View\\templates\\festival\\festival.tpl',
-      1 => 1532503459,
+      1 => 1532533656,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5825b48af6b3_64621623 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b589ba7b859e2_52703075 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -31,7 +31,7 @@ function content_5b5825b48af6b3_64621623 (Smarty_Internal_Template $_smarty_tpl)
     <!--header-->
     <?php $_smarty_tpl->_subTemplateRender(_HEADER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
-    
+
     <!-- maincontents -->
     <div class="main_content" id="myTapContent">
       <div class="main_content_fes_inner">
@@ -44,7 +44,7 @@ function content_5b5825b48af6b3_64621623 (Smarty_Internal_Template $_smarty_tpl)
 /<?php echo $_smarty_tpl->tpl_vars['festival']->value['image'];?>
 " alt="祭り"></a>
         </div> -->
-    <div class="worksslider inside">
+    <div class="worksslider inside col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
@@ -75,21 +75,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
   <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span aria-hidden="true"><img src="<?php echo _IMGS_DIR;?>
+          <span aria-hidden="true" class="yazirusi1"><img src="<?php echo _IMGS_DIR;?>
 /left.png" width="50px" height="50px"></span>
           <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span aria-hidden="true"><img src="<?php echo _IMGS_DIR;?>
+          <span aria-hidden="true" class="yazirusi2"><img src="<?php echo _IMGS_DIR;?>
 /right.png" width="50px" height="50px"></span>
           <span class="sr-only">Next</span>
         </a>
       </div>
     </div>
-          
-          
-          
-          
+
+
+
+
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
@@ -183,7 +183,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               <option value="3:00">3:00</option>
               <option value="3:30">3:30</option>
               <option value="4:00">4:00</option>
-              <option value="430">4:30</option>
+              <option value="4:30">4:30</option>
               <option value="5:00">5:00</option>
               <option value="5:30">5:30</option>
               <option value="6:00">6:00</option>
@@ -250,12 +250,35 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p><?php echo $_smarty_tpl->tpl_vars['festival']->value['description_en'];?>
+          <div id="dnweb-tab">
+            <!-- タブの切替部分 -->
+            <ul class="nav nav-tabs nav-justified">
+              <li class="active"><a href="#fes_tab1" data-toggle="tab">Description</a></li>
+              <li><a href="#fes_tab2" data-toggle="tab">History</a></li>
+              <li><a href="#fes_tab3" data-toggle="tab">Program</a></li>
+            </ul>
+            <!-- タブのコンテンツ部分 -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="fes_tab1">
+                <p><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
 </p>
+              </div>
+              <div class="tab-pane" id="fes_tab2">
+                <p><?php echo $_smarty_tpl->tpl_vars['history']->value;?>
+</p>
+              </div>
+              <div class="tab-pane" id="fes_tab3">
+                <p><?php echo $_smarty_tpl->tpl_vars['festival_program']->value;?>
+</p>
+              </div>
+            </div>
+          </div>
         </div>
         <!--動画-->
-        <p><?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
-</p>
+        <div class="move col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+          <?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
+
+        </div>
         <!--MAP-->
         <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q=<?php echo $_smarty_tpl->tpl_vars['festival']->value['x_coordinate'];?>
 ,<?php echo $_smarty_tpl->tpl_vars['festival']->value['y_coordinate'];?>
@@ -382,7 +405,9 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
 ?>
-          <a href="#" class="tag"><?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
+          <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=search&action=festival_tag&tag_name=<?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
+" class="tag"><?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
 </a>
           <?php
 }
@@ -396,7 +421,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
       </div>
     </div>
-    
+
     <!--フッター（SP版では非表示になってる）-->
     <?php $_smarty_tpl->_subTemplateRender(_FOOTER_DIR, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>

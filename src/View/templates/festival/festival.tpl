@@ -6,7 +6,7 @@
   <body>
     <!--header-->
     {include file=_HEADER_DIR}
-    
+
     <!-- maincontents -->
     <div class="main_content" id="myTapContent">
       <div class="main_content_fes_inner">
@@ -16,7 +16,7 @@
         <!-- <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <a href="#"><img src="{_IMGS_SERVER_DIR}/{$festival.image}" alt="祭り"></a>
         </div> -->
-    <div class="worksslider inside">
+    <div class="worksslider inside col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
@@ -36,19 +36,19 @@
 
   <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span aria-hidden="true"><img src="{_IMGS_DIR}/left.png" width="50px" height="50px"></span>
+          <span aria-hidden="true" class="yazirusi1"><img src="{_IMGS_DIR}/left.png" width="50px" height="50px"></span>
           <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span aria-hidden="true"><img src="{_IMGS_DIR}/right.png" width="50px" height="50px"></span>
+          <span aria-hidden="true" class="yazirusi2"><img src="{_IMGS_DIR}/right.png" width="50px" height="50px"></span>
           <span class="sr-only">Next</span>
         </a>
       </div>
     </div>
-          
-          
-          
-          
+
+
+
+
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="{$SCRIPT_NAME}?type=festival&festival_id={$festival.festival_id}&action=favorite" style="text-decoration:none;"><div class="fev_button">
@@ -137,7 +137,7 @@
               <option value="3:00">3:00</option>
               <option value="3:30">3:30</option>
               <option value="4:00">4:00</option>
-              <option value="430">4:30</option>
+              <option value="4:30">4:30</option>
               <option value="5:00">5:00</option>
               <option value="5:30">5:30</option>
               <option value="6:00">6:00</option>
@@ -207,10 +207,31 @@
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p>{$festival.description_en}</p>
+          <div id="dnweb-tab">
+            <!-- タブの切替部分 -->
+            <ul class="nav nav-tabs nav-justified">
+              <li class="active"><a href="#fes_tab1" data-toggle="tab">Description</a></li>
+              <li><a href="#fes_tab2" data-toggle="tab">History</a></li>
+              <li><a href="#fes_tab3" data-toggle="tab">Program</a></li>
+            </ul>
+            <!-- タブのコンテンツ部分 -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="fes_tab1">
+                <p style="text-align: left;">{$description}</p>
+              </div>
+              <div class="tab-pane" id="fes_tab2">
+                <p style="text-align: left;">{$history}</p>
+              </div>
+              <div class="tab-pane" id="fes_tab3">
+                <p style="text-align: left;">{$festival_program}</p>
+              </div>
+            </div>
+          </div>
         </div>
         <!--動画-->
-        <p>{$festival.movie_url}</p>
+        <div class="move col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+          {$festival.movie_url}
+        </div>
         <!--MAP-->
         <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q={$festival.x_coordinate},{$festival.y_coordinate}&output=embed" width=100% height="450" frameborder="0" style="border:0"></iframe>
         <!--グッズ-->
@@ -280,7 +301,7 @@
                   </div>
                 </div>
                 <!--コメント記入-->
-                <textarea name="kanso" rows="4" cols="40" class="comment_area"></textarea><br>
+                <textarea name="kanso" rows="4" cols="40" class="comment_area" style="text-align: left;"></textarea><br>
                 <!-- 祭りID -->
                 <input type="hidden" name="festival_id" value="{$festival.festival_id}">
                 <input type="submit" value="送信" class="comment_button">
@@ -304,7 +325,7 @@
 
       </div>
     </div>
-    
+
     <!--フッター（SP版では非表示になってる）-->
     {include file=_FOOTER_DIR}
     <script src="{_JS_DIR}/jquery.min.js"></script>
