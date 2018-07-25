@@ -107,6 +107,8 @@ class UserController extends BaseController
         $favoriteModel = new FavoriteModel();
         $favoriteModel->putFavoriteFestival($_SESSION["user_id"], $fes_id);
         $this->action = '';
+      } else {
+        $this->screen_signIn();
       }
     }
     // 記事お気に入り処理
@@ -118,6 +120,8 @@ class UserController extends BaseController
         $favoriteModel = new FavoriteModel();
         $article_favorite = $favoriteModel->putFavoriteArticle($_SESSION["user_id"], $arc_id);
         $this->action = '';
+      } else {
+        $this->screen_signIn();
       }
     }
     $this->view->assign('weekFestivals', $festivalModel->getWeekRecommendFestivals());
@@ -169,18 +173,25 @@ class UserController extends BaseController
         $this->file  = _SEARCH_DIR;
         $this->view_display();
       }
-    }
-    else if($this->action == 'kensaku_tag') {
+    } else if($this->action == 'kensaku_tag') {
       $this->view->assign('searches', $tagModel->getAreaTags($_GET['area']));
       $this->file  = _SEARCH_DIR;
       $this->view_display();
-    }
-    else if($this->action == 'festival_tag') {
+    } else if($this->action == 'festival_tag') {
       $this->view->assign('searches', $tagModel->getAreaTags($_GET['tag_name']));
       $this->file  = _SEARCH_DIR;
       $this->view_display();
-    }
-    else {
+    } else if($this->action == 'festival_favorite')
+    {
+      $fes_id = $_GET["festival_id"];
+      if(isset($_SESSION["user_id"])) {
+        $favoriteModel = new FavoriteModel();
+        $favoriteModel->putFavoriteFestival($_SESSION["user_id"], $fes_id);
+        $this->action = '';
+      } else {
+        $this->screen_signIn();
+      }
+    } else {
       $this->view->assign('searches', $festivalModel->getRecommendFestivals());
       $this->file  = _SEARCH_DIR;
       $this->view_display();
@@ -348,8 +359,6 @@ class UserController extends BaseController
         $article_favorite = $favoriteModel->putFavoriteArticle($_SESSION["user_id"], $arc_id);
       }
     }
-    
-    
     
     $articleModel = new ArticleModel();
     if(isset($this->article_id)) {

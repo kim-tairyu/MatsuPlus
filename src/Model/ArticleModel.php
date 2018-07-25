@@ -120,7 +120,7 @@ class ArticleModel extends BaseModel {
   // 記事削除
   public function deleteArticle($article_id) {
     try {
-      $sql    = 'DELETE FROM article WHERE $article_id = ?;';
+      $sql    = 'DELETE FROM article WHERE article_id = ?;';
       $stmt   = $this->pdo->prepare($sql);
       $stmt->bindValue(1, $article_id);
       $stmt->execute();

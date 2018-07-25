@@ -11,7 +11,6 @@ try {
             'start'=>$array['start_time'],//開始日
             'end'=>$array['end_time'],//終了日
             'allDay'=>'true',//終日
-            'url'=>'festival.php?festival_id='.$array['festival_id']//祭詳細ページに飛ぶリンク
         );
     }
     header('Content-type: application/json');
