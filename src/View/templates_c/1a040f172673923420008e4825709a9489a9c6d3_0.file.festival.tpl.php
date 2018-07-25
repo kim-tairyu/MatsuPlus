@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 07:30:11
+/* Smarty version 3.1.32, created on 2018-07-25 11:47:00
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b582703346581_32841276',
+  'unifunc' => 'content_5b586334ce6bb2_41526521',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a040f172673923420008e4825709a9489a9c6d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl',
-      1 => 1532503740,
+      1 => 1532519173,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b582703346581_32841276 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b586334ce6bb2_41526521 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -382,7 +382,9 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
 ?>
-          <a href="#" class="tag"><?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
+          <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
+?type=search&action=festival_tag&tag_name=<?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
+" class="tag"><?php echo $_smarty_tpl->tpl_vars['tag']->value['tag_name_en'];?>
 </a>
           <?php
 }

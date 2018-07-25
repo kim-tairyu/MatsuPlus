@@ -296,7 +296,7 @@
 
         <div class="related_article_title_tag col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           {foreach from=$tags item=tag}
-          <a href="#" class="tag">{$tag.tag_name_en}</a>
+          <a href="{$SCRIPT_NAME}?type=search&action=festival_tag&tag_name={$tag.tag_name_en}" class="tag">{$tag.tag_name_en}</a>
           {foreachelse}
           <div>No Tag!</div>
           {/foreach}

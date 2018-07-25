@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-19 06:24:15
+/* Smarty version 3.1.32, created on 2018-07-25 09:19:05
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/article/article.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b502e8f2d0854_73706756',
+  'unifunc' => 'content_5b58408987e2d3_65044871',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bc66e6c828cac22e405c9b23f96c7e965378645d' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/article/article.tpl',
-      1 => 1531981153,
+      1 => 1532510319,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b502e8f2d0854_73706756 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b58408987e2d3_65044871 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -39,11 +39,65 @@ function content_5b502e8f2d0854_73706756 (Smarty_Internal_Template $_smarty_tpl)
         <h1 class="matsuri_title col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"><?php echo $_smarty_tpl->tpl_vars['article']->value['article_title'];?>
 </h1>
         <!--祭りor記事画像(仮)-->
-        <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+        <!-- <div class="home_img2 col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <a href="#"><img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['article']->value['image'];?>
 " alt="祭り"></a>
+        </div> -->
+        
+        <div class="worksslider inside">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['top_image']->value, 'top');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['top']->value) {
+?>
+          <div class="item active">
+            <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['top']->value['image'];?>
+" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['images']->value, 'top_images');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['top_images']->value) {
+?>
+          <div class="item">
+            <img src="<?php echo _IMGS_SERVER_DIR;?>
+/<?php echo $_smarty_tpl->tpl_vars['top_images']->value['image'];?>
+" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
+
+  <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span aria-hidden="true"><img src="<?php echo _IMGS_DIR;?>
+/left.png" width="50px" height="50px"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span aria-hidden="true"><img src="<?php echo _IMGS_DIR;?>
+/right.png" width="50px" height="50px"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+        
+        
         <!--お気に入りボタン-->
         <div class="fev_button_box">
           <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
@@ -78,7 +132,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['relation']->value) {
 ?>
           <div class="news_info_event_box">
             <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?type=article&article_id=?">
+?type=article&article_id=<?php echo $_smarty_tpl->tpl_vars['relation']->value['article_id'];?>
+">
               <div class="news_box">
                 <div class="news_box1">
                   <img src="<?php echo _IMGS_SERVER_DIR;?>

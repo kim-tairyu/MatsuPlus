@@ -94,4 +94,20 @@ class TagModel extends BaseModel {
     }
     return $result;
   } 
+  
+  public function getAreaTags($tag_name) {
+    try {
+      $sql = 'SELECT * FROM festival_tag
+              LEFT JOIN festival ON festival_tag.festival_id = festival.festival_id
+              LEFT JOIN festival_image ON festival_image.festival_id = festival.festival_id
+              WHERE festival_image.title_image = 1 AND tag_name_en = ?;';
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(1, $tag_name);
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      die('DB ERROR:'.$e->getMesseage);
+    }
+    return $result;
+  } 
 }

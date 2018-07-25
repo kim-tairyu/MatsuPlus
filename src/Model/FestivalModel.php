@@ -127,7 +127,6 @@ class FestivalModel extends BaseModel {
   //　開催地検索
   public function getLocationSearch($location) {
     try {
-      $location = $_POST['location'];
       $location = " '%{$location}%' ";
       $sql = 'SELECT * FROM festival 
               LEFT JOIN festival_image ON festival.festival_id = festival_image.festival_id 
