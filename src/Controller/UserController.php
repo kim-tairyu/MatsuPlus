@@ -433,7 +433,6 @@ class UserController extends BaseController
         // お気に入り処理
         $favoriteModel = new FavoriteModel();
         $favoriteModel->putFavoriteFestival($_SESSION["user_id"], $fes_id);
-<<<<<<< HEAD
       }
     }else if(isset($_POST["festival_id"])) {
       $fes_id = $_POST["festival_id"];
@@ -476,31 +475,6 @@ class UserController extends BaseController
           $scheduleModel->addSchedule($user_id, $event, $s_date, $e_date, $fes_id, $place, $free);
         }
       }
-=======
-      }
-    }else if(isset($_POST["festival_id"])) {
-      $fes_id = $_POST["festival_id"];
-      if(isset($_SESSION["user_id"]) && isset($_POST['star']) && isset($_POST['kanso'])) {
-        if($_POST['star'] !=="" && $_POST['kanso'] !=="") {
-          $user_id = $_SESSION["user_id"];
-          $kanso = $_POST['kanso'];
-          $star = $_POST['star'];
-          // レビュー処理
-          $reviewModel = new ReviewModel();
-          $reviewModel->putReview($fes_id, $user_id, $kanso, $star);
-        }
-      }else if(isset($_SESSION["user_id"]) && isset($_POST['event'])) {
-        if($_POST['event'] !==""){
-          $user_id = $_SESSION["user_id"];
-          $event = $_POST['event'];
-          $place = $_POST['place'];
-          $free = $_POST['free'];
-          // スケジュール登録処理
-          $scheduleModel = new ScheduleModel();
-          $scheduleModel->addSchedule($user_id, $event, $place, $free);
-        }
-      }
->>>>>>> 69bd69e35bfb1dc4e528eb4542449fea8a248dea
     }
     
     if(isset($this->festival_id)) {
@@ -710,8 +684,6 @@ class UserController extends BaseController
     if(isset($_COOKIE["authority"])) setcookie($_COOKIE['authority'], time()-$oneday);
   }
 
-<<<<<<< HEAD
-=======
   //----------------------------------------------------
   // 入力チェック処理
   //----------------------------------------------------
@@ -796,6 +768,4 @@ class UserController extends BaseController
       $userModel->updateUserStatus($_SESSION["user_id"], $calm, $value);
     }
   }
-  
->>>>>>> 69bd69e35bfb1dc4e528eb4542449fea8a248dea
 }
