@@ -30,15 +30,15 @@
                       <div id="dnweb-tabtest">
                         <!-- タブの切替部分 -->
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#fes_tabtest1" data-toggle="tab">祭り一覧</a></li>
-                          <li><a href="#fes_tabtest2" data-toggle="tab">祭り作成</a></li>
-                          <li><a href="#fes_tabtest3" data-toggle="tab">祭り編集</a></li>
-                          <li><a href="#fes_tabtest3" data-toggle="tab">祭り削除</a></li>
+                          <li class="active"><a href="#fes_tab1" data-toggle="tab">祭り一覧</a></li>
+                          <li><a href="#fes_tab2" data-toggle="tab">祭り作成</a></li>
+                          <li><a href="#fes_tab3" data-toggle="tab">祭り編集</a></li>
+                          <li><a href="#fes_tab4" data-toggle="tab">祭り削除</a></li>
                         </ul>
 
                         <!-- タブのコンテンツ部分 -->
                         <div class="tab-content">
-                          <div class="tab-pane active" id="fes_tabtest1">
+                          <div class="tab-pane active" id="fes_tab1">
                             <div class="news_info_event">
                               <table class="table table-striped">
                                 <thead>
@@ -74,7 +74,7 @@
                               </table> 
                             </div>
                           </div>
-                          <div class="tab-pane" id="fes_tabtest2">
+                          <div class="tab-pane" id="fes_tab2">
                             <div class="news_info_event">
                               <div class="box4-inner">
                                 <div class="adduser">
@@ -85,7 +85,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="tab-pane" id="fes_tabtest3">
+                          <div class="tab-pane" id="fes_tab3">
                             <div class="news_info_event">
                               <table class="table table-striped">
                                 <thead>
@@ -123,7 +123,7 @@
                               </table> 
                             </div>
                           </div>
-                          <div class="tab-pane" id="fes_tabtest4">
+                          <div class="tab-pane" id="fes_tab4">
                             <div class="news_info_event">
                               <table class="table table-striped">
                                 <thead>

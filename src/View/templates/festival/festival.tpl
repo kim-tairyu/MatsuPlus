@@ -207,7 +207,26 @@
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p>{$description}</p>
+          <div id="dnweb-tab">
+            <!-- タブの切替部分 -->
+            <ul class="nav nav-tabs nav-justified">
+              <li class="active"><a href="#fes_tab1" data-toggle="tab">Description</a></li>
+              <li><a href="#fes_tab2" data-toggle="tab">History</a></li>
+              <li><a href="#fes_tab3" data-toggle="tab">Program</a></li>
+            </ul>
+            <!-- タブのコンテンツ部分 -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="fes_tab1">
+                <p>{$description}</p>
+              </div>
+              <div class="tab-pane" id="fes_tab2">
+                <p>History text</p>
+              </div>
+              <div class="tab-pane" id="fes_tab3">
+                <p>Program text</p>
+              </div>
+            </div>
+          </div>
         </div>
         <!--動画-->
         <div class="move col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">

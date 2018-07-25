@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 14:48:30
+/* Smarty version 3.1.32, created on 2018-07-25 15:43:37
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b588dbeaa1491_17325710',
+  'unifunc' => 'content_5b589aa92a4381_34999122',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a040f172673923420008e4825709a9489a9c6d3' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/festival/festival.tpl',
-      1 => 1532530098,
+      1 => 1532533415,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b588dbeaa1491_17325710 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b589aa92a4381_34999122 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -183,7 +183,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               <option value="3:00">3:00</option>
               <option value="3:30">3:30</option>
               <option value="4:00">4:00</option>
-              <option value="430">4:30</option>
+              <option value="4:30">4:30</option>
               <option value="5:00">5:00</option>
               <option value="5:30">5:30</option>
               <option value="6:00">6:00</option>
@@ -250,17 +250,33 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <!--記事本文-->
         <div class="article col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <p><?php echo $_smarty_tpl->tpl_vars['festival']->value['description_en'];?>
+          <div id="dnweb-tab">
+            <!-- タブの切替部分 -->
+            <ul class="nav nav-tabs nav-justified">
+              <li class="active"><a href="#fes_tab1" data-toggle="tab">Description</a></li>
+              <li><a href="#fes_tab2" data-toggle="tab">History</a></li>
+              <li><a href="#fes_tab3" data-toggle="tab">Program</a></li>
+            </ul>
+            <!-- タブのコンテンツ部分 -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="fes_tab1">
+                <p><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
 </p>
+              </div>
+              <div class="tab-pane" id="fes_tab2">
+                <p>History text</p>
+              </div>
+              <div class="tab-pane" id="fes_tab3">
+                <p>Program text</p>
+              </div>
+            </div>
+          </div>
         </div>
         <!--動画-->
         <div class="move col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
-          <iframe width="800" height="400" src="//www.youtube.com/embed/-bCKCl3Gj1M?rel=0"
-          frameborder="0" allowfullscreen>
-          </iframe>
+          <?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
+
         </div>
-        <!--<p><?php echo $_smarty_tpl->tpl_vars['festival']->value['movie_url'];?>
-</p>-->
         <!--MAP-->
         <iframe class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1"src="http://maps.google.com/maps?q=<?php echo $_smarty_tpl->tpl_vars['festival']->value['x_coordinate'];?>
 ,<?php echo $_smarty_tpl->tpl_vars['festival']->value['y_coordinate'];?>
