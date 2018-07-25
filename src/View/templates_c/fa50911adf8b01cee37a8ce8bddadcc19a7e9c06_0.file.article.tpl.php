@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 11:41:26
+/* Smarty version 3.1.32, created on 2018-07-25 13:35:20
   from 'C:\xampp\htdocs\kimu\src\View\templates\article\article.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5845c6aff909_38079021',
+  'unifunc' => 'content_5b5860784e0a80_25879385',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fa50911adf8b01cee37a8ce8bddadcc19a7e9c06' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kimu\\src\\View\\templates\\article\\article.tpl',
-      1 => 1532511589,
+      1 => 1532518518,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5845c6aff909_38079021 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5860784e0a80_25879385 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -45,8 +45,8 @@ function content_5b5845c6aff909_38079021 (Smarty_Internal_Template $_smarty_tpl)
 " alt="祭り"></a>
         </div> -->
 
-        <div class="worksslider inside">
-          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <div class="worksslider inside col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="4000">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <?php
@@ -85,12 +85,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
   <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span aria-hidden="true" class="yazirusi"><img src="<?php echo _IMGS_DIR;?>
+          <span aria-hidden="true" class="yazirusi1"><img src="<?php echo _IMGS_DIR;?>
 /left.png" width="50px" height="50px"></span>
           <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span aria-hidden="true" class="yazirusi"><img src="<?php echo _IMGS_DIR;?>
+          <span aria-hidden="true" class="yazirusi2"><img src="<?php echo _IMGS_DIR;?>
 /right.png" width="50px" height="50px"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -123,7 +123,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <h2>Related article</h2>
         </div>
         <!--wrapのようなもの-->
-        <div class="news_info_event">
+        <div class="news_info_event col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
           <!--記事1-->
           <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['relation_tag']->value, 'relation');
@@ -135,7 +135,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['relation']->value) {
 ?type=article&article_id=<?php echo $_smarty_tpl->tpl_vars['relation']->value['article_id'];?>
 ">
               <div class="news_box">
-                <div class="news_box1">
+                <div class="news_box1-1">
                   <img src="<?php echo _IMGS_SERVER_DIR;?>
 /<?php echo $_smarty_tpl->tpl_vars['relation']->value['image'];?>
 " class="event_image">
@@ -143,7 +143,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['relation']->value) {
                 <div class="news_box2">
                   <h4 class="news_title"><?php echo $_smarty_tpl->tpl_vars['relation']->value['article_title'];?>
 </h4>
-                  <h6 class="date_big"><?php echo $_smarty_tpl->tpl_vars['relation']->value['post_date'];?>
+                  <h6 class="date_big2"><?php echo $_smarty_tpl->tpl_vars['relation']->value['post_date'];?>
 </h6>
                 </div>
               </div>
