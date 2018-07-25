@@ -1,6 +1,7 @@
 <?php
 try {
-    $pdo = new PDO("mysql:dbname=matsuri;host=matsuridb.clyrbviaqft9.ap-northeast-1.rds.amazonaws.com;charset=utf8mb4", "JEPUser", "Matsuri_DB", [PDO::ERRMODE_EXCEPTION]);
+    $pdo = new PDO("mysql:dbname=matsuri;host=localhost;charset=utf8mb4", "root", "", [PDO::ERRMODE_EXCEPTION]);
+    //$pdo = new PDO("mysql:dbname=matsuri;host=matsuridb.clyrbviaqft9.ap-northeast-1.rds.amazonaws.com;charset=utf8mb4", "JEPUser", "Matsuri_DB", [PDO::ERRMODE_EXCEPTION]);
     $select = $pdo->prepare("SELECT * FROM schedule");
     $select->execute();
     $fesData=array();
