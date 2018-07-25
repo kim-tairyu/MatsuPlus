@@ -141,40 +141,45 @@ class UserController extends BaseController
     $tagModel = new TagModel();
     $this->title = 'MATSURI PLUS : SEARCH';
     if($this->action == 'kensaku'){
-        if(isset($_POST["festival_name"]) && !empty($_POST['festival_name']) && $_POST['festival_name'] == !null){
-            $name = $_POST["festival_name"];
-            // 名前検索
-            $this->view->assign('searches', $festivalModel->getNameSearch($name));
-            $this->view->assign('randomTags', $tagModel->getRandomTags());
-            $this->file  = _SEARCH_DIR;
-            $this->view_display();
-            exit;
-        }  
-        else if(isset($_POST['location']) && !empty($_POST['location']) && $_POST['location'] == !null){
-            $location = $_POST['location'];
-            // 開催地検索
-            $this->view->assign('searches', $festivalModel->getLocationSearch($location));
-            $this->view->assign('randomTags', $tagModel->getRandomTags());
-            $this->file  = _SEARCH_DIR;
-            $this->view_display();
-            exit;
-        }
-        else if(isset($_POST["start_date"]) && !empty($_POST['start_date']) && $_POST['start_date'] == !null){
-            $start_date = $_POST["start_date"];            
-            // 開催日検索
-            $this->view->assign('searches', $festivalModel->getStartDateSearch($start_date));
-            $this->view->assign('randomTags', $tagModel->getRandomTags());
-            $this->file  = _SEARCH_DIR;
-            $this->view_display();
-            exit;
-        }
+      if(isset($_POST["festival_name"]) && !empty($_POST['festival_name']) && $_POST['festival_name'] == !null){
+          $name = $_POST["festival_name"];
+          // 名前検索
+          $this->view->assign('searches', $festivalModel->getNameSearch($name));
+          $this->view->assign('randomTags', $tagModel->getRandomTags());
+          $this->file  = _SEARCH_DIR;
+          $this->view_display();
+          exit;
+      }  
+      else if(isset($_POST['location']) && !empty($_POST['location']) && $_POST['location'] == !null){
+          $location = $_POST['location'];
+          // 開催地検索
+          $this->view->assign('searches', $festivalModel->getLocationSearch($location));
+          $this->view->assign('randomTags', $tagModel->getRandomTags());
+          $this->file  = _SEARCH_DIR;
+          $this->view_display();
+          exit;
+      }
+      else if(isset($_POST["start_date"]) && !empty($_POST['start_date']) && $_POST['start_date'] == !null){
+          $start_date = $_POST["start_date"];            
+          // 開催日検索
+          $this->view->assign('searches', $festivalModel->getStartDateSearch($start_date));
+          $this->view->assign('randomTags', $tagModel->getRandomTags());
+          $this->file  = _SEARCH_DIR;
+          $this->view_display();
+          exit;
+      }
+      else {
+        $this->view->assign('searches', $festivalModel->getRecommendFestivals());
+        $this->view->assign('randomTags', $tagModel->getRandomTags());
+        $this->file  = _SEARCH_DIR;
+        $this->view_display();
+      }
     }
     else {
         $this->view->assign('searches', $festivalModel->getRecommendFestivals());
         $this->view->assign('randomTags', $tagModel->getRandomTags());
         $this->file  = _SEARCH_DIR;
         $this->view_display();
-        exit;
     }
   }
   
