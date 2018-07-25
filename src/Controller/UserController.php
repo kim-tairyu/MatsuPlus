@@ -433,7 +433,6 @@ class UserController extends BaseController
         // お気に入り処理
         $favoriteModel = new FavoriteModel();
         $favoriteModel->putFavoriteFestival($_SESSION["user_id"], $fes_id);
-<<<<<<< HEAD
       }
     }else if(isset($_POST["festival_id"])) {
       $fes_id = $_POST["festival_id"];
