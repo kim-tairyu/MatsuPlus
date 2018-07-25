@@ -120,7 +120,7 @@
         <div class="flex">
           {foreach from=$searches item=search}
           <div class="news_info_event_box">
-            <a href="{$SCRIPT_NAME}?festival_id={$weekFestival.festival_id}&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+            <a href="{$SCRIPT_NAME}?type=search&action=festival_favorite&festival_id={$search.festival_id}" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
             <a href="{$SCRIPT_NAME}?type=festival&festival_id={$search.festival_id}">
               <div class="news_box">
                 <div class="news_box1">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-25 11:41:19
+/* Smarty version 3.1.32, created on 2018-07-25 16:20:53
   from '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/search/search.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5861df0e87c3_79054826',
+  'unifunc' => 'content_5b58a365682d95_64014109',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dffe5532e8cd99cc396a3a19f7ebfa91a352c92e' => 
     array (
       0 => '/Applications/MAMP/htdocs/Matsuri-plus/src/View/templates/search/search.tpl',
-      1 => 1532518878,
+      1 => 1532535646,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5861df0e87c3_79054826 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b58a365682d95_64014109 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -163,8 +163,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['search']->value) {
 ?>
           <div class="news_info_event_box">
             <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
-?festival_id=<?php echo $_smarty_tpl->tpl_vars['weekFestival']->value['festival_id'];?>
-&action=festival_favorite" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
+?type=search&action=festival_favorite&festival_id=<?php echo $_smarty_tpl->tpl_vars['search']->value['festival_id'];?>
+" style="text-decoration:none;"><div class="fev_button-top"><p>♡</p></div></a>
             <a href="<?php echo $_smarty_tpl->tpl_vars['SCRIPT_NAME']->value;?>
 ?type=festival&festival_id=<?php echo $_smarty_tpl->tpl_vars['search']->value['festival_id'];?>
 ">
