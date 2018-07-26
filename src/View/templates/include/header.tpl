@@ -7,7 +7,7 @@
     </div>
     <!--ロゴ画像のボックス-->
     <div class="box1">
-      <a href="{$SCRIPT_NAME}"><img src="{_IMGS_DIR}/logo.png" alt="" width="140" height="auto"></a>
+      <a href="{$SCRIPT_NAME}"><img src="{_IMGS_DIR}/logo.png" alt="" width="60" height="30"></a>
     </div>
     <!--PC版表示の時のメニューボックス-->
     <div class="box2">

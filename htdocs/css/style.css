@@ -28,6 +28,9 @@ header{
    right: 0;  /* 固定する位置 */}
 header:after{content: ""; display: block; clear: both; box-shadow    : 1px 1px 1px #666666;}
 
+/**/
+.ue{margin-top: 70px; margin-bottom: 200px;}
+
 /*JAPAN祭りのロゴ画像をかこっているボックス*/
 .box1{float: left; width: 50%; height: 45px;
   padding: 6px;
