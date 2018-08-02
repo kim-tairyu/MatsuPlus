@@ -25,13 +25,18 @@
 
 ◇ ファイル構成 ◇
 
-  ・Github参照
-
-◇ 使い方 ◇
-
-  ・init.phpをsrcディレクトリ直下に置く
-  ・matsuriというDB名のデータベースを作成し、matsuri.sqlをインポートする
-  ・GithubからMatsuri-plusをクローンする
+  ・htdocs    　WEB公開用
+  　・css/      cssファイル
+  　・imgs/     画像ファイル
+  　・js/       jsファイル
+  　・index.php indexファイル
+   
+  ・src         　ソースファイル
+  　・Controller/ 機能実装
+  　　・BaseController.php 
+  　・Model/      DB操作
+  　・View/       表示
+　  ・init.php    初期設定ファイル
   
 ◇ 仕組み ◇
 
