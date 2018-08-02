@@ -9,7 +9,7 @@
     <body>
         <!--header-->
         {include file=_HEADER_DIR}
-      <form class="ue" action="{$SCRIPT_NAME}?type=upload_complete" method="post" enctype="multipart/form-data">
+      <form class="" action="{$SCRIPT_NAME}?type=upload_complete" method="post" enctype="multipart/form-data">
 
         <!-- 祭り名前 -->
         <div class="form-group">
@@ -320,7 +320,7 @@
 
         <input type="submit" class="btn btn-default btn-lg" name="" value="送信">
         </form>
-
+      
     </body>
     <div id="footer">
     <!--フッター（SP版では非表示になってる）-->
