@@ -1,11 +1,11 @@
-# Matsuri-plus  ver.0.1
+# matsuri-plus
 
-【 プロジェクト名 】Matsuri-plus
-【 製 作 者 】kim-tairyu
-【 開 発 環 境 】PHP7
-【 動 作 環 境 】Windows、Macなど
-【 バージョン 】0.1
-【 最終更新日 】2018/07/18
+プロジェクト名：matsuri-plus
+製作者：kim-tairyu
+開発環境：PHP7
+動作環境：Windows、Macなど
+バージョン：1.0
+最終更新日：2018/07/18
 
 -----------------------------
 ## 概要
